@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MSO.AppStimmer.Views.MenuPageMaster"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:appStimmer="clr-namespace:MSO.AppStimmer;assembly=MSO.AppStimmer"
+    Title="Master"
+    Padding="0,23,0,0"
+    BackgroundColor="Transparent"
+    BindingContext="{Binding Master, Source={StaticResource Locator}}">
+
+    <StackLayout Orientation="Vertical">
+        <ListView
+            x:Name="MenuItemsList"
+            BackgroundColor="#AA000000"
+            ItemsSource="{Binding MenuItems}"
+            RowHeight="50"
+            SeparatorVisibility="Default">
+
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="25" />
+                    </Grid.RowDefinitions>
+
+                    <Image
+                        x:Name="ProfilePicture"
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        Margin="6,6,6,6"
+                        Aspect="AspectFill"
+                        Source="{appStimmer:ImageResource MSO.AppStimmer.Resources.Images.SampleProfilePicture.jpg}" />
+
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Style="{DynamicResource SubtitleStyle}"
+                        Text="Tobias"
+                        TextColor="White" />
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Style="{DynamicResource SubtitleStyle}"
+                        Text="tinderchampion@sexy.net"
+                        TextColor="White" />
+                </Grid>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            Padding="20,10,0,10"
+                            Orientation="Horizontal"
+                            Spacing="20"
+                            VerticalOptions="FillAndExpand">
+
+                            <Image
+                                HeightRequest="30"
+                                Source="{Binding Icon, Converter={StaticResource ImageSourceConverter}}"
+                                VerticalOptions="Center"
+                                WidthRequest="30" />
+
+                            <Label
+                                FontSize="Small"
+                                Text="{Binding Title}"
+                                TextColor="White"
+                                VerticalOptions="Center" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
