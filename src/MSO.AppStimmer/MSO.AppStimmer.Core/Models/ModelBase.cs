@@ -12,7 +12,7 @@ namespace MSO.StimmApp.Core.Models
     {
         public ModelBase(bool isNew = true)
         {
-            this.Id = System.Guid.NewGuid();
+            this.Id = Guid.NewGuid();
             this.IsNew = isNew;
         }
 

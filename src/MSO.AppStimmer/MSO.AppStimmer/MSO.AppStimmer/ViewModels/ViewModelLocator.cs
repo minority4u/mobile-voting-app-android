@@ -15,6 +15,7 @@
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
+using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Services;
 using MSO.StimmApp.Views;
 using MSO.StimmApp.Views.Pages;
@@ -42,12 +43,22 @@ namespace MSO.StimmApp.ViewModels
 
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
 
+            if (App.IsTestMode)
+            {
+                SimpleIoc.Default.Register<IAppStimmerService, MockAppStimmerService>();
+            }
+            else
+            {
+                SimpleIoc.Default.Register<IAppStimmerService, AzureAppStimmerService>();
+            }
+
             SimpleIoc.Default.Register<MainPageMasterViewModel>();
             SimpleIoc.Default.Register<AppStimmerViewModel>();
             SimpleIoc.Default.Register<AppStimmerEditorViewModel>();
             SimpleIoc.Default.Register<AppStimmersViewModel>();
             SimpleIoc.Default.Register<SettingsViewModel>();
             SimpleIoc.Default.Register<CurrentUserViewModel>();
+
 
             SimpleIoc.Default.Register(() => navigation);
         }

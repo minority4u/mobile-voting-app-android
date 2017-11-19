@@ -33,11 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Models\AppStimmer.cs" />
     <Compile Include="Models\AppStimmerUser.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\EditableModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AzureAppStimmerService.cs" />
+    <Compile Include="Services\IAppStimmerService.cs" />
+    <Compile Include="Services\MockAppStimmerService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

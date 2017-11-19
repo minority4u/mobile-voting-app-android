@@ -19,7 +19,7 @@
                 Grid.RowSpan="2"
                 Aspect="AspectFill"
                 HorizontalOptions="FillAndExpand"
-                Source="{appStimmer:ImageResource MSO.StimmApp.Resources.Images.Schlagloch.jpg}"
+                Source="{Binding CurrentAppStimmer.Picture, Converter={StaticResource ImageSourceConverter}}"
                 VerticalOptions="FillAndExpand" />
 
             <Grid BackgroundColor="#55000000" Row="1">

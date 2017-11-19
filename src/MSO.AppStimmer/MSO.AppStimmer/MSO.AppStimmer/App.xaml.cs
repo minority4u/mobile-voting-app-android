@@ -13,6 +13,8 @@ namespace MSO.StimmApp
         public static NavigationService NavigationService
             => ServiceLocator.Current.GetInstance<NavigationService>();
 
+        public static bool IsTestMode = true;
+
         public App()
         {
             this.InitializeComponent();
