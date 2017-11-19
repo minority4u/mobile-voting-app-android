@@ -47,6 +47,7 @@ namespace MSO.AppStimmer.ViewModels
             SimpleIoc.Default.Register<AppStimmerEditorViewModel>();
             SimpleIoc.Default.Register<AppStimmersViewModel>();
             SimpleIoc.Default.Register<SettingsViewModel>();
+            SimpleIoc.Default.Register<CurrentUserViewModel>();
 
             SimpleIoc.Default.Register(() => navigation);
         }
@@ -60,6 +61,8 @@ namespace MSO.AppStimmer.ViewModels
         public AppStimmerEditorViewModel AppStimmerEditor => ServiceLocator.Current.GetInstance<AppStimmerEditorViewModel>();
 
         public SettingsViewModel Settings => ServiceLocator.Current.GetInstance<SettingsViewModel>();
+
+        public CurrentUserViewModel CurrentUser => ServiceLocator.Current.GetInstance<CurrentUserViewModel>();
 
         public static void Cleanup()
         {
