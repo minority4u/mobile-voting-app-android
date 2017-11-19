@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MSO.AppStimmer
+namespace MSO.StimmApp
 {
     [ContentProperty("Source")]
     public class ImageResourceExtension : IMarkupExtension

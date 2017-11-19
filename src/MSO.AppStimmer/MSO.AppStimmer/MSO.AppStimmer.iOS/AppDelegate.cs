@@ -10,7 +10,7 @@ namespace MSO.AppStimmer.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
-			LoadApplication(new App());
+			LoadApplication(new StimmApp.App());
 
 			return base.FinishedLaunching(app, options);
 		}

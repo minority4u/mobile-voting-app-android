@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("MSO.AppStimmer.Droid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("MSO.StimmApp.Droid.Resource", IsApplication=true)]
 
-namespace MSO.AppStimmer.Droid
+namespace MSO.StimmApp.Droid
 {
 	
 	
@@ -26,7 +26,7 @@ namespace MSO.AppStimmer.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MSO.AppStimmer.Droid.Resource.Attribute.actionBarSize;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MSO.StimmApp.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation

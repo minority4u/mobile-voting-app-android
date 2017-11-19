@@ -5,7 +5,7 @@ using GalaSoft.MvvmLight.Views;
 using MSO.Common;
 using Xamarin.Forms;
 
-namespace MSO.AppStimmer.Services
+namespace MSO.StimmApp.Services
 {
     /// <summary>
     ///     This is the NavigationService implementation for the navigation between pages of the App.

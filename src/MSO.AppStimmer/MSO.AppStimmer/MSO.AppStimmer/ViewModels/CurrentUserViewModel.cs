@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
-using MSO.AppStimmer.Core.Models;
-using MSO.AppStimmer.Core.ViewModels;
+﻿using MSO.StimmApp.Core.Models;
+using MSO.StimmApp.Core.ViewModels;
 
-namespace MSO.AppStimmer.ViewModels
+namespace MSO.StimmApp.ViewModels
 {
     public class CurrentUserViewModel : BaseViewModel
     {
@@ -19,7 +13,7 @@ namespace MSO.AppStimmer.ViewModels
             {
                 MailAddress = "tinderchampion@sexy.net",
                 Username = "Anonymous_666",
-                ProfilePicture = "MSO.AppStimmer.Resources.Images.Anonymous.jpg"
+                ProfilePicture = "MSO.StimmApp.Resources.Images.Anonymous.jpg"
             };
         }
 

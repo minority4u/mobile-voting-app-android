@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B8A3CE85-AB7F-49DD-A574-EA7E9DD3B0E3}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>MSO.AppStimmer.Core</RootNamespace>
-    <AssemblyName>MSO.AppStimmer.Core</AssemblyName>
+    <RootNamespace>MSO.StimmApp.Core</RootNamespace>
+    <AssemblyName>MSO.StimmApp.Core</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Models\AppStimmer.cs" />
     <Compile Include="Models\AppStimmerUser.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\EditableModelBase.cs" />

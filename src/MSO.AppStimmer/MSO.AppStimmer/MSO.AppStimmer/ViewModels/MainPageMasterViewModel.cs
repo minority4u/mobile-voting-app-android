@@ -1,10 +1,9 @@
 ﻿using System.Collections.ObjectModel;
-using MSO.AppStimmer.Core.ViewModels;
-using MSO.AppStimmer.Models;
-using MSO.AppStimmer.Views;
-using MSO.AppStimmer.Views.Pages;
+using MSO.StimmApp.Core.ViewModels;
+using MSO.StimmApp.Models;
+using MSO.StimmApp.Views.Pages;
 
-namespace MSO.AppStimmer.ViewModels
+namespace MSO.StimmApp.ViewModels
 {
     public class MainPageMasterViewModel : BaseViewModel
     {
@@ -20,15 +19,15 @@ namespace MSO.AppStimmer.ViewModels
             this.MenuItems = new ObservableCollection<MenuPageItem>
             {
                 new MenuPageItem(typeof(AppStimmerPage), "Appstimmen",
-                    "MSO.AppStimmer.Resources.Icons.thumbs_up.scale-100.png"),
-                new MenuPageItem(typeof(AppStimmerEditorPage), "Neuer Appstimmeer",
-                    "MSO.AppStimmer.Resources.Icons.plus.scale-100.png"),
+                    "MSO.StimmApp.Resources.Icons.thumbs_up.scale-100.png"),
+                new MenuPageItem(typeof(AppStimmerEditorPage), "Neuer Appstimmer",
+                    "MSO.StimmApp.Resources.Icons.plus.scale-100.png"),
                 new MenuPageItem(typeof(AppStimmersPage), "Deine Appstimmer",
-                    "MSO.AppStimmer.Resources.Icons.list.scale-100.png"),
+                    "MSO.StimmApp.Resources.Icons.list.scale-100.png"),
                 new MenuPageItem(typeof(AppStimmersPage), "Favoriten",
-                    "MSO.AppStimmer.Resources.Icons.star_filled.scale-100.png"),
+                    "MSO.StimmApp.Resources.Icons.star_filled.scale-100.png"),
                 new MenuPageItem(typeof(SettingsPage), "Einstellungen",
-                    "MSO.AppStimmer.Resources.Icons.settings.scale-100.png"),
+                    "MSO.StimmApp.Resources.Icons.settings.scale-100.png"),
             };
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace MSO.AppStimmer.Views
+﻿namespace MSO.StimmApp.Views
 {
     public class PagesKeys
     {

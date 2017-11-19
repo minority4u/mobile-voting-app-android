@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
-using MSO.AppStimmer.Core.ViewModels;
+﻿using MSO.StimmApp.Core.Models;
+using MSO.StimmApp.Core.ViewModels;
 
-namespace MSO.AppStimmer.ViewModels
+namespace MSO.StimmApp.ViewModels
 {
     public class AppStimmerViewModel : BaseViewModel
     {
-
+        private AppStimmer currentAppStimmer;
     }
 }

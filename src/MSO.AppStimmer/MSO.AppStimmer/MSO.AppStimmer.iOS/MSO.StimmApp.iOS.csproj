@@ -125,9 +125,9 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MSO.AppStimmer\MSO.AppStimmer.csproj">
-      <Project>{f17bf263-8606-4434-a4c5-90e920f14e6e}</Project>
-      <Name>MSO.AppStimmer</Name>
+    <ProjectReference Include="..\MSO.AppStimmer\MSO.StimmApp.csproj">
+      <Project>{1EDAEDA6-2501-442C-999F-51B3BFC75DC1}</Project>
+      <Name>MSO.StimmApp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

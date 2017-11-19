@@ -6,7 +6,7 @@
     <ProjectGuid>{20C33880-8E79-48FA-BD11-4FFD63234009}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>MSO.AppStimmer.Droid</RootNamespace>
+    <RootNamespace>MSO.StimmApp.Droid</RootNamespace>
     <AssemblyName>MSO.AppStimmer.Android</AssemblyName>
     <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
@@ -122,9 +122,9 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\profile_generic.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MSO.AppStimmer\MSO.AppStimmer.csproj">
-      <Project>{e542afa3-e550-4b99-84f0-a3e670c1e7d4}</Project>
-      <Name>MSO.AppStimmer</Name>
+    <ProjectReference Include="..\MSO.AppStimmer\MSO.StimmApp.csproj">
+      <Project>{1EDAEDA6-2501-442C-999F-51B3BFC75DC1}</Project>
+      <Name>MSO.StimmApp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

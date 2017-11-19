@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSO.AppStimmer", "MSO.AppStimmer\MSO.AppStimmer\MSO.AppStimmer.csproj", "{1EDAEDA6-2501-442C-999F-51B3BFC75DC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSO.StimmApp", "MSO.AppStimmer\MSO.AppStimmer\MSO.StimmApp.csproj", "{1EDAEDA6-2501-442C-999F-51B3BFC75DC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSO.AppStimmer.Android", "MSO.AppStimmer\MSO.AppStimmer.Android\MSO.AppStimmer.Android.csproj", "{20C33880-8E79-48FA-BD11-4FFD63234009}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSO.StimmApp.Android", "MSO.AppStimmer\MSO.AppStimmer.Android\MSO.StimmApp.Android.csproj", "{20C33880-8E79-48FA-BD11-4FFD63234009}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSO.AppStimmer.iOS", "MSO.AppStimmer\MSO.AppStimmer.iOS\MSO.AppStimmer.iOS.csproj", "{B290DC41-097E-47D4-ACCF-9DCA899D9ED0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSO.StimmApp.iOS", "MSO.AppStimmer\MSO.AppStimmer.iOS\MSO.StimmApp.iOS.csproj", "{B290DC41-097E-47D4-ACCF-9DCA899D9ED0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Shared", "0 - Shared", "{5E435831-B06B-4113-A107-699B45115D76}"
 EndProject
@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Portable", "1 - Portabl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSO.Common", "MSO.Common\MSO.Common.csproj", "{710A7564-2971-41FF-9DFD-DB6FA8D0F2F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSO.AppStimmer.Core", "MSO.AppStimmer.Core\MSO.AppStimmer.Core.csproj", "{B8A3CE85-AB7F-49DD-A574-EA7E9DD3B0E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSO.StimmApp.Core", "MSO.AppStimmer.Core\MSO.StimmApp.Core.csproj", "{B8A3CE85-AB7F-49DD-A574-EA7E9DD3B0E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

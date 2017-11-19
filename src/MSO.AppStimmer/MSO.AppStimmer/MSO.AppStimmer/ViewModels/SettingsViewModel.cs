@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MSO.AppStimmer.Core.ViewModels;
+﻿using MSO.StimmApp.Core.ViewModels;
 
-namespace MSO.AppStimmer.ViewModels
+namespace MSO.StimmApp.ViewModels
 {
     public class SettingsViewModel : BaseViewModel
     {

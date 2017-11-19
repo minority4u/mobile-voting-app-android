@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using MSO.StimmApp.Droid;
 
 namespace MSO.AppStimmer.Droid
 {
@@ -16,7 +17,7 @@ namespace MSO.AppStimmer.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            LoadApplication(new App());
+            LoadApplication(new StimmApp.App());
         }
     }
 }

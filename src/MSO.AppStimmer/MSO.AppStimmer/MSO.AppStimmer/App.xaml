@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application
-    x:Class="MSO.AppStimmer.App"
+    x:Class="MSO.StimmApp.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:converter="clr-namespace:MSO.AppStimmer.Converter;assembly=MSO.AppStimmer"
+    xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModels="clr-namespace:MSO.AppStimmer.ViewModels;assembly=MSO.AppStimmer"
+    xmlns:viewModels="clr-namespace:MSO.StimmApp.ViewModels;assembly=MSO.StimmApp"
     d1p1:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>

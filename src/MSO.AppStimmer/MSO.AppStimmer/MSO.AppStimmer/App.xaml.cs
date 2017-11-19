@@ -1,13 +1,12 @@
 ﻿using System;
 using Microsoft.Practices.ServiceLocation;
-using MSO.AppStimmer.Services;
-using MSO.AppStimmer.Views;
-using MSO.AppStimmer.Views.Pages;
+using MSO.StimmApp.Services;
+using MSO.StimmApp.Views.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace MSO.AppStimmer
+namespace MSO.StimmApp
 {
     public partial class App : Application
     {

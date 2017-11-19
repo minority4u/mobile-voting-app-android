@@ -1,7 +1,7 @@
 /*
   In App.xaml:
   <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:MSO.AppStimmer"
+      <vm:ViewModelLocator xmlns:vm="clr-namespace:MSO.StimmApp"
                            x:Key="Locator" />
   </Application.Resources>
   
@@ -15,11 +15,11 @@
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
-using MSO.AppStimmer.Services;
-using MSO.AppStimmer.Views;
-using MSO.AppStimmer.Views.Pages;
+using MSO.StimmApp.Services;
+using MSO.StimmApp.Views;
+using MSO.StimmApp.Views.Pages;
 
-namespace MSO.AppStimmer.ViewModels
+namespace MSO.StimmApp.ViewModels
 {
     /// <summary>
     /// This class contains static references to all the view models in the

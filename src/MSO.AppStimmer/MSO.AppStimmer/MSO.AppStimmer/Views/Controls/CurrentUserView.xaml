@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
-    x:Class="MSO.AppStimmer.Views.Controls.CurrentUserView"
+    x:Class="MSO.StimmApp.Views.Controls.CurrentUserView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     BindingContext="{Binding CurrentUser, Source={StaticResource Locator}}">
@@ -27,12 +27,14 @@
             <Label
                 Grid.Row="0"
                 Grid.Column="1"
+                FontSize="11"
                 Style="{DynamicResource SubtitleStyle}"
                 Text="{Binding User.Username}"
                 TextColor="White" />
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
+                FontSize="11"
                 Style="{DynamicResource SubtitleStyle}"
                 Text="{Binding User.MailAddress}"
                 TextColor="White" />
