@@ -56,7 +56,7 @@ namespace MSO.StimmApp.Core.Services
                     Title = "Bahnhof",
                     Appstract = "Der Bahnhof muss erneuert werden.",
                     Description = "Der Bahnhof fällt bald zusammen. Das wäre doof.",
-                    Picture = "MSO.StimmApp.Resources.Images.Alter_Bahnhnhof.jpg"
+                    Picture = "MSO.StimmApp.Resources.Images.Alter_Bahnhof.jpg"
                 },
                 new AppStimmer
                 {

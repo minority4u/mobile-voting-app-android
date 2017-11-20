@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.Controls.AppStimmerCardView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
+    xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
+    <ContentView.Content>
+        <controls:SwipeCardView
+            x:Name="SwipeCardView"
+            ItemsSource="{Binding AppStimmers}"
+            TopItem="{Binding CurrentAppStimmer}">
+            <controls:SwipeCardView.ItemTemplate>
+                <DataTemplate x:Name="AppstimmerTemplate">
+                    <Grid InputTransparent="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image
+                            x:Name="AppStimmerPicture"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            Aspect="AspectFill"
+                            HorizontalOptions="Fill"
+                            Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}"
+                            VerticalOptions="Fill" />
+
+                        <!--<BoxView
+                            x:Name="SwipeCardOverlay"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor="{Binding SwipeCardOverlayColor}"
+                            BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}"
+                            HorizontalOptions="Fill"
+                            InputTransparent="True"
+                            Opacity="0.5"
+                            VerticalOptions="Fill" />-->
+
+                        <Grid
+                            x:Name="ButtonsGrid"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3"
+                            BackgroundColor="#88FFFFFF"
+                            Row="1">
+                            <!--<Grid.BackgroundColor>
+                                <converter:MultiBinding Converter="{StaticResource AppstimmerToOverlayColorConverter}">
+                                    <Binding Path="." />
+                                </converter:MultiBinding>
+                            </Grid.BackgroundColor>-->
+                            <Image
+                                Margin="10,0,0,0"
+                                HorizontalOptions="Start"
+                                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_down_red_circle.scale-100.png}" />
+                            <Image
+                                Margin="0,0,0,0"
+                                HorizontalOptions="Center"
+                                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.star_blue_circle.scale-100.png}" />
+                            <Image
+                                Margin="0,0,10,0"
+                                HorizontalOptions="End"
+                                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_up_green_circle.scale-100.png}" />
+                        </Grid>
+                        <!--<StackLayout
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            Spacing="10">
+                            <Image Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.star_blue_circle.scale-100.png}" VerticalOptions="Center" />
+                        </StackLayout>
+                        <StackLayout
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            HorizontalOptions="Center"
+                            Orientation="Horizontal"
+                            Spacing="10">
+                            <Image Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_up_green_circle.scale-100.png}" VerticalOptions="Center" />
+                        </StackLayout>-->
+                    </Grid>
+
+                </DataTemplate>
+
+            </controls:SwipeCardView.ItemTemplate>
+        </controls:SwipeCardView>
+    </ContentView.Content>
+</ContentView>

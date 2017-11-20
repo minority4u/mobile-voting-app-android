@@ -1,10 +1,13 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
 using MSO.StimmApp.Core.Extensions;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Core.ViewModels;
+using Xamarin.Forms;
 
 namespace MSO.StimmApp.ViewModels
 {
@@ -14,15 +17,14 @@ namespace MSO.StimmApp.ViewModels
         private readonly IAppStimmerService appStimmerService;
         private ObservableCollection<AppStimmer> appStimmers;
 
-
         [PreferredConstructor]
         public AppStimmerViewModel(IAppStimmerService appStimmerService)
         {
             this.appStimmerService = appStimmerService;
-            this.AppStimmers = new ObservableCollection<AppStimmer>(this.appStimmerService.GetAllAppStimmers());
-            this.AppStimmers.Shuffle();
+            this.appStimmers = new ObservableCollection<AppStimmer>(this.appStimmerService.GetAllAppStimmers());
+            //this.appStimmers.Shuffle();
 
-            this.CurrentAppStimmer = this.appStimmers.First();
+            this.currentAppStimmer = this.appStimmers.First();
         }
 
         public AppStimmer CurrentAppStimmer

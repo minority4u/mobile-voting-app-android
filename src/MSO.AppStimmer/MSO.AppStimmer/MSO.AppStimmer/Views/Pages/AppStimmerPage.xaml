@@ -4,38 +4,11 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:appStimmer="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
     Title="Appstimmen"
+    BackgroundColor="#F1F4F6"
     BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="60" />
-            </Grid.RowDefinitions>
-
-            <Image
-                x:Name="ImageTest"
-                Grid.Row="0"
-                Grid.RowSpan="2"
-                Aspect="AspectFill"
-                HorizontalOptions="FillAndExpand"
-                Source="{Binding CurrentAppStimmer.Picture, Converter={StaticResource ImageSourceConverter}}"
-                VerticalOptions="FillAndExpand" />
-
-            <Grid BackgroundColor="#55000000" Row="1">
-                <Image
-                    Margin="10,0,0,0"
-                    HorizontalOptions="Start"
-                    Source="{appStimmer:ImageResource MSO.StimmApp.Resources.Icons.thumbs_down_red_circle.scale-100.png}" />
-                <Image
-                    Margin="0,0,0,0"
-                    HorizontalOptions="Center"
-                    Source="{appStimmer:ImageResource MSO.StimmApp.Resources.Icons.star_blue_circle.scale-100.png}" />
-                <Image
-                    Margin="0,0,10,0"
-                    HorizontalOptions="End"
-                    Source="{appStimmer:ImageResource MSO.StimmApp.Resources.Icons.thumbs_up_green_circle.scale-100.png}" />
-            </Grid>
-        </Grid>
+        <controls:AppStimmerCardView Padding="20" />
     </ContentPage.Content>
 </ContentPage>
