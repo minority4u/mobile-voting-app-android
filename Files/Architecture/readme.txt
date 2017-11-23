@@ -1,0 +1,1 @@
+Use this folder for all ER-diagramms and architecture description
