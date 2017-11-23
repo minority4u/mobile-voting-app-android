@@ -26,6 +26,7 @@ namespace MSO.StimmApp.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Splat.Resource.String.library_name = global::MSO.StimmApp.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MSO.StimmApp.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -3000,8 +3001,8 @@ namespace MSO.StimmApp.Droid
 			// aapt resource value: 0x7f080021
 			public const int abc_toolbar_collapse_description = 2131230753;
 			
-			// aapt resource value: 0x7f080026
-			public const int app_name = 2131230758;
+			// aapt resource value: 0x7f080027
+			public const int app_name = 2131230759;
 			
 			// aapt resource value: 0x7f080023
 			public const int appbar_scrolling_view_behavior = 2131230755;
@@ -3011,6 +3012,9 @@ namespace MSO.StimmApp.Droid
 			
 			// aapt resource value: 0x7f080025
 			public const int character_counter_pattern = 2131230757;
+			
+			// aapt resource value: 0x7f080026
+			public const int library_name = 2131230758;
 			
 			// aapt resource value: 0x7f080000
 			public const int mr_button_content_description = 2131230720;

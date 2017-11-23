@@ -8,12 +8,12 @@
     <TabbedPage.Children>
         <ContentPage Title="Overview">
             <ContentPage.Content>
-                <controls:AppStimmerEditorDetailsView></controls:AppStimmerEditorDetailsView>
+                <controls:AppStimmerEditorOverviewView/>
             </ContentPage.Content>
         </ContentPage>
         <ContentPage Title="Details">
             <ContentPage.Content>
-                <controls:AppStimmerEditorDetailsView></controls:AppStimmerEditorDetailsView>
+                <controls:AppStimmerEditorDetailsView/>
             </ContentPage.Content>
         </ContentPage>
     </TabbedPage.Children>
