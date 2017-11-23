@@ -10,7 +10,7 @@
     d1p1:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
-            <!--<Color x:Key="AppStimmerOrange">#F9C470</Color>-->
+            <Color x:Key="AppStimmerOrange">#F9C470</Color>
 
             <!--<Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
