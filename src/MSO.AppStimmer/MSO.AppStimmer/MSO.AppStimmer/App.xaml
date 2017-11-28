@@ -11,11 +11,24 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="AppStimmerOrange">#F9C470</Color>
+            <Color x:Key="GrayLight">#FFF2F2F2</Color>
+            <Color x:Key="GrayDark">#FF959595</Color>
+            <Color x:Key="GrayPrimary">#FFB9B9B9</Color>
+            <Color x:Key="AsphaltPrimary">#5c7d90</Color>
 
-            <!--<Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="BarTextColor" Value="White" />
-            </Style>-->
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource AsphaltPrimary}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="SegoeUI" />
+            </Style>
+
+            <Style
+                x:Key="Sub"
+                BasedOn="{StaticResource LabelStyle}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource GrayDark}" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
 
             <viewModels:ViewModelLocator x:Key="Locator" />
 
