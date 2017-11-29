@@ -9,6 +9,7 @@ namespace MSO.StimmApp.ViewModels
     {
         private AppStimmer appStimmer;
         private IAppStimmerService appStimmerService;
+        private bool isAddingAttachment;
 
         [PreferredConstructor]
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService) :
@@ -27,6 +28,12 @@ namespace MSO.StimmApp.ViewModels
         {
             get => this.appStimmer;
             set => this.Set(ref this.appStimmer, value);
+        }
+
+        public bool IsAddingAttachment
+        {
+            get => this.isAddingAttachment;
+            set => this.Set(ref this.isAddingAttachment, value);
         }
     }
 }

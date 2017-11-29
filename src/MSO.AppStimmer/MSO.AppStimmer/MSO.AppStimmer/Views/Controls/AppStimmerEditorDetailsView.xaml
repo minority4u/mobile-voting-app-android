@@ -3,6 +3,7 @@
     x:Class="MSO.StimmApp.Views.Controls.AppStimmerEditorDetailsView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:attachments="clr-namespace:MSO.StimmApp.Views.Attachments;assembly=MSO.StimmApp"
     xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
     <ContentView.Content>
@@ -10,16 +11,28 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="50" />
+                <RowDefinition Height="150" />
             </Grid.RowDefinitions>
 
             <controls:AppStimmerEditorHeader Grid.Row="0" />
             <controls:AppStimmerAttachmentsListView Grid.Row="1" ItemsSource="{Binding AppStimmer.Attachments}" />
-            <Image
+
+            <Grid Grid.Row="2" IsVisible="{Binding IsAddingAttachment, Converter={StaticResource BooleanConverter}, ConverterParameter=inverted}">
+                <Image
+                    HorizontalOptions="Center"
+                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.plus_orange_circle.scale-100.png}"
+                    VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+            <Grid
                 Grid.Row="2"
-                HorizontalOptions="Center"
-                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.plus_orange_circle.scale-100.png}"
-                VerticalOptions="Center" />
+                BackgroundColor="White"
+                IsVisible="{Binding IsAddingAttachment}">
+                <attachments:AddAttachmentView />
+            </Grid>
         </Grid>
     </ContentView.Content>
 </ContentView>

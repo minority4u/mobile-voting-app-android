@@ -41,6 +41,7 @@
     </Compile>
     <Compile Include="Converter\AppStimmerAttachmentToViewConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentTypeToViewVisibilityConverter.cs" />
+    <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converter\ImageResourceConverter.cs" />
     <Compile Include="Converter\IMultiValueConverter.cs" />
     <Compile Include="Converter\MultiBinding.cs" />
@@ -58,6 +59,9 @@
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Attachments\AddAttachmentView.xaml.cs">
       <DependentUpon>AddAttachmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AppStimmerAttachmentButton.xaml.cs">
+      <DependentUpon>AppStimmerAttachmentButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Attachments\ImageAttachmentView.xaml.cs">
       <DependentUpon>ImageAttachmentView.xaml</DependentUpon>
@@ -336,6 +340,12 @@
     <EmbeddedResource Include="Resources\Icons\gallery_circle.scale-100.png" />
     <EmbeddedResource Include="Resources\Icons\location_circle.scale-100.png" />
     <EmbeddedResource Include="Resources\Icons\text_circle.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\AppStimmerAttachmentButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
