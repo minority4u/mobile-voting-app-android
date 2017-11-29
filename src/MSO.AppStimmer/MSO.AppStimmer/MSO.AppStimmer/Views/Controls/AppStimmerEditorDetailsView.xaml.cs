@@ -14,7 +14,7 @@ namespace MSO.StimmApp.Views.Controls
     {
         public AppStimmerEditorDetailsView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

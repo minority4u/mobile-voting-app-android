@@ -8,19 +8,6 @@
         <StackLayout>
             <controls:AppStimmerEditorHeader />
 
-            <StackLayout
-                Padding="14,8"
-                BackgroundColor="Gray"
-                HorizontalOptions="FillAndExpand"
-                Orientation="Horizontal">
-                <Label
-                    FontSize="Medium"
-                    LineBreakMode="NoWrap"
-                    Text="SomeAttachment"
-                    TextColor="Gray"
-                    VerticalOptions="Center" />
-            </StackLayout>
-
             <Grid />
         </StackLayout>
     </ContentView.Content>

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Models;
 
 namespace MSO.StimmApp.Core.Services
@@ -35,7 +37,22 @@ namespace MSO.StimmApp.Core.Services
                     Appstract = "Die Straße sieht beschissen aus.",
                     Description = "Das Loch muss repatiert werden. Außerdem muss die Straße " +
                                   "neu geteert werden. Und sie muss doppelt so breit werden.",
-                    Picture = "MSO.StimmApp.Resources.Images.Schlagloch.jpg"
+                    Picture = "MSO.StimmApp.Resources.Images.Schlagloch.jpg",
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            Source = "MSO.StimmApp.Resources.Images.Schlagloch.jpg",
+                            Description = "Bildbeschreibung",
+                            AttachmentType = AttachmentType.Picture
+                        },
+                        new AppStimmerAttachment
+                        {
+                            Source = "Dies ist ein Text.",
+                            Description = "Dies ist ein Text.",
+                            AttachmentType = AttachmentType.Text
+                        }
+                    }                   
                 },
                 new AppStimmer
                 {

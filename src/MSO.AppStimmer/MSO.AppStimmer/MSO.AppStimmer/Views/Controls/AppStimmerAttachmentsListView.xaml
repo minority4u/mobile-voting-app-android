@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ListView
+    x:Class="MSO.StimmApp.Views.Controls.AppStimmerAttachmentsListView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    HasUnevenRows="True">
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+                <ViewCell.View>
+                    <AbsoluteLayout Padding="10,10,10,0">
+                        <StackLayout
+                            Padding="0,0,.5,.5"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            AbsoluteLayout.LayoutFlags="All"
+                            BackgroundColor="{StaticResource GrayPrimary}">
+
+                            <StackLayout
+                                Padding="14,8"
+                                BackgroundColor="Gray"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal">
+                                <Label
+                                    FontSize="Medium"
+                                    LineBreakMode="NoWrap"
+                                    Text="{Binding Description}"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+                            </StackLayout>
+
+                            <StackLayout
+                                BackgroundColor="White"
+                                Orientation="Vertical"
+                                Spacing="0"
+                                VerticalOptions="FillAndExpand">
+                                <AbsoluteLayout HeightRequest="125">
+                                    <Image
+                                        AbsoluteLayout.LayoutBounds=".5,.5,-1,-1"
+                                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                                        HeightRequest="24"
+                                        WidthRequest="24" />
+                                    <Image
+                                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                        AbsoluteLayout.LayoutFlags="All"
+                                        Aspect="AspectFill"
+                                        Opacity=".8"
+                                        Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Images.Schlagloch.jpg}" />
+                                </AbsoluteLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </AbsoluteLayout>
+                </ViewCell.View>
+            </ViewCell>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+</ListView>
