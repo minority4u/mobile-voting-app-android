@@ -1,11 +1,27 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MSO.StimmApp.Views.Controls.AppStimmerEditorDetailsView"
-             BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="AppStimmer Editor (Details)." />
-      </StackLayout>
-  </ContentView.Content>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.Controls.AppStimmerEditorDetailsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
+    <ContentView.Content>
+        <Label Text="Not implemented yet!" />
+        <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <controls:AppStimmerEditorHeader Grid.Row="1" />
+            <StackLayout Grid.Row="1" />
+            <Image
+                Grid.Row="2"
+                HorizontalOptions="Center"
+                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_down_red_circle.scale-100.png}"
+                VerticalOptions="Center" />
+        </Grid>-->
+    </ContentView.Content>
 </ContentView>

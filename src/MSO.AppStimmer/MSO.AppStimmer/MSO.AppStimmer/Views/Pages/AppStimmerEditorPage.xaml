@@ -4,16 +4,18 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
-    BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}" >
+    Padding="20"
+    BackgroundColor="{StaticResource StandardPageBackgroundColor}"
+    BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
     <TabbedPage.Children>
         <ContentPage Title="Overview">
             <ContentPage.Content>
-                <controls:AppStimmerEditorOverviewView/>
+                <controls:AppStimmerEditorOverviewView />
             </ContentPage.Content>
         </ContentPage>
         <ContentPage Title="Details">
             <ContentPage.Content>
-                <controls:AppStimmerEditorDetailsView/>
+                <controls:AppStimmerEditorDetailsView />
             </ContentPage.Content>
         </ContentPage>
     </TabbedPage.Children>

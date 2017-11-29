@@ -38,30 +38,12 @@
                             Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}"
                             VerticalOptions="Fill" />
 
-                        <!--<BoxView
-                            x:Name="SwipeCardOverlay"
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="3"
-                            BackgroundColor="{Binding SwipeCardOverlayColor}"
-                            BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}"
-                            HorizontalOptions="Fill"
-                            InputTransparent="True"
-                            Opacity="0.5"
-                            VerticalOptions="Fill" />-->
-
                         <Grid
                             x:Name="ButtonsGrid"
                             Grid.Column="0"
                             Grid.ColumnSpan="3"
                             BackgroundColor="#88FFFFFF"
                             Row="1">
-                            <!--<Grid.BackgroundColor>
-                                <converter:MultiBinding Converter="{StaticResource AppstimmerToOverlayColorConverter}">
-                                    <Binding Path="." />
-                                </converter:MultiBinding>
-                            </Grid.BackgroundColor>-->
                             <Image
                                 Margin="10,0,0,0"
                                 HorizontalOptions="Start"
@@ -75,22 +57,6 @@
                                 HorizontalOptions="End"
                                 Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_up_green_circle.scale-100.png}" />
                         </Grid>
-                        <!--<StackLayout
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            HorizontalOptions="Center"
-                            Orientation="Horizontal"
-                            Spacing="10">
-                            <Image Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.star_blue_circle.scale-100.png}" VerticalOptions="Center" />
-                        </StackLayout>
-                        <StackLayout
-                            Grid.Row="1"
-                            Grid.Column="2"
-                            HorizontalOptions="Center"
-                            Orientation="Horizontal"
-                            Spacing="10">
-                            <Image Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_up_green_circle.scale-100.png}" VerticalOptions="Center" />
-                        </StackLayout>-->
                     </Grid>
 
                 </DataTemplate>

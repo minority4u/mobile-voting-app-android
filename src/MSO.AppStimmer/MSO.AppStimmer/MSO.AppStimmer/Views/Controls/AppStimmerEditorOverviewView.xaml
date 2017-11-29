@@ -3,10 +3,26 @@
     x:Class="MSO.StimmApp.Views.Controls.AppStimmerEditorOverviewView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
     BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
     <ContentView.Content>
         <StackLayout>
-            <Label Text="AppStimmer Editor (Overview)." />
+            <controls:AppStimmerEditorHeader />
+
+            <StackLayout
+                Padding="14,8"
+                BackgroundColor="Gray"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal">
+                <Label
+                    FontSize="Medium"
+                    LineBreakMode="NoWrap"
+                    Text="SomeAttachment"
+                    TextColor="Gray"
+                    VerticalOptions="Center" />
+            </StackLayout>
+
+            <Grid />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

@@ -1,0 +1,11 @@
+﻿<ContentView
+    x:Class="MSO.StimmApp.Views.Controls.AppStimmerEditorHeader"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
+    <ContentView.Content>
+        <StackLayout>
+            <Entry Text="Die Hochschule sieht nicht gut aus" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
