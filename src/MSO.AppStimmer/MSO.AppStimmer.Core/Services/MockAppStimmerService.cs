@@ -42,13 +42,13 @@ namespace MSO.StimmApp.Core.Services
                     {
                         new AppStimmerAttachment
                         {
-                            Source = "MSO.StimmApp.Resources.Images.Schlagloch.jpg",
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Schlagloch.jpg",
                             Description = "Bildbeschreibung",
                             AttachmentType = AttachmentType.Picture
                         },
                         new AppStimmerAttachment
                         {
-                            Source = "Dies ist ein Text.",
+                            AttachmentSource = "Dies ist ein Text-Attachment.",
                             Description = "Dies ist ein Text.",
                             AttachmentType = AttachmentType.Text
                         }

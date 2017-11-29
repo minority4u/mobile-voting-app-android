@@ -58,9 +58,7 @@
                                 Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_up_green_circle.scale-100.png}" />
                         </Grid>
                     </Grid>
-
                 </DataTemplate>
-
             </controls:SwipeCardView.ItemTemplate>
         </controls:SwipeCardView>
     </ContentView.Content>

@@ -9,7 +9,7 @@ namespace MSO.StimmApp.Core.Models
 {
     public class AppStimmerAttachment : ModelBase
     {
-        private string source;
+        private string attachmentSource;
         private string description;
         private AttachmentType attachmentType;
 
@@ -18,10 +18,10 @@ namespace MSO.StimmApp.Core.Models
             this.Id = Guid.NewGuid();
         }
 
-        public string Source
+        public string AttachmentSource
         {
-            get => this.source;
-            set => this.Set(ref this.source, value);
+            get => this.attachmentSource;
+            set => this.Set(ref this.attachmentSource, value);
         }
 
         public string Description

@@ -34,6 +34,8 @@
             <viewModels:ViewModelLocator x:Key="Locator" />
 
             <converter:ImageResourceConverter x:Key="ImageSourceConverter" />
+            <converter:AppStimmerAttachmentToViewConverter x:Key="AppStimmerAttachmentToViewConverter" />
+            <converter:AppStimmerAttachmentTypeToViewEnabledConverter x:Key="AppStimmerAttachmentTypeToViewEnabledConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
