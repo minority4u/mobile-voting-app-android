@@ -1,4 +1,5 @@
-﻿using MSO.StimmApp.Views.Controls;
+﻿using MSO.StimmApp.ViewModels;
+using MSO.StimmApp.Views.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,18 +11,12 @@ namespace MSO.StimmApp.Views.Pages
         public AppStimmerEditorPage()
         {
             this.InitializeComponent();
+        }
 
-            //this.Children.Add(new ContentPage
-            //{
-            //    Title = "Overview",
-            //    Content = new AppStimmerEditorOverviewView()
-            //});
-
-            //this.Children.Add(new ContentPage
-            //{
-            //    Title = "Details",
-            //    Content = new AppStimmerEditorDetailsView()
-            //});
+        public AppStimmerEditorPage(AppStimmerEditorViewModel viewModel)
+        {          
+            this.InitializeComponent();
+            this.BindingContext = viewModel;
         }
     }
 }

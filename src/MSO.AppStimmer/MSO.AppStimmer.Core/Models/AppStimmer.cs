@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 
 namespace MSO.StimmApp.Core.Models
 {
@@ -8,6 +9,7 @@ namespace MSO.StimmApp.Core.Models
         private string appstract;
         private string description;
         private string picture;
+        private ObservableCollection<AppStimmerAttachment> attachments;
 
         public AppStimmer() : base(true)
         {
@@ -36,6 +38,12 @@ namespace MSO.StimmApp.Core.Models
         {
             get => this.picture;
             set => this.Set(ref this.picture, value);
+        }
+
+        public ObservableCollection<AppStimmerAttachment> Attachments
+        {
+            get => this.attachments;
+            set => this.Set(ref this.attachments, value);
         }
     }
 }

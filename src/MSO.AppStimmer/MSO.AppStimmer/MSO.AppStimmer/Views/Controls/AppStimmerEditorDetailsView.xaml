@@ -4,10 +4,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
-    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
     <ContentView.Content>
-        <Label Text="Not implemented yet!" />
+        <controls:AppStimmerEditorHeader />
         <!--<Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />

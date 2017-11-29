@@ -3,8 +3,7 @@
     x:Class="MSO.StimmApp.Views.Controls.AppStimmerEditorOverviewView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
-    BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
+    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp">
     <ContentView.Content>
         <StackLayout>
             <controls:AppStimmerEditorHeader />

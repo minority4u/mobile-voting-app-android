@@ -34,8 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="Enums\AttachmentType.cs" />
     <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Models\AppStimmer.cs" />
+    <Compile Include="Models\AppStimmerAttachment.cs" />
     <Compile Include="Models\AppStimmerUser.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\EditableModelBase.cs" />

@@ -3,6 +3,7 @@ using GalaSoft.MvvmLight.Ioc;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Core.ViewModels;
+using MSO.StimmApp.Views;
 
 namespace MSO.StimmApp.ViewModels
 {
@@ -16,13 +17,18 @@ namespace MSO.StimmApp.ViewModels
         {
             this.appStimmerService = appStimmerService;
             this.appStimmers = new ObservableCollection<AppStimmer>(this.appStimmerService.GetAllAppStimmers());
-            //this.appStimmers.Shuffle();
         }
 
         public ObservableCollection<AppStimmer> AppStimmers
         {
             get => this.appStimmers;
             set => this.Set(ref this.appStimmers, value);
+        }
+
+        public void EditAppStimmer(AppStimmer appStimmer)
+        {
+            var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, appStimmer);
+            App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor, viewModel);
         }
     }
 }
