@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:MSO.StimmApp.Controls;assembly=MSO.StimmApp"
+    xmlns:enums="clr-namespace:MSO.StimmApp.Core.Enums;assembly=MSO.StimmApp.Core"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
     <ContentView.Content>
         <Grid Padding="15,15,15,15">
@@ -19,130 +20,47 @@
             </Grid.ColumnDefinitions>
 
             <controls:AppStimmerAttachmentButton
+                x:Name="AddDocumentButton"
                 Grid.Row="0"
                 Grid.Column="0"
+                AttachmentType="{x:Static enums:AttachmentType.Document}"
                 Description="Dokument"
                 IconSource="MSO.StimmApp.Resources.Icons.document_circle.scale-100.png" />
             <controls:AppStimmerAttachmentButton
+                x:Name="AddCameraPictureButton"
                 Grid.Row="0"
                 Grid.Column="1"
+                AttachmentType="{x:Static enums:AttachmentType.Camera}"
                 Description="Kamera"
                 IconSource="MSO.StimmApp.Resources.Icons.camera_circle.scale-100.png" />
             <controls:AppStimmerAttachmentButton
+                x:Name="AddGalleryPictureButton"
                 Grid.Row="0"
                 Grid.Column="2"
+                AttachmentType="{x:Static enums:AttachmentType.Gallery}"
                 Description="Galerie"
                 IconSource="MSO.StimmApp.Resources.Icons.gallery_circle.scale-100.png" />
             <controls:AppStimmerAttachmentButton
+                x:Name="AddTextButton"
                 Grid.Row="1"
                 Grid.Column="0"
+                AttachmentType="{x:Static enums:AttachmentType.Text}"
                 Description="Text"
                 IconSource="MSO.StimmApp.Resources.Icons.text_circle.scale-100.png" />
             <controls:AppStimmerAttachmentButton
+                x:Name="AddLocationButton"
                 Grid.Row="1"
                 Grid.Column="1"
+                AttachmentType="{x:Static enums:AttachmentType.Location}"
                 Description="Standort"
                 IconSource="MSO.StimmApp.Resources.Icons.location_circle.scale-100.png" />
             <controls:AppStimmerAttachmentButton
+                x:Name="AddAudioButtonn"
                 Grid.Row="1"
                 Grid.Column="2"
+                AttachmentType="{x:Static enums:AttachmentType.Audio}"
                 Description="Audio"
                 IconSource="MSO.StimmApp.Resources.Icons.audio_circle.scale-100.png" />
         </Grid>
     </ContentView.Content>
-
-
-    <!--<StackLayout Orientation="Vertical">
-            <Grid Margin="20,0,0,20">
-                <Grid HorizontalOptions="Start">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Image Grid.Row="0" Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.document_circle.scale-100.png}" />
-                    <Label
-                        Grid.Row="1"
-                        HorizontalTextAlignment="Center"
-                        Text="Dokument" />
-                </Grid>
-
-                <Grid HorizontalOptions="Center">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Image Grid.Row="0" Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.camera_circle.scale-100.png}" />
-                    <Label
-                        Grid.Row="1"
-                        HorizontalTextAlignment="Center"
-                        Text="Kamera" />
-                </Grid>
-
-                <Grid HorizontalOptions="End">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Image Grid.Row="0" Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.gallery_circle.scale-100.png}" />
-                    <Label
-                        Grid.Row="1"
-                        HorizontalTextAlignment="Center"
-                        Text="Galerie" />
-                </Grid>
-            </Grid>
-
-            <StackLayout Orientation="Horizontal">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Image
-                        Grid.Row="0"
-                        HorizontalOptions="Start"
-                        Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.text_circle.scale-100.png}" />
-                    <Label
-                        Grid.Row="1"
-                        HorizontalTextAlignment="Center"
-                        Text="Text" />
-                </Grid>
-
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Image
-                        Grid.Row="0"
-                        HorizontalOptions="Start"
-                        Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.location_circle.scale-100.png}" />
-                    <Label
-                        Grid.Row="1"
-                        HorizontalTextAlignment="Center"
-                        Text="Ort" />
-                </Grid>
-
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-
-                    <Image
-                        Grid.Row="0"
-                        HorizontalOptions="Start"
-                        Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.audio_circle.scale-100.png}" />
-                    <Label
-                        Grid.Row="1"
-                        HorizontalTextAlignment="Center"
-                        Text="Audio" />
-                </Grid>
-            </StackLayout>
-        </StackLayout>-->
-
 </ContentView>

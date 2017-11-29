@@ -35,7 +35,7 @@
                             <Grid BackgroundColor="White" HeightRequest="125">
                                 <Grid.Children>
                                     <attachments:TextAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
-                                    <attachments:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Picture}" />
+                                    <attachments:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Gallery}" />
                                 </Grid.Children>
                             </Grid>
                         </StackLayout>

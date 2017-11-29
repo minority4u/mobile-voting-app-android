@@ -25,7 +25,7 @@ namespace MSO.StimmApp.Converter
                     case AttachmentType.Text:
                         view = new TextAttachmentView();
                         break;
-                    case AttachmentType.Picture:
+                    case AttachmentType.Gallery:
                         view = new TextAttachmentView();
                         break;
                 }

@@ -14,7 +14,7 @@ namespace MSO.StimmApp.Views.Attachments
 	{
 		public AddAttachmentView ()
 		{
-			InitializeComponent ();
+			this.InitializeComponent();
 		}
 	}
 }

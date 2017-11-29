@@ -15,7 +15,7 @@ namespace MSO.StimmApp.Converter
             var type = (AttachmentType) value;
             var par = parameter.ToString();
 
-            if (type == AttachmentType.Picture && par == "Picture")
+            if (type == AttachmentType.Gallery && par == "Gallery")
                 return true;
             if (type == AttachmentType.Text && par == "Text")
                 return true;

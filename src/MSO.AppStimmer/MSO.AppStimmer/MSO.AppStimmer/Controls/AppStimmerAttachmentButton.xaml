@@ -10,7 +10,11 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Image Grid.Row="0" Source="{Binding IconSource, Converter={StaticResource ImageSourceConverter}}" />
+            <Image Grid.Row="0" Source="{Binding IconSource, Converter={StaticResource ImageSourceConverter}}" x:Name="AttachmentImageButton">
+                <Image.GestureRecognizers >
+                    <TapGestureRecognizer Tapped="AttachmentImageButton_OnTapped" />
+                </Image.GestureRecognizers>
+            </Image>
             <Label
                 Grid.Row="1"
                 FontSize="8"

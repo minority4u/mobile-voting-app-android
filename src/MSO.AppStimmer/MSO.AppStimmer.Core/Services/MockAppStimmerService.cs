@@ -44,7 +44,7 @@ namespace MSO.StimmApp.Core.Services
                         {
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Schlagloch.jpg",
                             Description = "Bildbeschreibung",
-                            AttachmentType = AttachmentType.Picture
+                            AttachmentType = AttachmentType.Gallery
                         },
                         new AppStimmerAttachment
                         {

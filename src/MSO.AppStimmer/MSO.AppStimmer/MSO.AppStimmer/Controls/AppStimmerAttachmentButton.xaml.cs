@@ -1,15 +1,21 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using MSO.StimmApp.Core.Enums;
+using MSO.StimmApp.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MSO.StimmApp.Controls
 {
 	public partial class AppStimmerAttachmentButton : ContentView
 	{
-	    public static readonly BindableProperty ViewModelProperty =
+	    public static readonly BindableProperty DescriptionProperty =
 	        BindableProperty.Create(nameof(Description), typeof(string), typeof(AppStimmerAttachmentButton), null, BindingMode.TwoWay);
 
 	    public static readonly BindableProperty IconSourceProperty =
 	        BindableProperty.Create(nameof(IconSource), typeof(string), typeof(AppStimmerAttachmentButton), null, BindingMode.TwoWay);
+
+        public static readonly BindableProperty AttachmentTypeProperty =
+            BindableProperty.Create(nameof(AttachmentType), typeof(AttachmentType), typeof(AppStimmerAttachmentButton), AttachmentType.Gallery, BindingMode.TwoWay);
 
         public AppStimmerAttachmentButton ()
 		{
@@ -17,14 +23,16 @@ namespace MSO.StimmApp.Controls
 		    this.Root.BindingContext = this;
 		}
 
-	    public string Description
+	    public AppStimmerEditorViewModel ViewModel => this.BindingContext as AppStimmerEditorViewModel;
+
+        public string Description
 	    {
 	        get
 	        {
-	            var result = (string)GetValue(ViewModelProperty);
+	            var result = (string)GetValue(DescriptionProperty);
 	            return result;
 	        }
-	        set => SetValue(ViewModelProperty, value);
+	        set => SetValue(DescriptionProperty, value);
 	    }
 
 	    public string IconSource
@@ -36,5 +44,20 @@ namespace MSO.StimmApp.Controls
 	        }
 	        set => SetValue(IconSourceProperty, value);
 	    }
-    }
+
+        public AttachmentType AttachmentType
+        {
+            get
+            {
+                var result = (AttachmentType)GetValue(AttachmentTypeProperty);
+                return result;
+            }
+            set => SetValue(AttachmentTypeProperty, value);
+        }
+
+        private void AttachmentImageButton_OnTapped(object sender, EventArgs e)
+        {
+            this.ViewModel.AddAttachment(this.AttachmentType);
+        }
+	}
 }
