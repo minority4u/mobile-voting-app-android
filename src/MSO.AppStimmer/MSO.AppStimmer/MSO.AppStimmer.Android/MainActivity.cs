@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using FFImageLoading.Forms.Droid;
 using MSO.StimmApp.Droid;
 
 namespace MSO.AppStimmer.Droid
@@ -16,6 +17,7 @@ namespace MSO.AppStimmer.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            CachedImageRenderer.Init();
 
             LoadApplication(new StimmApp.App());
         }

@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:attachments="clr-namespace:MSO.StimmApp.Views.Attachments;assembly=MSO.StimmApp"
     xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
     <ContentView.Content>
         <Grid>
@@ -17,15 +18,21 @@
             <controls:AppStimmerEditorHeader Grid.Row="0" />
             <controls:AppStimmerAttachmentsListView Grid.Row="1" ItemsSource="{Binding AppStimmer.Attachments}" />
 
-            <Grid Grid.Row="2" IsVisible="{Binding IsAddingAttachment, Converter={StaticResource BooleanConverter}, ConverterParameter=inverted}">
-                <Image
+            <Grid Grid.Row="2" IsVisible="true">
+                <forms:SvgCachedImage
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
+                    VerticalOptions="Center"
+                    WidthRequest="100" />
+                <!--<Image
                     HorizontalOptions="Center"
                     Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.plus_orange_circle.scale-100.png}"
                     VerticalOptions="Center">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
                     </Image.GestureRecognizers>
-                </Image>
+                </Image>-->
             </Grid>
             <Grid
                 Grid.Row="2"

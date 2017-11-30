@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Akavache;
 using Microsoft.Practices.ServiceLocation;
 using MSO.StimmApp.Services;
@@ -14,6 +15,8 @@ namespace MSO.StimmApp
     {
         public static NavigationService NavigationService
             => ServiceLocator.Current.GetInstance<NavigationService>();
+
+        public static Dictionary<string, string> ReplaceSvgStringMap = new Dictionary<string, string>();
 
         public static bool IsTestMode = true;
 
@@ -42,9 +45,6 @@ namespace MSO.StimmApp
                     break;
                 case Device.WinPhone:
                     BlobCache.ApplicationName = "StimmApp.WindowsPhone";
-                    break;
-                case Device.Windows:
-                    BlobCache.ApplicationName = "StimmApp.Windows";
                     break;
                 default:
                     BlobCache.ApplicationName = "StimmApp";
