@@ -6,7 +6,9 @@
     xmlns:attachments="clr-namespace:MSO.StimmApp.Views.Attachments;assembly=MSO.StimmApp"
     xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
     xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
+    xmlns:forms1="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
     <ContentView.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -24,7 +26,15 @@
                     HorizontalOptions="Center"
                     Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
                     VerticalOptions="Center"
-                    WidthRequest="100" />
+                    WidthRequest="100">
+
+                    <forms1:CachedImage.Transformations>
+                        <transformations:TintTransformation EnableSolidColor="true" HexColor="#ffffff" />
+                    </forms1:CachedImage.Transformations>
+                    <forms:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
+                    </forms:SvgCachedImage.GestureRecognizers>
+                </forms:SvgCachedImage>
                 <!--<Image
                     HorizontalOptions="Center"
                     Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.plus_orange_circle.scale-100.png}"
