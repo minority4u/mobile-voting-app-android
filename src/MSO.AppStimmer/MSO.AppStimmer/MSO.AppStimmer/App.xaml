@@ -36,6 +36,8 @@
             <converter:AppStimmerAttachmentTypeToViewEnabledConverter x:Key="AppStimmerAttachmentTypeToViewEnabledConverter" />
             <converter:HexStringToColorConverter x:Key="HexStringToColorConverter" />
             <converter:BooleanConverter x:Key="BooleanConverter" />
+            <converter:ColorToColorChannelConverter x:Key="ColorToColorChannelConverter" />
+            <converter:ColorChannelsToColorConverter x:Key="ColorChannelsToColorConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

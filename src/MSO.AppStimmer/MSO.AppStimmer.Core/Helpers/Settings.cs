@@ -9,7 +9,7 @@ namespace MSO.StimmApp.Core.Helpers
     ///     This is the Settings static class that can be used in the solution.
     ///     All settings are laid out the same exact way with getters and setters.
     /// </summary>
-    public class Settings : ViewModels.BaseViewModel
+    public class Settings : Models.ModelBase
     {
         static ISettings AppSettings =>
             CrossSettings.Current;

@@ -3,12 +3,12 @@
     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorDetailsView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
+    xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
-    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
-    xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
-    xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp">
+    xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
     <ContentView.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -25,8 +25,9 @@
                     HeightRequest="100"
                     HorizontalOptions="Center"
                     Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
+                    TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppPrimaryColor}"
                     VerticalOptions="Center"
-                    WidthRequest="100" TintColor="{Binding SelectedColor}">
+                    WidthRequest="100">
 
                     <forms:SvgCachedImage.GestureRecognizers>
                         <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />

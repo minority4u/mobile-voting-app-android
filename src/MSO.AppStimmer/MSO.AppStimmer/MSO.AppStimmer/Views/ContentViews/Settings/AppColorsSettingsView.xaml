@@ -1,14 +1,56 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MSO.StimmApp.Views.ContentViews.Settings.AppColorsSettingsView" BindingContext="{Binding Settings}">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.Settings.AppColorsSettingsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
 
     <ContentView.Content>
-      <StackLayout>
-          <StackLayout>
-                <Entry Text="{Binding AppPrimaryColor}"></Entry>
-                <BoxView HeightRequest="50" WidthRequest="50" BackgroundColor="{Binding AppPrimaryColor, Converter={StaticResource HexStringToColorConverter}}"></BoxView>
+        <StackLayout>
+            <StackLayout>
+                <!--<Entry Text="{Binding AppPrimaryColor}"></Entry>-->
+                <Slider
+                    x:Name="RedSlider"
+                    Maximum="255"
+                    Minimum="0"
+                    Value="{Binding AppPrimaryColorRedChannel}" />
+                <Slider
+                    x:Name="GreenSlider"
+                    Maximum="255"
+                    Minimum="0"
+                    Value="{Binding AppPrimaryColorGreenChannel}" />
+                <Slider
+                    x:Name="BlueSlider"
+                    Maximum="255"
+                    Minimum="0"
+                    Value="{Binding AppPrimaryColorBlueChannel}" />
+                <Label HeightRequest="50" WidthRequest="50">
+                    <Label.Text>
+                        <converter:MultiBinding Converter="{StaticResource ColorChannelsToColorConverter}" ConverterParameter="hex">
+                            <Binding Path="AppPrimaryColorRedChannel" />
+                            <Binding Path="AppPrimaryColorGreenChannel" />
+                            <Binding Path="AppPrimaryColorBlueChannel" />
+                        </converter:MultiBinding>
+                    </Label.Text>
+                </Label>
+                <BoxView HeightRequest="50" WidthRequest="50">
+                    <BoxView.BackgroundColor>
+                        <converter:MultiBinding Converter="{StaticResource ColorChannelsToColorConverter}" ConverterParameter="color">
+                            <Binding Path="AppPrimaryColorRedChannel" />
+                            <Binding Path="AppPrimaryColorGreenChannel" />
+                            <Binding Path="AppPrimaryColorBlueChannel" />
+                        </converter:MultiBinding>
+                    </BoxView.BackgroundColor>
+                </BoxView>
+
+                <Button
+                    x:Name="SaveColorsButton"
+                    Clicked="SaveColorsButton_OnClicked"
+                    HeightRequest="50"
+                    Text="Save"
+                    WidthRequest="50" />
             </StackLayout>
-      </StackLayout>
-  </ContentView.Content>
+        </StackLayout>
+    </ContentView.Content>
 </ContentView>

@@ -8,7 +8,7 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
 	{
 		public AppStimmerEditorHeader ()
 		{
-			InitializeComponent ();
+			this.InitializeComponent();
 		}
 	}
 }

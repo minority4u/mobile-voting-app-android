@@ -5,8 +5,6 @@ namespace MSO.StimmApp.Core.ViewModels
 {
     public class BaseViewModel : ViewModelBase
     {
-        public Settings Settings => Settings.Current;
-
         private bool isBusy;
 
         public bool IsBusy

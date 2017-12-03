@@ -197,6 +197,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="Effects\Effects.cs" />
+    <Compile Include="Effects\GreenSliderEffect.cs" />
+    <Compile Include="Effects\BlueSliderEffect.cs" />
+    <Compile Include="Effects\RedSliderEffect.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,6 @@
 ﻿using System;
+using MSO.StimmApp.Core.Helpers;
+using MSO.StimmApp.Elements;
 using MSO.StimmApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -27,12 +29,15 @@ namespace MSO.StimmApp
             this.ResetMenuPage();
         }
 
-        public void InitializePage(Page page, string titleBarColor = "F9C470")
+        public void InitializePage(Page page)
         {
-            var navigationPage = new NavigationPage(page)
-            {
-                BarBackgroundColor = Color.FromHex(titleBarColor)
-            };
+            var navigationPage = new ColoredNavigationPage(page);
+
+            //var binding = new Binding();
+            //binding.Mode = BindingMode.TwoWay;
+            //binding.Source = App.Settings.AppPrimaryColor;
+
+            //navigationPage.SetBinding(NavigationPage.BarBackgroundColorProperty, binding);
 
             App.NavigationService.Initialize(navigationPage);
             this.Detail = navigationPage;

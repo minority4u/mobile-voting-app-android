@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Akavache;
 using Microsoft.Practices.ServiceLocation;
+using MSO.StimmApp.Core.Helpers;
 using MSO.StimmApp.Services;
 using MSO.StimmApp.Views.Pages;
 using Xamarin.Forms;
@@ -19,6 +20,8 @@ namespace MSO.StimmApp
         public static Dictionary<string, string> ReplaceSvgStringMap = new Dictionary<string, string>();
 
         public static bool IsTestMode = true;
+
+        public static Settings Settings => Settings.Current;
 
         public App()
         {
