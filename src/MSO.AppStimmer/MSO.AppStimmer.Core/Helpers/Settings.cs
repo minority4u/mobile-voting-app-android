@@ -1,16 +1,15 @@
 // Helpers/Settings.cs
 
-using MSO.StimmApp.Core.ViewModels;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
-namespace MSO.StimmApp.Core.ViewModels
+namespace MSO.StimmApp.Core.Helpers
 {
     /// <summary>
     ///     This is the Settings static class that can be used in the solution.
     ///     All settings are laid out the same exact way with getters and setters.
     /// </summary>
-    public class Settings : BaseViewModel
+    public class Settings : ViewModels.BaseViewModel
     {
         static ISettings AppSettings =>
             CrossSettings.Current;

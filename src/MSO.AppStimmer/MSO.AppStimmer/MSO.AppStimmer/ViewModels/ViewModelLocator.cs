@@ -52,7 +52,7 @@ namespace MSO.StimmApp.ViewModels
                 SimpleIoc.Default.Register<IAppStimmerService, AzureAppStimmerService>();
             }
 
-            SimpleIoc.Default.Register<MainPageMasterViewModel>();
+            SimpleIoc.Default.Register<MenuPageMasterViewModel>();
             SimpleIoc.Default.Register<AppStimmerViewModel>();
             SimpleIoc.Default.Register<AppStimmerEditorViewModel>();
             SimpleIoc.Default.Register<AppStimmersViewModel>();
@@ -63,7 +63,7 @@ namespace MSO.StimmApp.ViewModels
             SimpleIoc.Default.Register(() => navigation);
         }
 
-        public MainPageMasterViewModel Master => ServiceLocator.Current.GetInstance<MainPageMasterViewModel>();
+        public MenuPageMasterViewModel Master => ServiceLocator.Current.GetInstance<MenuPageMasterViewModel>();
 
         public AppStimmerViewModel AppStimmer => ServiceLocator.Current.GetInstance<AppStimmerViewModel>();
 

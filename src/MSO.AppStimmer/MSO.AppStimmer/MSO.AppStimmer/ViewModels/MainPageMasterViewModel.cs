@@ -5,16 +5,16 @@ using MSO.StimmApp.Views.Pages;
 
 namespace MSO.StimmApp.ViewModels
 {
-    public class MainPageMasterViewModel : BaseViewModel
+    public class MenuPageMasterViewModel : BaseViewModel
     {
         public ObservableCollection<MenuPageItem> MenuItems { get; private set; }
 
-        public MainPageMasterViewModel()
+        public MenuPageMasterViewModel()
         {
-            this.Initialize();
+            this.InitializeMenuItems();
         }
 
-        private void Initialize()
+        private void InitializeMenuItems()
         {
             this.MenuItems = new ObservableCollection<MenuPageItem>
             {
