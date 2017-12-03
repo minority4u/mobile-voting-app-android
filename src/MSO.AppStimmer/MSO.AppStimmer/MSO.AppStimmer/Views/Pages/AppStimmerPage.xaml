@@ -4,11 +4,11 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:appStimmer="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
+    xmlns:appstimmen="clr-namespace:MSO.StimmApp.Views.ContentViews.Appstimmen;assembly=MSO.StimmApp"
     Title="Appstimmen"
     BackgroundColor="{StaticResource StandardPageBackgroundColor}"
     BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <controls:AppStimmerCardView Padding="20" />
+        <appstimmen:AppStimmerCardView Padding="20" />
     </ContentPage.Content>
 </ContentPage>

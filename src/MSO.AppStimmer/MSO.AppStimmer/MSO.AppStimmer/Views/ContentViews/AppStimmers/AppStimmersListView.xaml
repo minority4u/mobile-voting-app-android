@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ListView ItemTapped="AppStimmersListView_OnItemTapped"
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmers.AppStimmersListView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="{StaticResource GrayLight}"
+    BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
+    HasUnevenRows="true"
+    ItemsSource="{Binding AppStimmers}"
+    SeparatorVisibility="None">
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+                <ViewCell.View>
+                    <AbsoluteLayout Padding="14,14,14,0">
+                        <StackLayout
+                            Padding="0,0,.5,.5"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            AbsoluteLayout.LayoutFlags="All"
+                            BackgroundColor="{StaticResource GrayPrimary}">
+
+                            <StackLayout
+                                BackgroundColor="White"
+                                Orientation="Vertical"
+                                Spacing="0"
+                                VerticalOptions="FillAndExpand">
+                                <AbsoluteLayout HeightRequest="150">
+                                    <Image
+                                        AbsoluteLayout.LayoutBounds=".5,.5,-1,-1"
+                                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                                        HeightRequest="24"
+                                        WidthRequest="24" />
+                                    <Image
+                                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                        AbsoluteLayout.LayoutFlags="All"
+                                        Aspect="AspectFill"
+                                        Opacity=".8"
+                                        Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}" />
+                                </AbsoluteLayout>
+
+                                <StackLayout Padding="16,10" Spacing="4">
+                                    <Label
+                                        FontSize="Large"
+                                        Text="{Binding Title}"
+                                        TextColor="{StaticResource AppStimmerOrange}"
+                                        VerticalOptions="CenterAndExpand" />
+
+                                    <ContentView>
+                                        <Label
+                                            IsVisible="true"
+                                            Style="{StaticResource Sub}"
+                                            Text="{Binding Appstract}" />
+                                    </ContentView>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </AbsoluteLayout>
+                </ViewCell.View>
+            </ViewCell>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+</ListView>

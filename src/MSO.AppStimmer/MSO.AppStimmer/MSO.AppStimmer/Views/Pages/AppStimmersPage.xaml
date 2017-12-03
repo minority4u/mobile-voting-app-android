@@ -3,9 +3,9 @@
     x:Class="MSO.StimmApp.Views.Pages.AppStimmersPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
+    xmlns:appStimmers="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmers;assembly=MSO.StimmApp"
     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <controls:AppStimmersListView />
+        <appStimmers:AppStimmersListView />
     </ContentPage.Content>
 </ContentPage>

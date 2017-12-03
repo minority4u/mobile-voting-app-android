@@ -3,10 +3,9 @@
     x:Class="MSO.StimmApp.Views.Pages.SettingsPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:settings="clr-namespace:MSO.StimmApp.Views.ContentViews.Settings;assembly=MSO.StimmApp"
     BindingContext="{Binding Settings, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Dies ist die View für die App-Settings." />
-        </StackLayout>
+        <settings:AppColorsSettingsView></settings:AppColorsSettingsView>
     </ContentPage.Content>
 </ContentPage>

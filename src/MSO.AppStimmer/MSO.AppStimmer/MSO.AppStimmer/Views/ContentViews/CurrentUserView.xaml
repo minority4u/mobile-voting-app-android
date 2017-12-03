@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.CurrentUserView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BindingContext="{Binding CurrentUser, Source={StaticResource Locator}}">
+    <ContentView.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="25" />
+            </Grid.RowDefinitions>
+
+            <Image
+                x:Name="ProfilePicture"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Margin="6,6,6,6"
+                Aspect="AspectFill"
+                Source="{Binding User.ProfilePicture, Converter={StaticResource ImageSourceConverter}}" />
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                FontSize="11"
+                Style="{DynamicResource SubtitleStyle}"
+                Text="{Binding User.Username}"
+                TextColor="White" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                FontSize="11"
+                Style="{DynamicResource SubtitleStyle}"
+                Text="{Binding User.MailAddress}"
+                TextColor="White" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

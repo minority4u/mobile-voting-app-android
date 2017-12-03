@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MSO.StimmApp.Views.ContentViews.Settings.AppColorsSettingsView" BindingContext="{Binding Settings}">
+
+    <ContentView.Content>
+      <StackLayout>
+          <StackLayout>
+                <Entry Text="{Binding AppPrimaryColor}"></Entry>
+                <BoxView HeightRequest="50" WidthRequest="50" BackgroundColor="{Binding AppPrimaryColor, Converter={StaticResource HexStringToColorConverter}}"></BoxView>
+            </StackLayout>
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>

@@ -3,7 +3,7 @@
     x:Class="MSO.StimmApp.MenuPageMaster"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
+    xmlns:contentViews="clr-namespace:MSO.StimmApp.Views.ContentViews;assembly=MSO.StimmApp"
     Title="Master"
     Padding="0,23,0,0"
     BackgroundColor="Transparent"
@@ -18,7 +18,7 @@
             SeparatorVisibility="Default">
 
             <ListView.Header>
-                <controls:CurrentUserView />
+                <contentViews:CurrentUserView />
             </ListView.Header>
 
             <ListView.ItemTemplate>

@@ -1,5 +1,4 @@
 ﻿using MSO.StimmApp.ViewModels;
-using MSO.StimmApp.Views.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

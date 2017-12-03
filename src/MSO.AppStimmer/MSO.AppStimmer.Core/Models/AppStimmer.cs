@@ -9,7 +9,7 @@ namespace MSO.StimmApp.Core.Models
         private string appstract;
         private string description;
         private string picture;
-        private ObservableCollection<AppStimmerAttachment> attachments;
+        private ObservableCollection<AppStimmerAttachment> attachments = new ObservableCollection<AppStimmerAttachment>();
 
         public AppStimmer() : base(true)
         {

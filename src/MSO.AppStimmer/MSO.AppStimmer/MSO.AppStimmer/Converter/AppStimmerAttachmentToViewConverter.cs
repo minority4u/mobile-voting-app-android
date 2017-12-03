@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Models;
-using MSO.StimmApp.Views.Attachments;
+using MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.Converter

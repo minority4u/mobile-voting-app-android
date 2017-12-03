@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ListView
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments.AppStimmerAttachmentsListView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:attachments1="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
+    HasUnevenRows="True"
+    ItemTapped="AppStimmerAttachmentsListView_OnItemTapped"
+    SeparatorVisibility="None">
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+                <ViewCell.View>
+                    <AbsoluteLayout Padding="10,10,10,10">
+                        <StackLayout
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            AbsoluteLayout.LayoutFlags="All"
+                            BackgroundColor="{StaticResource GrayPrimary}"
+                            Spacing="0">
+
+                            <StackLayout
+                                Padding="14,8"
+                                BackgroundColor="Gray"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal">
+                                <Label
+                                    FontSize="Medium"
+                                    LineBreakMode="NoWrap"
+                                    Text="{Binding Description}"
+                                    TextColor="White"
+                                    VerticalOptions="Center" />
+                            </StackLayout>
+
+                            <Grid BackgroundColor="White" HeightRequest="125">
+                                <Grid.Children>
+                                    <attachments1:TextAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
+                                    <attachments1:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Gallery}" />
+                                </Grid.Children>
+                            </Grid>
+                        </StackLayout>
+                    </AbsoluteLayout>
+                </ViewCell.View>
+            </ViewCell>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+</ListView>

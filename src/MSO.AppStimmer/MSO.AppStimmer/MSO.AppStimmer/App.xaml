@@ -32,6 +32,7 @@
             <converter:ImageResourceConverter x:Key="ImageSourceConverter" />
             <converter:AppStimmerAttachmentToViewConverter x:Key="AppStimmerAttachmentToViewConverter" />
             <converter:AppStimmerAttachmentTypeToViewEnabledConverter x:Key="AppStimmerAttachmentTypeToViewEnabledConverter" />
+            <converter:HexStringToColorConverter x:Key="HexStringToColorConverter" />
             <converter:BooleanConverter x:Key="BooleanConverter" />
         </ResourceDictionary>
     </Application.Resources>

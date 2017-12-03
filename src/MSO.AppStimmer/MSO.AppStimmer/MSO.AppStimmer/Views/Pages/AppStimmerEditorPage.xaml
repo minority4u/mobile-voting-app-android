@@ -3,7 +3,7 @@
     x:Class="MSO.StimmApp.Views.Pages.AppStimmerEditorPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
+    xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
     Title="AppStimmer editieren"
     Padding="20"
     BackgroundColor="{StaticResource StandardPageBackgroundColor}"
@@ -11,12 +11,12 @@
     <TabbedPage.Children>
         <ContentPage Title="Overview">
             <ContentPage.Content>
-                <controls:AppStimmerEditorOverviewView />
+                <appStimmerEditor:AppStimmerEditorOverviewView />
             </ContentPage.Content>
         </ContentPage>
         <ContentPage Title="Details">
             <ContentPage.Content>
-                <controls:AppStimmerEditorDetailsView />
+                <appStimmerEditor:AppStimmerEditorDetailsView />
             </ContentPage.Content>
         </ContentPage>
     </TabbedPage.Children>

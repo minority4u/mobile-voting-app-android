@@ -39,9 +39,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Elements\TintedSvgCachedImage.cs" />
     <Compile Include="Converter\AppStimmerAttachmentToViewConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converter\HexStringToColorConverter.cs" />
     <Compile Include="Converter\ImageResourceConverter.cs" />
     <Compile Include="Converter\IMultiValueConverter.cs" />
     <Compile Include="Converter\MultiBinding.cs" />
@@ -57,42 +59,40 @@
     <Compile Include="ViewModels\MainPageMasterViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="Views\Attachments\AddAttachmentView.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\AddAttachmentView.xaml.cs">
       <DependentUpon>AddAttachmentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\AppStimmerAttachmentButton.xaml.cs">
+    <Compile Include="Elements\AppStimmerAttachmentButton.xaml.cs">
       <DependentUpon>AppStimmerAttachmentButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Attachments\ImageAttachmentView.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\ImageAttachmentView.xaml.cs">
       <DependentUpon>ImageAttachmentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Attachments\TextAttachmentView.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\TextAttachmentView.xaml.cs">
       <DependentUpon>TextAttachmentView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\AppStimmerAttachmentsListView.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\AppStimmerAttachmentsListView.xaml.cs">
       <DependentUpon>AppStimmerAttachmentsListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\AppStimmerCardView.xaml.cs">
+    <Compile Include="Views\ContentViews\Appstimmen\AppStimmerCardView.xaml.cs">
       <DependentUpon>AppStimmerCardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\AppStimmerEditorDetailsView.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorDetailsView.xaml.cs">
       <DependentUpon>AppStimmerEditorDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\AppStimmerEditorHeader.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorHeader.xaml.cs">
       <DependentUpon>AppStimmerEditorHeader.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\AppStimmerEditorOverviewView.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorOverviewView.xaml.cs">
       <DependentUpon>AppStimmerEditorOverviewView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\AppStimmersListView.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmers\AppStimmersListView.xaml.cs">
       <DependentUpon>AppStimmersListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\CurrentUserView.xaml.cs">
+    <Compile Include="Views\ContentViews\CurrentUserView.xaml.cs">
       <DependentUpon>CurrentUserView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\SwipeCardView.cs" />
+    <Compile Include="Elements\SwipeCardView.cs" />
     <Compile Include="Views\Pages\AppStimmerEditorPage.xaml.cs">
       <DependentUpon>AppStimmerEditorPage.xaml</DependentUpon>
     </Compile>
@@ -110,6 +110,9 @@
     </Compile>
     <Compile Include="Views\Pages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\Settings\AppColorsSettingsView.xaml.cs">
+      <DependentUpon>AppColorsSettingsView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +158,12 @@
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Settings, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="SkiaSharp, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SkiaSharp.1.59.1\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.dll</HintPath>
     </Reference>
@@ -196,7 +205,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helpers\" />
+    <Folder Include="Views\Attachments\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Pages\AppStimmerPage.xaml">
@@ -258,7 +267,7 @@
     <EmbeddedResource Include="Resources\Icons\settings.scale-100.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\CurrentUserView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\CurrentUserView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -282,55 +291,55 @@
     <EmbeddedResource Include="Resources\Images\Alte_Schule.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\AppStimmerCardView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\Appstimmen\AppStimmerCardView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\AppStimmerEditorOverviewView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorOverviewView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\AppStimmerEditorDetailsView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorDetailsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\AppStimmersListView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\AppStimmers\AppStimmersListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\AppStimmerEditorHeader.xaml">
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorHeader.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\AppStimmerAttachmentsListView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\AppStimmerAttachmentsListView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Attachments\ImageAttachmentView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\ImageAttachmentView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Attachments\TextAttachmentView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\TextAttachmentView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Attachments\AddAttachmentView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\AddAttachmentView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -347,13 +356,19 @@
     <EmbeddedResource Include="Resources\Icons\text_circle.scale-100.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controls\AppStimmerAttachmentButton.xaml">
+    <EmbeddedResource Include="Elements\AppStimmerAttachmentButton.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icons\plus_circle.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\Settings\AppColorsSettingsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.91635\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.91635\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

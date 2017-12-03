@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorDetailsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
+    xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp">
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="150" />
+            </Grid.RowDefinitions>
+
+            <appStimmerEditor:AppStimmerEditorHeader Grid.Row="0" />
+            <attachments:AppStimmerAttachmentsListView Grid.Row="1" ItemsSource="{Binding AppStimmer.Attachments}" />
+
+            <Grid Grid.Row="2" IsVisible="true">
+                <elements:TintedSvgCachedImage
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
+                    VerticalOptions="Center"
+                    WidthRequest="100" TintColor="{Binding SelectedColor}">
+
+                    <forms:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
+                    </forms:SvgCachedImage.GestureRecognizers>
+                </elements:TintedSvgCachedImage>
+            </Grid>
+            <Grid
+                Grid.Row="2"
+                BackgroundColor="White"
+                IsVisible="{Binding IsAddingAttachment}">
+                <attachments:AddAttachmentView />
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
