@@ -1,5 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
+using Android.Graphics;
 using Android.OS;
 using FFImageLoading.Forms.Droid;
 using MSO.StimmApp.Droid;
@@ -20,6 +21,8 @@ namespace MSO.AppStimmer.Droid
             CachedImageRenderer.Init();
 
             LoadApplication(new StimmApp.App());
+
+            Window.SetStatusBarColor(Color.Black);
         }
     }
 }

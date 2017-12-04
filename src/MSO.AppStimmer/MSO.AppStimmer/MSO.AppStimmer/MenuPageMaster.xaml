@@ -7,7 +7,6 @@
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     Title="Master"
-    Padding="0,23,0,0"
     BackgroundColor="Transparent"
     BindingContext="{Binding Master, Source={StaticResource Locator}}">
 
