@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ListView ItemTapped="AppStimmersListView_OnItemTapped"
+<ListView
     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmers.AppStimmersListView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     BackgroundColor="{StaticResource GrayLight}"
     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
     HasUnevenRows="true"
+    ItemTapped="AppStimmersListView_OnItemTapped"
     ItemsSource="{Binding AppStimmers}"
     SeparatorVisibility="None">
     <ListView.ItemTemplate>
@@ -42,7 +44,7 @@
                                     <Label
                                         FontSize="Large"
                                         Text="{Binding Title}"
-                                        TextColor="{StaticResource AppStimmerOrange}"
+                                        TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppPrimaryColor}"
                                         VerticalOptions="CenterAndExpand" />
 
                                     <ContentView>

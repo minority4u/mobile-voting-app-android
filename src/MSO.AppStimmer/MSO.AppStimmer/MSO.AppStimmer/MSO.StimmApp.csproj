@@ -42,8 +42,8 @@
     <Compile Include="Converter\AppStimmerEditorDisplayTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\ColorChannelsToColorConverter.cs" />
     <Compile Include="Converter\ColorToColorChannelConverter.cs" />
+    <Compile Include="Converter\ImageToSvgSourceConverter.cs" />
     <Compile Include="Converter\ÁppStimmerEditorDisplayTypeToOpacityConverter.cs" />
-    <Compile Include="Effects\Class1.cs" />
     <Compile Include="Elements\ColoredNavigationPage.xaml.cs">
       <DependentUpon>ColoredNavigationPage.xaml</DependentUpon>
     </Compile>
@@ -63,7 +63,7 @@
     <Compile Include="ViewModels\AppStimmersViewModel.cs" />
     <Compile Include="ViewModels\AppStimmerViewModel.cs" />
     <Compile Include="ViewModels\CurrentUserViewModel.cs" />
-    <Compile Include="ViewModels\MainPageMasterViewModel.cs" />
+    <Compile Include="ViewModels\MenuPageMasterViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\AddAttachmentView.xaml.cs">
@@ -215,7 +215,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Attachments\" />
+    <EmbeddedResource Include="Resources\Icons\list.svg" />
+    <EmbeddedResource Include="Resources\Icons\plus.svg" />
+    <EmbeddedResource Include="Resources\Icons\settings.svg" />
+    <EmbeddedResource Include="Resources\Icons\star.svg" />
+    <EmbeddedResource Include="Resources\Icons\thumbs_up.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Pages\AppStimmerPage.xaml">

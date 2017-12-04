@@ -40,6 +40,7 @@
             <converter:ColorChannelsToColorConverter x:Key="ColorChannelsToColorConverter" />
             <converter:AppStimmerEditorDisplayTypeToViewVisibilityConverter x:Key="AppStimmerEditorDisplayTypeToViewVisibilityConverter" />
             <converter:ÁppStimmerEditorDisplayTypeToOpacityConverter x:Key="ÁppStimmerEditorDisplayTypeToOpacityConverter" />
+            <converter:ImageToSvgSourceConverter x:Key="ImageToSvgSourceConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

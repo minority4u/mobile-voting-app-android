@@ -19,15 +19,15 @@ namespace MSO.StimmApp.ViewModels
             this.MenuItems = new ObservableCollection<MenuPageItem>
             {
                 new MenuPageItem(typeof(AppStimmerPage), "Appstimmen",
-                    "MSO.StimmApp.Resources.Icons.thumbs_up.scale-100.png"),
+                    "MSO.StimmApp.Resources.Icons.thumbs_up.svg"),
                 new MenuPageItem(typeof(AppStimmerEditorPage), "Neuer Appstimmer",
-                    "MSO.StimmApp.Resources.Icons.plus.scale-100.png"),
+                    "MSO.StimmApp.Resources.Icons.plus.svg"),
                 new MenuPageItem(typeof(AppStimmersPage), "Deine Appstimmer",
-                    "MSO.StimmApp.Resources.Icons.list.scale-100.png"),
+                    "MSO.StimmApp.Resources.Icons.list.svg"),
                 new MenuPageItem(typeof(AppStimmersPage), "Favoriten",
-                    "MSO.StimmApp.Resources.Icons.star_filled.scale-100.png"),
+                    "MSO.StimmApp.Resources.Icons.star.svg"),
                 new MenuPageItem(typeof(SettingsPage), "Einstellungen",
-                    "MSO.StimmApp.Resources.Icons.settings.scale-100.png"),
+                    "MSO.StimmApp.Resources.Icons.settings.svg"),
             };
         }
     }
