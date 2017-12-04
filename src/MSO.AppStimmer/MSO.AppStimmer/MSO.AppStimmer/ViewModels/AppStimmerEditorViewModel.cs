@@ -11,15 +11,23 @@ namespace MSO.StimmApp.ViewModels
         private AppStimmer appStimmer;
         private IAppStimmerService appStimmerService;
         private bool isAddingAttachment;
+        private AppStimmerEditorDisplayType displayType;
 
         [PreferredConstructor]
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService) :
-            this(appStimmerService, new AppStimmer())
+            this(appStimmerService, new AppStimmer(), AppStimmerEditorDisplayType.Overview)
         {
             
         }
 
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer)
+            : this(appStimmerService, appStimmer, AppStimmerEditorDisplayType.Overview)
+        {
+            this.appStimmerService = appStimmerService;
+            this.appStimmer = appStimmer;
+        }
+
+        public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer, AppStimmerEditorDisplayType displayType)
         {
             this.appStimmerService = appStimmerService;
             this.appStimmer = appStimmer;
@@ -29,6 +37,12 @@ namespace MSO.StimmApp.ViewModels
         {
             get => this.appStimmer;
             set => this.Set(ref this.appStimmer, value);
+        }
+
+        public AppStimmerEditorDisplayType DisplayType
+        {
+            get => this.displayType;
+            set => this.Set(ref this.displayType, value);
         }
 
         public bool IsAddingAttachment

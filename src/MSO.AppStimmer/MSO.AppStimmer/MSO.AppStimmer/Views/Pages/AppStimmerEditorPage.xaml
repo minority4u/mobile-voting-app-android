@@ -1,14 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage
+<ContentPage
     x:Class="MSO.StimmApp.Views.Pages.AppStimmerEditorPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
     Title="AppStimmer editieren"
-    Padding="20"
     BackgroundColor="{StaticResource StandardPageBackgroundColor}"
     BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
-    <TabbedPage.Children>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="90*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" ColumnSpacing="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="97*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+
+                <xfShapeView:ShapeView
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppPrimaryColor}">
+                    <xfShapeView:ShapeView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OverviewTab_OnTapped" />
+                    </xfShapeView:ShapeView.GestureRecognizers>
+                    <xfShapeView:ShapeView.Content>
+                        <Label
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Opacity="{Binding DisplayType, Converter={StaticResource ÁppStimmerEditorDisplayTypeToOpacityConverter}, ConverterParameter=overview}"
+                            Text="Übersicht"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+                    </xfShapeView:ShapeView.Content>
+                </xfShapeView:ShapeView>
+                <BoxView
+                    Grid.Row="1"
+                    IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=overview}"
+                    Color="White" />
+            </Grid>
+
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="97*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+
+                <xfShapeView:ShapeView
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppPrimaryColor}">
+                    <xfShapeView:ShapeView.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Details_OnTapped" />
+                    </xfShapeView:ShapeView.GestureRecognizers>
+                    <xfShapeView:ShapeView.Content>
+                        <Label
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Opacity="{Binding DisplayType, Converter={StaticResource ÁppStimmerEditorDisplayTypeToOpacityConverter}, ConverterParameter=details}"
+                            Text="Details"
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+                    </xfShapeView:ShapeView.Content>
+                </xfShapeView:ShapeView>
+                <BoxView
+                    Grid.Row="1"
+                    IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=details}"
+                    Color="White" />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <appStimmerEditor:AppStimmerEditorOverviewView IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=overview}" />
+            <appStimmerEditor:AppStimmerEditorDetailsView IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=details}" />
+        </Grid>
+    </Grid>
+    <!--<TabbedPage.Children>
         <ContentPage Title="Overview">
             <ContentPage.Content>
                 <appStimmerEditor:AppStimmerEditorOverviewView />
@@ -19,5 +99,5 @@
                 <appStimmerEditor:AppStimmerEditorDetailsView />
             </ContentPage.Content>
         </ContentPage>
-    </TabbedPage.Children>
-</TabbedPage>
+    </TabbedPage.Children>-->
+</ContentPage>

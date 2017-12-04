@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace MSO.StimmApp.Elements
 {
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ColoredNavigationPage : NavigationPage
     {
         public ColoredNavigationPage(Page page) : base(page)

@@ -38,6 +38,8 @@
             <converter:BooleanConverter x:Key="BooleanConverter" />
             <converter:ColorToColorChannelConverter x:Key="ColorToColorChannelConverter" />
             <converter:ColorChannelsToColorConverter x:Key="ColorChannelsToColorConverter" />
+            <converter:AppStimmerEditorDisplayTypeToViewVisibilityConverter x:Key="AppStimmerEditorDisplayTypeToViewVisibilityConverter" />
+            <converter:ÁppStimmerEditorDisplayTypeToOpacityConverter x:Key="ÁppStimmerEditorDisplayTypeToOpacityConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
