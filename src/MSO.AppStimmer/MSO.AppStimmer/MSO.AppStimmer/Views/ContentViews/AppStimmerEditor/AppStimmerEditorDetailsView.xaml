@@ -14,20 +14,27 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="150" />
             </Grid.RowDefinitions>
 
             <appStimmerEditor:AppStimmerEditorHeader Grid.Row="0" />
-            <attachments:AppStimmerAttachmentsListView Grid.Row="1" ItemsSource="{Binding AppStimmer.Attachments}" />
+            <attachments:AppStimmerAttachmentsListView
+                Grid.Row="1"
+                Margin="15"
+                ItemsSource="{Binding AppStimmer.Attachments}" />
 
-            <Grid Grid.Row="2" IsVisible="true">
+            <Grid
+                Grid.Row="1"
+                HorizontalOptions="End"
+                IsVisible="true"
+                VerticalOptions="End">
                 <elements:TintedSvgCachedImage
-                    HeightRequest="100"
+                    Margin="0,0,50,50"
+                    HeightRequest="65"
                     HorizontalOptions="Center"
                     Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
                     TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppPrimaryColor}"
                     VerticalOptions="Center"
-                    WidthRequest="100">
+                    WidthRequest="65">
 
                     <forms:SvgCachedImage.GestureRecognizers>
                         <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
@@ -35,7 +42,7 @@
                 </elements:TintedSvgCachedImage>
             </Grid>
             <Grid
-                Grid.Row="2"
+                Grid.Row="1"
                 BackgroundColor="White"
                 IsVisible="{Binding IsAddingAttachment}">
                 <attachments:AddAttachmentView />

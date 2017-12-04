@@ -3,8 +3,9 @@
     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments.AppStimmerAttachmentsListView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:attachments1="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    BackgroundColor="Transparent"
     HasUnevenRows="True"
     ItemTapped="AppStimmerAttachmentsListView_OnItemTapped"
     SeparatorVisibility="None">
