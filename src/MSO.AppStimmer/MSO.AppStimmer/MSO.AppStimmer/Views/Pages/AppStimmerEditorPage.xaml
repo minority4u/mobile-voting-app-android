@@ -7,7 +7,7 @@
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
     Title="AppStimmer editieren"
-    BackgroundColor="{StaticResource StandardPageBackgroundColor}"
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=SecondaryColor}"
     BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
     <Grid>
         <Grid.RowDefinitions>

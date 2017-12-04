@@ -10,8 +10,8 @@
     d1p1:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="AppStimmerOrange">#F9C470</Color>
-            <Color x:Key="StandardPageBackgroundColor">#F1F4F6</Color>
+            <!--<Color x:Key="AppStimmerOrange">#F9C470</Color>
+            <Color x:Key="StandardPageBackgroundColor">#F1F4F6</Color>-->
             <Color x:Key="GrayLight">#FFF2F2F2</Color>
             <Color x:Key="GrayDark">#FF959595</Color>
             <Color x:Key="GrayPrimary">#FFB9B9B9</Color>

@@ -6,7 +6,7 @@
     xmlns:appStimmer="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:appstimmen="clr-namespace:MSO.StimmApp.Views.ContentViews.Appstimmen;assembly=MSO.StimmApp"
     Title="Appstimmen"
-    BackgroundColor="{StaticResource StandardPageBackgroundColor}"
+    BackgroundColor="{Binding Source={x:Static appStimmer:App.Settings}, Path=SecondaryColor}"
     BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <appstimmen:AppStimmerCardView Padding="20" />

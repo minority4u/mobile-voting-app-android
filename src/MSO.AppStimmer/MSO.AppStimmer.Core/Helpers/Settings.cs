@@ -24,11 +24,7 @@ namespace MSO.StimmApp.Core.Helpers
 
         public string AppPrimaryColor
         {
-            get
-            {
-                var setting = AppSettings.GetValueOrDefault(AppPrimaryColorSettingsKey, AppPrimaryColorSettingsDefault);
-                return setting;
-            }
+            get => AppSettings.GetValueOrDefault(AppPrimaryColorSettingsKey, AppPrimaryColorSettingsDefault);
             set
             {
                 var original = AppPrimaryColor;
@@ -39,5 +35,36 @@ namespace MSO.StimmApp.Core.Helpers
             }
         }
 
+        private const string SecondaryColorSettingsKey = "SecondaryColor";
+        private static readonly string SecondaryColorSettingsDefault = "#F1F4F6";
+
+        public string SecondaryColor
+        {
+            get => AppSettings.GetValueOrDefault(SecondaryColorSettingsKey, SecondaryColorSettingsDefault);
+            set
+            {
+                var original = SecondaryColor;
+                if (AppSettings.AddOrUpdateValue(nameof(SecondaryColor), value))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(SecondaryColor, value);
+            }
+        }
+
+        private const string MenuPageBackgroundColorSettingsKey = "MenuPageBackgroundColor";
+        private static readonly string MenuPageBackgroundColorSettingsDefault = "#AA000000";
+
+        public string MenuPageBackgroundColor
+        {
+            get => AppSettings.GetValueOrDefault(MenuPageBackgroundColorSettingsKey, MenuPageBackgroundColorSettingsDefault);
+            set
+            {
+                var original = MenuPageBackgroundColor;
+                if (AppSettings.AddOrUpdateValue(nameof(MenuPageBackgroundColor), value))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(MenuPageBackgroundColor, value);
+            }
+        }
     }
 }

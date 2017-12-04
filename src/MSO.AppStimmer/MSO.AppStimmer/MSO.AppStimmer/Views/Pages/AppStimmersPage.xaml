@@ -4,7 +4,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:appStimmers="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmers;assembly=MSO.StimmApp"
-    BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}">
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=SecondaryColor}">
     <ContentPage.Content>
         <appStimmers:AppStimmersListView />
     </ContentPage.Content>

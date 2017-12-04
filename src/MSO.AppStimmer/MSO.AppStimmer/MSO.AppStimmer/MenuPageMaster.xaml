@@ -13,7 +13,7 @@
     <StackLayout Orientation="Vertical">
         <ListView
             x:Name="MenuItemsList"
-            BackgroundColor="#AA000000"
+            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=MenuPageBackgroundColor}"
             ItemsSource="{Binding MenuItems}"
             RowHeight="50"
             SeparatorVisibility="Default">

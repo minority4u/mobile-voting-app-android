@@ -4,7 +4,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    BackgroundColor="{StaticResource GrayLight}"
     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
     HasUnevenRows="true"
     ItemTapped="AppStimmersListView_OnItemTapped"
@@ -18,8 +17,7 @@
                         <StackLayout
                             Padding="0,0,.5,.5"
                             AbsoluteLayout.LayoutBounds="0,0,1,1"
-                            AbsoluteLayout.LayoutFlags="All"
-                            BackgroundColor="{StaticResource GrayPrimary}">
+                            AbsoluteLayout.LayoutFlags="All">
 
                             <StackLayout
                                 BackgroundColor="White"
