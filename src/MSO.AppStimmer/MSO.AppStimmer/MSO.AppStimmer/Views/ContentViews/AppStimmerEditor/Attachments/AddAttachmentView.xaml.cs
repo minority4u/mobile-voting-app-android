@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using MSO.StimmApp.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
@@ -10,5 +12,12 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
 		{
 			this.InitializeComponent();
 		}
+
+	    public AppStimmerEditorViewModel ViewModel => this.BindingContext as AppStimmerEditorViewModel;
+
+        private void CancelAddingAttachgmentImageButton_OnTapped(object sender, EventArgs e)
+        {
+            this.ViewModel.IsAddingAttachment = false;
+        }
 	}
 }
