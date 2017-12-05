@@ -1,5 +1,7 @@
 // Helpers/Settings.cs
 
+using MSO.StimmApp.Core.Models;
+using Newtonsoft.Json;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
@@ -32,6 +34,24 @@ namespace MSO.StimmApp.Core.Helpers
                     this.Set(ref original, value);
 
                 AppSettings.AddOrUpdateValue(AppPrimaryColorSettingsKey, value);
+            }
+        }
+
+        private const string AppColorsSettingKey = "AppColors";
+        private static readonly string AppPrimaryColorsSettingDefault = JsonConvert.SerializeObject(new ColorTheme());
+
+        public ColorTheme AppColors
+        {
+            get => JsonConvert.DeserializeObject<ColorTheme>(AppSettings.GetValueOrDefault(AppColorsSettingKey, AppPrimaryColorsSettingDefault));
+            set
+            {
+                var original = AppColors;
+                var colorThemeValue = JsonConvert.SerializeObject(value);
+
+                if (AppSettings.AddOrUpdateValue(nameof(AppColors), colorThemeValue))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(AppColorsSettingKey, colorThemeValue);
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using GalaSoft.MvvmLight.Ioc;
+using MSO.Common;
 using MSO.StimmApp.Core.ViewModels;
 using Xamarin.Forms;
 
@@ -47,7 +48,10 @@ namespace MSO.StimmApp.ViewModels
             var blueHex = AppPrimaryColorBlueChannel.ToString("X2");
             var colorStringHex = "#" + redHex + greenHex + blueHex;
 
-            App.Settings.AppPrimaryColor = colorStringHex;
+            var newAppColors = App.Settings.AppColors.CloneJson();
+            newAppColors.AppPrimaryColor = colorStringHex;
+
+            App.Settings.AppColors = newAppColors;
         }
     }
 }

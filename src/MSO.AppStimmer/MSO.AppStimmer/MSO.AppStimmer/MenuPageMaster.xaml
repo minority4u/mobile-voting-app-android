@@ -34,7 +34,7 @@
                             <elements:TintedSvgCachedImage
                                 HeightRequest="30"
                                 Source="{Binding Icon, Converter={StaticResource ImageToSvgSourceConverter}}"
-                                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppPrimaryColor}"
+                                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppPrimaryColor}"
                                 VerticalOptions="Center"
                                 WidthRequest="30" />
 
