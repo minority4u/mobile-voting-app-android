@@ -7,8 +7,6 @@
     <ContentView.Content>
         <Grid>
             <appStimmerEditor:AppStimmerEditorHeader />
-
-            <Grid />
         </Grid>
     </ContentView.Content>
 </ContentView>

@@ -48,7 +48,7 @@
                 <BoxView
                     Grid.Row="1"
                     IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=overview}"
-                    Color="White" />
+                    Color="{Binding Source={x:Static stimmApp:App.Settings}, Path=ActiveTabIndicatorColor}" />
             </Grid>
 
 
@@ -79,7 +79,7 @@
                 <BoxView
                     Grid.Row="1"
                     IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=details}"
-                    Color="White" />
+                    Color="{Binding Source={x:Static stimmApp:App.Settings}, Path=ActiveTabIndicatorColor}" />
             </Grid>
         </Grid>
 

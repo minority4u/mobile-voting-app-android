@@ -19,6 +19,7 @@
 
             <appStimmerEditor:AppStimmerEditorHeader Grid.Row="0" />
             <attachments:AppStimmerAttachmentsListView
+                x:Name="AttachmentsListView"
                 Grid.Row="1"
                 Grid.RowSpan="2"
                 Margin="15"
@@ -46,7 +47,7 @@
             </Grid>
             <Grid
                 Grid.Row="2"
-                BackgroundColor="White"
+                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=PopupColorColor}"
                 IsVisible="{Binding IsAddingAttachment}">
                 <attachments:AddAttachmentView />
             </Grid>

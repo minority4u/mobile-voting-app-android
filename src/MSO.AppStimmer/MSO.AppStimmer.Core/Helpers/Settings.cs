@@ -51,19 +51,132 @@ namespace MSO.StimmApp.Core.Helpers
             }
         }
 
-        private const string MenuPageBackgroundColorSettingsKey = "MenuPageBackgroundColor";
-        private static readonly string MenuPageBackgroundColorSettingsDefault = "#AA000000";
+        private const string MenuPageColorSettingsKey = "MenuPageColor";
+        private static readonly string MenuPageColorSettingsDefault = "#AA000000";
 
-        public string MenuPageBackgroundColor
+        public string MenuPageColor
         {
-            get => AppSettings.GetValueOrDefault(MenuPageBackgroundColorSettingsKey, MenuPageBackgroundColorSettingsDefault);
+            get => AppSettings.GetValueOrDefault(MenuPageColorSettingsKey, MenuPageColorSettingsDefault);
             set
             {
-                var original = MenuPageBackgroundColor;
-                if (AppSettings.AddOrUpdateValue(nameof(MenuPageBackgroundColor), value))
+                var original = MenuPageColor;
+                if (AppSettings.AddOrUpdateValue(nameof(MenuPageColor), value))
                     this.Set(ref original, value);
 
-                AppSettings.AddOrUpdateValue(MenuPageBackgroundColor, value);
+                AppSettings.AddOrUpdateValue(MenuPageColor, value);
+            }
+        }
+
+        private const string BottomActionBarColorSettingsKey = "BottomActionBarColor";
+        private static readonly string BottomActionBarColorSettingsDefault = "#88FFFFFF";
+
+        public string BottomActionBarColor
+        {
+            get => AppSettings.GetValueOrDefault(BottomActionBarColorSettingsKey, BottomActionBarColorSettingsDefault);
+            set
+            {
+                var original = BottomActionBarColor;
+                if (AppSettings.AddOrUpdateValue(nameof(BottomActionBarColor), value))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(BottomActionBarColor, value);
+            }
+        }
+
+        private const string SimpleControlsColorSettingsKey = "SimpleControlsColor";
+        private static readonly string SimpleControlsColorSettingsDefault = "#A9A9A9";
+
+        public string SimpleControlsColor
+        {
+            get => AppSettings.GetValueOrDefault(SimpleControlsColorSettingsKey, SimpleControlsColorSettingsDefault);
+            set
+            {
+                var original = SimpleControlsColor;
+                if (AppSettings.AddOrUpdateValue(nameof(SimpleControlsColor), value))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(SimpleControlsColor, value);
+            }
+        }
+
+        private const string ListViewHeaderColorColorSettingsKey = "ListViewHeaderColorColor";
+        private static readonly string ListViewHeaderColorColorSettingsDefault = "#808080";
+
+        public string ListViewHeaderColorColor
+        {
+            get => AppSettings.GetValueOrDefault(ListViewHeaderColorColorSettingsKey, ListViewHeaderColorColorSettingsDefault);
+            set
+            {
+                var original = ListViewHeaderColorColor;
+                if (AppSettings.AddOrUpdateValue(nameof(ListViewHeaderColorColor), value))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(ListViewHeaderColorColor, value);
+            }
+        }
+
+
+        private const string AppStimmerAttachmentItemColorSettingsKey = "AppStimmerAttachmentItemBackgroundColor";
+        private static readonly string AppStimmerAttachmentItemColorSettingsDefault = "#FFFFFF";
+
+        public string AppStimmerAttachmentItemColor
+        {
+            get => AppSettings.GetValueOrDefault(AppStimmerAttachmentItemColorSettingsKey, AppStimmerAttachmentItemColorSettingsDefault);
+            set
+            {
+                var original = AppStimmerAttachmentItemColor;
+                if (AppSettings.AddOrUpdateValue(nameof(AppStimmerAttachmentItemColor), value))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(AppStimmerAttachmentItemColor, value);
+            }
+        }
+
+        private const string AppStimmersItemColorSettingsKey = "AppStimmersItemBackgroundColor";
+        private static readonly string AppStimmersItemColorSettingsDefault = "#FFFFFF";
+
+        public string AppStimmersItemColor
+        {
+            get => AppSettings.GetValueOrDefault(AppStimmersItemColorSettingsKey, AppStimmersItemColorSettingsDefault);
+            set
+            {
+                var original = AppStimmersItemColor;
+                if (AppSettings.AddOrUpdateValue(nameof(AppStimmersItemColor), value))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(AppStimmersItemColor, value);
+            }
+        }
+
+        private const string PopupColorSettingsKey = "PopupColor";
+        private static readonly string PopupColorSettingsDefault = "#FFFFFF";
+
+        public string PopupColor
+        {
+            get => AppSettings.GetValueOrDefault(PopupColorSettingsKey, PopupColorSettingsDefault);
+            set
+            {
+                var original = PopupColor;
+                if (AppSettings.AddOrUpdateValue(nameof(PopupColor), value))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(PopupColor, value);
+            }
+        }
+
+        private const string ActiveTabIndicatorColorSettingsKey = "ActiveTabIndicatorColor";
+        private static readonly string ActiveTabIndicatorColorSettingsDefault = "#FFFFFF";
+
+        public string ActiveTabIndicatorColor
+        {
+            get => AppSettings.GetValueOrDefault(ActiveTabIndicatorColorSettingsKey, ActiveTabIndicatorColorSettingsDefault);
+            set
+            {
+                var original = ActiveTabIndicatorColor;
+                if (AppSettings.AddOrUpdateValue(nameof(ActiveTabIndicatorColor), value))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(ActiveTabIndicatorColor, value);
             }
         }
     }
