@@ -3,6 +3,7 @@
     x:Class="MSO.StimmApp.Views.ContentViews.CurrentUserView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     BindingContext="{Binding CurrentUser, Source={StaticResource Locator}}">
     <ContentView.Content>
         <Grid>
@@ -30,14 +31,14 @@
                 FontSize="11"
                 Style="{DynamicResource SubtitleStyle}"
                 Text="{Binding User.Username}"
-                TextColor="White" />
+                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.MenuPageTextColor}" />
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
                 FontSize="11"
                 Style="{DynamicResource SubtitleStyle}"
                 Text="{Binding User.MailAddress}"
-                TextColor="White" />
+                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.MenuPageTextColor}" />
         </Grid>
     </ContentView.Content>
 </ContentView>

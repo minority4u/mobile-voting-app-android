@@ -50,7 +50,8 @@
                                         <Label
                                             IsVisible="true"
                                             Style="{StaticResource Sub}"
-                                            Text="{Binding Appstract}" />
+                                            Text="{Binding Appstract}"
+                                            TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SubtitleTextColor}" />
                                     </ContentView>
                                 </StackLayout>
                             </StackLayout>

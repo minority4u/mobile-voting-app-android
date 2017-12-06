@@ -13,8 +13,14 @@
         private string popupColor = "#FFFFFF";
         private string activeTabIndicatorColor = "#FFFFFF";
         private string primaryTextColor = "#FFFFFF";
-        private string secondaryTextColor = "#FFFFFF";
-        private string subtitleTextColor = "#FFFFFF";
+        private string secondaryTextColor = "#000000";
+        private string subtitleTextColor = "#696969";
+        private string popupTextColor = "#FFFFFF";
+        private string menuPageTextColor = "#FFFFFF";
+        private string menuPageIconColor = "#FFFFFF";
+        private string swipeLeftIndicatorColor = "#00FF00";
+        private string swipeRightIndicatorColor = "#FF0000";
+        private string noSwipeIndicatorColor = "#FFFFFF";
 
 
         public ColorTheme() : base(true)
@@ -98,6 +104,42 @@
         {
             get => this.subtitleTextColor;
             set => this.Set(ref this.subtitleTextColor, value);
+        }
+
+        public string PopupTextColor
+        {
+            get => this.popupTextColor;
+            set => this.Set(ref this.popupTextColor, value);
+        }
+
+        public string MenuPageTextColor
+        {
+            get => this.menuPageTextColor;
+            set => this.Set(ref this.menuPageTextColor, value);
+        }
+
+        public string MenuPageIconColor
+        {
+            get => this.menuPageIconColor;
+            set => this.Set(ref this.menuPageIconColor, value);
+        }
+
+        public string SwipeLeftIndicatorColor
+        {
+            get => this.swipeLeftIndicatorColor;
+            set => this.Set(ref this.swipeLeftIndicatorColor, value);
+        }
+
+        public string SwipeRightIndicatorColor
+        {
+            get => this.swipeRightIndicatorColor;
+            set => this.Set(ref this.swipeRightIndicatorColor, value);
+        }
+
+        public string NoSwipeIndicatorColor
+        {
+            get => this.noSwipeIndicatorColor;
+            set => this.Set(ref this.noSwipeIndicatorColor, value);
         }
     }
 }

@@ -1,14 +1,15 @@
 ﻿<ContentView
     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorHeader"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
     <ContentView.Content>
         <StackLayout>
             <Entry
                 HorizontalTextAlignment="Center"
                 Opacity="0.7"
                 Text="{Binding AppStimmer.Title}"
-                TextColor="DimGray" />
+                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SubtitleTextColor}" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

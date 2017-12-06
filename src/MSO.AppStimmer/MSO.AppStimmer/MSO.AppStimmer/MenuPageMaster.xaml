@@ -34,14 +34,14 @@
                             <elements:TintedSvgCachedImage
                                 HeightRequest="30"
                                 Source="{Binding Icon, Converter={StaticResource ImageToSvgSourceConverter}}"
-                                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
+                                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.MenuPageIconColor}"
                                 VerticalOptions="Center"
                                 WidthRequest="30" />
 
                             <Label
                                 FontSize="Small"
                                 Text="{Binding Title}"
-                                TextColor="White"
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.MenuPageTextColor}"
                                 VerticalOptions="Center" />
                         </StackLayout>
                     </ViewCell>

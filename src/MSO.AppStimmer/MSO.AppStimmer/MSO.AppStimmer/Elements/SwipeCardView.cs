@@ -11,9 +11,6 @@ namespace MSO.StimmApp.Elements
     {
         private const string DefaultBackgroundColor = "#F5F8FA";
         private const string DefaultCardBackgroundColor = "#FFFFFF";
-        private const string SwipeLeftBackgroundColor = "#88FF0000";
-        private const string SwipeRightBackgroundColor = "#8800FF00";
-        private const string NoSwipeBackgroundColor = "#88FFFFFF";
 
         // Back card scale
         private const float BackCardScale = 0.8f; 
@@ -252,9 +249,9 @@ namespace MSO.StimmApp.Elements
                     var overlayGrid = topCard.FindByName<Grid>("ButtonsGrid");
 
                     if (this.cardDistance > this.CardMoveDistance)
-                        overlayGrid.BackgroundColor = Color.FromHex(SwipeRightBackgroundColor);
+                        overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeRightIndicatorColor);
                     else
-                        overlayGrid.BackgroundColor = Color.FromHex(SwipeLeftBackgroundColor);
+                        overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeLeftIndicatorColor);
                 }
                 else
                 {
@@ -271,7 +268,7 @@ namespace MSO.StimmApp.Elements
         {
             var topCard = this.cards[this.topCardIndex];
             var overlayGrid = topCard.FindByName<Grid>("ButtonsGrid");
-            overlayGrid.BackgroundColor = Color.FromHex(NoSwipeBackgroundColor);
+            overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.NoSwipeIndicatorColor);
         }
 
         // Handle the end of the touch event

@@ -29,7 +29,7 @@
                                     FontSize="Medium"
                                     LineBreakMode="NoWrap"
                                     Text="{Binding Description}"
-                                    TextColor="White"
+                                    TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryTextColor}"
                                     VerticalOptions="Center" />
                             </StackLayout>
 

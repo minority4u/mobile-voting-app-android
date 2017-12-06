@@ -27,7 +27,6 @@
                 x:Key="Sub"
                 BasedOn="{StaticResource LabelStyle}"
                 TargetType="Label">
-                <Setter Property="TextColor" Value="{StaticResource GrayDark}" />
                 <Setter Property="FontSize" Value="Small" />
             </Style>
 

@@ -45,6 +45,16 @@ namespace MSO.StimmApp.ViewModels
                     Description = "Dark Menace",
                     ColorTheme = Core.Helpers.ColorThemes.DarkMenace
                 },
+                new ColorThemeItem()
+                {
+                    Description = "Purple Passion",
+                    ColorTheme = Core.Helpers.ColorThemes.PurplePassion
+                },
+                new ColorThemeItem()
+                {
+                    Description = "Walk in the Forest",
+                    ColorTheme = Core.Helpers.ColorThemes.MintGreen
+                },
             };
 
             this.ColorThemes = new ObservableCollection<ColorThemeItem>(standardColorThemes);

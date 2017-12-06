@@ -40,7 +40,7 @@
                             HorizontalTextAlignment="Center"
                             Opacity="{Binding DisplayType, Converter={StaticResource ÁppStimmerEditorDisplayTypeToOpacityConverter}, ConverterParameter=overview}"
                             Text="Übersicht"
-                            TextColor="White"
+                            TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryTextColor}"
                             VerticalOptions="Center"
                             VerticalTextAlignment="Center" />
                     </xfShapeView:ShapeView.Content>
@@ -71,7 +71,7 @@
                             HorizontalTextAlignment="Center"
                             Opacity="{Binding DisplayType, Converter={StaticResource ÁppStimmerEditorDisplayTypeToOpacityConverter}, ConverterParameter=details}"
                             Text="Details"
-                            TextColor="White"
+                            TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryTextColor}"
                             VerticalOptions="Center"
                             VerticalTextAlignment="Center" />
                     </xfShapeView:ShapeView.Content>
