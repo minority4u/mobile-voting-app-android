@@ -1,5 +1,4 @@
 ﻿using System;
-using MSO.StimmApp.Core.Helpers;
 using MSO.StimmApp.Elements;
 using MSO.StimmApp.Models;
 using Xamarin.Forms;
@@ -32,12 +31,6 @@ namespace MSO.StimmApp
         public void InitializePage(Page page)
         {
             var navigationPage = new ColoredNavigationPage(page);
-
-            //var binding = new Binding();
-            //binding.Mode = BindingMode.TwoWay;
-            //binding.Source = App.Settings.AppPrimaryColor;
-
-            //navigationPage.SetBinding(NavigationPage.BarBackgroundColorProperty, binding);
 
             App.NavigationService.Initialize(navigationPage);
             this.Detail = navigationPage;

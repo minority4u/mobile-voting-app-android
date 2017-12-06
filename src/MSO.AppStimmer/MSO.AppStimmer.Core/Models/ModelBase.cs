@@ -1,6 +1,5 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
-using MSO.StimmApp.Core.Helpers;
 
 namespace MSO.StimmApp.Core.Models
 {

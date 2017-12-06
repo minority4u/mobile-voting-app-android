@@ -27,7 +27,7 @@
                 HeightRequest="20"
                 HorizontalOptions="End"
                 Source="resource://MSO.StimmApp.Resources.Icons.cross.svg"
-                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=SimpleControlsColor}"
+                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SimpleControlsColor}"
                 VerticalOptions="Start"
                 WidthRequest="20">
                 <forms:SvgCachedImage.GestureRecognizers>

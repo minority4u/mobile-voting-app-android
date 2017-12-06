@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:settings="clr-namespace:MSO.StimmApp.Views.ContentViews.Settings;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=SecondaryColor}"
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
     BindingContext="{Binding Settings, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <settings:AppColorsSettingsView />

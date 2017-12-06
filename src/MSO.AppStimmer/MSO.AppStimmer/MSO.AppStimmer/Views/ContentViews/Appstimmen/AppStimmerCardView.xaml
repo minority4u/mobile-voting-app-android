@@ -42,7 +42,7 @@
                             x:Name="ButtonsGrid"
                             Grid.Column="0"
                             Grid.ColumnSpan="3"
-                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=BottomActionBarColor}"
+                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.BottomActionBarColor}"
                             Row="1">
                             <Image
                                 Margin="10,0,0,0"

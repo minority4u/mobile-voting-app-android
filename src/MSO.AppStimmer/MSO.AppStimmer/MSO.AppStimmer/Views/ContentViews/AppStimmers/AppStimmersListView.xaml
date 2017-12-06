@@ -4,7 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=SecondaryColor}"
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
     HasUnevenRows="true"
     ItemTapped="AppStimmersListView_OnItemTapped"
@@ -21,7 +21,7 @@
                             AbsoluteLayout.LayoutFlags="All">
 
                             <StackLayout
-                                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppStimmersItemColor}"
+                                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmersItemColor}"
                                 Orientation="Vertical"
                                 Spacing="0"
                                 VerticalOptions="FillAndExpand">
@@ -43,7 +43,7 @@
                                     <Label
                                         FontSize="Large"
                                         Text="{Binding Title}"
-                                        TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppPrimaryColor}"
+                                        TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
                                         VerticalOptions="CenterAndExpand" />
 
                                     <ContentView>

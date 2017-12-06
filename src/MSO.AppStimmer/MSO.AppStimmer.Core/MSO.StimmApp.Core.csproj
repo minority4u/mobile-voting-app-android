@@ -36,12 +36,13 @@
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
     <Compile Include="Enums\AppStimmerEditorDisplayType.cs" />
     <Compile Include="Enums\AttachmentType.cs" />
-    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Helpers\ColorThemes.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Models\AppStimmer.cs" />
     <Compile Include="Models\AppStimmerAttachment.cs" />
     <Compile Include="Models\AppStimmerUser.cs" />
     <Compile Include="Models\ColorTheme.cs" />
+    <Compile Include="Models\ColorThemeItem.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\EditableModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +105,8 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

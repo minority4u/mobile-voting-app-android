@@ -13,7 +13,7 @@
     <StackLayout Orientation="Vertical">
         <ListView
             x:Name="MenuItemsList"
-            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=MenuPageColor}"
+            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.MenuPageColor}"
             ItemsSource="{Binding MenuItems}"
             RowHeight="50"
             SeparatorVisibility="Default">
@@ -34,7 +34,7 @@
                             <elements:TintedSvgCachedImage
                                 HeightRequest="30"
                                 Source="{Binding Icon, Converter={StaticResource ImageToSvgSourceConverter}}"
-                                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppPrimaryColor}"
+                                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
                                 VerticalOptions="Center"
                                 WidthRequest="30" />
 

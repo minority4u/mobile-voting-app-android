@@ -9,8 +9,8 @@
     <ContentView.Content>
         <StackLayout>
             <StackLayout>
-                <!--<Entry Text="{Binding AppPrimaryColor}"></Entry>-->
-                <Slider
+                <Entry Text="Farbschema:" />
+                <!--<Slider
                     x:Name="RedSlider"
                     Maximum="255"
                     Minimum="0"
@@ -49,7 +49,9 @@
                     Clicked="SaveColorsButton_OnClicked"
                     HeightRequest="50"
                     Text="Save"
-                    WidthRequest="50" />
+                    WidthRequest="50" />-->
+
+                <Picker ItemsSource="{Binding ColorThemes}" SelectedIndex="{Binding SelectedColorThemeIndex}" />
             </StackLayout>
         </StackLayout>
     </ContentView.Content>

@@ -6,7 +6,7 @@
     xmlns:appStimmers="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmers;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
-    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=SecondaryColor}">
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}">
     <ContentPage.Content>
         <appStimmers:AppStimmersListView />
     </ContentPage.Content>

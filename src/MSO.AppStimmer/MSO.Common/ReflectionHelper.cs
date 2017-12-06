@@ -20,23 +20,6 @@ namespace MSO.Common
             return instance;
         }
 
-        public static T CloneJson<T>(this T source)
-        {
-            // Don't serialize a null object, simply return the default for that object
-            if (object.ReferenceEquals(source, null))
-            {
-                return default(T);
-            }
-
-            // initialize inner objects individually
-            // for example in default constructor some list property initialized with some values,
-            // but in 'source' these items are cleaned -
-            // without ObjectCreationHandling.Replace default constructor values will be added to result
-            var deserializeSettings = new JsonSerializerSettings { ObjectCreationHandling = ObjectCreationHandling.Replace };
-
-            return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(source), deserializeSettings);
-        }
-
 
         /// <summary>
         ///     Tries to find a matching constructor for a given type and a variable number of parameters
@@ -97,6 +80,22 @@ namespace MSO.Common
             }
 
             return true;
+        }
+
+        public static T CloneJson<T>(this T source)
+        {
+            // Don't serialize a null object, simply return the default for that object
+            if (object.ReferenceEquals(source, null))
+                return default(T);
+
+            // initialize inner objects individually
+            // for example in default constructor some list property initialized with some values,
+            // but in 'source' these items are cleaned -
+            // without ObjectCreationHandling.Replace default constructor values will be added to result
+            var deserializeSettings = new JsonSerializerSettings { ObjectCreationHandling = ObjectCreationHandling.Replace };
+            var result = JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(source), deserializeSettings);
+
+            return result;
         }
     }
 }

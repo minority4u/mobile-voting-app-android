@@ -7,7 +7,7 @@
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
     Title="AppStimmer editieren"
-    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=SecondaryColor}"
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
     BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
     <Grid>
         <Grid.RowDefinitions>
@@ -30,7 +30,7 @@
                 <xfShapeView:ShapeView
                     Grid.RowSpan="2"
                     Grid.Column="0"
-                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppPrimaryColor}">
+                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}">
                     <xfShapeView:ShapeView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OverviewTab_OnTapped" />
                     </xfShapeView:ShapeView.GestureRecognizers>
@@ -48,7 +48,7 @@
                 <BoxView
                     Grid.Row="1"
                     IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=overview}"
-                    Color="{Binding Source={x:Static stimmApp:App.Settings}, Path=ActiveTabIndicatorColor}" />
+                    Color="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.ActiveTabIndicatorColor}" />
             </Grid>
 
 
@@ -61,7 +61,7 @@
                 <xfShapeView:ShapeView
                     Grid.RowSpan="2"
                     Grid.Column="0"
-                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppPrimaryColor}">
+                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}">
                     <xfShapeView:ShapeView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Details_OnTapped" />
                     </xfShapeView:ShapeView.GestureRecognizers>
@@ -79,7 +79,7 @@
                 <BoxView
                     Grid.Row="1"
                     IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=details}"
-                    Color="{Binding Source={x:Static stimmApp:App.Settings}, Path=ActiveTabIndicatorColor}" />
+                    Color="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.ActiveTabIndicatorColor}" />
             </Grid>
         </Grid>
 

@@ -17,12 +17,12 @@
                         <StackLayout
                             AbsoluteLayout.LayoutBounds="0,0,1,1"
                             AbsoluteLayout.LayoutFlags="All"
-                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=SecondaryColor}"
+                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
                             Spacing="0">
 
                             <StackLayout
                                 Padding="14,8"
-                                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=ListViewHeaderColorColor}"
+                                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.ListViewHeaderColor}"
                                 HorizontalOptions="FillAndExpand"
                                 Orientation="Horizontal">
                                 <Label
@@ -33,7 +33,7 @@
                                     VerticalOptions="Center" />
                             </StackLayout>
 
-                            <Grid BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppStimmerAttachmentItemColor}" HeightRequest="125">
+                            <Grid BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemColor}" HeightRequest="125">
                                 <Grid.Children>
                                     <attachments1:TextAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
                                     <attachments1:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Gallery}" />
