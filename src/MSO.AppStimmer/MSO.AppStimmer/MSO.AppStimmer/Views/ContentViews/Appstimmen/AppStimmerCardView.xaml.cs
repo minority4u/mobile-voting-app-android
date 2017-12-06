@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using MSO.StimmApp.ViewModels;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MSO.StimmApp.Views.ContentViews.Appstimmen
@@ -15,5 +17,12 @@ namespace MSO.StimmApp.Views.ContentViews.Appstimmen
 		        this.SwipeCardView.CardMoveDistance = (int)(this.Width * 0.20f);
 		    };	    
         }
+
+	    public AppStimmerViewModel ViewModel => this.BindingContext as AppStimmerViewModel;
+
+	    private void ShowDetailsImageButton_OnTapped(object sender, EventArgs e)
+	    {
+	        this.ViewModel.ShowDetailsForCurrentAppStimmer();
+	    }
 	}
 }

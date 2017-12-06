@@ -3,20 +3,18 @@
     x:Class="MSO.StimmApp.Views.ContentViews.Appstimmen.AppStimmerCardView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
-    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
     BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
     <ContentView.Content>
         <elements:SwipeCardView
             x:Name="SwipeCardView"
+            InputTransparent="True"
             ItemsSource="{Binding AppStimmers}"
             TopItem="{Binding CurrentAppStimmer}">
             <elements:SwipeCardView.ItemTemplate>
                 <DataTemplate x:Name="AppstimmerTemplate">
-                    <Grid InputTransparent="True">
+                    <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="40" />
@@ -49,9 +47,14 @@
                                 HorizontalOptions="Start"
                                 Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_down_red_circle.scale-100.png}" />
                             <Image
+                                x:Name="ShowDetailsButton"
                                 Margin="0,0,0,0"
                                 HorizontalOptions="Center"
-                                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.star_blue_circle.scale-100.png}" />
+                                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.info_blue_circle.scale-100.png}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ShowDetailsImageButton_OnTapped" />
+                                </Image.GestureRecognizers>
+                            </Image>
                             <Image
                                 Margin="0,0,10,0"
                                 HorizontalOptions="End"

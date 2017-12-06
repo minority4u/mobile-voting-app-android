@@ -12,25 +12,35 @@ namespace MSO.StimmApp.ViewModels
         private IAppStimmerService appStimmerService;
         private bool isAddingAttachment;
         private AppStimmerEditorDisplayType displayType;
+        private bool isEditable;
+
+        public bool IsAddingAttachment
+        {
+            get => this.isAddingAttachment;
+            set => this.Set(ref this.isAddingAttachment, value);
+        }
 
         [PreferredConstructor]
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService) :
-            this(appStimmerService, new AppStimmer(), AppStimmerEditorDisplayType.Overview)
+            this(appStimmerService, new AppStimmer(), AppStimmerEditorDisplayType.Overview, isEditable: true)
         {
             
         }
 
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer)
-            : this(appStimmerService, appStimmer, AppStimmerEditorDisplayType.Overview)
+            : this(appStimmerService, appStimmer, AppStimmerEditorDisplayType.Overview, isEditable: true)
         {
             this.appStimmerService = appStimmerService;
             this.appStimmer = appStimmer;
         }
 
-        public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer, AppStimmerEditorDisplayType displayType)
+        public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer, 
+            AppStimmerEditorDisplayType displayType, bool isEditable)
         {
             this.appStimmerService = appStimmerService;
             this.appStimmer = appStimmer;
+            this.displayType = displayType;
+            this.isEditable = isEditable;
         }
 
         public AppStimmer AppStimmer
@@ -45,10 +55,10 @@ namespace MSO.StimmApp.ViewModels
             set => this.Set(ref this.displayType, value);
         }
 
-        public bool IsAddingAttachment
+        public bool IsEditable
         {
-            get => this.isAddingAttachment;
-            set => this.Set(ref this.isAddingAttachment, value);
+            get => this.isEditable;
+            set => this.Set(ref this.isEditable, value);
         }
 
         public void AddAttachment(AttachmentType attachmentType)

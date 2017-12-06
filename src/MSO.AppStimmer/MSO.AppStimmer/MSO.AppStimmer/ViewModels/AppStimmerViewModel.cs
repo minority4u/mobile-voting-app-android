@@ -3,9 +3,11 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
+using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Core.ViewModels;
+using MSO.StimmApp.Views;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.ViewModels
@@ -36,6 +38,14 @@ namespace MSO.StimmApp.ViewModels
         {
             get => this.appStimmers;
             set => this.Set(ref this.appStimmers, value);
+        }
+
+        public void ShowDetailsForCurrentAppStimmer()
+        {
+            var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, this.CurrentAppStimmer, 
+                AppStimmerEditorDisplayType.Overview, false);
+
+            App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor, viewModel);
         }
     }
 }
