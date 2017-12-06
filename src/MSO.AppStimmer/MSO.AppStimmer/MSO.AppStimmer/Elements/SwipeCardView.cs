@@ -241,14 +241,17 @@ namespace MSO.StimmApp.Elements
                 // Keep a record of how far its moved
                 this.cardDistance = differenceX;
 
-                if (Math.Abs((int)this.cardDistance) > this.CardMoveDistance)
+                var percentageOfTriggerDistanceMoved = Math.Abs(this.cardDistance / this.CardMoveDistance);
+                if (percentageOfTriggerDistanceMoved > 0.10)
                 {
-                    var overlayGrid = topCard.FindByName<Grid>("ButtonsGrid");
+                    var overlayGrid = topCard.FindByName<Grid>("OverlayBox");
 
-                    if (this.cardDistance > this.CardMoveDistance)
+                    if (this.cardDistance > 0)
                         overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeRightIndicatorColor);
                     else
                         overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeLeftIndicatorColor);
+
+                    overlayGrid.Opacity = percentageOfTriggerDistanceMoved;
                 }
                 else
                 {
@@ -264,7 +267,7 @@ namespace MSO.StimmApp.Elements
         private void ResetOverlayColor()
         {
             var topCard = this.cards[this.topCardIndex];
-            var overlayGrid = topCard.FindByName<Grid>("ButtonsGrid");
+            var overlayGrid = topCard.FindByName<Grid>("OverlayBox");
             overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.NoSwipeIndicatorColor);
         }
 

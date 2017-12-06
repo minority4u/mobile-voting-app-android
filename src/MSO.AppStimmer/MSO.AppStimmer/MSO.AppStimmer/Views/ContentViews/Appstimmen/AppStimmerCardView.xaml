@@ -7,62 +7,58 @@
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
     <ContentView.Content>
-        <elements:SwipeCardView
-            x:Name="SwipeCardView"
-            InputTransparent="True"
-            ItemsSource="{Binding AppStimmers}"
-            TopItem="{Binding CurrentAppStimmer}">
-            <elements:SwipeCardView.ItemTemplate>
-                <DataTemplate x:Name="AppstimmerTemplate">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="40" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80*" />
+                <RowDefinition Height="20*" />
+            </Grid.RowDefinitions>
 
-                        <Image
-                            x:Name="AppStimmerPicture"
-                            Grid.Row="0"
-                            Grid.RowSpan="2"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="3"
-                            Aspect="AspectFill"
-                            HorizontalOptions="Fill"
-                            Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}"
-                            VerticalOptions="Fill" />
+            <elements:SwipeCardView
+                x:Name="SwipeCardView"
+                Grid.Row="0"
+                ItemsSource="{Binding AppStimmers}"
+                TopItem="{Binding CurrentAppStimmer}">
+                <elements:SwipeCardView.ItemTemplate>
+                    <DataTemplate x:Name="AppstimmerTemplate">
+                        <Grid>
+                            <Image
+                                x:Name="AppStimmerPicture"
+                                Aspect="AspectFill"
+                                HorizontalOptions="Fill"
+                                Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}"
+                                VerticalOptions="Fill" />
+                            <Grid
+                                x:Name="OverlayBox"
+                                BackgroundColor="Transparent"
+                                InputTransparent="True" />
 
-                        <Grid
-                            x:Name="ButtonsGrid"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="3"
-                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.NoSwipeIndicatorColor}"
-                            Row="1">
-                            <Image
-                                Margin="10,0,0,0"
-                                HorizontalOptions="Start"
-                                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_down_red_circle.scale-100.png}" />
-                            <Image
-                                x:Name="ShowDetailsButton"
-                                Margin="0,0,0,0"
-                                HorizontalOptions="Center"
-                                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.info_blue_circle.scale-100.png}">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="ShowDetailsImageButton_OnTapped" />
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Image
-                                Margin="0,0,10,0"
-                                HorizontalOptions="End"
-                                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_up_green_circle.scale-100.png}" />
                         </Grid>
-                    </Grid>
-                </DataTemplate>
-            </elements:SwipeCardView.ItemTemplate>
-        </elements:SwipeCardView>
+                    </DataTemplate>
+                </elements:SwipeCardView.ItemTemplate>
+            </elements:SwipeCardView>
+
+            <Grid
+                x:Name="ButtonsGrid"
+                Grid.Row="1"
+                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.NoSwipeIndicatorColor}">
+                <Image
+                    Margin="10,0,0,0"
+                    HorizontalOptions="Start"
+                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_down_red_circle.scale-100.png}" />
+                <Image
+                    x:Name="ShowDetailsButton"
+                    Margin="0,0,0,0"
+                    HorizontalOptions="Center"
+                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.info_blue_circle.scale-100.png}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ShowDetailsImageButton_OnTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image
+                    Margin="0,0,10,0"
+                    HorizontalOptions="End"
+                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.thumbs_up_green_circle.scale-100.png}" />
+            </Grid>
+        </Grid>
     </ContentView.Content>
 </ContentView>

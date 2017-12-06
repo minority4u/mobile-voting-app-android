@@ -5,7 +5,6 @@ using Xamarin.Forms.Xaml;
 
 namespace MSO.StimmApp.Views.ContentViews.Appstimmen
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AppStimmerCardView : ContentView
 	{
 		public AppStimmerCardView ()
@@ -14,7 +13,7 @@ namespace MSO.StimmApp.Views.ContentViews.Appstimmen
 
 		    this.LayoutChanged += (sender, e) =>
 		    {
-		        this.SwipeCardView.CardMoveDistance = (int)(this.Width * 0.20f);
+		        this.SwipeCardView.CardMoveDistance = (int)(this.Width * 0.60f);
 		    };	    
         }
 

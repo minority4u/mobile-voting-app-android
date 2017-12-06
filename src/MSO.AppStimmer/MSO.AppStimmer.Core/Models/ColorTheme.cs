@@ -22,9 +22,9 @@
         private string popupBorderColor = "#FFFFFFFF";
         private string menuPageTextColor = "#FFFFFF";
         private string menuPageIconColor = "#F9C470";
-        private string swipeLeftIndicatorColor = "#00FF00";
-        private string swipeRightIndicatorColor = "#FF0000";
-        private string noSwipeIndicatorColor = "#FFFFFF";
+        private string swipeLeftIndicatorColor = "#DB6E7A";
+        private string swipeRightIndicatorColor = "#6EDBCF";
+        private string noSwipeIndicatorColor = "#00FFFFFF";
         private string swipeCardColor = "#FFFFFF";
         private string swipeCardBackgroundColor = "#FFFFFF";
         private string standardButtonColor = "#F9C470";

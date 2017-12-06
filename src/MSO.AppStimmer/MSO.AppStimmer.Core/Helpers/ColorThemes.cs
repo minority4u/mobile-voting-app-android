@@ -35,8 +35,8 @@ namespace MSO.StimmApp.Core.Helpers
             SubtitleTextColor = "#696969",
             PopupTextColor = "#FFFFFF",
             MenuPageTextColor = "#FFFFFF",
-            SwipeLeftIndicatorColor = "#B81215",
-            SwipeRightIndicatorColor = "#3B83BC",
+            SwipeLeftIndicatorColor = "#DB6E7A",
+            SwipeRightIndicatorColor = "#6EDBCF",
             NoSwipeIndicatorColor = "#000000",
             SwipeCardColor = "#000000",
             SwipeCardBackgroundColor = "#000000"
