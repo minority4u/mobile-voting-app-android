@@ -8,11 +8,11 @@ namespace MSO.StimmApp.Droid.Effects
     {
         protected override void OnAttached()
         {
-            var seekBar = (SeekBar)Control;
-            var blueColor = Xamarin.Forms.Color.DodgerBlue.ToAndroid();
+            //var seekBar = (SeekBar)Control;
+            //var blueColor = Xamarin.Forms.Color.DodgerBlue.ToAndroid();
 
-            seekBar.ProgressDrawable.SetColorFilter(new PorterDuffColorFilter(blueColor, PorterDuff.Mode.SrcIn));
-            seekBar.Thumb.SetColorFilter(new PorterDuffColorFilter(blueColor, PorterDuff.Mode.SrcIn));
+            //seekBar.ProgressDrawable.SetColorFilter(new PorterDuffColorFilter(blueColor, PorterDuff.Mode.SrcIn));
+            //seekBar.Thumb.SetColorFilter(new PorterDuffColorFilter(blueColor, PorterDuff.Mode.SrcIn));
         }
 
         protected override void OnDetached()

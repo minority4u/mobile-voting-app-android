@@ -205,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="Effects\ColoredPickerLineEffect.cs" />
     <Compile Include="Effects\Effects.cs" />
     <Compile Include="Effects\GreenSliderEffect.cs" />
     <Compile Include="Effects\BlueSliderEffect.cs" />
@@ -232,6 +233,10 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\profile_generic.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MSO.AppStimmer.Core\MSO.StimmApp.Core.csproj">
+      <Project>{b8a3ce85-ab7f-49dd-a574-ea7e9dd3b0e3}</Project>
+      <Name>MSO.StimmApp.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSO.AppStimmer\MSO.StimmApp.csproj">
       <Project>{1EDAEDA6-2501-442C-999F-51B3BFC75DC1}</Project>
       <Name>MSO.StimmApp</Name>

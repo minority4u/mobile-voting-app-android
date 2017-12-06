@@ -9,7 +9,10 @@
     <ContentView.Content>
         <StackLayout>
             <StackLayout>
-                <Label Text="Farbschema:" />
+                <Label
+                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
+                    Text="Farbschema:"
+                    TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryTextColor}" />
                 <!--<Slider
                     x:Name="RedSlider"
                     Maximum="255"
@@ -52,9 +55,10 @@
                     WidthRequest="50" />-->
 
                 <Picker
-                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
+                    x:Name="ColorThemePicker"
                     ItemsSource="{Binding ColorThemes}"
-                    SelectedIndex="{Binding SelectedColorThemeIndex}" />
+                    SelectedIndex="{Binding SelectedColorThemeIndex}"
+                    TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryTextColor}" />
             </StackLayout>
         </StackLayout>
     </ContentView.Content>

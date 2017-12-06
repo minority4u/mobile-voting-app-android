@@ -13,10 +13,8 @@ using MSO.StimmApp.Droid;
 using MSO.StimmApp.Droid.Effects;
 using Xamarin.Forms;
 
-[assembly: ResolutionGroupName("SliderEffects")]
-[assembly: ExportEffect(typeof(RedSliderEffect), "RedSliderEffect")]
-[assembly: ExportEffect(typeof(GreenSliderEffect), "GreenSliderEffect")]
-[assembly: ExportEffect(typeof(BlueSliderEffect), "BlueSliderEffect")]
+[assembly: ResolutionGroupName("AndroidEffects")]
+[assembly: ExportEffect(typeof(ColoredPickerLineEffect), "ColoredPickerLineEffect")]
 namespace MSO.StimmApp.Droid.Effects
 {
    

@@ -11,9 +11,7 @@ namespace MSO.StimmApp.Views.ContentViews.Settings
         {
             this.InitializeComponent();
 
-            //this.RedSlider.Effects.Add(Effect.Resolve(("SliderEffects.RedSliderEffect")));
-            //this.GreenSlider.Effects.Add(Effect.Resolve(("SliderEffects.GreenSliderEffect")));
-            //this.BlueSlider.Effects.Add(Effect.Resolve(("SliderEffects.BlueSliderEffect")));
+            this.ColorThemePicker.Effects.Add(Effect.Resolve(("AndroidEffects.ColoredPickerLineEffect")));
         }
 
         public SettingsViewModel ViewModel => this.BindingContext as SettingsViewModel;

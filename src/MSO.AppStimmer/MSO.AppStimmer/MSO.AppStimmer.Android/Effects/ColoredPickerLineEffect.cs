@@ -5,7 +5,9 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
+using Android.Content.Res;
 using Android.Graphics;
+using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -14,15 +16,15 @@ using Xamarin.Forms.Platform.Android;
 
 namespace MSO.StimmApp.Droid.Effects
 {
-    public class GreenSliderEffect : PlatformEffect
+    public class ColoredPickerLineEffect : PlatformEffect
     {
         protected override void OnAttached()
         {
-            //var seekBar = (SeekBar) Control;
-            //var greenColor = Xamarin.Forms.Color.LightSeaGreen.ToAndroid();
+            var picker = Control as EditText;
+            if (picker == null)
+                return;
 
-            //seekBar.ProgressDrawable.SetColorFilter(new PorterDuffColorFilter(greenColor, PorterDuff.Mode.SrcIn));
-            //seekBar.Thumb.SetColorFilter(new PorterDuffColorFilter(greenColor, PorterDuff.Mode.SrcIn));
+            picker.BackgroundTintList = ColorStateList.ValueOf(Color.Gray);
         }
 
         protected override void OnDetached()

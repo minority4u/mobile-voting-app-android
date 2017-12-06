@@ -43,12 +43,13 @@
                                     <Label
                                         FontSize="Large"
                                         Text="{Binding Title}"
-                                        TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
+                                        TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmersItemTitleColor}"
                                         VerticalOptions="CenterAndExpand" />
 
                                     <ContentView>
                                         <Label
                                             IsVisible="true"
+                                            Opacity="0.7"
                                             Style="{StaticResource Sub}"
                                             Text="{Binding Appstract}"
                                             TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SubtitleTextColor}" />

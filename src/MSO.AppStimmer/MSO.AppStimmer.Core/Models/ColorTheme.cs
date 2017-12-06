@@ -8,19 +8,26 @@
         private string bottomActionBarColor = "#88FFFFFF";
         private string simpleControlsColor = "#A9A9A9";
         private string listViewHeaderColor = "#808080";
+        private string listViewItemBorderColor = "#FF000000";
         private string appStimmerAttachmentItemColor = "#FFFFFF";
+        private string appStimmerAttachmentItemTextColor = "#F1F4F6";
         private string appStimmersItemColor = "#FFFFFF";
+        private string appStimmersItemTitleColor = "#F9C470";
         private string popupColor = "#FFFFFF";
         private string activeTabIndicatorColor = "#FFFFFF";
         private string primaryTextColor = "#FFFFFF";
         private string secondaryTextColor = "#000000";
         private string subtitleTextColor = "#696969";
         private string popupTextColor = "#FFFFFF";
+        private string popupBorderColor = "#FFFFFFFF";
         private string menuPageTextColor = "#FFFFFF";
-        private string menuPageIconColor = "#FFFFFF";
+        private string menuPageIconColor = "#F9C470";
         private string swipeLeftIndicatorColor = "#00FF00";
         private string swipeRightIndicatorColor = "#FF0000";
         private string noSwipeIndicatorColor = "#FFFFFF";
+        private string swipeCardColor = "#FFFFFF";
+        private string swipeCardBackgroundColor = "#FFFFFF";
+        private string standardButtonColor = "#F9C470";
 
 
         public ColorTheme() : base(true)
@@ -68,6 +75,12 @@
         {
             get => this.appStimmerAttachmentItemColor;
             set => this.Set(ref this.appStimmerAttachmentItemColor, value);
+        }
+
+        public string AppStimmerAttachmentItemTextColor
+        {
+            get => this.appStimmerAttachmentItemTextColor;
+            set => this.Set(ref this.appStimmerAttachmentItemTextColor, value);
         }
 
         public string AppStimmersItemColor
@@ -140,6 +153,42 @@
         {
             get => this.noSwipeIndicatorColor;
             set => this.Set(ref this.noSwipeIndicatorColor, value);
+        }
+
+        public string AppStimmersItemTitleColor
+        {
+            get => this.appStimmersItemTitleColor;
+            set => this.Set(ref this.appStimmersItemTitleColor, value);
+        }
+
+        public string SwipeCardColor
+        {
+            get => this.swipeCardColor;
+            set => this.Set(ref this.swipeCardColor, value);
+        }
+
+        public string StandardButtonColor
+        {
+            get => this.standardButtonColor;
+            set => this.Set(ref this.standardButtonColor, value);
+        }
+
+        public string SwipeCardBackgroundColor
+        {
+            get => this.swipeCardBackgroundColor;
+            set => this.Set(ref this.swipeCardBackgroundColor, value);
+        }
+
+        public string ListViewItemBorderColor
+        {
+            get => this.listViewItemBorderColor;
+            set => this.Set(ref this.listViewItemBorderColor, value);
+        }
+
+        public string PopupBorderColor
+        {
+            get => this.popupBorderColor;
+            set => this.Set(ref this.popupColor, value);
         }
     }
 }

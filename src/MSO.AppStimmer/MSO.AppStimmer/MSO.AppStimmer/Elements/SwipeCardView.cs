@@ -9,9 +9,6 @@ namespace MSO.StimmApp.Elements
 {
     public class SwipeCardView : ContentView
     {
-        private const string DefaultBackgroundColor = "#F5F8FA";
-        private const string DefaultCardBackgroundColor = "#FFFFFF";
-
         // Back card scale
         private const float BackCardScale = 0.8f; 
         // Speed of the animations
@@ -36,7 +33,7 @@ namespace MSO.StimmApp.Elements
         {
             var view = new RelativeLayout();
 
-            this.BackgroundColor = Color.FromHex(DefaultBackgroundColor);
+            this.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeCardBackgroundColor);
             this.Content = view;
 
             var panGesture = new PanGestureRecognizer();
@@ -136,7 +133,7 @@ namespace MSO.StimmApp.Elements
                 swipeCardView.cards[i] = card;
                 card.InputTransparent = true;
                 card.IsVisible = false;
-                card.BackgroundColor = Color.FromHex(DefaultCardBackgroundColor);
+                card.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeCardColor);
 
                 view.Children.Add(
                     card,
