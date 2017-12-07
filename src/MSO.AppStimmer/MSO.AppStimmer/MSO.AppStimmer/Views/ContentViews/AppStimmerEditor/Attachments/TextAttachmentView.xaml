@@ -6,7 +6,7 @@
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
     <ContentView.Content>
         <StackLayout>
-            <Label Text="{Binding AttachmentSource}" TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
+            <Label IsEnabled="{Binding IsEditable}" Text="{Binding AttachmentSource}" TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>
