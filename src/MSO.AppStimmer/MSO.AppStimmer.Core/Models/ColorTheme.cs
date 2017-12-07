@@ -10,7 +10,7 @@
         private string listViewHeaderColor = "#808080";
         private string listViewItemBorderColor = "#FF000000";
         private string appStimmerAttachmentItemColor = "#FFFFFF";
-        private string appStimmerAttachmentItemTextColor = "#F1F4F6";
+        private string appStimmerAttachmentItemTextColor = "#FFA9A9A9";
         private string appStimmersItemColor = "#FFFFFF";
         private string appStimmersItemTitleColor = "#F9C470";
         private string popupColor = "#FFFFFF";

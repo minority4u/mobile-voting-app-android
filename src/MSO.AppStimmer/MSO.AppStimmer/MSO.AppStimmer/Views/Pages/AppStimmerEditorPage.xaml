@@ -84,6 +84,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
+
             <appStimmerEditor:AppStimmerEditorOverviewView IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=overview}" />
             <appStimmerEditor:AppStimmerEditorDetailsView IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=details}" />
         </Grid>

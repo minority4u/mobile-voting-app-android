@@ -9,6 +9,7 @@
                 HorizontalTextAlignment="Center"
                 IsEnabled="{Binding IsEditable}"
                 Opacity="0.7"
+                Placeholder="Appstimmer Title"
                 Text="{Binding AppStimmer.Title}"
                 TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SubtitleTextColor}" />
         </StackLayout>
