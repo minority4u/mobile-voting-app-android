@@ -16,7 +16,7 @@ namespace MSO.StimmApp.Views.ContentViews.Appstimmen
 
 		    this.LayoutChanged += (sender, e) =>
 		    {
-		        this.SwipeCardView.CardMoveDistance = (int)(this.Width * 0.60f);
+		        this.SwipeCardView.CardMoveDistance = (int)(this.Width * 0.40f);
 		    };
 		}
 

@@ -244,14 +244,27 @@ namespace MSO.StimmApp.Elements
                 var percentageOfTriggerDistanceMoved = Math.Abs(this.cardDistance / this.CardMoveDistance);
                 if (percentageOfTriggerDistanceMoved > 0.10)
                 {
-                    var overlayGrid = topCard.FindByName<Grid>("OverlayBox");
+                    //var overlayGrid = topCard.FindByName<Image>("OverlayImage");
+
+                    //if (this.cardDistance > 0)
+                    //    overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeRightIndicatorColor);
+                    //else
+                    //    overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeLeftIndicatorColor);
+
+                    //overlayGrid.Opacity = percentageOfTriggerDistanceMoved;
+                    
+                    var overlayGrid = topCard.FindByName<Image>("LikeImage");
 
                     if (this.cardDistance > 0)
-                        overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeRightIndicatorColor);
+                    {
+                        var likeImage = topCard.FindByName<Image>("LikeImage");
+                        likeImage.Opacity = percentageOfTriggerDistanceMoved;
+                    }
                     else
-                        overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeLeftIndicatorColor);
-
-                    overlayGrid.Opacity = percentageOfTriggerDistanceMoved;
+                    {
+                        var dislikeImage = topCard.FindByName<Image>("DislikeImage");
+                        dislikeImage.Opacity = percentageOfTriggerDistanceMoved;
+                    }        
                 }
                 else
                 {
@@ -267,8 +280,14 @@ namespace MSO.StimmApp.Elements
         private void ResetOverlayColor()
         {
             var topCard = this.cards[this.topCardIndex];
-            var overlayGrid = topCard.FindByName<Grid>("OverlayBox");
-            overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.NoSwipeIndicatorColor);
+            //var overlayGrid = topCard.FindByName<Image>("OverlayImage");
+            //overlayGrid.Opacity = 0.0;
+            //overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.NoSwipeIndicatorColor);
+            var likeImage = topCard.FindByName<Image>("LikeImage");
+            var dislikeImage = topCard.FindByName<Image>("DislikeImage");
+
+            likeImage.Opacity = 0.0;
+            dislikeImage.Opacity = 0.0;
         }
 
         // Handle the end of the touch event

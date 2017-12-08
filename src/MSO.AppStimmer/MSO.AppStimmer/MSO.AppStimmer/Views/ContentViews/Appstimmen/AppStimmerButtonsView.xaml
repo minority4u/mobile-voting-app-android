@@ -67,7 +67,11 @@
                     <elements:TintedSvgCachedImage
                         Margin="20"
                         Source="resource://MSO.StimmApp.Resources.Icons.info.svg"
-                        TintColor="CornflowerBlue" />
+                        TintColor="CornflowerBlue">
+                        <elements:TintedSvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ShowDetailsCommand}" />
+                        </elements:TintedSvgCachedImage.GestureRecognizers>
+                    </elements:TintedSvgCachedImage>
                 </xfShapeView:ShapeView.Content>
             </xfShapeView:ShapeView>
 

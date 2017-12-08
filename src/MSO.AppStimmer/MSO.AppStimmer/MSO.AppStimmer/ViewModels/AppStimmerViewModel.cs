@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using MSO.StimmApp.Core.Enums;
@@ -17,6 +18,7 @@ namespace MSO.StimmApp.ViewModels
         private AppStimmer currentAppStimmer;
         private readonly IAppStimmerService appStimmerService;
         private ObservableCollection<AppStimmer> appStimmers;
+        private RelayCommand showDetailsCommand;
 
         [PreferredConstructor]
         public AppStimmerViewModel(IAppStimmerService appStimmerService)
@@ -40,10 +42,13 @@ namespace MSO.StimmApp.ViewModels
             set => this.Set(ref this.appStimmers, value);
         }
 
+        public RelayCommand ShowDetailsCommand => this.showDetailsCommand ?? (this.showDetailsCommand =
+            new RelayCommand(this.ShowDetailsForCurrentAppStimmer));
+
         public void ShowDetailsForCurrentAppStimmer()
         {
             var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, this.CurrentAppStimmer, 
-                AppStimmerEditorDisplayType.Overview, false);
+                AppStimmerEditorDisplayType.Overview, isEditable: false);
 
             App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor, viewModel);
         }

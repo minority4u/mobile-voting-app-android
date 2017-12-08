@@ -72,6 +72,6 @@ namespace MSO.StimmApp.Core.Helpers
             SubtitleTextColor = "#696969",
             PopupTextColor = "#FFFFFF",
             MenuPageTextColor = "#FFFFFF",
-    };
+        };
     }
 }
