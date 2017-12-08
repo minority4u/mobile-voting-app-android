@@ -7,10 +7,9 @@
     BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
     <ContentView.Content>
         <elements:SwipeCardView
-                x:Name="SwipeCardView"
-                Grid.Row="0"
-                ItemsSource="{Binding AppStimmers}"
-                TopItem="{Binding CurrentAppStimmer}">
+            x:Name="SwipeCardView"
+            ItemsSource="{Binding AppStimmers}"
+            TopItem="{Binding CurrentAppStimmer}">
             <elements:SwipeCardView.ItemTemplate>
                 <DataTemplate x:Name="AppstimmerTemplate">
                     <Grid>
@@ -29,4 +28,4 @@
             </elements:SwipeCardView.ItemTemplate>
         </elements:SwipeCardView>
     </ContentView.Content>
- </ContentView>
+</ContentView>

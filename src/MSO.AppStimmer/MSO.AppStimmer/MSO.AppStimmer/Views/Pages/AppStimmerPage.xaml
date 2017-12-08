@@ -11,12 +11,12 @@
     <ContentPage.Content>
         <Grid ColumnSpacing="0" RowSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="85*"></RowDefinition>
-                <RowDefinition Height="15*"></RowDefinition>
+                <RowDefinition Height="80*" />
+                <RowDefinition Height="20*" />
             </Grid.RowDefinitions>
 
-            <appstimmen:AppStimmerCardView Grid.Row="0"></appstimmen:AppStimmerCardView>
-            <appstimmen:AppStimmerButtonsView Grid.Row="1" ></appstimmen:AppStimmerButtonsView>
+            <appstimmen:AppStimmerCardView Grid.Row="0" />
+            <appstimmen:AppStimmerButtonsView Grid.Row="1" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
