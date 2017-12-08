@@ -24,7 +24,16 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmerViewModel(IAppStimmerService appStimmerService)
         {
             this.appStimmerService = appStimmerService;
-            this.appStimmers = new ObservableCollection<AppStimmer>(this.appStimmerService.GetAllAppStimmers());
+            this.appStimmers = new ObservableCollection<AppStimmer>();
+            var appStimmersFromService = this.appStimmerService.GetAllAppStimmers();
+
+            // This is for debugging purposes only, to simulate a long list of AppStimmers. Change later.
+            for (var i = 0; i < 10; i++)
+            {
+                foreach (var appStimmer in appStimmersFromService)
+                    this.appStimmers.Add(appStimmer);
+            }
+            
             //this.appStimmers.Shuffle();
 
             this.currentAppStimmer = this.appStimmers.First();

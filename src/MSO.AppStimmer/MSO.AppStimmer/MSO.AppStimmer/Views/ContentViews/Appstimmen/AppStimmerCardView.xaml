@@ -14,39 +14,41 @@
             TopItem="{Binding CurrentAppStimmer}">
             <elements:SwipeCardView.ItemTemplate>
                 <DataTemplate x:Name="AppstimmerTemplate">
-                    <Grid RowSpacing="0">
-                        <Image
-                            x:Name="AppStimmerPicture"
-                            Aspect="AspectFill"
-                            HorizontalOptions="Fill"
-                            Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}"
-                            VerticalOptions="Fill" />
-                        <StackLayout
-                            Orientation="Horizontal"
-                            Spacing="0"
-                            VerticalOptions="StartAndExpand">
+                    <Frame Padding="0" CornerRadius="8">
+                        <Grid RowSpacing="0">
                             <Image
-                                x:Name="LikeImage"
-                                Margin="20,35,0,0"
-                                Aspect="AspectFit"
-                                HeightRequest="80"
-                                Opacity="0.0"
-                                Rotation="-30"
-                                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Images.like.png}"
-                                VerticalOptions="StartAndExpand"
-                                WidthRequest="150" />
-                            <Image
-                                x:Name="DislikeImage"
-                                Margin="0,35,20,0"
-                                Aspect="AspectFit"
-                                HeightRequest="80"
-                                Opacity="0.0"
-                                Rotation="30"
-                                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Images.nope.png}"
-                                VerticalOptions="EndAndExpand"
-                                WidthRequest="150" />
-                        </StackLayout>
-                    </Grid>
+                                x:Name="AppStimmerPicture"
+                                Aspect="AspectFill"
+                                HorizontalOptions="Fill"
+                                Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}"
+                                VerticalOptions="Fill" />
+                            <StackLayout
+                                Orientation="Horizontal"
+                                Spacing="0"
+                                VerticalOptions="StartAndExpand">
+                                <Image
+                                    x:Name="LikeImage"
+                                    Margin="20,35,0,0"
+                                    Aspect="AspectFit"
+                                    HeightRequest="80"
+                                    Opacity="0.0"
+                                    Rotation="-30"
+                                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Images.like.png}"
+                                    VerticalOptions="StartAndExpand"
+                                    WidthRequest="150" />
+                                <Image
+                                    x:Name="DislikeImage"
+                                    Margin="0,35,20,0"
+                                    Aspect="AspectFit"
+                                    HeightRequest="80"
+                                    Opacity="0.0"
+                                    Rotation="30"
+                                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Images.nope.png}"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="150" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
                 </DataTemplate>
             </elements:SwipeCardView.ItemTemplate>
         </elements:SwipeCardView>
