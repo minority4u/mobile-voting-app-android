@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
+             xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+             x:Class="MSO.StimmApp.Views.ContentViews.Appstimmen.AppStimmerButtonsView">
+  <ContentView.Content>
+        <Grid HorizontalOptions="CenterAndExpand"
+          x:Name="ButtonsGrid"
+          BackgroundColor="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <xfShapeView:ShapeView ShapeType="Circle" BorderColor="#F1F1F1" BorderWidth="9" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" HorizontalOptions="End" >
+                <xfShapeView:ShapeView.Content>
+                    <elements:TintedSvgCachedImage Margin="30" Source="resource://MSO.StimmApp.Resources.Icons.cross.svg" TintColor="PaleVioletRed" />
+                </xfShapeView:ShapeView.Content>
+            </xfShapeView:ShapeView>
+
+            <xfShapeView:ShapeView ShapeType="Circle" Grid.Column="1" Grid.Row="1" BorderColor="#F1F1F1" BorderWidth="9" HorizontalOptions="Center" >
+                <xfShapeView:ShapeView.Content>
+                    <elements:TintedSvgCachedImage Margin="15" Source="resource://MSO.StimmApp.Resources.Icons.cross.svg" TintColor="CornflowerBlue" />
+                </xfShapeView:ShapeView.Content>
+            </xfShapeView:ShapeView>
+
+            <xfShapeView:ShapeView ShapeType="Circle" BorderColor="#F1F1F1" Grid.Row="0" Grid.RowSpan="3" Grid.Column="2" HorizontalOptions="Start" BorderWidth="9">
+                <xfShapeView:ShapeView.Content>
+                    <elements:TintedSvgCachedImage Margin="30" Source="resource://MSO.StimmApp.Resources.Icons.cross.svg" TintColor="LightSeaGreen" />
+                </xfShapeView:ShapeView.Content>
+            </xfShapeView:ShapeView>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
