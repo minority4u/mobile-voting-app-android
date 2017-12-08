@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MSO.StimmApp.Views.Pages
@@ -8,7 +9,7 @@ namespace MSO.StimmApp.Views.Pages
     {
         public AppStimmerPage()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
+using MSO.StimmApp.Messages;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.Elements
@@ -12,7 +15,7 @@ namespace MSO.StimmApp.Elements
         // Back card scale
         private const float BackCardScale = 0.8f; 
         // Speed of the animations
-        private const int AnimationLength = 250; 
+        private uint AnimationLength = 500; 
         // 180 / pi
         private const float DegreesToRadians = 57.2957795f; 
         // The higher the number, the less the rotation effect
@@ -39,6 +42,34 @@ namespace MSO.StimmApp.Elements
             var panGesture = new PanGestureRecognizer();
             panGesture.PanUpdated += this.OnPanUpdated;
             this.GestureRecognizers.Add(panGesture);
+
+            Messenger.Default.Register<AppStimmerButtonPressedMessage>(this, this.OnAppStimmerButtonPressed);
+        }
+
+        private void OnAppStimmerButtonPressed(AppStimmerButtonPressedMessage obj)
+        {
+            Debug.WriteLine("AppStimmer button pressed. Result: " + obj.Liked);
+            if (obj.Liked)
+            {
+                this.cardDistance = 1;
+            }
+            else
+            {
+                this.cardDistance = -1;
+            }
+
+            var topCard = this.cards[this.topCardIndex];
+            var backCard = this.cards[PrevCardIndex(this.topCardIndex)];
+
+            this.ignoreTouch = true;
+            //this.AnimationLength = 1000;
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                this.MoveCardOffTheScreen(topCard);
+                backCard.Scale = 1.0;
+            });
+            //this.AnimationLength = 250;
+            this.ignoreTouch = false;
         }
 
         public static readonly BindableProperty ItemsSourceProperty =
@@ -301,16 +332,7 @@ namespace MSO.StimmApp.Elements
             // If the card was move enough to be considered swiped off
             if (Math.Abs((int)this.cardDistance) > this.CardMoveDistance)
             {
-                // move off the screen
-                await topCard.TranslateTo(this.cardDistance > 0 ? this.Width : -this.Width, 0, AnimationLength / 2, Easing.SpringOut);
-                topCard.IsVisible = false;
-
-                if (this.SwipedRightCommand != null && this.cardDistance > 0)
-                    this.SwipedRightCommand.Execute(this.ItemsSource.IndexOf(topCard.BindingContext));
-                else
-                    SwipedLeftCommand?.Execute(this.ItemsSource.IndexOf(topCard.BindingContext));
-
-                this.ShowNextCard();
+                await MoveCardOffTheScreen(topCard);
             }
             else
             {
@@ -326,7 +348,21 @@ namespace MSO.StimmApp.Elements
             this.ignoreTouch = false;
         }
 
-        private void ShowNextCard()
+        private async Task MoveCardOffTheScreen(View topCard)
+        {
+            // move off the screen
+            await topCard.TranslateTo(this.cardDistance > 0 ? this.Width : -this.Width, 0, AnimationLength / 2, Easing.SpringOut);
+            topCard.IsVisible = false;
+
+            if (this.SwipedRightCommand != null && this.cardDistance > 0)
+                this.SwipedRightCommand.Execute(this.ItemsSource.IndexOf(topCard.BindingContext));
+            else
+                SwipedLeftCommand?.Execute(this.ItemsSource.IndexOf(topCard.BindingContext));
+
+            this.ShowNextCard();
+        }
+
+        public void ShowNextCard()
         {
             if (this.cards[0].IsVisible == false && this.cards[1].IsVisible == false)
             {

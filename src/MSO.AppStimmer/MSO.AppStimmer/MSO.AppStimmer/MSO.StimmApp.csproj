@@ -59,6 +59,7 @@
     <Compile Include="MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Messages\AppStimmerButtonPressedMessage.cs" />
     <Compile Include="Models\MenuPageItem.cs" />
     <Compile Include="ViewModels\AppStimmerEditorViewModel.cs" />
     <Compile Include="ViewModels\AppStimmersViewModel.cs" />
