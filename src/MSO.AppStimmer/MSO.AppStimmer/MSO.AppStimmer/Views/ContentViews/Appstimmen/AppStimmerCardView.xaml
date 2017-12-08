@@ -14,15 +14,53 @@
             TopItem="{Binding CurrentAppStimmer}">
             <elements:SwipeCardView.ItemTemplate>
                 <DataTemplate x:Name="AppstimmerTemplate">
-                    <Frame Padding="0" CornerRadius="8">
-                        <Grid RowSpacing="0">
-                            <Image
-                                x:Name="AppStimmerPicture"
-                                Aspect="AspectFill"
-                                HorizontalOptions="Fill"
-                                Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}"
-                                VerticalOptions="Fill" />
+                    <Frame
+                        Padding="0"
+                        CornerRadius="8"
+                        InputTransparent="True">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <ScrollView
+                                x:Name="Scroller"
+                                Grid.Row="0"
+                                Grid.RowSpan="2"
+                                InputTransparent="True">
+                                <Grid RowSpacing="0" VerticalOptions="Fill">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image
+                                        x:Name="AppStimmerPicture"
+                                        Grid.Row="0"
+                                        Aspect="AspectFill"
+                                        HeightRequest="500"
+                                        HorizontalOptions="Fill"
+                                        Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}"
+                                        VerticalOptions="Center" />
+
+                                    <Grid Grid.Row="1" BackgroundColor="White">
+                                        <StackLayout Orientation="Vertical" Spacing="0">
+                                            <Label
+                                                Margin="10,10,0,0"
+                                                FontSize="20"
+                                                Text="{Binding Title}" />
+                                            <Label
+                                                Margin="10,0,0,10"
+                                                FontSize="15"
+                                                Text="{Binding Appstract}" />
+                                        </StackLayout>
+                                    </Grid>
+                                </Grid>
+                            </ScrollView>
+
                             <StackLayout
+                                Grid.Row="0"
                                 Orientation="Horizontal"
                                 Spacing="0"
                                 VerticalOptions="StartAndExpand">

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using FFImageLoading.Svg.Forms;
 using MSO.StimmApp.Elements;
 using MSO.StimmApp.ViewModels;
@@ -10,11 +11,11 @@ namespace MSO.StimmApp.Views.ContentViews.Appstimmen
 {
 	public partial class AppStimmerCardView : ContentView
 	{
-		public AppStimmerCardView ()
+        public AppStimmerCardView ()
 		{
 			this.InitializeComponent();
 
-		    this.LayoutChanged += (sender, e) =>
+            this.LayoutChanged += (sender, e) =>
 		    {
 		        this.SwipeCardView.CardMoveDistance = (int)(this.Width * 0.40f);
 		    };
@@ -25,6 +26,11 @@ namespace MSO.StimmApp.Views.ContentViews.Appstimmen
 	    private void ShowDetailsImageButton_OnTapped(object sender, EventArgs e)
 	    {
 	        this.ViewModel.ShowDetailsForCurrentAppStimmer();
+	    }
+
+	    private void PanGestureRecognizer_OnPanUpdated(object sender, PanUpdatedEventArgs e)
+	    {
+	        Debug.WriteLine("Pan gesture: " + e.StatusType);
 	    }
 	}
 }

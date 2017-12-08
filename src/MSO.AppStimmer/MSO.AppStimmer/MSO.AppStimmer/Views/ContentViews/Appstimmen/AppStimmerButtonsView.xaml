@@ -18,7 +18,7 @@
                 WidthRequest="100">
                 <xfShapeView:ShapeView.Content>
                     <elements:TintedSvgCachedImage
-                        Margin="35"
+                        Margin="30"
                         Source="resource://MSO.StimmApp.Resources.Icons.dislike.svg"
                         TintColor="#F2866A">
                         <elements:TintedSvgCachedImage.GestureRecognizers>
@@ -56,7 +56,7 @@
                 WidthRequest="100">
                 <xfShapeView:ShapeView.Content>
                     <elements:TintedSvgCachedImage
-                        Margin="35"
+                        Margin="30"
                         Source="resource://MSO.StimmApp.Resources.Icons.like.svg"
                         TintColor="#62DD9F">
                         <elements:TintedSvgCachedImage.GestureRecognizers>

@@ -222,6 +222,15 @@ namespace MSO.StimmApp.Elements
                 ((RelativeLayout) this.Content).LowerChild(card);
                 this.itemIndex++;
             }
+
+            var topCard = this.cards[this.topCardIndex];
+            var scrollView = topCard.FindByName<ScrollView>("Scroller");
+            scrollView.Scrolled += (sender, e) => Parallax();
+            Parallax();
+
+            //var panGesture = new PanGestureRecognizer();
+            //panGesture.PanUpdated += this.OnPanUpdated;
+            //scrollView.GestureRecognizers.Add(panGesture);
         }
 
         private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
@@ -319,6 +328,34 @@ namespace MSO.StimmApp.Elements
 
             likeImage.Opacity = 0.0;
             dislikeImage.Opacity = 0.0;
+        }
+
+        double _imageHeight = 0;
+
+        void Parallax()
+        {
+            var topCard = this.cards[this.topCardIndex];
+
+            var scrollView = topCard.FindByName<ScrollView>("Scroller");
+            var photoImage = topCard.FindByName<Image>("AppStimmerPicture");
+            
+            if (_imageHeight <= 0)
+                _imageHeight = photoImage.Height;
+
+            var y = scrollView.ScrollY * .4;
+            if (y >= 0)
+            {
+                //Move the Image's Y coordinate a fraction of the ScrollView's Y position
+                photoImage.Scale = 1;
+                photoImage.TranslationY = y;
+            }
+            else
+            {
+                //Calculate a scale that equalizes the height vs scroll
+                double newHeight = _imageHeight + (scrollView.ScrollY * -1);
+                photoImage.Scale = newHeight / _imageHeight;
+                photoImage.TranslationY = scrollView.ScrollY / 2;
+            }
         }
 
         // Handle the end of the touch event
