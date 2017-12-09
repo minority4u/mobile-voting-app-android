@@ -22,14 +22,14 @@ namespace MSO.StimmApp.Views.Pages
 
         public AppStimmerEditorViewModel ViewModel => this.BindingContext as AppStimmerEditorViewModel;
 
-        private void OverviewTab_OnTapped(object sender, EventArgs e)
-        {
-            this.ViewModel.DisplayType = AppStimmerEditorDisplayType.Overview;
-        }
+        //private void OverviewTab_OnTapped(object sender, EventArgs e)
+        //{
+        //    this.ViewModel.DisplayType = AppStimmerEditorDisplayType.Overview;
+        //}
 
-        private void Details_OnTapped(object sender, EventArgs e)
-        {
-            this.ViewModel.DisplayType = AppStimmerEditorDisplayType.Details;
-        }
+        //private void Details_OnTapped(object sender, EventArgs e)
+        //{
+        //    this.ViewModel.DisplayType = AppStimmerEditorDisplayType.Details;
+        //}
     }
 }

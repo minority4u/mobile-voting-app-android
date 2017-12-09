@@ -1,4 +1,6 @@
-﻿using GalaSoft.MvvmLight.Ioc;
+﻿using System.Diagnostics;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
@@ -13,6 +15,7 @@ namespace MSO.StimmApp.ViewModels
         private bool isAddingAttachment;
         private AppStimmerEditorDisplayType displayType;
         private bool isEditable;
+        private RelayCommand<AppStimmerEditorDisplayType> setDisplayModeCommand;
 
         public bool IsAddingAttachment
         {
@@ -59,6 +62,14 @@ namespace MSO.StimmApp.ViewModels
         {
             get => this.isEditable;
             set => this.Set(ref this.isEditable, value);
+        }
+
+        public RelayCommand<AppStimmerEditorDisplayType> SetDisplayModeCommand => this.setDisplayModeCommand ?? (this.setDisplayModeCommand =
+            new RelayCommand<AppStimmerEditorDisplayType>((type) => this.SetDisplayMode(type)));
+
+        private void SetDisplayMode(AppStimmerEditorDisplayType type)
+        {
+            this.DisplayType = type;
         }
 
         public void AddAttachment(AttachmentType attachmentType)

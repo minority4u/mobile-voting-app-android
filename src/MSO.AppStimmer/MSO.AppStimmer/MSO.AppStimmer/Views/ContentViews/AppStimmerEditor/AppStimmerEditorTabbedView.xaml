@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorTabbedView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
+    xmlns:enums="clr-namespace:MSO.StimmApp.Core.Enums;assembly=MSO.StimmApp.Core">
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="90*" />
+            </Grid.RowDefinitions>
+
+            <Grid
+                x:Name="TabsGrid"
+                Grid.Row="0"
+                ColumnSpacing="0"
+                IsVisible="{Binding IsEditable}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Label />
+
+                <Grid Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="97*" />
+                        <RowDefinition Height="3*" />
+                    </Grid.RowDefinitions>
+
+                    <xfShapeView:ShapeView
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}">
+                        <xfShapeView:ShapeView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SetDisplayModeCommand}" CommandParameter="{x:Static enums:AppStimmerEditorDisplayType.Overview}" />
+                        </xfShapeView:ShapeView.GestureRecognizers>
+                        <xfShapeView:ShapeView.Content>
+                            <Label
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Opacity="{Binding DisplayType, Converter={StaticResource ÁppStimmerEditorDisplayTypeToOpacityConverter}, ConverterParameter=overview}"
+                                Text="Übersicht"
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryTextColor}"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
+                        </xfShapeView:ShapeView.Content>
+                    </xfShapeView:ShapeView>
+                    <BoxView
+                        Grid.Row="1"
+                        IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=overview}"
+                        Color="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.ActiveTabIndicatorColor}" />
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="97*" />
+                        <RowDefinition Height="3*" />
+                    </Grid.RowDefinitions>
+
+                    <xfShapeView:ShapeView
+                        Grid.RowSpan="2"
+                        Grid.Column="0"
+                        BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}">
+                        <xfShapeView:ShapeView.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding SetDisplayModeCommand}" CommandParameter="{x:Static enums:AppStimmerEditorDisplayType.Details}" />
+                        </xfShapeView:ShapeView.GestureRecognizers>
+                        <xfShapeView:ShapeView.Content>
+                            <Label
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Opacity="{Binding DisplayType, Converter={StaticResource ÁppStimmerEditorDisplayTypeToOpacityConverter}, ConverterParameter=details}"
+                                Text="Details"
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryTextColor}"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center" />
+                        </xfShapeView:ShapeView.Content>
+                    </xfShapeView:ShapeView>
+                    <BoxView
+                        Grid.Row="1"
+                        IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=details}"
+                        Color="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.ActiveTabIndicatorColor}" />
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <appStimmerEditor:AppStimmerEditorOverviewView IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=overview}" />
+                <appStimmerEditor:AppStimmerEditorDetailsView IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=details}" />
+            </Grid>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
