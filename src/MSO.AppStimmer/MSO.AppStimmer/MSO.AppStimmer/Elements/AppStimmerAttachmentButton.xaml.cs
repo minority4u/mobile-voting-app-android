@@ -1,6 +1,7 @@
 ﻿using System;
 using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.ViewModels;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -55,8 +56,9 @@ namespace MSO.StimmApp.Controls
             set => SetValue(AttachmentTypeProperty, value);
         }
 
-        private void AttachmentImageButton_OnTapped(object sender, EventArgs e)
+        private async void AttachmentImageButton_OnTapped(object sender, EventArgs e)
         {
+            await PopupNavigation.PopAllAsync();
             this.ViewModel.AddAttachment(this.AttachmentType);
         }
 	}

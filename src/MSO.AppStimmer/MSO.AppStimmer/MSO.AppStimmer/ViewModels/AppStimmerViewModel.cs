@@ -27,7 +27,7 @@ namespace MSO.StimmApp.ViewModels
             this.appStimmers = new ObservableCollection<AppStimmer>();
             var appStimmersFromService = this.appStimmerService.GetAllAppStimmers();
 
-            // This is for debugging purposes only, to simulate a long list of AppStimmers. Change later.
+            // ToDo This is for debugging purposes only, to simulate a long list of AppStimmers. Change later.
             for (var i = 0; i < 10; i++)
             {
                 foreach (var appStimmer in appStimmersFromService)

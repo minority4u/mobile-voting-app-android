@@ -28,16 +28,16 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService) :
             this(appStimmerService, new AppStimmer(), AppStimmerEditorDisplayType.Overview, isEditable: true)
         {
-            
+
         }
 
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer)
             : this(appStimmerService, appStimmer, AppStimmerEditorDisplayType.Overview, isEditable: true)
         {
-            
+
         }
 
-        public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer, 
+        public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer,
             AppStimmerEditorDisplayType displayType, bool isEditable)
         {
             this.appStimmerService = appStimmerService;
@@ -77,7 +77,7 @@ namespace MSO.StimmApp.ViewModels
         public RelayCommand<AppStimmerEditorDisplayType> SetDisplayModeCommand => this.setDisplayModeCommand ?? (this.setDisplayModeCommand =
             new RelayCommand<AppStimmerEditorDisplayType>((type) => this.SetDisplayMode(type)));
 
-        public RelayCommand<ModelEditFinishedType> EndEditCommand => this.endEditCommand ?? (this.endEditCommand=
+        public RelayCommand<ModelEditFinishedType> EndEditCommand => this.endEditCommand ?? (this.endEditCommand =
             new RelayCommand<ModelEditFinishedType>((type) => this.EndEdit(type)));
 
         private void SetDisplayMode(AppStimmerEditorDisplayType type)
@@ -97,7 +97,7 @@ namespace MSO.StimmApp.ViewModels
                 this.AppStimmer.EndEdit();
             }
 
-            
+            App.NavigationService.GoBack();
         }
 
 
