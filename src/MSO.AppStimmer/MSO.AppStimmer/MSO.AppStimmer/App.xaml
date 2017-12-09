@@ -41,6 +41,7 @@
             <converter:AppStimmerEditorDisplayTypeToViewVisibilityConverter x:Key="AppStimmerEditorDisplayTypeToViewVisibilityConverter" />
             <converter:ÁppStimmerEditorDisplayTypeToOpacityConverter x:Key="ÁppStimmerEditorDisplayTypeToOpacityConverter" />
             <converter:ImageToSvgSourceConverter x:Key="ImageToSvgSourceConverter" />
+            <converter:AppStimmerEditorEditableToTitleConverter x:Key="AppStimmerEditorEditableToTitleConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

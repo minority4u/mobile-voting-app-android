@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace MSO.StimmApp.Core.Models
 {
-    public class AppStimmer : ModelBase
+    public class AppStimmer : EditableModelBase<AppStimmer>
     {
         private string title;
         private string appstract;

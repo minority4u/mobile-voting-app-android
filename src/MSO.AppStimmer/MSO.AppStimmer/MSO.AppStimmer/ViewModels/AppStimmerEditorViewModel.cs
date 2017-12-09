@@ -16,6 +16,7 @@ namespace MSO.StimmApp.ViewModels
         private AppStimmerEditorDisplayType displayType;
         private bool isEditable;
         private RelayCommand<AppStimmerEditorDisplayType> setDisplayModeCommand;
+        private RelayCommand<ModelEditFinishedType> endEditCommand;
 
         public bool IsAddingAttachment
         {
@@ -33,17 +34,26 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer)
             : this(appStimmerService, appStimmer, AppStimmerEditorDisplayType.Overview, isEditable: true)
         {
-            this.appStimmerService = appStimmerService;
-            this.appStimmer = appStimmer;
+            
         }
 
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer, 
             AppStimmerEditorDisplayType displayType, bool isEditable)
         {
             this.appStimmerService = appStimmerService;
-            this.appStimmer = appStimmer;
-            this.displayType = displayType;
-            this.isEditable = isEditable;
+            this.AppStimmer = appStimmer;
+            this.DisplayType = displayType;
+            this.IsEditable = isEditable;
+
+            if (this.isEditable)
+            {
+                this.BeginAppStimmerEdit();
+            }
+        }
+
+        private void BeginAppStimmerEdit()
+        {
+            this.AppStimmer.BeginEdit();
         }
 
         public AppStimmer AppStimmer
@@ -67,10 +77,29 @@ namespace MSO.StimmApp.ViewModels
         public RelayCommand<AppStimmerEditorDisplayType> SetDisplayModeCommand => this.setDisplayModeCommand ?? (this.setDisplayModeCommand =
             new RelayCommand<AppStimmerEditorDisplayType>((type) => this.SetDisplayMode(type)));
 
+        public RelayCommand<ModelEditFinishedType> EndEditCommand => this.endEditCommand ?? (this.endEditCommand=
+            new RelayCommand<ModelEditFinishedType>((type) => this.EndEdit(type)));
+
         private void SetDisplayMode(AppStimmerEditorDisplayType type)
         {
             this.DisplayType = type;
         }
+
+        private void EndEdit(ModelEditFinishedType type)
+        {
+            Debug.WriteLine(("Finished model edit: " + type));
+            if (type == ModelEditFinishedType.Cancel)
+            {
+                this.AppStimmer.CancelEdit();
+            }
+            else if (type == ModelEditFinishedType.Save)
+            {
+                this.AppStimmer.EndEdit();
+            }
+
+            
+        }
+
 
         public void AddAttachment(AttachmentType attachmentType)
         {

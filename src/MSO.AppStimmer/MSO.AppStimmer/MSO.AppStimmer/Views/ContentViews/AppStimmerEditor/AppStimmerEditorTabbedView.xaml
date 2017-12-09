@@ -4,14 +4,15 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
+    xmlns:enums="clr-namespace:MSO.StimmApp.Core.Enums;assembly=MSO.StimmApp.Core"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
-    xmlns:enums="clr-namespace:MSO.StimmApp.Core.Enums;assembly=MSO.StimmApp.Core">
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView">
     <ContentView.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="10*" />
-                <RowDefinition Height="90*" />
+                <RowDefinition Height="80*" />
+                <RowDefinition Height="10*" />
             </Grid.RowDefinitions>
 
             <Grid
@@ -89,6 +90,28 @@
             <Grid Grid.Row="1">
                 <appStimmerEditor:AppStimmerEditorOverviewView IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=overview}" />
                 <appStimmerEditor:AppStimmerEditorDetailsView IsVisible="{Binding DisplayType, Converter={StaticResource AppStimmerEditorDisplayTypeToViewVisibilityConverter}, ConverterParameter=details}" />
+            </Grid>
+
+            <Grid
+                Grid.Row="2"
+                ColumnSpacing="0"
+                RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    x:Name="CancelButton"
+                    Grid.Column="0"
+                    Command="{Binding EndEditCommand}"
+                    CommandParameter="{x:Static enums:ModelEditFinishedType.Cancel}"
+                    Text="Abbrechen" />
+                <Button
+                    x:Name="SubmitButton"
+                    Grid.Column="1"
+                    Command="{Binding EndEditCommand}"
+                    CommandParameter="{x:Static enums:ModelEditFinishedType.Save}"
+                    Text="Ok" />
             </Grid>
         </Grid>
     </ContentView.Content>

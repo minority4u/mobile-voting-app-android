@@ -6,10 +6,10 @@
     xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
-    Title="AppStimmer editieren"
+    Title="{Binding IsEditable, Converter={StaticResource AppStimmerEditorEditableToTitleConverter}}"
     BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
     BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
-    <Grid>
+    <Grid RowSpacing="0">
         <appStimmerEditor:AppStimmerEditorDetailsView IsVisible="{Binding IsEditable, Converter={StaticResource BooleanConverter}, ConverterParameter=inverted}" />
         <appStimmerEditor:AppStimmerEditorTabbedView IsVisible="{Binding IsEditable}" />
     </Grid>
