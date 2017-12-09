@@ -39,7 +39,7 @@
                                         x:Name="AppStimmerPicture"
                                         Grid.Row="0"
                                         Aspect="AspectFill"
-                                        HeightRequest="500"
+                                        HeightRequest="400"
                                         HorizontalOptions="Fill"
                                         Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}"
                                         VerticalOptions="Center" />

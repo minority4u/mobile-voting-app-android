@@ -16,39 +16,28 @@ namespace MSO.StimmApp.Droid.Renderers
 
         public MyScrollViewRenderer(Context context) : base(context)
         {
-            var a = "b";
+
         }
 
         public override bool OnTouchEvent(MotionEvent e)
-        {      
+        {
             var x = e.GetX();
 
             if (isFirstMove)
                 xLastMove = x;
 
             var xDifference = x - xLastMove;
-
             isFirstMove = false;
+
             xLastMove = x;
 
             var absDifference = Math.Abs(xDifference);
             //System.Diagnostics.Debug.WriteLine("OnTouched" + e.Action + ". X difference: " + absDifference);
-         
+
             if (absDifference > 50.0)
                 return false;
 
             return base.OnTouchEvent(e);
-
-            //switch (e.Action)
-
-            //{
-            //    case MotionEventActions.:
-            //        return base.OnInterceptTouchEvent(e);
-            //    case MotionEventActions.Up:
-            //        return base.OnInterceptTouchEvent(e);
-            //    default:
-                    
-            //}
         }
 
         public override bool OnInterceptTouchEvent(MotionEvent ev)
