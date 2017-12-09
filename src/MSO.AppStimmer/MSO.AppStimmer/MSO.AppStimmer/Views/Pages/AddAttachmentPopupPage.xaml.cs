@@ -35,7 +35,7 @@ namespace MSO.StimmApp.Views.Pages
         // Invoced after custom animation end
         protected override Task OnAppearingAnimationEnd()
         {
-            return Content.FadeTo(0.5);
+            return base.OnAppearingAnimationEnd();
         }
 
         // Method for animation child in PopupPage
@@ -55,8 +55,7 @@ namespace MSO.StimmApp.Views.Pages
         // Invoced when background is clicked
         protected override bool OnBackgroundClicked()
         {
-            // Return default value - CloseWhenBackgroundIsClicked
-            return base.OnBackgroundClicked();
+            return this.CloseWhenBackgroundIsClicked;
         }
     }
 }

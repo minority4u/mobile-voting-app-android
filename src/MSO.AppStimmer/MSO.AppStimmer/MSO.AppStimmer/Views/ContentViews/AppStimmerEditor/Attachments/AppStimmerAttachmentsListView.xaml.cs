@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
@@ -17,6 +18,12 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
                 return;
 
             ((ListView) sender).SelectedItem = null;
+        }
+
+        private void TestAttachmentsView_OnBindingContextChanged(object sender, EventArgs e)
+        {
+            var view = (Grid) sender;
+            view.BindingContext = this.BindingContext;
         }
     }
 }

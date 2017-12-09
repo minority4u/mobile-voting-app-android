@@ -7,10 +7,10 @@
         private string menuPageColor = "#AA000000";
         private string bottomActionBarColor = "#88FFFFFF";
         private string simpleControlsColor = "#A9A9A9";
-        private string listViewHeaderColor = "#808080";
+        private string listViewHeaderColor = "#B67E24";
         private string listViewItemBorderColor = "#FF000000";
         private string appStimmerAttachmentItemColor = "#FFFFFF";
-        private string appStimmerAttachmentItemTextColor = "#F1F4F6";
+        private string appStimmerAttachmentItemTextColor = "#000000";
         private string appStimmersItemColor = "#FFFFFF";
         private string appStimmersItemTitleColor = "#F9C470";
         private string popupColor = "#FFFFFF";

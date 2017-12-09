@@ -28,18 +28,19 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService) :
             this(appStimmerService, new AppStimmer(), AppStimmerEditorDisplayType.Overview, isEditable: true)
         {
-
+            Debug.WriteLine(@"First constructor called. IsEditable: " + isEditable);
         }
 
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer)
             : this(appStimmerService, appStimmer, AppStimmerEditorDisplayType.Overview, isEditable: true)
         {
-
+            Debug.WriteLine(@"Second constructor called. IsEditable: " + isEditable);
         }
 
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer,
             AppStimmerEditorDisplayType displayType, bool isEditable)
         {
+            Debug.WriteLine(@"Third constructor called. IsEditable: " + isEditable);
             this.appStimmerService = appStimmerService;
             this.AppStimmer = appStimmer;
             this.DisplayType = displayType;

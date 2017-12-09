@@ -20,7 +20,7 @@
             </Image>
             <Label
                 Grid.Row="1"
-                FontSize="8"
+                FontSize="10"
                 HorizontalTextAlignment="Center"
                 Text="{Binding Description}" />
         </Grid>
