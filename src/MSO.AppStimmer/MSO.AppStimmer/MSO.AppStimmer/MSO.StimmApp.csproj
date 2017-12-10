@@ -56,7 +56,7 @@
     <Compile Include="Converter\IMultiValueConverter.cs" />
     <Compile Include="Converter\MultiBinding.cs" />
     <Compile Include="Extensions\Colors.cs" />
-    <Compile Include="GradientLabel.cs" />
+    <Compile Include="Elements\GradientFrame.cs" />
     <Compile Include="ImageResourceExtension.cs" />
     <Compile Include="MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>

@@ -3,9 +3,8 @@ using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.ViewModels;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace MSO.StimmApp.Controls
+namespace MSO.StimmApp.Elements
 {
 	public partial class AppStimmerAttachmentButton : ContentView
 	{
