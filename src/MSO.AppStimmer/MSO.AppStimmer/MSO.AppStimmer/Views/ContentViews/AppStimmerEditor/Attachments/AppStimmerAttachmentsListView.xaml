@@ -13,7 +13,7 @@
     ItemTapped="AppStimmerAttachmentsListView_OnItemTapped"
     SeparatorVisibility="None">
     <ListView.ItemTemplate>
-        <DataTemplate >
+        <DataTemplate>
             <ViewCell>
                 <ViewCell.View>
                     <AbsoluteLayout Padding="10,10,10,10">
@@ -40,10 +40,7 @@
 
                                     <Grid BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemColor}" HeightRequest="125">
                                         <Grid.Children>
-                                            <attachments1:TextAttachmentView
-                                                x:Name="TestAttachmentsView"
-                                                IsEnabled="{Binding Path=BindingContext.IsEditable, Source={views:ElementSource AttachmentsListVieww}}"
-                                                IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
+                                            <attachments1:TextAttachmentView x:Name="TestAttachmentsView" IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
                                             <attachments1:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Gallery}" />
                                         </Grid.Children>
                                     </Grid>

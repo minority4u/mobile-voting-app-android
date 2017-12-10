@@ -7,11 +7,11 @@ using MSO.StimmApp.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(GradientLabel), typeof(CustomGradientLabelRenderer))]
+[assembly: ExportRenderer(typeof(GradientFrame), typeof(CustomGradientLabelRenderer))]
 
 namespace MSO.StimmApp.Droid.Renderers
 {
-    class CustomGradientLabelRenderer : LabelRenderer
+    class CustomGradientLabelRenderer : FrameRenderer
     {
         public CustomGradientLabelRenderer(Context context) : base(context)
         {
@@ -24,7 +24,7 @@ namespace MSO.StimmApp.Droid.Renderers
         //    SetBackground();
         //}
 
-        protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Frame> e)
         {
             base.OnElementChanged(e);
             SetBackground();
@@ -64,7 +64,7 @@ namespace MSO.StimmApp.Droid.Renderers
         private void SetBackground()
         {
             var startColor = Color.Transparent.ToAndroid();
-            var endColor = Color.Black.ToAndroid();
+            var endColor = Color.FromHex("#BB000000").ToAndroid();
 
             var colors = new int[] { startColor, endColor };
 

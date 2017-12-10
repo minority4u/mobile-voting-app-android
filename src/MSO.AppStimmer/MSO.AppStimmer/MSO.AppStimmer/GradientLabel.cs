@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace MSO.StimmApp
 {
-    public class GradientLabel : Label
+    public class GradientFrame : Frame
     { 
         public Color StartColor { get; set; }
         public Color EndColor { get; set; } 

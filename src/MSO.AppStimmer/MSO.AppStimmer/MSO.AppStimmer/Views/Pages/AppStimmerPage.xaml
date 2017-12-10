@@ -24,8 +24,8 @@
                 <RowDefinition Height="20*" />
             </Grid.RowDefinitions>
 
-            <appstimmen:AppStimmerCardView Grid.Row="0" Margin="15,15,15,0" />
             <appstimmen:AppStimmerButtonsView Grid.Row="1" />
+            <appstimmen:AppStimmerCardView Grid.Row="0" Margin="8,8,8,0" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>
