@@ -3,12 +3,13 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using FFImageLoading.Forms.Droid;
-using MSO.StimmApp.Droid;
+using Xamarin.Forms.Platform.Android;
+using Resource = MSO.StimmApp.Droid.Resource;
 
 namespace MSO.AppStimmer.Droid
 {
     [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : XFormsAppCompatDroid
+    public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -23,6 +24,8 @@ namespace MSO.AppStimmer.Droid
             LoadApplication(new StimmApp.App());
 
             Window.SetStatusBarColor(Color.Black);
+
+            //XFGloss.Droid.Library.Init(this, bundle);
         }
     }
 }

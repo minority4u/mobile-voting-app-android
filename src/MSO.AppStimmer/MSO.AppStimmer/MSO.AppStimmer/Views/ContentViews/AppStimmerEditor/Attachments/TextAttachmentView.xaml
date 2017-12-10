@@ -8,7 +8,6 @@
         <StackLayout>
             <Entry
                 Margin="5,5,0,0"
-                IsEnabled="{Binding IsEditable}"
                 Text="{Binding AttachmentSource}"
                 TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
         </StackLayout>

@@ -23,9 +23,9 @@ namespace MSO.StimmApp.Elements
         // Number of cards in stack
         private const int NumCards = 2; 
 
-        private readonly View[] cards = new View[NumCards];
+        public readonly View[] cards = new View[NumCards];
         // The card at the top of the stack
-        private int topCardIndex;
+        public int topCardIndex;
         // Distance the card has been moved
         private float cardDistance;
         // The last items index added to the stack of the cards
@@ -223,10 +223,10 @@ namespace MSO.StimmApp.Elements
                 this.itemIndex++;
             }
 
-            var topCard = this.cards[this.topCardIndex];
-            var scrollView = topCard.FindByName<ScrollView>("Scroller");
-            scrollView.Scrolled += (sender, e) => Parallax();
-            Parallax();
+            //var topCard = this.cards[this.topCardIndex];
+            //var scrollView = topCard.FindByName<ScrollView>("Scroller");
+            //scrollView.Scrolled += (sender, e) => Parallax();
+            //Parallax();
 
             //var panGesture = new PanGestureRecognizer();
             //panGesture.PanUpdated += this.OnPanUpdated;
@@ -241,7 +241,7 @@ namespace MSO.StimmApp.Elements
                     this.HandleTouchStart();
                     break;
                 case GestureStatus.Running:
-                    this.HandleTouch((float)e.TotalX);
+                    this.HandleTouch((float)e.TotalX, (float) e.TotalY);
                     break;
                 case GestureStatus.Completed:
                     this.HandleTouchEnd();
@@ -260,7 +260,7 @@ namespace MSO.StimmApp.Elements
         }
 
         // Handle the ongoing touch event as the card is moved
-        private void HandleTouch(float differenceX)
+        private void HandleTouch(float differenceX, float differenceY)
         {
             if (this.ignoreTouch)
                 return;
@@ -273,10 +273,13 @@ namespace MSO.StimmApp.Elements
             {
                 // Move the card
                 topCard.TranslationX = differenceX;
+                //if (Math.Abs(this.cardDistance) > 0)
+                topCard.TranslationY = differenceY;
 
                 // Calculate a angle for the card
                 var rotationAngle = (float)(CardRotationAdjuster * Math.Min(differenceX / this.Width, 1.0f));
                 topCard.Rotation = rotationAngle * DegreesToRadians;
+                
 
                 // Keep a record of how far its moved
                 this.cardDistance = differenceX;
