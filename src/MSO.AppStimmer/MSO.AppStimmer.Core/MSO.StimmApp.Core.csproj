@@ -36,6 +36,7 @@
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
     <Compile Include="Enums\AppStimmerEditorDisplayType.cs" />
     <Compile Include="Enums\AttachmentType.cs" />
+    <Compile Include="Enums\ModelEditFinishedType.cs" />
     <Compile Include="Helpers\ColorThemes.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Models\AppStimmer.cs" />

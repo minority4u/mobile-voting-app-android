@@ -2,7 +2,10 @@
 using System.Collections;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
+using MSO.StimmApp.Messages;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.Elements
@@ -12,7 +15,7 @@ namespace MSO.StimmApp.Elements
         // Back card scale
         private const float BackCardScale = 0.8f; 
         // Speed of the animations
-        private const int AnimationLength = 250; 
+        private uint AnimationLength = 500; 
         // 180 / pi
         private const float DegreesToRadians = 57.2957795f; 
         // The higher the number, the less the rotation effect
@@ -39,6 +42,34 @@ namespace MSO.StimmApp.Elements
             var panGesture = new PanGestureRecognizer();
             panGesture.PanUpdated += this.OnPanUpdated;
             this.GestureRecognizers.Add(panGesture);
+
+            Messenger.Default.Register<AppStimmerButtonPressedMessage>(this, this.OnAppStimmerButtonPressed);
+        }
+
+        private void OnAppStimmerButtonPressed(AppStimmerButtonPressedMessage obj)
+        {
+            Debug.WriteLine("AppStimmer button pressed. Result: " + obj.Liked);
+            if (obj.Liked)
+            {
+                this.cardDistance = 1;
+            }
+            else
+            {
+                this.cardDistance = -1;
+            }
+
+            var topCard = this.cards[this.topCardIndex];
+            var backCard = this.cards[PrevCardIndex(this.topCardIndex)];
+
+            this.ignoreTouch = true;
+            //this.AnimationLength = 1000;
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                this.MoveCardOffTheScreen(topCard);
+                backCard.Scale = 1.0;
+            });
+            //this.AnimationLength = 250;
+            this.ignoreTouch = false;
         }
 
         public static readonly BindableProperty ItemsSourceProperty =
@@ -191,6 +222,15 @@ namespace MSO.StimmApp.Elements
                 ((RelativeLayout) this.Content).LowerChild(card);
                 this.itemIndex++;
             }
+
+            var topCard = this.cards[this.topCardIndex];
+            var scrollView = topCard.FindByName<ScrollView>("Scroller");
+            scrollView.Scrolled += (sender, e) => Parallax();
+            Parallax();
+
+            //var panGesture = new PanGestureRecognizer();
+            //panGesture.PanUpdated += this.OnPanUpdated;
+            //scrollView.GestureRecognizers.Add(panGesture);
         }
 
         private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
@@ -244,14 +284,27 @@ namespace MSO.StimmApp.Elements
                 var percentageOfTriggerDistanceMoved = Math.Abs(this.cardDistance / this.CardMoveDistance);
                 if (percentageOfTriggerDistanceMoved > 0.10)
                 {
-                    var overlayGrid = topCard.FindByName<Grid>("OverlayBox");
+                    //var overlayGrid = topCard.FindByName<Image>("OverlayImage");
+
+                    //if (this.cardDistance > 0)
+                    //    overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeRightIndicatorColor);
+                    //else
+                    //    overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeLeftIndicatorColor);
+
+                    //overlayGrid.Opacity = percentageOfTriggerDistanceMoved;
+                    
+                    var overlayGrid = topCard.FindByName<Image>("LikeImage");
 
                     if (this.cardDistance > 0)
-                        overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeRightIndicatorColor);
+                    {
+                        var likeImage = topCard.FindByName<Image>("LikeImage");
+                        likeImage.Opacity = percentageOfTriggerDistanceMoved;
+                    }
                     else
-                        overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.SwipeLeftIndicatorColor);
-
-                    overlayGrid.Opacity = percentageOfTriggerDistanceMoved;
+                    {
+                        var dislikeImage = topCard.FindByName<Image>("DislikeImage");
+                        dislikeImage.Opacity = percentageOfTriggerDistanceMoved;
+                    }        
                 }
                 else
                 {
@@ -267,8 +320,42 @@ namespace MSO.StimmApp.Elements
         private void ResetOverlayColor()
         {
             var topCard = this.cards[this.topCardIndex];
-            var overlayGrid = topCard.FindByName<Grid>("OverlayBox");
-            overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.NoSwipeIndicatorColor);
+            //var overlayGrid = topCard.FindByName<Image>("OverlayImage");
+            //overlayGrid.Opacity = 0.0;
+            //overlayGrid.BackgroundColor = Color.FromHex(App.Settings.AppColors.NoSwipeIndicatorColor);
+            var likeImage = topCard.FindByName<Image>("LikeImage");
+            var dislikeImage = topCard.FindByName<Image>("DislikeImage");
+
+            likeImage.Opacity = 0.0;
+            dislikeImage.Opacity = 0.0;
+        }
+
+        double _imageHeight = 0;
+
+        void Parallax()
+        {
+            var topCard = this.cards[this.topCardIndex];
+
+            var scrollView = topCard.FindByName<ScrollView>("Scroller");
+            var photoImage = topCard.FindByName<Image>("AppStimmerPicture");
+            
+            if (_imageHeight <= 0)
+                _imageHeight = photoImage.Height;
+
+            var y = scrollView.ScrollY * .4;
+            if (y >= 0)
+            {
+                //Move the Image's Y coordinate a fraction of the ScrollView's Y position
+                photoImage.Scale = 1;
+                photoImage.TranslationY = y;
+            }
+            else
+            {
+                //Calculate a scale that equalizes the height vs scroll
+                double newHeight = _imageHeight + (scrollView.ScrollY * -1);
+                photoImage.Scale = newHeight / _imageHeight;
+                photoImage.TranslationY = scrollView.ScrollY / 2;
+            }
         }
 
         // Handle the end of the touch event
@@ -282,16 +369,7 @@ namespace MSO.StimmApp.Elements
             // If the card was move enough to be considered swiped off
             if (Math.Abs((int)this.cardDistance) > this.CardMoveDistance)
             {
-                // move off the screen
-                await topCard.TranslateTo(this.cardDistance > 0 ? this.Width : -this.Width, 0, AnimationLength / 2, Easing.SpringOut);
-                topCard.IsVisible = false;
-
-                if (this.SwipedRightCommand != null && this.cardDistance > 0)
-                    this.SwipedRightCommand.Execute(this.ItemsSource.IndexOf(topCard.BindingContext));
-                else
-                    SwipedLeftCommand?.Execute(this.ItemsSource.IndexOf(topCard.BindingContext));
-
-                this.ShowNextCard();
+                await MoveCardOffTheScreen(topCard);
             }
             else
             {
@@ -307,7 +385,21 @@ namespace MSO.StimmApp.Elements
             this.ignoreTouch = false;
         }
 
-        private void ShowNextCard()
+        private async Task MoveCardOffTheScreen(View topCard)
+        {
+            // move off the screen
+            await topCard.TranslateTo(this.cardDistance > 0 ? this.Width : -this.Width, 0, AnimationLength / 2, Easing.SpringOut);
+            topCard.IsVisible = false;
+
+            if (this.SwipedRightCommand != null && this.cardDistance > 0)
+                this.SwipedRightCommand.Execute(this.ItemsSource.IndexOf(topCard.BindingContext));
+            else
+                SwipedLeftCommand?.Execute(this.ItemsSource.IndexOf(topCard.BindingContext));
+
+            this.ShowNextCard();
+        }
+
+        public void ShowNextCard()
         {
             if (this.cards[0].IsVisible == false && this.cards[1].IsVisible == false)
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using MSO.StimmApp.Core.Enums;
@@ -17,12 +18,22 @@ namespace MSO.StimmApp.ViewModels
         private AppStimmer currentAppStimmer;
         private readonly IAppStimmerService appStimmerService;
         private ObservableCollection<AppStimmer> appStimmers;
+        private RelayCommand showDetailsCommand;
 
         [PreferredConstructor]
         public AppStimmerViewModel(IAppStimmerService appStimmerService)
         {
             this.appStimmerService = appStimmerService;
-            this.appStimmers = new ObservableCollection<AppStimmer>(this.appStimmerService.GetAllAppStimmers());
+            this.appStimmers = new ObservableCollection<AppStimmer>();
+            var appStimmersFromService = this.appStimmerService.GetAllAppStimmers();
+
+            // ToDo This is for debugging purposes only, to simulate a long list of AppStimmers. Change later.
+            for (var i = 0; i < 10; i++)
+            {
+                foreach (var appStimmer in appStimmersFromService)
+                    this.appStimmers.Add(appStimmer);
+            }
+            
             //this.appStimmers.Shuffle();
 
             this.currentAppStimmer = this.appStimmers.First();
@@ -40,10 +51,13 @@ namespace MSO.StimmApp.ViewModels
             set => this.Set(ref this.appStimmers, value);
         }
 
+        public RelayCommand ShowDetailsCommand => this.showDetailsCommand ?? (this.showDetailsCommand =
+            new RelayCommand(this.ShowDetailsForCurrentAppStimmer));
+
         public void ShowDetailsForCurrentAppStimmer()
         {
             var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, this.CurrentAppStimmer, 
-                AppStimmerEditorDisplayType.Overview, false);
+                AppStimmerEditorDisplayType.Overview, isEditable: false);
 
             App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor, viewModel);
         }

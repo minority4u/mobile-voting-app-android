@@ -5,6 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:attachments1="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
+    x:Name="AttachmentsListVieww"
     BackgroundColor="Transparent"
     HasUnevenRows="True"
     ItemTapped="AppStimmerAttachmentsListView_OnItemTapped"
@@ -20,25 +22,29 @@
                             BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
                             Spacing="0">
 
-                            <StackLayout
-                                Padding="14,8"
-                                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.ListViewHeaderColor}"
-                                HorizontalOptions="FillAndExpand"
-                                Orientation="Horizontal">
-                                <Label
-                                    FontSize="Medium"
-                                    LineBreakMode="NoWrap"
-                                    Text="{Binding Description}"
-                                    TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryTextColor}"
-                                    VerticalOptions="Center" />
-                            </StackLayout>
+                            <Frame Padding="0" CornerRadius="5">
+                                <StackLayout Spacing="0">
+                                    <StackLayout
+                                        BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.ListViewHeaderColor}"
+                                        HorizontalOptions="FillAndExpand"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            Margin="14,8"
+                                            FontSize="Medium"
+                                            LineBreakMode="NoWrap"
+                                            Text="{Binding Description}"
+                                            TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryTextColor}"
+                                            VerticalOptions="Center" />
+                                    </StackLayout>
 
-                            <Grid BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemColor}" HeightRequest="125">
-                                <Grid.Children>
-                                    <attachments1:TextAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
-                                    <attachments1:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Gallery}" />
-                                </Grid.Children>
-                            </Grid>
+                                    <Grid BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemColor}" HeightRequest="125">
+                                        <Grid.Children>
+                                            <attachments1:TextAttachmentView x:Name="TestAttachmentsView" IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
+                                            <attachments1:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Gallery}" />
+                                        </Grid.Children>
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
                         </StackLayout>
                     </AbsoluteLayout>
                 </ViewCell.View>

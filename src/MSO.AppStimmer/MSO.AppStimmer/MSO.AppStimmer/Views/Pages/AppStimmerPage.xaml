@@ -6,9 +6,17 @@
     xmlns:appStimmer="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:appstimmen="clr-namespace:MSO.StimmApp.Views.ContentViews.Appstimmen;assembly=MSO.StimmApp"
     Title="Appstimmen"
-    BackgroundColor="{Binding Source={x:Static appStimmer:App.Settings}, Path=AppColors.SecondaryColor}"
+    BackgroundColor="White"
     BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <appstimmen:AppStimmerCardView Padding="20" />
+        <Grid ColumnSpacing="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80*" />
+                <RowDefinition Height="20*" />
+            </Grid.RowDefinitions>
+
+            <appstimmen:AppStimmerCardView Grid.Row="0" Margin="15,15,15,0" />
+            <appstimmen:AppStimmerButtonsView Grid.Row="1" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

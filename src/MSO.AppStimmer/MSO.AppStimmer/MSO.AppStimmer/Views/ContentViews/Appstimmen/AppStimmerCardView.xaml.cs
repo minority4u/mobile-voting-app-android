@@ -1,27 +1,36 @@
 ﻿using System;
+using System.Diagnostics;
+using FFImageLoading.Svg.Forms;
+using MSO.StimmApp.Elements;
 using MSO.StimmApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using XFShapeView;
 
 namespace MSO.StimmApp.Views.ContentViews.Appstimmen
 {
 	public partial class AppStimmerCardView : ContentView
 	{
-		public AppStimmerCardView ()
+        public AppStimmerCardView ()
 		{
-			InitializeComponent ();
+			this.InitializeComponent();
 
-		    this.LayoutChanged += (sender, e) =>
+            this.LayoutChanged += (sender, e) =>
 		    {
-		        this.SwipeCardView.CardMoveDistance = (int)(this.Width * 0.60f);
-		    };	    
-        }
+		        this.SwipeCardView.CardMoveDistance = (int)(this.Width * 0.40f);
+		    };
+		}
 
 	    public AppStimmerViewModel ViewModel => this.BindingContext as AppStimmerViewModel;
 
 	    private void ShowDetailsImageButton_OnTapped(object sender, EventArgs e)
 	    {
 	        this.ViewModel.ShowDetailsForCurrentAppStimmer();
+	    }
+
+	    private void PanGestureRecognizer_OnPanUpdated(object sender, PanUpdatedEventArgs e)
+	    {
+	        Debug.WriteLine("Pan gesture: " + e.StatusType);
 	    }
 	}
 }

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GalaSoft.MvvmLight.Views;
+using System.Threading.Tasks;
 using MSO.Common;
+using Rg.Plugins.Popup.Pages;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.Services

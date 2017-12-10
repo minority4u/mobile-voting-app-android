@@ -13,7 +13,6 @@
 */
 
 using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Services;
@@ -40,6 +39,7 @@ namespace MSO.StimmApp.ViewModels
             navigation.Configure(PagesKeys.AppStimmerEditor, typeof(AppStimmerEditorPage));
             navigation.Configure(PagesKeys.AppStimmers, typeof(AppStimmersPage));
             navigation.Configure(PagesKeys.Settings, typeof(SettingsPage));
+            navigation.Configure(PagesKeys.AddAttachmentPopup, typeof(AddAttachmentPopupPage));
 
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
 

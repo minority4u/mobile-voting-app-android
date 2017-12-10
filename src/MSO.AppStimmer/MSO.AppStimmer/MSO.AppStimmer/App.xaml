@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:MSO.StimmApp.ViewModels;assembly=MSO.StimmApp"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
     d1p1:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
@@ -40,6 +41,7 @@
             <converter:AppStimmerEditorDisplayTypeToViewVisibilityConverter x:Key="AppStimmerEditorDisplayTypeToViewVisibilityConverter" />
             <converter:ÁppStimmerEditorDisplayTypeToOpacityConverter x:Key="ÁppStimmerEditorDisplayTypeToOpacityConverter" />
             <converter:ImageToSvgSourceConverter x:Key="ImageToSvgSourceConverter" />
+            <converter:AppStimmerEditorEditableToTitleConverter x:Key="AppStimmerEditorEditableToTitleConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

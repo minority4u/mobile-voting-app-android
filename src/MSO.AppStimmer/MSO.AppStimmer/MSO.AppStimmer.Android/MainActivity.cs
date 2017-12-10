@@ -8,7 +8,7 @@ using MSO.StimmApp.Droid;
 namespace MSO.AppStimmer.Droid
 {
     [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+    public class MainActivity : XFormsAppCompatDroid
     {
         protected override void OnCreate(Bundle bundle)
         {

@@ -34,7 +34,38 @@ namespace MSO.StimmApp.Core.Services
                 new AppStimmer
                 {
                     Title = "Straße kaputt",
-                    Appstract = "Die Straße sieht beschissen aus.",
+                    Appstract = "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." + 
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." + 
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." + 
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." + 
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
+                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus.",
                     Description = "Das Loch muss repatiert werden. Außerdem muss die Straße " +
                                   "neu geteert werden. Und sie muss doppelt so breit werden.",
                     Picture = "MSO.StimmApp.Resources.Images.Schlagloch.jpg",

@@ -9,11 +9,10 @@
     xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
     <ContentView.Content>
-        <Grid Padding="15,15,15,15">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10*" />
-                <RowDefinition Height="45*" />
-                <RowDefinition Height="45*" />
+                <RowDefinition Height="50*" />
+                <RowDefinition Height="50*" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -21,58 +20,45 @@
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
-            <elements:TintedSvgCachedImage
-                Grid.Row="0"
-                Grid.Column="2"
-                HeightRequest="20"
-                HorizontalOptions="End"
-                Source="resource://MSO.StimmApp.Resources.Icons.cross.svg"
-                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SimpleControlsColor}"
-                VerticalOptions="Start"
-                WidthRequest="20">
-                <forms:SvgCachedImage.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="CancelAddingAttachgmentImageButton_OnTapped" />
-                </forms:SvgCachedImage.GestureRecognizers>
-            </elements:TintedSvgCachedImage>
 
             <controls:AppStimmerAttachmentButton
                 x:Name="AddDocumentButton"
-                Grid.Row="1"
+                Grid.Row="0"
                 Grid.Column="0"
                 AttachmentType="{x:Static enums:AttachmentType.Document}"
                 Description="Dokument"
                 IconSource="MSO.StimmApp.Resources.Icons.document_circle.scale-100.png" />
             <controls:AppStimmerAttachmentButton
                 x:Name="AddCameraPictureButton"
-                Grid.Row="1"
+                Grid.Row="0"
                 Grid.Column="1"
                 AttachmentType="{x:Static enums:AttachmentType.Camera}"
                 Description="Kamera"
                 IconSource="MSO.StimmApp.Resources.Icons.camera_circle.scale-100.png" />
             <controls:AppStimmerAttachmentButton
                 x:Name="AddGalleryPictureButton"
-                Grid.Row="1"
+                Grid.Row="0"
                 Grid.Column="2"
                 AttachmentType="{x:Static enums:AttachmentType.Gallery}"
                 Description="Galerie"
                 IconSource="MSO.StimmApp.Resources.Icons.gallery_circle.scale-100.png" />
             <controls:AppStimmerAttachmentButton
                 x:Name="AddTextButton"
-                Grid.Row="2"
+                Grid.Row="1"
                 Grid.Column="0"
                 AttachmentType="{x:Static enums:AttachmentType.Text}"
                 Description="Text"
                 IconSource="MSO.StimmApp.Resources.Icons.text_circle.scale-100.png" />
             <controls:AppStimmerAttachmentButton
                 x:Name="AddLocationButton"
-                Grid.Row="2"
+                Grid.Row="1"
                 Grid.Column="1"
                 AttachmentType="{x:Static enums:AttachmentType.Location}"
                 Description="Standort"
                 IconSource="MSO.StimmApp.Resources.Icons.location_circle.scale-100.png" />
             <controls:AppStimmerAttachmentButton
                 x:Name="AddAudioButtonn"
-                Grid.Row="2"
+                Grid.Row="1"
                 Grid.Column="2"
                 AttachmentType="{x:Static enums:AttachmentType.Audio}"
                 Description="Audio"

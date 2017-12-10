@@ -17,7 +17,7 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
 
         private void CancelAddingAttachgmentImageButton_OnTapped(object sender, EventArgs e)
         {
-            this.ViewModel.IsAddingAttachment = false;
+            // this.ViewModel.IsAddingAttachment = false;
         }
 	}
 }
