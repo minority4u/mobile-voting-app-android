@@ -245,6 +245,7 @@
     <Compile Include="Effects\BlueSliderEffect.cs" />
     <Compile Include="Effects\RedSliderEffect.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderers\BottomlinelessEditorRenderer.cs" />
     <Compile Include="Renderers\GradientFrameRenderer.cs" />
     <Compile Include="Renderers\MyScrollViewRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
