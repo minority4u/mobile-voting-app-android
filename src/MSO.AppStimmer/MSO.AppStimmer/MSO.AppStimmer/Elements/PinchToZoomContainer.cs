@@ -21,11 +21,36 @@ namespace MSO.StimmApp.Elements
             var pinchGesture = new PinchGestureRecognizer();
             pinchGesture.PinchUpdated += OnPinchUpdated;
             GestureRecognizers.Add(pinchGesture);
+
+            var panGesture = new PanGestureRecognizer();
+            panGesture.PanUpdated += TapGestureOnTapped;
+            GestureRecognizers.Add(panGesture);
         }
 
-        private void TapGestureOnTapped(object sender, EventArgs eventArgs)
+        private void TapGestureOnTapped(object sender, PanUpdatedEventArgs e)
         {
-            Debug.WriteLine(@"Tap gesture...");
+            switch (e.StatusType)
+            {
+                case GestureStatus.Started:
+                    //this.HandleTouchStart();
+                    break;
+                case GestureStatus.Running:
+                    this.HandleTouch((float)e.TotalX, (float)e.TotalY);
+                    break;
+                case GestureStatus.Completed:
+                    //this.HandleTouchEnd();
+                    break;
+                case GestureStatus.Canceled:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void HandleTouch(float differenceX, float differenceY)
+        {
+            //this.TranslationX = differenceX;
+            //this.TranslationY = differenceY;
         }
 
         void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
