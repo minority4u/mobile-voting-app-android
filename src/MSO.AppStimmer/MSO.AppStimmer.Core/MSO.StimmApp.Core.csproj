@@ -39,6 +39,7 @@
     <Compile Include="Enums\ModelEditFinishedType.cs" />
     <Compile Include="Helpers\ColorThemes.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Helpers\TaskHelper.cs" />
     <Compile Include="Models\AppStimmer.cs" />
     <Compile Include="Models\AppStimmerAttachment.cs" />
     <Compile Include="Models\AppStimmerUser.cs" />

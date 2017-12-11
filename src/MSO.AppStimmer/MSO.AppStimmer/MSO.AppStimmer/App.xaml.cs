@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Akavache;
 using Microsoft.Practices.ServiceLocation;
 using MSO.StimmApp.Core.Helpers;
+using MSO.StimmApp.Helpers;
 using MSO.StimmApp.Services;
 using MSO.StimmApp.Views.Pages;
 using Xamarin.Forms;
@@ -17,6 +18,9 @@ namespace MSO.StimmApp
         public static NavigationService NavigationService
             => ServiceLocator.Current.GetInstance<NavigationService>();
 
+        public static INavigationBarController NavigationBarController
+            => DependencyService.Get<INavigationBarController>();
+
         public static Dictionary<string, string> ReplaceSvgStringMap = new Dictionary<string, string>();
 
         public static bool IsTestMode = true;
@@ -26,6 +30,8 @@ namespace MSO.StimmApp
         public App()
         {
             this.InitializeComponent();
+            DependencyService.Register<INavigationBarController>();
+
             this.InitializeApplicationCache();
  
             var menuPage = new MenuPage();

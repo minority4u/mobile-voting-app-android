@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="MSO.StimmApp.Views.Pages.ShowImageAttachmentPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    CloseWhenBackgroundIsClicked="True"
+    HasSystemPadding="False">
+    <ContentPage.Content>
+        <Grid x:Name="MainGrid">
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+            </Grid.GestureRecognizers>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <elements:PinchToZoomContainer
+                x:Name="ImageZoomContainer"
+                Grid.Row="0"
+                Grid.RowSpan="2">
+                <elements:PinchToZoomContainer.Content>
+                    <Image Aspect="AspectFill" Source="{Binding AttachmentSource, Converter={StaticResource ImageSourceConverter}}" />
+                </elements:PinchToZoomContainer.Content>
+            </elements:PinchToZoomContainer>
+
+            <StackLayout
+                x:Name="BottomStackLayout"
+                Grid.Row="1"
+                Spacing="0"
+                VerticalOptions="EndAndExpand">
+                <Label
+                    x:Name="DescriptionLabel"
+                    BackgroundColor="#99000000"
+                    FontSize="15"
+                    HeightRequest="60"
+                    HorizontalTextAlignment="Center"
+                    Text="{Binding Description}"
+                    TextColor="White"
+                    VerticalTextAlignment="Center" />
+                <Grid x:Name="NavigationBarOverlayGrid" RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label x:Name="NavigationBarOverlayFrame" BackgroundColor="#99000000" />
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</pages:PopupPage>

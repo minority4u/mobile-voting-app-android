@@ -24,6 +24,7 @@ namespace MSO.AppStimmer.Droid
             LoadApplication(new StimmApp.App());
 
             Window.SetStatusBarColor(Color.Black);
+            Window.SetNavigationBarColor(Color.Black);
 
             //XFGloss.Droid.Library.Init(this, bundle);
         }

@@ -3,7 +3,6 @@
     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments.AddAttachmentView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:MSO.StimmApp.Controls;assembly=MSO.StimmApp"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:enums="clr-namespace:MSO.StimmApp.Core.Enums;assembly=MSO.StimmApp.Core"
     xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"

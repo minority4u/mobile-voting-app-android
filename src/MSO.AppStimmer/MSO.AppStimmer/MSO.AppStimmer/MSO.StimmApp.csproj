@@ -49,6 +49,7 @@
       <DependentUpon>ColoredNavigationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Elements\ExpandableEditor.cs" />
+    <Compile Include="Elements\PinchToZoomContainer.cs" />
     <Compile Include="Elements\TintedSvgCachedImage.cs" />
     <Compile Include="Converter\AppStimmerAttachmentTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
@@ -56,8 +57,11 @@
     <Compile Include="Converter\ImageResourceConverter.cs" />
     <Compile Include="Converter\IMultiValueConverter.cs" />
     <Compile Include="Converter\MultiBinding.cs" />
+    <Compile Include="Elements\ZoomableScrollView.cs" />
+    <Compile Include="Elements\ZoomImage.cs" />
     <Compile Include="Extensions\Colors.cs" />
     <Compile Include="Elements\GradientFrame.cs" />
+    <Compile Include="Helpers\INavigationBarController.cs" />
     <Compile Include="ImageResourceExtension.cs" />
     <Compile Include="MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
@@ -86,6 +90,9 @@
     </Compile>
     <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\ImageAttachmentView.xaml.cs">
       <DependentUpon>ImageAttachmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\ShowImageAttachmentView.xaml.cs">
+      <DependentUpon>ShowImageAttachmentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\TextAttachmentView.xaml.cs">
       <DependentUpon>TextAttachmentView.xaml</DependentUpon>
@@ -141,6 +148,9 @@
     </Compile>
     <Compile Include="Views\ContentViews\Settings\AppColorsSettingsView.xaml.cs">
       <DependentUpon>AppColorsSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ShowImageAttachmentPage.xaml.cs">
+      <DependentUpon>ShowImageAttachmentPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -441,9 +451,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icons\cross.svg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icons\info_blue_circle.scale-100.png" />
   </ItemGroup>
@@ -478,6 +486,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Pages\AddAttachmentPopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\ShowImageAttachmentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\ShowImageAttachmentView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

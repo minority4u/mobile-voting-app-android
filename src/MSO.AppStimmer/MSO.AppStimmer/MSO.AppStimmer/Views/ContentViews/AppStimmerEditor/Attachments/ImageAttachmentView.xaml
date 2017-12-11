@@ -6,11 +6,14 @@
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp">
     <ContentView.Content>
         <StackLayout Margin="5,5,5,8">
-
             <Image
                 Aspect="AspectFill"
                 HeightRequest="300"
-                Source="{Binding AttachmentSource, Converter={StaticResource ImageSourceConverter}}" />
+                Source="{Binding AttachmentSource, Converter={StaticResource ImageSourceConverter}}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                </Image.GestureRecognizers>
+            </Image>
             <elements:ExpandableEditor Text="{Binding Description}" />
         </StackLayout>
     </ContentView.Content>

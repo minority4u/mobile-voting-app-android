@@ -244,6 +244,8 @@
     <Compile Include="Effects\GreenSliderEffect.cs" />
     <Compile Include="Effects\BlueSliderEffect.cs" />
     <Compile Include="Effects\RedSliderEffect.cs" />
+    <Compile Include="Renderers\ZoomScrollViewRenderer.cs" />
+    <Compile Include="Resources\NavigationBarController.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Renderers\BottomlinelessEditorRenderer.cs" />
     <Compile Include="Renderers\GradientFrameRenderer.cs" />
@@ -285,6 +287,10 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\colors.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
