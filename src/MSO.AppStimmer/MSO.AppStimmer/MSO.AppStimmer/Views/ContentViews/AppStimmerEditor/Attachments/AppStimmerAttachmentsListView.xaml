@@ -3,7 +3,7 @@
     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments.AppStimmerAttachmentsListView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:attachments1="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
+    xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:views="clr-namespace:MSO.StimmApp.Views;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
@@ -16,7 +16,17 @@
         <DataTemplate>
             <ViewCell>
                 <ViewCell.View>
-                    <AbsoluteLayout Padding="10,10,10,10">
+                    <Frame
+                        Margin="10,10,10,10"
+                        Padding="0"
+                        CornerRadius="5">
+                        <StackLayout BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}">
+                            <attachments:TextAttachmentView x:Name="TestAttachmentsView" IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
+                            <attachments:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Gallery}" />
+                        </StackLayout>
+                    </Frame>
+
+                    <!--<AbsoluteLayout Padding="10,10,10,10">
                         <StackLayout
                             AbsoluteLayout.LayoutBounds="0,0,1,1"
                             AbsoluteLayout.LayoutFlags="All"
@@ -25,7 +35,8 @@
 
                             <Frame Padding="0" CornerRadius="5">
                                 <StackLayout Spacing="0">
-                                    <StackLayout
+                    -->
+                    <!--<StackLayout
                                         BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.ListViewHeaderColor}"
                                         HorizontalOptions="FillAndExpand"
                                         Orientation="Horizontal">
@@ -36,18 +47,15 @@
                                             Text="{Binding Description}"
                                             TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryTextColor}"
                                             VerticalOptions="Center" />
-                                    </StackLayout>
+                                    </StackLayout>-->
+                    <!--
 
-                                    <Grid BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemColor}" HeightRequest="125">
-                                        <Grid.Children>
-                                            <attachments1:TextAttachmentView x:Name="TestAttachmentsView" IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
-                                            <attachments1:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Gallery}" />
-                                        </Grid.Children>
-                                    </Grid>
+
+                                    <attachments:ImageAttachmentView HeightRequest="300" IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Gallery}" />
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
-                    </AbsoluteLayout>
+                    </AbsoluteLayout>-->
                 </ViewCell.View>
             </ViewCell>
         </DataTemplate>

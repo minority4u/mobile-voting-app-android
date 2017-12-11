@@ -3,11 +3,11 @@
     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments.TextAttachmentView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
     <ContentView.Content>
-        <StackLayout>
-            <Entry
-                Margin="5,5,0,0"
+        <StackLayout Margin="5,5,5,8">
+            <elements:ExpandableEditor
                 Text="{Binding AttachmentSource}"
                 TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
         </StackLayout>

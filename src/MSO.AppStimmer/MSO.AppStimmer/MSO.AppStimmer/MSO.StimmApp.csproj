@@ -48,6 +48,7 @@
     <Compile Include="Elements\ColoredNavigationPage.xaml.cs">
       <DependentUpon>ColoredNavigationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Elements\ExpandableEditor.cs" />
     <Compile Include="Elements\TintedSvgCachedImage.cs" />
     <Compile Include="Converter\AppStimmerAttachmentTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
