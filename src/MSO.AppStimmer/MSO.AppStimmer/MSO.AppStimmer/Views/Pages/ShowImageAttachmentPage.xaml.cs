@@ -21,7 +21,7 @@ namespace MSO.StimmApp.Views.Pages
         {
             this.InitializeComponent();
             //this.standardNavigationBarColor = App.NavigationBarController.Color;
-            //App.NavigationBarController.Color = Color.FromHex("#000000");
+
             this.BindingContext = bindingContext;
 
             var navigationBarHeight = App.NavigationBarController.Height;
@@ -122,6 +122,8 @@ namespace MSO.StimmApp.Views.Pages
                     view1.IsVisible = true;
                     await view1.FadeTo(1, 600);
                 }
+
+                //App.NavigationBarController.Color = this.standardNavigationBarColor;
             });
 
             Device.BeginInvokeOnMainThread(async () =>
@@ -136,6 +138,8 @@ namespace MSO.StimmApp.Views.Pages
                     view2.IsVisible = true;
                     await view2.FadeTo(1, 600);
                 }
+
+                //App.NavigationBarController.Color = Color.Black;
             });
         }
 
