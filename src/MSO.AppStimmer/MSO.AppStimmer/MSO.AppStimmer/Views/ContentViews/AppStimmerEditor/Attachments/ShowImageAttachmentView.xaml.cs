@@ -15,14 +15,6 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
         public ShowImageAttachmentView()
         {
             this.InitializeComponent();
-
-            //var navigationBarHeight = App.NavigationBarController.Height;
-            //this.NavigationBarOverlayGrid.RowDefinitions[0].Height = new GridLength(navigationBarHeight);
         }
-
-        //private void PinchGestureRecognizer_OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

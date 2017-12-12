@@ -19,6 +19,9 @@ namespace MSO.StimmApp.Converter
                 return true;
             if (type == AttachmentType.Text && par == "Text")
                 return true;
+            if (type == AttachmentType.Video && par == "Video")
+                return true;
+
 
             return false;
         }

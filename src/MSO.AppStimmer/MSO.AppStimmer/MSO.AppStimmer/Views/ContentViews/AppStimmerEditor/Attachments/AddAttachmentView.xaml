@@ -31,7 +31,7 @@
                 x:Name="AddCameraPictureButton"
                 Grid.Row="0"
                 Grid.Column="1"
-                AttachmentType="{x:Static enums:AttachmentType.Camera}"
+                AttachmentType="{x:Static enums:AttachmentType.Video}"
                 Description="Kamera"
                 IconSource="MSO.StimmApp.Resources.Icons.camera_circle.scale-100.png" />
             <elements:AppStimmerAttachmentButton

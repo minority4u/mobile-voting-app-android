@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
-    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments.ImageAttachmentView"
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments.VideoAttachmentView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
@@ -8,19 +8,16 @@
     <ContentView.Content>
         <StackLayout Margin="5,5,5,8">
             <Frame
+                x:Name="VideoPreviewFrame"
                 Padding="0"
+                BackgroundColor="Aqua"
                 CornerRadius="5"
+                HeightRequest="300"
                 OutlineColor="Transparent">
-                <Image
-                    Aspect="AspectFill"
-                    HeightRequest="300"
-                    Source="{Binding AttachmentSource, Converter={StaticResource ImageSourceConverter}}">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
-                    </Image.GestureRecognizers>
-                </Image>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="VideoPreviewFrame_OnTapped" />
+                </Frame.GestureRecognizers>
             </Frame>
-
             <elements:ExpandableEditor Text="{Binding Description}" TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
         </StackLayout>
     </ContentView.Content>

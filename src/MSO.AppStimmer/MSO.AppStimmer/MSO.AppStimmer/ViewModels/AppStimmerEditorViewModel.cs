@@ -119,6 +119,10 @@ namespace MSO.StimmApp.ViewModels
                     attachment.Description = "Sehr schönes Bild";
                     attachment.AttachmentSource = "MSO.StimmApp.Resources.Images.SampleProfilePicture.jpg";
                     break;
+                case AttachmentType.Video:
+                    attachment.Description = "Irgendein Video";
+                    attachment.AttachmentSource = "MSO.StimmApp.Resources.Images.SampleProfilePicture.jpg";
+                    break;
             }
 
             this.AppStimmer.Attachments.Add(attachment);
