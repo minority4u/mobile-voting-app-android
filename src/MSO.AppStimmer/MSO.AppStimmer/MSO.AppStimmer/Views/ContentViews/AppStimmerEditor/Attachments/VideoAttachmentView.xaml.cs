@@ -24,7 +24,7 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
             var videoPath = this.AppStimmer.AttachmentSource;
             var viewModel = new ShowVideoAttachmentViewModel(videoPath);
 
-            var page = new ShowVideoAttachmentPage(viewModel);
+            var page = new ShowVideoAttachmentPage();
             await PopupNavigation.PushAsync(page);
         }
     }
