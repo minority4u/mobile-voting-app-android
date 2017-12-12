@@ -1,27 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Ioc;
 using MSO.StimmApp.Core.ViewModels;
+using Plugin.MediaManager;
+using Plugin.MediaManager.Abstractions.EventArguments;
+using Xamarin.Forms;
 
 namespace MSO.StimmApp.ViewModels
 {
     public class ShowVideoAttachmentViewModel : BaseViewModel
     {
         private string videoPath;
+        private double progressValue;
+        private double totalLength;
+        private double elapsed;
 
         [PreferredConstructor]
         public ShowVideoAttachmentViewModel(string videoPath)
         {
             this.VideoPath = videoPath;
+
+            CrossMediaManager.Current.PlayingChanged += (sender, e) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    this.ProgressValue = e.Progress;
+                    this.TotalLength = e.Duration.TotalSeconds;
+                    this.Elapsed = e.Position.TotalSeconds;
+                });
+            };
         }
 
         public string VideoPath
         {
             get => this.videoPath;
             set => this.Set(ref this.videoPath, value);
+        }
+
+        public double ProgressValue
+        {
+            get => this.progressValue;
+            set
+            {
+                this.Set(ref this.progressValue, value);
+                //CrossMediaManager.Current.Seek(TimeSpan.FromMilliseconds(value * this.ViewModel.TotalLength));
+            }
+        }
+
+        public double TotalLength
+        {
+            get => this.totalLength;
+            set => this.Set(ref this.totalLength, value);
+        }
+
+        public double Elapsed
+        {
+            get => this.elapsed;
+            set => this.Set(ref this.elapsed, value);
         }
     }
 }

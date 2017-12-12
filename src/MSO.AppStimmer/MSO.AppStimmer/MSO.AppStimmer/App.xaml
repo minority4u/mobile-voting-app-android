@@ -42,6 +42,7 @@
             <converter:ÁppStimmerEditorDisplayTypeToOpacityConverter x:Key="ÁppStimmerEditorDisplayTypeToOpacityConverter" />
             <converter:ImageToSvgSourceConverter x:Key="ImageToSvgSourceConverter" />
             <converter:AppStimmerEditorEditableToTitleConverter x:Key="AppStimmerEditorEditableToTitleConverter" />
+            <converter:MediaManagerTimeSpanToStringConverter x:Key="TimeSpanToStringConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

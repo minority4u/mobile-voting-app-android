@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Akavache;
+using DeviceOrientation.Forms.Plugin.Abstractions;
 using Microsoft.Practices.ServiceLocation;
 using MSO.StimmApp.Core.Helpers;
 using MSO.StimmApp.Helpers;
@@ -21,6 +22,9 @@ namespace MSO.StimmApp
         public static INavigationBarController NavigationBarController
             => DependencyService.Get<INavigationBarController>();
 
+        public static IDeviceOrientation DeviceOrientationService =>
+            DependencyService.Get<IDeviceOrientation>();
+
         public static Dictionary<string, string> ReplaceSvgStringMap = new Dictionary<string, string>();
 
         public static bool IsTestMode = true;
@@ -35,6 +39,7 @@ namespace MSO.StimmApp
             this.InitializeApplicationCache();
  
             var menuPage = new MenuPage();
+            
 
             var standardPage = (Page) Activator.CreateInstance(typeof(AppStimmerPage));
             menuPage.InitializePage(standardPage);

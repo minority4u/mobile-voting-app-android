@@ -82,7 +82,13 @@ namespace MSO.StimmApp.Core.Services
                             AttachmentSource = "Dies ist ein Text-Attachment.",
                             Description = "Dies ist ein Text.",
                             AttachmentType = AttachmentType.Text
-                        }
+                        },
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
+                            Description = "Dies ist ein cooles Video",
+                            AttachmentType = AttachmentType.Video
+                        }                    
                     }                   
                 },
                 new AppStimmer

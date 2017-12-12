@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
+using DeviceOrientation.Forms.Plugin.Droid;
 using FFImageLoading.Forms.Droid;
 using Plugin.MediaManager.Forms.Android;
 using Xamarin.Forms.Platform.Android;
@@ -22,6 +23,7 @@ namespace MSO.AppStimmer.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             CachedImageRenderer.Init();
             VideoViewRenderer.Init();
+            DeviceOrientationImplementation.Init();
 
             LoadApplication(new StimmApp.App());
 
@@ -29,6 +31,12 @@ namespace MSO.AppStimmer.Droid
             Window.SetNavigationBarColor(Color.Black);
 
             //XFGloss.Droid.Library.Init(this, bundle);
+        }
+
+        public override void OnConfigurationChanged(global::Android.Content.Res.Configuration newConfig)
+        {
+            base.OnConfigurationChanged(newConfig);
+            DeviceOrientationImplementation.NotifyOrientationChange(newConfig);
         }
     }
 }

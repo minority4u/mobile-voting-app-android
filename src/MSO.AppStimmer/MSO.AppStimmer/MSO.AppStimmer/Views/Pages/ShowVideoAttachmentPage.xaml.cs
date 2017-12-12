@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DeviceOrientation.Forms.Plugin.Abstractions;
 using MSO.StimmApp.ViewModels;
 using Plugin.MediaManager;
 using Plugin.MediaManager.Abstractions;
@@ -17,28 +19,45 @@ namespace MSO.StimmApp.Views.Pages
     {
         private IPlaybackController PlaybackController => CrossMediaManager.Current.PlaybackController;
 
-        public ShowVideoAttachmentPage()
+        public ShowVideoAttachmentPage(ShowVideoAttachmentViewModel viewModel)
         {
             this.InitializeComponent();
-            this.volumeLabel.Text = "Volume (0-" + CrossMediaManager.Current.VolumeManager.MaxVolume + ")";
+            this.BindingContext = viewModel;
+            //this.volumeLabel.Text = "Volume (0-" + CrossMediaManager.Current.VolumeManager.MaxVolume + ")";
             //Initialize Volume settings to match interface
-            int.TryParse(this.volumeEntry.Text, out var vol);
-            CrossMediaManager.Current.VolumeManager.CurrentVolume = vol;
+            //int.TryParse(this.volumeEntry.Text, out var vol);
+            //CrossMediaManager.Current.VolumeManager.CurrentVolume = vol;
             //CrossMediaManager.Current.VolumeManager.Muted = false;
 
-            CrossMediaManager.Current.PlayingChanged += (sender, e) =>
+            var deviceOrientiation = App.DeviceOrientationService.GetOrientation();
+            this.OnDeviceOrientationChanged(deviceOrientiation);
+
+            MessagingCenter.Subscribe<DeviceOrientationChangeMessage>(this, DeviceOrientationChangeMessage.MessageId, (message) =>
             {
-                Device.BeginInvokeOnMainThread(() =>
-                {
-                    ProgressBar.Progress = e.Progress;
-                    Duration.Text = "" + e.Duration.TotalSeconds + " seconds";
-                });
-            };
+                var deviceOrientation = message.Orientation;
+                this.OnDeviceOrientationChanged(deviceOrientation);
+            });
         }
+
+        private void OnDeviceOrientationChanged(DeviceOrientations orientation)
+        {
+            if (orientation == DeviceOrientations.Portrait)
+            {
+                this.VideoView.SetValue(Grid.RowProperty, 1);
+                this.VideoView.SetValue(Grid.RowSpanProperty, 1);
+            }
+            if (orientation == DeviceOrientations.Landscape)
+            {
+                this.VideoView.SetValue(Grid.RowProperty, 0);
+                this.VideoView.SetValue(Grid.RowSpanProperty, this.VideoPlayerGrid.RowDefinitions.Count);
+            }
+        }
+
+        public ShowVideoAttachmentViewModel ViewModel => this.BindingContext as ShowVideoAttachmentViewModel;
 
         protected override void OnAppearing()
         {
-            videoView.Source = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+            VideoView.Source = this.ViewModel.VideoPath;
             base.OnAppearing();
         }
 
@@ -58,8 +77,8 @@ namespace MSO.StimmApp.Views.Pages
         }
         private void SetVolumeBtn_OnClicked(object sender, EventArgs e)
         {
-            int.TryParse(this.volumeEntry.Text, out var vol);
-            CrossMediaManager.Current.VolumeManager.CurrentVolume = vol;
+            //int.TryParse(this.volumeEntry.Text, out var vol);
+            //CrossMediaManager.Current.VolumeManager.CurrentVolume = vol;
         }
 
         private void MutedBtn_OnClicked(object sender, EventArgs e)
