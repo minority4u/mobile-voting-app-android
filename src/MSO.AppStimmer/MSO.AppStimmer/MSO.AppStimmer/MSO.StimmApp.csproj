@@ -75,6 +75,7 @@
     <Compile Include="ViewModels\CurrentUserViewModel.cs" />
     <Compile Include="ViewModels\MenuPageMasterViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\ShowVideoAttachmentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\ContentViews\Appstimmen\AppStimmerButtonsView.xaml.cs">
       <DependentUpon>AppStimmerButtonsView.xaml</DependentUpon>
@@ -155,6 +156,9 @@
     <Compile Include="Views\Pages\ShowImageAttachmentPage.xaml.cs">
       <DependentUpon>ShowImageAttachmentPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\ShowVideoAttachmentPage.xaml.cs">
+      <DependentUpon>ShowVideoAttachmentPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -201,6 +205,15 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.MediaManager.0.4.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Plugin.MediaManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.MediaManager.0.4.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Plugin.MediaManager.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.MediaManager.Forms.0.4.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Plugin.MediaManager.Forms.dll</HintPath>
     </Reference>
     <Reference Include="Plugin.Settings, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
@@ -506,6 +519,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\ShowImageAttachmentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\ShowVideoAttachmentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

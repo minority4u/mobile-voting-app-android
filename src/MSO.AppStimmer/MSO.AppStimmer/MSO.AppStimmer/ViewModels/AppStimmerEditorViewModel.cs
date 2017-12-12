@@ -121,7 +121,7 @@ namespace MSO.StimmApp.ViewModels
                     break;
                 case AttachmentType.Video:
                     attachment.Description = "Irgendein Video";
-                    attachment.AttachmentSource = "MSO.StimmApp.Resources.Images.SampleProfilePicture.jpg";
+                    attachment.AttachmentSource = "https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4";
                     break;
             }
 

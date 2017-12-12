@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using FFImageLoading.Forms.Droid;
+using Plugin.MediaManager.Forms.Android;
 using Xamarin.Forms.Platform.Android;
 using Resource = MSO.StimmApp.Droid.Resource;
 
@@ -20,6 +21,7 @@ namespace MSO.AppStimmer.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             CachedImageRenderer.Init();
+            VideoViewRenderer.Init();
 
             LoadApplication(new StimmApp.App());
 

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="MSO.StimmApp.Views.Pages.ShowVideoAttachmentPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    HasSystemPadding="False">
+    <ContentPage.Content>
+        <Grid>
+            <!--<Frame BackgroundColor="Red" />-->
+            <forms:VideoView
+                AspectMode="AspectFill"
+                HorizontalOptions="FillAndExpand"
+                Source="{Binding AttachmentSource}"
+                VerticalOptions="FillAndExpand" />
+        </Grid>
+    </ContentPage.Content>
+</pages:PopupPage>

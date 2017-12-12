@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
+using MSO.StimmApp.Core.Models;
+using MSO.StimmApp.ViewModels;
+using MSO.StimmApp.Views.Pages;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,14 +15,17 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
         public VideoAttachmentView()
         {
             this.InitializeComponent();
-
-            var bindingContext = this.BindingContext;
-            Debug.WriteLine(bindingContext);
         }
 
-        private void VideoPreviewFrame_OnTapped(object sender, EventArgs e)
+        public AppStimmerAttachment AppStimmer => this.BindingContext as AppStimmerAttachment;
+
+        private async void VideoPreviewFrame_OnTapped(object sender, EventArgs e)
         {
-            Debug.WriteLine(@"Video preview tapped..");
+            var videoPath = this.AppStimmer.AttachmentSource;
+            var viewModel = new ShowVideoAttachmentViewModel(videoPath);
+
+            var page = new ShowVideoAttachmentPage(viewModel);
+            await PopupNavigation.PushAsync(page);
         }
     }
 }
