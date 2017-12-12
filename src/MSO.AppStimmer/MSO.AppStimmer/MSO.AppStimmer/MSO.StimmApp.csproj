@@ -58,6 +58,7 @@
     <Compile Include="Converter\ImageResourceConverter.cs" />
     <Compile Include="Converter\IMultiValueConverter.cs" />
     <Compile Include="Converter\MultiBinding.cs" />
+    <Compile Include="Elements\VideoPlaybackSlider.cs" />
     <Compile Include="Elements\ZoomableScrollView.cs" />
     <Compile Include="Elements\ZoomImage.cs" />
     <Compile Include="Extensions\Colors.cs" />

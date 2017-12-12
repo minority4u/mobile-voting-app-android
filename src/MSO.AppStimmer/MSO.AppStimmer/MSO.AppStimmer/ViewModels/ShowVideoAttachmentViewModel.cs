@@ -4,9 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using MSO.StimmApp.Core.ViewModels;
 using Plugin.MediaManager;
+using Plugin.MediaManager.Abstractions;
 using Plugin.MediaManager.Abstractions.EventArguments;
 using Xamarin.Forms;
 
@@ -18,6 +20,9 @@ namespace MSO.StimmApp.ViewModels
         private double progressValue;
         private double totalLength;
         private double elapsed;
+        private RelayCommand seekCommand;
+
+        private IPlaybackController PlaybackController => CrossMediaManager.Current.PlaybackController;
 
         [PreferredConstructor]
         public ShowVideoAttachmentViewModel(string videoPath)
@@ -33,6 +38,15 @@ namespace MSO.StimmApp.ViewModels
                     this.Elapsed = e.Position.TotalSeconds;
                 });
             };
+        }
+
+        public RelayCommand SeekCommand => this.seekCommand ?? (this.seekCommand =
+                                                      new RelayCommand(this.Seek));
+
+        private void Seek()
+        {
+            CrossMediaManager.Current.Seek(TimeSpan.FromMilliseconds(this.ProgressValue * this.TotalLength));
+            //PlaybackController.PlayPause();
         }
 
         public string VideoPath

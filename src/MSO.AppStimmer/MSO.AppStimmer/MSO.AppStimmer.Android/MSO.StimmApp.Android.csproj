@@ -262,6 +262,7 @@
     <Compile Include="Effects\GreenSliderEffect.cs" />
     <Compile Include="Effects\BlueSliderEffect.cs" />
     <Compile Include="Effects\RedSliderEffect.cs" />
+    <Compile Include="Renderers\VideoPlaybackSliderRenderer.cs" />
     <Compile Include="Renderers\ZoomScrollViewRenderer.cs" />
     <Compile Include="Resources\NavigationBarController.cs" />
     <Compile Include="MainActivity.cs" />

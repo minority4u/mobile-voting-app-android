@@ -3,6 +3,7 @@
     x:Class="MSO.StimmApp.Views.Pages.ShowVideoAttachmentPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     BackgroundColor="Black"
@@ -38,9 +39,10 @@
                     Text="{Binding Elapsed, Converter={StaticResource TimeSpanToStringConverter}, ConverterParameter=short}"
                     TextColor="White"
                     VerticalOptions="Center" />
-                <Slider
+                <elements:VideoPlaybackSlider
                     x:Name="ProgressSlider"
                     Grid.Column="1"
+                    FinishedSelectionCommand="{Binding SeekCommand}"
                     HorizontalOptions="FillAndExpand"
                     Value="{Binding ProgressValue}" />
                 <Label
