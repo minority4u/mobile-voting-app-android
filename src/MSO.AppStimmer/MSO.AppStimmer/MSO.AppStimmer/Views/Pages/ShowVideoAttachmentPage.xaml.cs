@@ -17,17 +17,10 @@ namespace MSO.StimmApp.Views.Pages
 {
     public partial class ShowVideoAttachmentPage : PopupPage
     {
-        private IPlaybackController PlaybackController => CrossMediaManager.Current.PlaybackController;
-
         public ShowVideoAttachmentPage(ShowVideoAttachmentViewModel viewModel)
         {
             this.InitializeComponent();
             this.BindingContext = viewModel;
-            //this.volumeLabel.Text = "Volume (0-" + CrossMediaManager.Current.VolumeManager.MaxVolume + ")";
-            //Initialize Volume settings to match interface
-            //int.TryParse(this.volumeEntry.Text, out var vol);
-            //CrossMediaManager.Current.VolumeManager.CurrentVolume = vol;
-            //CrossMediaManager.Current.VolumeManager.Muted = false;
 
             var deviceOrientiation = App.DeviceOrientationService.GetOrientation();
             this.OnDeviceOrientationChanged(deviceOrientiation);
@@ -60,6 +53,7 @@ namespace MSO.StimmApp.Views.Pages
         protected override void OnAppearing()
         {
             VideoView.Source = this.ViewModel.Attachment.AttachmentSource;
+            this.ViewModel.Start();
             base.OnAppearing();
         }
 
@@ -70,17 +64,17 @@ namespace MSO.StimmApp.Views.Pages
 
         void PlayClicked(object sender, System.EventArgs e)
         {
-            PlaybackController.Play();
+            //PlaybackController.Play();
         }
 
         void PauseClicked(object sender, System.EventArgs e)
         {
-            PlaybackController.Pause();
+            //PlaybackController.Pause();
         }
 
         void StopClicked(object sender, System.EventArgs e)
         {
-            PlaybackController.Stop();
+            //PlaybackController.Stop();
         }
         private void SetVolumeBtn_OnClicked(object sender, EventArgs e)
         {

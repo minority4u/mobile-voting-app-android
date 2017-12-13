@@ -5,26 +5,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
-    <Grid x:Name="Root" HeightRequest="50">
-        <Image
-            HeightRequest="30"
-            Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.play_gray.scale-100.png}"
-            WidthRequest="30">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
-            </Image.GestureRecognizers>
-        </Image>
-    </Grid>
-    <!--<StackLayout
+    <StackLayout
+        x:Name="Root"
+        HeightRequest="50"
+        Orientation="Horizontal">
+        <elements:TintedSvgCachedImage
+            HeightRequest="40"
+            Source="resource://MSO.StimmApp.Resources.Icons.play.svg"
+            TintColor="Gray"
+            WidthRequest="40">
+            <elements:TintedSvgCachedImage.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ViewModel.StartCommand}" />
+            </elements:TintedSvgCachedImage.GestureRecognizers>
+        </elements:TintedSvgCachedImage>
+        <elements:VideoPlaybackSlider
+            x:Name="ProgressSlider"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center"
+            Value="{Binding ViewModel.ProgressValue}" />
+        <!--<StackLayout
         x:Name="Root"
         Margin="5,5,5,5"
         HeightRequest="50"
         Orientation="Horizontal">-->
-
-    <!--<elements:VideoPlaybackSlider
-            x:Name="ProgressSlider"
-            HorizontalOptions="FillAndExpand"
-            VerticalOptions="Center"
-            Value="{Binding ViewModel.ProgressValue}" />-->
-    <!--</StackLayout>-->
+    </StackLayout>
 </ContentView>

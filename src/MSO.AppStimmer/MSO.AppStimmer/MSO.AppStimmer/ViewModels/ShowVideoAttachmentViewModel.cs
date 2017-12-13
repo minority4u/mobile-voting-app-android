@@ -10,7 +10,9 @@ using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.ViewModels;
 using Plugin.MediaManager;
 using Plugin.MediaManager.Abstractions;
+using Plugin.MediaManager.Abstractions.Enums;
 using Plugin.MediaManager.Abstractions.EventArguments;
+using Plugin.MediaManager.Abstractions.Implementations;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.ViewModels
@@ -30,8 +32,8 @@ namespace MSO.StimmApp.ViewModels
         {
             this.Attachment = attachment;
             this.IsPlaying = true;
-          
-            CrossMediaManager.Current.PlayingChanged += (sender, e) =>
+
+            CrossMediaManager.Current.VideoPlayer.PlayingChanged += (sender, e) =>
             {
                 Device.BeginInvokeOnMainThread(() =>
                 {
@@ -40,7 +42,6 @@ namespace MSO.StimmApp.ViewModels
                     this.Elapsed = e.Position.TotalSeconds;
                 });
             };
-            //App.NavigationBarController.HideNavigationBar();
         }
 
         public RelayCommand SeekCommand => this.seekCommand ?? (this.seekCommand =
@@ -63,9 +64,15 @@ namespace MSO.StimmApp.ViewModels
             this.IsPlaying = !this.IsPlaying;
         }
 
+        public void Start()
+        {
+            CrossMediaManager.Current.VideoPlayer.Play();
+            this.IsPlaying = true;
+        }
+
         private void Seek()
         {
-            CrossMediaManager.Current.Seek(TimeSpan.FromMilliseconds(this.ProgressValue * this.TotalLength));
+            CrossMediaManager.Current.VideoPlayer.Seek(TimeSpan.FromMilliseconds(this.ProgressValue * this.TotalLength));
         }
 
         public AppStimmerAttachment Attachment
@@ -82,7 +89,11 @@ namespace MSO.StimmApp.ViewModels
 
         public double ProgressValue
         {
-            get => this.progressValue;
+            get
+            {
+                Debug.WriteLine("Progress valiue: " + this.progressValue);
+                return this.progressValue;
+            } 
             set => this.Set(ref this.progressValue, value);
         }
 

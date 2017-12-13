@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
@@ -29,6 +30,22 @@ namespace MSO.AppStimmer.Droid
 
             Window.SetStatusBarColor(Color.Black);
             Window.SetNavigationBarColor(Color.Black);
+
+            //Notification.Builder builder = new Notification.Builder(this)
+            //    .SetContentTitle("Sample Notification")
+            //    .SetContentText("Hello World! This is my first notification!")
+            //    .SetSmallIcon(Resource.Drawable.ic_group_expand_02);
+
+            //// Build the notification:
+            //Notification notification = builder.Build();
+
+            //// Get the notification manager:
+            //NotificationManager notificationManager =
+            //    GetSystemService(Context.NotificationService) as NotificationManager;
+
+            //// Publish the notification:
+            //const int notificationId = 0;
+            //notificationManager.Notify(notificationId, notification);
 
             //XFGloss.Droid.Library.Init(this, bundle);
         }

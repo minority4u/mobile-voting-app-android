@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MSO.StimmApp.ViewModels;
 using Plugin.MediaManager;
+using Plugin.MediaManager.Abstractions.Enums;
+using Plugin.MediaManager.Abstractions.Implementations;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -31,11 +33,6 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
                 return result;
             }
             set => SetValue(ViewModelProperty, value);
-        }
-
-        private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
-        {
-            await CrossMediaManager.Current.Play(this.ViewModel.Attachment.AttachmentSource);
         }
     }
 }
