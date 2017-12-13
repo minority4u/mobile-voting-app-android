@@ -24,6 +24,7 @@
                             <attachments:TextAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
                             <attachments:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Gallery}" />
                             <attachments:VideoAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Video}" />
+                            <attachments:AudioAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Audio}" ViewModel="{Binding ., Converter={StaticResource AppStimmerAttachmentViewToViewModelConverter}}" />
                         </StackLayout>
                     </Frame>
 

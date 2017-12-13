@@ -30,5 +30,10 @@ namespace MSO.AppStimmer.iOS.Resources
         {
             throw new NotImplementedException();
         }
+
+        public void ShowNavigationBar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

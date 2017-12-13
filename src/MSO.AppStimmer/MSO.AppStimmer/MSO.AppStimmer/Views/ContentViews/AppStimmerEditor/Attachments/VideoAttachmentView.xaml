@@ -10,11 +10,17 @@
     <ContentView.Content>
         <StackLayout Margin="5,5,5,8">
             <Grid>
-                <!--<forms:VideoView
+
+                <!--
+                    forms:VideoView
                     x:Name="VideoView"
                     AspectMode="AspectFill"
+                    BackgroundColor="Aqua"
+                    HeightRequest="300"
                     HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand" />-->
+                    Source="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+                    VerticalOptions="FillAndExpand" />
+                -->
                 <Frame
                     x:Name="VideoPreviewFrame"
                     Padding="0"

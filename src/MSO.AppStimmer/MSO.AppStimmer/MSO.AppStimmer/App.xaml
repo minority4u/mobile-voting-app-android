@@ -43,6 +43,7 @@
             <converter:ImageToSvgSourceConverter x:Key="ImageToSvgSourceConverter" />
             <converter:AppStimmerEditorEditableToTitleConverter x:Key="AppStimmerEditorEditableToTitleConverter" />
             <converter:MediaManagerTimeSpanToStringConverter x:Key="TimeSpanToStringConverter" />
+            <converter:AppStimmerAttachmentViewToViewModelConverter x:Key="AppStimmerAttachmentViewToViewModelConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

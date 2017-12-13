@@ -38,7 +38,7 @@ namespace MSO.StimmApp.Views.Pages
                 this.OnDeviceOrientationChanged(deviceOrientation);
             });
 
-            //App.NavigationBarController.HideNavigationBar();
+            App.NavigationBarController.HideNavigationBar();
         }
 
         private void OnDeviceOrientationChanged(DeviceOrientations orientation)
@@ -59,8 +59,13 @@ namespace MSO.StimmApp.Views.Pages
 
         protected override void OnAppearing()
         {
-            VideoView.Source = this.ViewModel.VideoPath;
+            VideoView.Source = this.ViewModel.Attachment.AttachmentSource;
             base.OnAppearing();
+        }
+
+        protected override void OnDisappearing()
+        {
+            App.NavigationBarController.ShowNavigationBar();
         }
 
         void PlayClicked(object sender, System.EventArgs e)

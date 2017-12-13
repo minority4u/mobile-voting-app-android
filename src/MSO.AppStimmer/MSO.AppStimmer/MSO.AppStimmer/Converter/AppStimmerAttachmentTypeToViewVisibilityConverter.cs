@@ -21,7 +21,8 @@ namespace MSO.StimmApp.Converter
                 return true;
             if (type == AttachmentType.Video && par == "Video")
                 return true;
-
+            if (type == AttachmentType.Audio && par == "Audio")
+                return true;
 
             return false;
         }

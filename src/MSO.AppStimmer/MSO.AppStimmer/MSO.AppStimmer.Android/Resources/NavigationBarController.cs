@@ -57,6 +57,12 @@ namespace MSO.StimmApp.Droid.Resources
             ((Activity)Forms.Context).Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
         }
 
+        public void ShowNavigationBar()
+        {
+            var uiOptions = SystemUiFlags.Visible;
+            ((Activity)Forms.Context).Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
+        }
+
         private int ConvertPixelsToDp(float pixelValue)
         {
             var dp = (int)((pixelValue) / ((Activity)Forms.Context).Resources.DisplayMetrics.Density);

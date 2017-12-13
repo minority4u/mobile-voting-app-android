@@ -20,7 +20,6 @@
                     </Image.GestureRecognizers>
                 </Image>
             </Frame>
-
             <elements:ExpandableEditor Text="{Binding Description}" TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
         </StackLayout>
     </ContentView.Content>
