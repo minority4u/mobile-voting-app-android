@@ -20,7 +20,7 @@
             <RowDefinition Height="40*" />
         </Grid.RowDefinitions>
 
-        <forms:VideoView
+        <forms:VideoView Source="{}"
             x:Name="VideoView"
             AspectMode="AspectFill"
             HorizontalOptions="FillAndExpand"

@@ -38,7 +38,7 @@ namespace MSO.StimmApp.Views.Pages
                 this.OnDeviceOrientationChanged(deviceOrientation);
             });
 
-            App.NavigationBarController.HideNavigationBar();
+            //App.NavigationBarController.HideNavigationBar();
         }
 
         private void OnDeviceOrientationChanged(DeviceOrientations orientation)

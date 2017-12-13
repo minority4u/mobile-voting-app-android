@@ -4,11 +4,17 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView">
     <ContentView.Content>
         <StackLayout Margin="5,5,5,8">
             <Grid>
+                <!--<forms:VideoView
+                    x:Name="VideoView"
+                    AspectMode="AspectFill"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand" />-->
                 <Frame
                     x:Name="VideoPreviewFrame"
                     Padding="0"
@@ -35,20 +41,6 @@
                             VerticalOptions="Center"
                             WidthRequest="40" />
                     </Grid>
-                    <!--<xfShapeView:ShapeView
-                        BackgroundColor="GreenYellow"
-                        HeightRequest="40"
-                        HorizontalOptions="Center"
-                        Opacity="0.7"
-                        ShapeType="Circle"
-                        VerticalOptions="Center"
-                        WidthRequest="40">
-                    -->
-                    <!--<xfShapeView:ShapeView.Content>
-                            <Image Margin="10" Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.play_white.scale-100.png}" />
-                        </xfShapeView:ShapeView.Content>-->
-                    <!--
-                    </xfShapeView:ShapeView>-->
                 </Frame>
             </Grid>
             <elements:ExpandableEditor Text="{Binding Description}" TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
