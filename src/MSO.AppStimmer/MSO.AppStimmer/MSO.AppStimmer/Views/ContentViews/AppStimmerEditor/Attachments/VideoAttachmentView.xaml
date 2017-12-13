@@ -4,20 +4,53 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
-    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView">
     <ContentView.Content>
         <StackLayout Margin="5,5,5,8">
-            <Frame
-                x:Name="VideoPreviewFrame"
-                Padding="0"
-                BackgroundColor="Aqua"
-                CornerRadius="5"
-                HeightRequest="300"
-                OutlineColor="Transparent">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="VideoPreviewFrame_OnTapped" />
-                </Frame.GestureRecognizers>
-            </Frame>
+            <Grid>
+                <Frame
+                    x:Name="VideoPreviewFrame"
+                    Padding="0"
+                    BackgroundColor="Black"
+                    CornerRadius="5"
+                    HeightRequest="300"
+                    OutlineColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="VideoPreviewFrame_OnTapped" />
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Image
+                            HeightRequest="60"
+                            HorizontalOptions="Center"
+                            Opacity="0.7"
+                            Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.circle_black_filled.scale-512.png}"
+                            VerticalOptions="Center"
+                            WidthRequest="60" />
+                        <Image
+                            Margin="5,0,0,0"
+                            HeightRequest="40"
+                            HorizontalOptions="Center"
+                            Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.play_white.scale-100.png}"
+                            VerticalOptions="Center"
+                            WidthRequest="40" />
+                    </Grid>
+                    <!--<xfShapeView:ShapeView
+                        BackgroundColor="GreenYellow"
+                        HeightRequest="40"
+                        HorizontalOptions="Center"
+                        Opacity="0.7"
+                        ShapeType="Circle"
+                        VerticalOptions="Center"
+                        WidthRequest="40">
+                    -->
+                    <!--<xfShapeView:ShapeView.Content>
+                            <Image Margin="10" Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.play_white.scale-100.png}" />
+                        </xfShapeView:ShapeView.Content>-->
+                    <!--
+                    </xfShapeView:ShapeView>-->
+                </Frame>
+            </Grid>
             <elements:ExpandableEditor Text="{Binding Description}" TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
         </StackLayout>
     </ContentView.Content>

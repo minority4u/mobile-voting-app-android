@@ -46,8 +46,15 @@ namespace MSO.StimmApp.Droid.Resources
 
         public void HideNavigationBar()
         {
-            ((Activity)Forms.Context).Window.AddFlags(WindowManagerFlags.Fullscreen);
-            ((Activity)Forms.Context).Window.DecorView.SystemUiVisibility = StatusBarVisibility.Hidden;
+            var uiOptions =
+                SystemUiFlags.HideNavigation |
+                SystemUiFlags.LayoutHideNavigation |
+                SystemUiFlags.LayoutFullscreen |
+                SystemUiFlags.Fullscreen |
+                SystemUiFlags.LayoutStable |
+                SystemUiFlags.ImmersiveSticky;
+
+            ((Activity)Forms.Context).Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
         }
 
         private int ConvertPixelsToDp(float pixelValue)
