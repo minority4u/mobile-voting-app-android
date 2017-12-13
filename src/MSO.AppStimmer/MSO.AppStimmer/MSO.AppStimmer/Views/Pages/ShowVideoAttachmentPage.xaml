@@ -20,10 +20,11 @@
             <RowDefinition Height="40*" />
         </Grid.RowDefinitions>
 
-        <forms:VideoView Source="{}"
+        <forms:VideoView
             x:Name="VideoView"
             AspectMode="AspectFill"
             HorizontalOptions="FillAndExpand"
+            Source="{}"
             VerticalOptions="FillAndExpand" />
 
         <Grid
@@ -41,7 +42,7 @@
                 <Label
                     Grid.Column="0"
                     Margin="5,0,0,0"
-                    Text="{Binding Elapsed, Converter={StaticResource TimeSpanToStringConverter}, ConverterParameter=short}"
+                    Text="{Binding Elapsed, Converter={StaticResource CrossVideoManagerTimeSpanToStringConverter}, ConverterParameter=short}"
                     TextColor="White"
                     VerticalOptions="Center" />
                 <elements:VideoPlaybackSlider
@@ -53,7 +54,7 @@
                 <Label
                     Grid.Column="2"
                     Margin="0,0,5,0"
-                    Text="{Binding TotalLength, Converter={StaticResource TimeSpanToStringConverter}, ConverterParameter=short}"
+                    Text="{Binding TotalLength, Converter={StaticResource CrossVideoManagerTimeSpanToStringConverter}, ConverterParameter=short}"
                     TextColor="White"
                     VerticalOptions="Center" />
             </Grid>

@@ -1,6 +1,9 @@
 ﻿using System;
 using MSO.StimmApp.Core.Enums;
+using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.ViewModels;
+using Plugin.Media;
+using Plugin.MediaManager;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
@@ -58,7 +61,29 @@ namespace MSO.StimmApp.Elements
         private async void AttachmentImageButton_OnTapped(object sender, EventArgs e)
         {
             await PopupNavigation.PopAllAsync();
-            this.ViewModel.AddAttachment(this.AttachmentType);
+
+            if (this.AttachmentType == AttachmentType.Video)
+            {
+                await CrossMedia.Current.Initialize();
+
+                var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions());
+                if (file == null)
+                    return;
+
+
+                var attachment = new AppStimmerAttachment
+                {
+                    Description = "Beschreibung",
+                    AttachmentSource = file.Path,
+                    AttachmentType = AttachmentType.Video
+                };
+
+                this.ViewModel.AddAttachment(attachment);
+                //or:
+                //image.Source = ImageSource.FromFile(file.Path);
+                //image.Dispose();
+            }
+            
         }
 	}
 }

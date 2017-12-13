@@ -102,31 +102,25 @@ namespace MSO.StimmApp.ViewModels
         }
 
 
-        public void AddAttachment(AttachmentType attachmentType)
+        public void AddAttachment(AppStimmerAttachment attachment)
         {
-            var attachment = new AppStimmerAttachment
+            switch (attachment.AttachmentType)
             {
-                AttachmentType = attachmentType
-            };
-
-            switch (attachmentType)
-            {
-                case AttachmentType.Text:
-                    attachment.Description = "Irgendeine Beschreibung";
-                    attachment.AttachmentSource = "Irgendein sinnloser Text, den keiner braucht. Wirklich keiner.";
-                    break;
-                case AttachmentType.Gallery:
-                    attachment.Description = "Sehr schönes Bild";
-                    attachment.AttachmentSource = "MSO.StimmApp.Resources.Images.SampleProfilePicture.jpg";
-                    break;
-                case AttachmentType.Video:
-                    attachment.Description = "Irgendein Video";
-                    attachment.AttachmentSource = "https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4";
-                    break;
+                //case AttachmentType.Text:
+                //    attachment.Description = "Irgendeine Beschreibung";
+                //    attachment.AttachmentSource = "Irgendein sinnloser Text, den keiner braucht. Wirklich keiner.";
+                //    break;
+                //case AttachmentType.Gallery:
+                //    attachment.Description = "Sehr schönes Bild";
+                //    attachment.AttachmentSource = "MSO.StimmApp.Resources.Images.SampleProfilePicture.jpg";
+                //    break;
+                //case AttachmentType.Video:
+                //    attachment.Description = "Irgendein Video";
+                //    attachment.AttachmentSource = "https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4";
+                //    break;
             }
 
             this.AppStimmer.Attachments.Add(attachment);
-            this.IsAddingAttachment = false;
         }
     }
 }

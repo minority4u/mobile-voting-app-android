@@ -8,6 +8,9 @@ using FFImageLoading.Forms.Droid;
 using Plugin.MediaManager.Forms.Android;
 using Xamarin.Forms.Platform.Android;
 using Resource = MSO.StimmApp.Droid.Resource;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
+using Permission = Android.Content.PM.Permission;
 
 namespace MSO.AppStimmer.Droid
 {
@@ -48,6 +51,11 @@ namespace MSO.AppStimmer.Droid
             //notificationManager.Notify(notificationId, notification);
 
             //XFGloss.Droid.Library.Init(this, bundle);
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 
         public override void OnConfigurationChanged(global::Android.Content.Res.Configuration newConfig)

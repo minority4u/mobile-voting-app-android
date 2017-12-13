@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace MSO.StimmApp.Converter
 {
-    public class MediaManagerTimeSpanToStringConverter : IValueConverter
+    public class CrossVideoManagerTimeSpanToStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

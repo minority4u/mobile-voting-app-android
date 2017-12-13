@@ -23,7 +23,7 @@
                 Grid.Row="0"
                 Grid.RowSpan="2">
                 <elements:PinchToZoomContainer.Content>
-                    <Image Aspect="AspectFill" Source="{Binding AttachmentSource, Converter={StaticResource ImageSourceConverter}}" />
+                    <Image Aspect="AspectFill" Source="{Binding AttachmentSource, Converter={StaticResource LocalImageResourceConverter}}" />
                 </elements:PinchToZoomContainer.Content>
             </elements:PinchToZoomContainer>
 

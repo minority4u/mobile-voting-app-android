@@ -14,7 +14,7 @@
                 <Image
                     Aspect="AspectFill"
                     HeightRequest="300"
-                    Source="{Binding AttachmentSource, Converter={StaticResource ImageSourceConverter}}">
+                    Source="{Binding AttachmentSource, Converter={StaticResource LocalImageResourceConverter}}">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
                     </Image.GestureRecognizers>
