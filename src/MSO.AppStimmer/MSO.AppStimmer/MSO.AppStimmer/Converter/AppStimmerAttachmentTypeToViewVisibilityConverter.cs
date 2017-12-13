@@ -15,11 +15,11 @@ namespace MSO.StimmApp.Converter
             var type = (AttachmentType) value;
             var par = parameter.ToString();
 
-            if (type == AttachmentType.Gallery && par == "Gallery")
+            if ((type == AttachmentType.Picture || type == AttachmentType.GalleryPicture) && par == "Picture")
                 return true;
             if (type == AttachmentType.Text && par == "Text")
                 return true;
-            if (type == AttachmentType.Video && par == "Video")
+            if ((type == AttachmentType.Video || type == AttachmentType.GalleryVideo) && par == "Video")
                 return true;
             if (type == AttachmentType.Audio && par == "Audio")
                 return true;

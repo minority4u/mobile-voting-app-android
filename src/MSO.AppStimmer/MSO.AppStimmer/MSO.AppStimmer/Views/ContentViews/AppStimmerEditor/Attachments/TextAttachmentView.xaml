@@ -7,9 +7,7 @@
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
     <ContentView.Content>
         <StackLayout Margin="5,5,5,8">
-            <elements:ExpandableEditor
-                Text="{Binding AttachmentSource}"
-                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
+            <elements:ExpandableEditor Text="{Binding AttachmentSource}" TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

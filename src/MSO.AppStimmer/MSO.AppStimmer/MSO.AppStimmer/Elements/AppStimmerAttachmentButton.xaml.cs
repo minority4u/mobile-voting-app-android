@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
 using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.ViewModels;
 using Plugin.Media;
+using Plugin.Media.Abstractions;
 using Plugin.MediaManager;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
@@ -18,7 +20,7 @@ namespace MSO.StimmApp.Elements
 	        BindableProperty.Create(nameof(IconSource), typeof(string), typeof(AppStimmerAttachmentButton), null, BindingMode.TwoWay);
 
         public static readonly BindableProperty AttachmentTypeProperty =
-            BindableProperty.Create(nameof(AttachmentType), typeof(AttachmentType), typeof(AppStimmerAttachmentButton), AttachmentType.Gallery, BindingMode.TwoWay);
+            BindableProperty.Create(nameof(AttachmentType), typeof(AttachmentType), typeof(AppStimmerAttachmentButton), AttachmentType.Picture, BindingMode.TwoWay);
 
         public AppStimmerAttachmentButton ()
 		{
@@ -60,30 +62,120 @@ namespace MSO.StimmApp.Elements
 
         private async void AttachmentImageButton_OnTapped(object sender, EventArgs e)
         {
-            await PopupNavigation.PopAllAsync();
-
-            if (this.AttachmentType == AttachmentType.Video)
+            switch (this.AttachmentType)
             {
-                await CrossMedia.Current.Initialize();
-
-                var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions());
-                if (file == null)
-                    return;
-
-
-                var attachment = new AppStimmerAttachment
-                {
-                    Description = "Beschreibung",
-                    AttachmentSource = file.Path,
-                    AttachmentType = AttachmentType.Video
-                };
-
-                this.ViewModel.AddAttachment(attachment);
-                //or:
-                //image.Source = ImageSource.FromFile(file.Path);
-                //image.Dispose();
+                case AttachmentType.Audio:
+                    this.AddAudio();
+                    break;
+                case AttachmentType.Video:
+                    await this.AddVideo();
+                    break;
+                case AttachmentType.Picture:
+                    await this.AddPicture();
+                    break;
+                case AttachmentType.GalleryPicture:
+                    await this.AddPictureFromGallery();
+                    break;
+                case AttachmentType.GalleryVideo:
+                    await this.AddVideoFromGallery();
+                    break;
+                case AttachmentType.Location:
+                    this.AddLocation();
+                    break;
+                case AttachmentType.Text:
+                    this.AddText();
+                    break;
             }
-            
+
+            await PopupNavigation.PopAllAsync();
         }
+
+	    private async Task AddVideoFromGallery()
+	    {
+	        var file = await CrossMedia.Current.PickVideoAsync();
+	        if (file == null)
+	            return;
+
+	        var attachment = new AppStimmerAttachment
+	        {
+	            AttachmentSource = file.Path,
+	            AttachmentType = AttachmentType.Video
+	        };
+
+	        this.ViewModel.AddAttachment(attachment);
+        }
+
+	    private async Task AddPictureFromGallery()
+        {
+            var options = new PickMediaOptions
+            {
+                CompressionQuality = 92
+            };
+	        var file = await CrossMedia.Current.PickPhotoAsync(options);
+            if (file == null)
+                return;
+
+            var attachment = new AppStimmerAttachment
+            {
+                AttachmentSource = file.Path,
+                AttachmentType = AttachmentType.Picture
+            };
+
+            this.ViewModel.AddAttachment(attachment);
+        }
+
+	    private void AddLocation()
+	    {
+	        throw new NotImplementedException();
+	    }
+
+	    private void AddText()
+	    {
+            var attachment = new AppStimmerAttachment
+            {
+                AttachmentType = AttachmentType.Text
+            };
+
+	        this.ViewModel.AddAttachment(attachment);
+	    }
+
+	    private async Task AddPicture()
+	    {
+	        await CrossMedia.Current.Initialize();
+
+	        var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions());
+	        if (file == null)
+	            return;
+
+	        var attachment = new AppStimmerAttachment
+	        {
+	            AttachmentSource = file.Path,
+	            AttachmentType = AttachmentType.Picture
+	        };
+
+	        this.ViewModel.AddAttachment(attachment);
+        }
+
+	    private async Task AddVideo()
+	    {
+	        await CrossMedia.Current.Initialize();
+
+	        var file = await CrossMedia.Current.TakeVideoAsync(new StoreVideoOptions());
+	        if (file == null)
+	            return;
+
+	        var attachment = new AppStimmerAttachment
+	        {
+	            AttachmentSource = file.Path,
+	            AttachmentType = AttachmentType.Video
+	        };
+
+	        this.ViewModel.AddAttachment(attachment);
+        }
+
+	    private void AddAudio()
+	    {
+	        throw new NotImplementedException();
+	    }
 	}
 }
