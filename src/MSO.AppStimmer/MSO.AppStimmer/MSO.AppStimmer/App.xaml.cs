@@ -7,6 +7,8 @@ using MSO.StimmApp.Core.Helpers;
 using MSO.StimmApp.Helpers;
 using MSO.StimmApp.Services;
 using MSO.StimmApp.Views.Pages;
+using Plugin.MediaManager;
+using Plugin.MediaManager.Abstractions;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
@@ -24,6 +26,9 @@ namespace MSO.StimmApp
 
         public static IDeviceOrientation DeviceOrientationService =>
             DependencyService.Get<IDeviceOrientation>();
+
+        public static IPlaybackController PlaybackController => 
+            CrossMediaManager.Current.PlaybackController;
 
         public static Dictionary<string, string> ReplaceSvgStringMap = new Dictionary<string, string>();
 

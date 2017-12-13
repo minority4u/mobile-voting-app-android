@@ -1,6 +1,7 @@
 ﻿using System;
 using Android.App;
 using Android.Content;
+using Android.OS;
 using Android.Views;
 using MSO.StimmApp.Droid.Resources;
 using MSO.StimmApp.Helpers;
@@ -41,6 +42,12 @@ namespace MSO.StimmApp.Droid.Resources
         public int ScreenHeight
         {
             get => this.GetScreenHeight();
+        }
+
+        public void HideNavigationBar()
+        {
+            ((Activity)Forms.Context).Window.AddFlags(WindowManagerFlags.Fullscreen);
+            ((Activity)Forms.Context).Window.DecorView.SystemUiVisibility = StatusBarVisibility.Hidden;
         }
 
         private int ConvertPixelsToDp(float pixelValue)

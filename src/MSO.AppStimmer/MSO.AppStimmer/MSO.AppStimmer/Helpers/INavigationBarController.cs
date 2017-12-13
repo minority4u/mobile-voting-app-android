@@ -14,5 +14,7 @@ namespace MSO.StimmApp.Helpers
         int Height { get; }
 
         int ScreenHeight { get; }
+
+        void HideNavigationBar();
     }
 }

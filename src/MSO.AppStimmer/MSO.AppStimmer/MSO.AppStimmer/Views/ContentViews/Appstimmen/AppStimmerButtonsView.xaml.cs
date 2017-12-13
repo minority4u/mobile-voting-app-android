@@ -15,7 +15,7 @@ namespace MSO.StimmApp.Views.ContentViews.Appstimmen
     {
         public AppStimmerButtonsView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void LikeImageButton_OnTapped(object sender, EventArgs e)

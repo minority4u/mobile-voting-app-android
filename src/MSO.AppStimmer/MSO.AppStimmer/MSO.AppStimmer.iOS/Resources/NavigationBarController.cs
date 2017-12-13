@@ -22,7 +22,13 @@ namespace MSO.AppStimmer.iOS.Resources
             }
         }
 
+        public bool IsVisible { get; set; }
+
         public int Height { get; set; }
         public int ScreenHeight { get; }
+        public void HideNavigationBar()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

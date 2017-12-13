@@ -16,15 +16,15 @@
                 HeightRequest="100"
                 ShapeType="Circle"
                 WidthRequest="100">
+                <xfShapeView:ShapeView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="DislikeImageButton_OnTapped" />
+                </xfShapeView:ShapeView.GestureRecognizers>
+
                 <xfShapeView:ShapeView.Content>
                     <elements:TintedSvgCachedImage
                         Margin="30"
                         Source="resource://MSO.StimmApp.Resources.Icons.dislike.svg"
-                        TintColor="#F2866A">
-                        <elements:TintedSvgCachedImage.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="DislikeImageButton_OnTapped" />
-                        </elements:TintedSvgCachedImage.GestureRecognizers>
-                    </elements:TintedSvgCachedImage>
+                        TintColor="#F2866A" />
                 </xfShapeView:ShapeView.Content>
             </xfShapeView:ShapeView>
 
@@ -36,15 +36,14 @@
                 ShapeType="Circle"
                 VerticalOptions="Center"
                 WidthRequest="65">
+                <xfShapeView:ShapeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowDetailsCommand}" />
+                </xfShapeView:ShapeView.GestureRecognizers>
                 <xfShapeView:ShapeView.Content>
                     <elements:TintedSvgCachedImage
                         Margin="20"
                         Source="resource://MSO.StimmApp.Resources.Icons.info.svg"
-                        TintColor="CornflowerBlue">
-                        <elements:TintedSvgCachedImage.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding ShowDetailsCommand}" />
-                        </elements:TintedSvgCachedImage.GestureRecognizers>
-                    </elements:TintedSvgCachedImage>
+                        TintColor="CornflowerBlue" />
                 </xfShapeView:ShapeView.Content>
             </xfShapeView:ShapeView>
 
@@ -54,15 +53,14 @@
                 HeightRequest="100"
                 ShapeType="Circle"
                 WidthRequest="100">
+                <xfShapeView:ShapeView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LikeImageButton_OnTapped" />
+                </xfShapeView:ShapeView.GestureRecognizers>
                 <xfShapeView:ShapeView.Content>
                     <elements:TintedSvgCachedImage
                         Margin="30"
                         Source="resource://MSO.StimmApp.Resources.Icons.like.svg"
-                        TintColor="#62DD9F">
-                        <elements:TintedSvgCachedImage.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="LikeImageButton_OnTapped" />
-                        </elements:TintedSvgCachedImage.GestureRecognizers>
-                    </elements:TintedSvgCachedImage>
+                        TintColor="#62DD9F" />
                 </xfShapeView:ShapeView.Content>
             </xfShapeView:ShapeView>
         </StackLayout>

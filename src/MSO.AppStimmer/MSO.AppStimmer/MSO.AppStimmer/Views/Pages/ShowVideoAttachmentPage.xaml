@@ -8,7 +8,12 @@
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     BackgroundColor="Black"
     HasSystemPadding="False">
+
     <Grid x:Name="VideoPlayerGrid">
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding TogglePlaybackCommand}" />
+        </Grid.GestureRecognizers>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="40*" />
             <RowDefinition Height="30*" />

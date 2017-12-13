@@ -21,13 +21,14 @@ namespace MSO.StimmApp.ViewModels
         private double totalLength;
         private double elapsed;
         private RelayCommand seekCommand;
-
-        private IPlaybackController PlaybackController => CrossMediaManager.Current.PlaybackController;
+        private RelayCommand togglePlaybackCommand;
+        private bool isPlaying;
 
         [PreferredConstructor]
         public ShowVideoAttachmentViewModel(string videoPath)
         {
             this.VideoPath = videoPath;
+            this.IsPlaying = true;
 
             CrossMediaManager.Current.PlayingChanged += (sender, e) =>
             {
@@ -38,15 +39,33 @@ namespace MSO.StimmApp.ViewModels
                     this.Elapsed = e.Position.TotalSeconds;
                 });
             };
+
+            App.NavigationBarController.HideNavigationBar();
         }
 
         public RelayCommand SeekCommand => this.seekCommand ?? (this.seekCommand =
-                                                      new RelayCommand(this.Seek));
+            new RelayCommand(this.Seek));
+
+        public RelayCommand TogglePlaybackCommand => this.togglePlaybackCommand?? (this.togglePlaybackCommand =
+            new RelayCommand(this.TogglePlayback));
+
+        private void TogglePlayback()
+        {
+            if (this.IsPlaying)
+            {
+                App.PlaybackController.Pause();
+            }
+            else
+            {
+                App.PlaybackController.Play();
+            }
+
+            this.IsPlaying = !this.IsPlaying;
+        }
 
         private void Seek()
         {
             CrossMediaManager.Current.Seek(TimeSpan.FromMilliseconds(this.ProgressValue * this.TotalLength));
-            //PlaybackController.PlayPause();
         }
 
         public string VideoPath
@@ -55,14 +74,16 @@ namespace MSO.StimmApp.ViewModels
             set => this.Set(ref this.videoPath, value);
         }
 
+        public bool IsPlaying
+        {
+            get => this.isPlaying;
+            set => this.Set(ref this.isPlaying, value);
+        }
+
         public double ProgressValue
         {
             get => this.progressValue;
-            set
-            {
-                this.Set(ref this.progressValue, value);
-                //CrossMediaManager.Current.Seek(TimeSpan.FromMilliseconds(value * this.ViewModel.TotalLength));
-            }
+            set => this.Set(ref this.progressValue, value);
         }
 
         public double TotalLength
