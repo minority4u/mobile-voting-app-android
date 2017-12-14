@@ -46,6 +46,7 @@
             <converter:AppStimmerAttachmentViewToViewModelConverter x:Key="AppStimmerAttachmentViewToViewModelConverter" />
             <converter:CrossAudioManagerTimeSpanToStringConverter x:Key="CrossAudioManagerTimeSpanToStringConverter" />
             <converter:LocalImageResourceConverter x:Key="LocalImageResourceConverter" />
+            <converter:AppStimmerAttachmentsToMainPictureConverter x:Key="AppStimmerAttachmentsToMainPictureConverter"></converter:AppStimmerAttachmentsToMainPictureConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

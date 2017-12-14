@@ -235,8 +235,8 @@ namespace MSO.StimmApp.Elements
 
         private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
         {
-            Debug.WriteLine("GestureStatusChange received");
-            Debug.WriteLine(DateTime.Now.ToString("hh.mm.ss.ffffff") + ": " + e.StatusType);
+            //Debug.WriteLine("GestureStatusChange received");
+            //Debug.WriteLine(DateTime.Now.ToString("hh.mm.ss.ffffff") + ": " + e.StatusType);
             switch (e.StatusType)
             {
                 case GestureStatus.Started:

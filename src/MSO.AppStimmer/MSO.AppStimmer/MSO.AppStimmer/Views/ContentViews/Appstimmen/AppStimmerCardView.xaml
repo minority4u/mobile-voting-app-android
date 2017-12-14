@@ -33,7 +33,7 @@
                                 Grid.RowSpan="3"
                                 Aspect="AspectFill"
                                 HorizontalOptions="Fill"
-                                Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}"
+                                Source="{Binding Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
                                 VerticalOptions="Fill" />
 
                             <elements:GradientFrame

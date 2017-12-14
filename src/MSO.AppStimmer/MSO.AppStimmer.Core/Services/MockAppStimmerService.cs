@@ -34,48 +34,20 @@ namespace MSO.StimmApp.Core.Services
                 new AppStimmer
                 {
                     Title = "Straße kaputt",
-                    Appstract = "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." + 
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." + 
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." + 
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." + 
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus." +
-                                "Die Straße sieht beschissen aus.Die Straße sieht beschissen aus.",
-                    Description = "Das Loch muss repatiert werden. Außerdem muss die Straße " +
-                                  "neu geteert werden. Und sie muss doppelt so breit werden.",
-                    Picture = "MSO.StimmApp.Resources.Images.Schlagloch.jpg",
                     Attachments = new ObservableCollection<AppStimmerAttachment>()
                     {
                         new AppStimmerAttachment
                         {
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Schlagloch.jpg",
-                            Description = "Bildbeschreibung",
-                            AttachmentType = AttachmentType.Picture
+                            Description = "Das ist das blöde Schlagloch.",
+                            AttachmentType = AttachmentType.Picture,
+                            IsMainAttachment = true
+                        },
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "Dies ist ein aussagekräftiger Appstract!",
+                            AttachmentType = AttachmentType.Text,
+                            IsMainAttachment = true
                         },
                         new AppStimmerAttachment
                         {
@@ -99,31 +71,59 @@ namespace MSO.StimmApp.Core.Services
                 },
                 new AppStimmer
                 {
-                    Title = "Parkbank fault",
-                    Appstract = "Die Parkbank ist kaum mehr benutzbar.",
-                    Description = "Wir wollen neue Parkbänke. Aus Gold. Mit eingearbeiteten Rubinen.",
-                    Picture = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg"
+                    Title = "Parkbank voller Moos",
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
+                            Description = "So sieht die Bank aus.",
+                            AttachmentType = AttachmentType.Picture,
+                            IsMainAttachment = true
+                        },
+                    }
                 },
                 new AppStimmer
                 {
                     Title = "Besserer Spielplatz",
-                    Appstract = "Der aktuelle Spielplatz reicht nicht.",
-                    Description = "Es fehlen Rutschen. Und ein Swimming Pool. Und ein paar Rechner, zum LAN-Party machen.",
-                    Picture = "MSO.StimmApp.Resources.Images.Spielplatz.jpg"
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Spielplatz.jpg",
+                            Description = "Das ist der alte Spielplatz.",
+                            AttachmentType = AttachmentType.Picture,
+                            IsMainAttachment = true
+                        },
+                    }
                 },
                 new AppStimmer
                 {
-                    Title = "Bahnhof",
-                    Appstract = "Der Bahnhof muss erneuert werden.",
-                    Description = "Der Bahnhof fällt bald zusammen. Das wäre doof.",
-                    Picture = "MSO.StimmApp.Resources.Images.Alter_Bahnhof.jpg"
+                    Title = "Neuer Bahnhof",
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Alter_Bahnhof.jpg",
+                            Description = "Der Bahnhof fällt bald auseinander.",
+                            AttachmentType = AttachmentType.Picture,
+                            IsMainAttachment = true
+                        },
+                    }
                 },
                 new AppStimmer
                 {
-                    Title = "Neue Hochschule",
-                    Appstract = "Der Hochschule muss erneuert werden.",
-                    Description = "Alle Hörsäle sehen ein bisschen als aus. Sollte man mal neu machen.",
-                    Picture = "MSO.StimmApp.Resources.Images.Alte_Schule.jpg"
+                    Title = "Die Hochschule sieht nicht gut aus.",
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Alte_Schule.jpg",
+                            Description = "Es gibt nicht einmal Elektrizität",
+                            AttachmentType = AttachmentType.Picture,
+                            IsMainAttachment = true
+                        },
+                    }
                 },
             };
 

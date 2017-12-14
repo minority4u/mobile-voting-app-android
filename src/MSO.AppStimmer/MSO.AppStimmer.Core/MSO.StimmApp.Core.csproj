@@ -43,6 +43,7 @@
     <Compile Include="Models\AppStimmer.cs" />
     <Compile Include="Models\AppStimmerAttachment.cs" />
     <Compile Include="Models\AppStimmerUser.cs" />
+    <Compile Include="Models\BaseAttachment.cs" />
     <Compile Include="Models\ColorTheme.cs" />
     <Compile Include="Models\ColorThemeItem.cs" />
     <Compile Include="Models\ModelBase.cs" />

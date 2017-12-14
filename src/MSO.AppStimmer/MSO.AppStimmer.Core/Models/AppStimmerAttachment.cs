@@ -7,13 +7,13 @@ using MSO.StimmApp.Core.Enums;
 
 namespace MSO.StimmApp.Core.Models
 {
-    public class AppStimmerAttachment : ModelBase
+    public class AppStimmerAttachment : BaseAttachment
     {
         private string attachmentSource;
         private string description;
         private AttachmentType attachmentType;
 
-        public AppStimmerAttachment() : base(true)
+        public AppStimmerAttachment() : base(false)
         {
             this.Id = Guid.NewGuid();
         }

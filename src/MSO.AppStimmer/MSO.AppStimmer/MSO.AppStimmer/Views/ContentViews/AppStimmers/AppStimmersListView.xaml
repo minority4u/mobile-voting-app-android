@@ -40,7 +40,7 @@
                                     AbsoluteLayout.LayoutFlags="All"
                                     Aspect="AspectFill"
                                     Opacity=".8"
-                                    Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}" />
+                                    Source="{Binding Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}" />
                                 <elements:GradientFrame
                                     Grid.Row="1"
                                     Padding="0"
@@ -54,7 +54,6 @@
                                         TextColor="White" />
                                 </elements:GradientFrame>
                             </Grid>
-
                         </StackLayout>
                     </Frame>
                 </ViewCell.View>
