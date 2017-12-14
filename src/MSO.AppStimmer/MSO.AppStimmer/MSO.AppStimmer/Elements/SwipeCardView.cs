@@ -235,18 +235,24 @@ namespace MSO.StimmApp.Elements
 
         private void OnPanUpdated(object sender, PanUpdatedEventArgs e)
         {
+            Debug.WriteLine("GestureStatusChange received");
+            Debug.WriteLine(DateTime.Now.ToString("hh.mm.ss.ffffff") + ": " + e.StatusType);
             switch (e.StatusType)
             {
                 case GestureStatus.Started:
+           
                     this.HandleTouchStart();
                     break;
                 case GestureStatus.Running:
+                
                     this.HandleTouch((float)e.TotalX, (float) e.TotalY);
                     break;
                 case GestureStatus.Completed:
+                  
                     this.HandleTouchEnd();
                     break;
                 case GestureStatus.Canceled:
+                   
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -364,6 +370,7 @@ namespace MSO.StimmApp.Elements
         // Handle the end of the touch event
         private async void HandleTouchEnd()
         {
+            Debug.WriteLine("HandleTouchEnd");
             this.ignoreTouch = true;
 
             var topCard = this.cards[this.topCardIndex];

@@ -3,7 +3,9 @@
     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmers.AppStimmersListView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
     BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
     HasUnevenRows="true"
@@ -14,50 +16,47 @@
         <DataTemplate>
             <ViewCell>
                 <ViewCell.View>
-                    <AbsoluteLayout Padding="14,14,14,0">
+                    <Frame
+                        Margin="14,14,14,14"
+                        Padding="0"
+                        CornerRadius="8"
+                        OutlineColor="Black">
                         <StackLayout
-                            Padding="0,0,.5,.5"
-                            AbsoluteLayout.LayoutBounds="0,0,1,1"
-                            AbsoluteLayout.LayoutFlags="All">
+                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmersItemColor}"
+                            HeightRequest="250"
+                            Orientation="Vertical"
+                            Spacing="0"
+                            VerticalOptions="FillAndExpand">
 
-                            <StackLayout
-                                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmersItemColor}"
-                                Orientation="Vertical"
-                                Spacing="0"
-                                VerticalOptions="FillAndExpand">
-                                <AbsoluteLayout HeightRequest="150">
-                                    <Image
-                                        AbsoluteLayout.LayoutBounds=".5,.5,-1,-1"
-                                        AbsoluteLayout.LayoutFlags="PositionProportional"
-                                        HeightRequest="24"
-                                        WidthRequest="24" />
-                                    <Image
-                                        AbsoluteLayout.LayoutBounds="0,0,1,1"
-                                        AbsoluteLayout.LayoutFlags="All"
-                                        Aspect="AspectFill"
-                                        Opacity=".8"
-                                        Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}" />
-                                </AbsoluteLayout>
-
-                                <StackLayout Padding="16,10" Spacing="4">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+                                <Image
+                                    Grid.Row="0"
+                                    Grid.RowSpan="2"
+                                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    Aspect="AspectFill"
+                                    Opacity=".8"
+                                    Source="{Binding Picture, Converter={StaticResource ImageSourceConverter}}" />
+                                <elements:GradientFrame
+                                    Grid.Row="1"
+                                    Padding="0"
+                                    EndColor="#AA000000"
+                                    OutlineColor="Transparent"
+                                    StartColor="#00000000">
                                     <Label
-                                        FontSize="Large"
+                                        Margin="12,12,0,12"
+                                        FontSize="20"
                                         Text="{Binding Title}"
-                                        TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmersItemTitleColor}"
-                                        VerticalOptions="CenterAndExpand" />
+                                        TextColor="White" />
+                                </elements:GradientFrame>
+                            </Grid>
 
-                                    <ContentView>
-                                        <Label
-                                            IsVisible="true"
-                                            Opacity="0.7"
-                                            Style="{StaticResource Sub}"
-                                            Text="{Binding Appstract}"
-                                            TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SubtitleTextColor}" />
-                                    </ContentView>
-                                </StackLayout>
-                            </StackLayout>
                         </StackLayout>
-                    </AbsoluteLayout>
+                    </Frame>
                 </ViewCell.View>
             </ViewCell>
         </DataTemplate>
