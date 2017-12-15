@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Models;
+using MSO.StimmApp.Extensions;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.Converter
@@ -22,7 +23,7 @@ namespace MSO.StimmApp.Converter
             {
                 if (attachment.IsMainAttachment && attachment.AttachmentType == AttachmentType.Picture)
                 {
-                    var result = ImageSource.FromResource(attachment.AttachmentSource);
+                    var result = Images.ImageSourceFromAnySource(attachment.AttachmentSource);
                     return result;
                 }                         
             }

@@ -71,6 +71,7 @@
     <Compile Include="Elements\ZoomImage.cs" />
     <Compile Include="Extensions\Colors.cs" />
     <Compile Include="Elements\GradientFrame.cs" />
+    <Compile Include="Extensions\Images.cs" />
     <Compile Include="Helpers\INavigationBarController.cs" />
     <Compile Include="ImageResourceExtension.cs" />
     <Compile Include="MenuPage.xaml.cs">
