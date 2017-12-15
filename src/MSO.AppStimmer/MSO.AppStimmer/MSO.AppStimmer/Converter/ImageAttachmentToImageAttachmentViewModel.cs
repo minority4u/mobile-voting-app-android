@@ -4,30 +4,22 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSO.StimmApp.Core.Models;
+using MSO.StimmApp.ViewModels;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.Converter
 {
-    public class LocalImageResourceConverter : IValueConverter
+    public class ImageAttachmentToImageAttachmentViewModel : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var source = value as string;
-            if (string.IsNullOrWhiteSpace(source))
+            var attachment = value as AppStimmerAttachment;
+            if (attachment == null)
                 return null;
 
-            ImageSource result;
-            try
-            {
-                var url = new Uri(source);
-                result = ImageSource.FromUri(url);
-            }
-            catch (Exception e)
-            {
-                result = ImageSource.FromFile(source);
-            }
-
-            return result;
+            var viewModel = new ImageAttachmentViewModel(attachment);
+            return viewModel;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

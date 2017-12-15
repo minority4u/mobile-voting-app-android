@@ -38,10 +38,21 @@ namespace MSO.StimmApp.Core.Services
                     {
                         new AppStimmerAttachment
                         {
-                            AttachmentSource = "MSO.StimmApp.Resources.Images.Schlagloch.jpg",
-                            Description = "Das ist das blöde Schlagloch.",
+                            AttachmentSource = "-",
                             AttachmentType = AttachmentType.Picture,
                             IsMainAttachment = true
+                        },
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "https://googlechrome.github.io/samples/picture-element/images/butterfly.jpg",
+                            AttachmentType = AttachmentType.Picture,
+                            IsMainAttachment = false
+                        },
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
+                            Description = "So sieht die Bank aus.",
+                            AttachmentType = AttachmentType.Picture,
                         },
                         new AppStimmerAttachment
                         {

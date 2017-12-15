@@ -47,6 +47,9 @@
             <converter:CrossAudioManagerTimeSpanToStringConverter x:Key="CrossAudioManagerTimeSpanToStringConverter" />
             <converter:LocalImageResourceConverter x:Key="LocalImageResourceConverter" />
             <converter:AppStimmerAttachmentsToMainPictureConverter x:Key="AppStimmerAttachmentsToMainPictureConverter"></converter:AppStimmerAttachmentsToMainPictureConverter>
+            <converter:ImageAttachmentToImageAttachmentViewModel x:Key="ImageAttachmentToImageAttachmentViewModel"></converter:ImageAttachmentToImageAttachmentViewModel>
+            <converter:ImageSourceToImageConverter x:Key="ImageSourceToImageConverter"></converter:ImageSourceToImageConverter>
+            <converter:AppStimmerMainPictureAvailabilityToVisibilityConverter x:Key="AppStimmerMainPictureAvailabilityToVisibilityConverter"></converter:AppStimmerMainPictureAvailabilityToVisibilityConverter>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

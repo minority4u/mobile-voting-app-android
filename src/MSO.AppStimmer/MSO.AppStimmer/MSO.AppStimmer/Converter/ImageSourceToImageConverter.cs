@@ -4,28 +4,30 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSO.Common;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.Converter
 {
-    public class LocalImageResourceConverter : IValueConverter
+    public class ImageSourceToImageConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var source = value as string;
-            if (string.IsNullOrWhiteSpace(source))
+            if (string.IsNullOrEmpty(source))
                 return null;
 
             ImageSource result;
-            try
-            {
-                var url = new Uri(source);
-                result = ImageSource.FromUri(url);
-            }
-            catch (Exception e)
-            {
+
+            var isUrl = WebHelper.IsUrl(source);
+            var isEmbeddedResource = source.StartsWith("MSO.StimmApp.Resources");
+
+            if (isUrl)
+                result = ImageSource.FromUri(new Uri(source));      
+            else if (isEmbeddedResource)
+                result = ImageSource.FromResource(source);           
+            else
                 result = ImageSource.FromFile(source);
-            }
 
             return result;
         }

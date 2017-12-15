@@ -10,7 +10,7 @@
     BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
     BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
     <Grid>
-        <appStimmerEditor:AppStimmerEditorTabbedView IsVisible="{Binding IsEditable}" />
-        <appStimmerEditor:AppStimmerEditorDetailsView IsVisible="{Binding IsEditable, Converter={StaticResource BooleanConverter}, ConverterParameter=inverted}" />
+        <!--<appStimmerEditor:AppStimmerEditorTabbedView IsVisible="{Binding IsEditable}" />-->
+        <appStimmerEditor:AppStimmerEditorDetailsView />
     </Grid>
 </ContentPage>

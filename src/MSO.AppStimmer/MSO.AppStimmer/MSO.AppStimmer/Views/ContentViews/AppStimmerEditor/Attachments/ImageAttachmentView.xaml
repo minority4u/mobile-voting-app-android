@@ -4,23 +4,34 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
-    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
     <ContentView.Content>
-        <StackLayout Margin="5,5,5,8">
-            <Frame
-                Padding="0"
-                CornerRadius="5"
-                OutlineColor="Transparent">
-                <Image
-                    Aspect="AspectFill"
-                    HeightRequest="300"
-                    Source="{Binding AttachmentSource, Converter={StaticResource LocalImageResourceConverter}}">
+        <Grid x:Name="Root">
+            <StackLayout Margin="5,5,5,8">
+                <Frame
+                    Padding="0"
+                    CornerRadius="5"
+                    OutlineColor="Transparent">
+                    <forms:CachedImage  x:Name="ImageView" Error="ImageView_OnError"
+                        Aspect="AspectFill"
+                        HeightRequest="300"
+                        Source="{Binding ViewModel.Attachment.AttachmentSource, Converter={StaticResource ImageSourceToImageConverter}}">
+                        <forms:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                        </forms:CachedImage.GestureRecognizers>
+                    </forms:CachedImage>
+                </Frame>
+                <elements:ExpandableEditor Text="{Binding ViewModel.Attachment.Description}" TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
+            </StackLayout>
+            <!--<Frame CornerRadius="5"  Padding="0"  IsVisible="{Binding ViewModel.Attachment, Converter={StaticResource AppStimmerMainPictureAvailabilityToVisibilityConverter}, ConverterParameter=inverted}">
+                <Image Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Images.No_Picture.jpg}"> 
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
-                    </Image.GestureRecognizers>
-                </Image>
-            </Frame>
-            <elements:ExpandableEditor Text="{Binding Description}" TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
-        </StackLayout>
+                        <TapGestureRecognizer Tapped="NoPhotoPicture_OnTapped">
+                        </TapGestureRecognizer>
+                    </Image.GestureRecognizers></Image>
+            </Frame>-->
+        </Grid>
     </ContentView.Content>
 </ContentView>

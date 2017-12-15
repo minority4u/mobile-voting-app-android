@@ -39,13 +39,17 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
     <Compile Include="Converter\AppStimmerAttachmentsToMainPictureConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentViewToViewModelConverter.cs" />
     <Compile Include="Converter\AppStimmerEditorDisplayTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\AppStimmerEditorEditableToTitleConverter.cs" />
+    <Compile Include="Converter\AppStimmerMainPictureAvailabilityToVisibilityConverter.cs" />
     <Compile Include="Converter\ColorChannelsToColorConverter.cs" />
     <Compile Include="Converter\ColorToColorChannelConverter.cs" />
     <Compile Include="Converter\CrossAudioManagerTimeSpanToStringConverter.cs" />
+    <Compile Include="Converter\ImageAttachmentToImageAttachmentViewModel.cs" />
+    <Compile Include="Converter\ImageSourceToImageConverter.cs" />
     <Compile Include="Converter\ImageToSvgSourceConverter.cs" />
     <Compile Include="Converter\CrossVideoManagerTimeSpanToStringConverter.cs" />
     <Compile Include="Converter\LocalImageResourceConverter.cs" />
@@ -80,6 +84,7 @@
     <Compile Include="ViewModels\AppStimmerViewModel.cs" />
     <Compile Include="ViewModels\AudioAttachmentViewModel.cs" />
     <Compile Include="ViewModels\CurrentUserViewModel.cs" />
+    <Compile Include="ViewModels\ImageAttachmentViewModel.cs" />
     <Compile Include="ViewModels\MenuPageMasterViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShowVideoAttachmentViewModel.cs" />
@@ -570,6 +575,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Icons\picture_circle.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\No_Picture.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

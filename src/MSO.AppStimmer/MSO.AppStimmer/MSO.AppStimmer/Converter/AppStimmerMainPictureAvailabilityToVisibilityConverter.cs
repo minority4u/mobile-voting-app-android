@@ -4,30 +4,23 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSO.StimmApp.Core.Models;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.Converter
 {
-    public class LocalImageResourceConverter : IValueConverter
+    public class AppStimmerMainPictureAvailabilityToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var source = value as string;
-            if (string.IsNullOrWhiteSpace(source))
-                return null;
+            var attachment = value as AppStimmerAttachment;
+            if (attachment == null)
+                return false;
 
-            ImageSource result;
-            try
-            {
-                var url = new Uri(source);
-                result = ImageSource.FromUri(url);
-            }
-            catch (Exception e)
-            {
-                result = ImageSource.FromFile(source);
-            }
+            if (attachment.IsMainAttachment && string.IsNullOrEmpty(attachment.AttachmentSource))
+                return true;
 
-            return result;
+            return false;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

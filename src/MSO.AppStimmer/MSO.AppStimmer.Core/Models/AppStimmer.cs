@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using MSO.StimmApp.Core.Enums;
 
 namespace MSO.StimmApp.Core.Models
 {
@@ -9,11 +10,17 @@ namespace MSO.StimmApp.Core.Models
         private string appstract;
         private string description;
         private string picture;
-        private ObservableCollection<AppStimmerAttachment> attachments = new ObservableCollection<AppStimmerAttachment>();
+        private ObservableCollection<AppStimmerAttachment> attachments;
 
         public AppStimmer() : base(true)
         {
             this.Id = Guid.NewGuid();
+
+            this.attachments = new ObservableCollection<AppStimmerAttachment>
+            {
+                new AppStimmerAttachment{IsMainAttachment = true, AttachmentType = AttachmentType.Picture},
+                new AppStimmerAttachment{IsMainAttachment = true, AttachmentType = AttachmentType.Text}
+            };
         }
 
         public string Title

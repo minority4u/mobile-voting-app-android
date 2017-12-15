@@ -22,7 +22,7 @@
                         CornerRadius="5">
                         <StackLayout BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemColor}">
                             <attachments:TextAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
-                            <attachments:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Picture}" />
+                            <attachments:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Picture}"  ViewModel="{Binding ., Converter={StaticResource ImageAttachmentToImageAttachmentViewModel}}"/>
                             <attachments:VideoAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Video}" />
                             <attachments:AudioAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Audio}" ViewModel="{Binding ., Converter={StaticResource AppStimmerAttachmentViewToViewModelConverter}}" />
                         </StackLayout>
