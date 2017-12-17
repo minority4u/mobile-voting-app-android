@@ -38,21 +38,9 @@ namespace MSO.StimmApp.Core.Services
                     {
                         new AppStimmerAttachment
                         {
-                            AttachmentSource = "-",
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Schlagloch.jpg",
                             AttachmentType = AttachmentType.Picture,
                             IsMainAttachment = true
-                        },
-                        new AppStimmerAttachment
-                        {
-                            AttachmentSource = "https://googlechrome.github.io/samples/picture-element/images/butterfly.jpg",
-                            AttachmentType = AttachmentType.Picture,
-                            IsMainAttachment = false
-                        },
-                        new AppStimmerAttachment
-                        {
-                            AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
-                            Description = "So sieht die Bank aus.",
-                            AttachmentType = AttachmentType.Picture,
                         },
                         new AppStimmerAttachment
                         {
@@ -60,6 +48,17 @@ namespace MSO.StimmApp.Core.Services
                             AttachmentType = AttachmentType.Text,
                             IsMainAttachment = true
                         },
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "https://googlechrome.github.io/samples/picture-element/images/butterfly.jpg",
+                            AttachmentType = AttachmentType.Picture,
+                        },
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
+                            Description = "So sieht die Bank aus.",
+                            AttachmentType = AttachmentType.Picture,
+                        },                     
                         new AppStimmerAttachment
                         {
                             AttachmentSource = "Dies ist ein Text-Attachment.",
