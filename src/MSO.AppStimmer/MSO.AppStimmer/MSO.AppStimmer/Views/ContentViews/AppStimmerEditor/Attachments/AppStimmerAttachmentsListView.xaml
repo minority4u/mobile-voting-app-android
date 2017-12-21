@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
+    xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:views="clr-namespace:MSO.StimmApp.Views;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
@@ -21,10 +22,48 @@
                         Padding="0"
                         CornerRadius="5">
                         <StackLayout BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemColor}">
-                            <attachments:TextAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Text}" />
-                            <attachments:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Picture}"  ViewModel="{Binding ., Converter={StaticResource ImageAttachmentToImageAttachmentViewModel}}"/>
-                            <attachments:VideoAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Video}" />
-                            <attachments:AudioAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentTypeToViewEnabledConverter}, ConverterParameter=Audio}" ViewModel="{Binding ., Converter={StaticResource AppStimmerAttachmentViewToViewModelConverter}}" />
+                            <attachments:TextAttachmentView>
+                                <attachments:TextAttachmentView.IsVisible>
+                                    <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Text">
+                                        <Binding Path="AttachmentType" />
+                                        <Binding Path="IsMainAttachment" />
+                                    </converter:MultiBinding>
+                                </attachments:TextAttachmentView.IsVisible>
+                            </attachments:TextAttachmentView>
+
+                            <attachments:VideoAttachmentView>
+                                <attachments:VideoAttachmentView.IsVisible>
+                                    <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Video">
+                                        <Binding Path="AttachmentType" />
+                                        <Binding Path="IsMainAttachment" />
+                                    </converter:MultiBinding>
+                                </attachments:VideoAttachmentView.IsVisible>
+                            </attachments:VideoAttachmentView>
+
+                            <attachments:ImageAttachmentView ViewModel="{Binding ., Converter={StaticResource ImageAttachmentToImageAttachmentViewModel}}">
+                                <attachments:ImageAttachmentView.IsVisible>
+                                    <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Picture">
+                                        <Binding Path="AttachmentType" />
+                                        <Binding Path="IsMainAttachment" />
+                                    </converter:MultiBinding>
+                                </attachments:ImageAttachmentView.IsVisible>
+                            </attachments:ImageAttachmentView>
+
+                            <attachments:AudioAttachmentView ViewModel="{Binding ., Converter={StaticResource AppStimmerAttachmentViewToViewModelConverter}}">
+                                <attachments:AudioAttachmentView.IsVisible>
+                                    <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Audio">
+                                        <Binding Path="AttachmentType" />
+                                        <Binding Path="IsMainAttachment" />
+                                    </converter:MultiBinding>
+                                </attachments:AudioAttachmentView.IsVisible>
+                            </attachments:AudioAttachmentView>
+
+
+
+
+                            <!--<attachments:ImageAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentToViewEnabledConverter}, ConverterParameter=Picture}" ViewModel="{Binding ., Converter={StaticResource ImageAttachmentToImageAttachmentViewModel}}" />
+                            <attachments:VideoAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentToViewEnabledConverter}, ConverterParameter=Video}" />
+                            <attachments:AudioAttachmentView IsVisible="{Binding AttachmentType, Converter={StaticResource AppStimmerAttachmentToViewEnabledConverter}, ConverterParameter=Audio}" ViewModel="{Binding ., Converter={StaticResource AppStimmerAttachmentViewToViewModelConverter}}" />-->
                         </StackLayout>
                     </Frame>
 

@@ -41,6 +41,7 @@
     </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Converter\AppStimmerAttachmentsToMainPictureConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentToViewEnabledConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentViewToViewModelConverter.cs" />
     <Compile Include="Converter\AppStimmerEditorDisplayTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\AppStimmerEditorEditableToTitleConverter.cs" />

@@ -49,7 +49,7 @@ namespace MSO.StimmApp.ViewModels
             }
             else
             {
-                SimpleIoc.Default.Register<IAppStimmerService, RestAppstimmerService>();
+                //SimpleIoc.Default.Register<IAppStimmerService, RestAppstimmerService>();
             }
 
             SimpleIoc.Default.Register<MenuPageMasterViewModel>();
