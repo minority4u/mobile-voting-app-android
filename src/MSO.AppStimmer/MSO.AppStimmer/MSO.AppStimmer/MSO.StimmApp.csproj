@@ -95,6 +95,9 @@
     <Compile Include="Views\ContentViews\Appstimmen\AppStimmerButtonsView.xaml.cs">
       <DependentUpon>AppStimmerButtonsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorDetailsView_2.xaml.cs">
+      <DependentUpon>AppStimmerEditorDetailsView_2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\AudioAttachmentView.xaml.cs">
       <DependentUpon>AudioAttachmentView.xaml</DependentUpon>
     </Compile>
@@ -586,6 +589,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Page2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorDetailsView_2.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

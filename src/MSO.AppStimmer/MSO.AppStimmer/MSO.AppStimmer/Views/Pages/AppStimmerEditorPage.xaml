@@ -11,6 +11,6 @@
     BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
     <Grid>
         <!--<appStimmerEditor:AppStimmerEditorTabbedView IsVisible="{Binding IsEditable}" />-->
-        <appStimmerEditor:AppStimmerEditorDetailsView />
+        <appStimmerEditor:AppStimmerEditorDetailsView_2 />
     </Grid>
 </ContentPage>

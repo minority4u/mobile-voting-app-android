@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+             x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorDetailsView_2">
+  <ContentView.Content>
+        <ScrollView x:Name="MainScrollView" Scrolled="MainScrollView_OnScrolled">
+            <Grid RowSpacing="10">
+              <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto"></RowDefinition>
+                  <RowDefinition Height="*"></RowDefinition>
+              </Grid.RowDefinitions>
+
+                <Grid x:Name="MainPicture">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.Row="0"
+                        Grid.RowSpan="2"
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        Aspect="AspectFill"
+                        Opacity=".8"
+                        Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}" />
+                    <elements:GradientFrame
+                        Grid.Row="1"
+                        Padding="0"
+                        EndColor="#AA000000"
+                        OutlineColor="Transparent"
+                        StartColor="#00000000">
+                        <Label
+                            Margin="12,12,0,12"
+                            FontSize="20"
+                            Text="{Binding AppStimmer.Title}"
+                            TextColor="White" />
+                    </elements:GradientFrame>
+                </Grid>
+
+                <StackLayout Grid.Row="1">
+                    <Image 
+                           Aspect="AspectFill" HeightRequest="300"
+                           HorizontalOptions="Fill"
+                           Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
+                           VerticalOptions="Fill" />
+                    <Image HeightRequest="300"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Fill"
+                           Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
+                           VerticalOptions="Fill" />
+                    <Image HeightRequest="300"
+                           Aspect="AspectFill"
+                           HorizontalOptions="Fill"
+                           Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
+                           VerticalOptions="Fill" />
+                </StackLayout>
+
+            </Grid>
+          
+        </ScrollView> 
+  </ContentView.Content>
+</ContentView>

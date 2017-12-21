@@ -23,8 +23,18 @@ namespace MSO.StimmApp.Converter
             {
                 if (attachment.IsMainAttachment && attachment.AttachmentType == AttachmentType.Picture)
                 {
-                    var result = Images.ImageSourceFromAnySource(attachment.AttachmentSource);
-                    return result;
+                    Xamarin.Forms.ImageSource imgSource = null;
+
+                    try
+                    {
+                        imgSource = Images.ImageSourceFromAnySource(attachment.AttachmentSource);
+                    }
+                    catch (Exception e)
+                    {
+                        imgSource = Constants.NoImageProvidedImageSource;
+                    }
+                    
+                    return imgSource;
                 }                         
             }
 
