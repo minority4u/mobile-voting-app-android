@@ -1,20 +1,17 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.Content.PM;
 using Android.Graphics;
 using Android.OS;
 using DeviceOrientation.Forms.Plugin.Droid;
 using FFImageLoading.Forms.Droid;
 using Plugin.MediaManager.Forms.Android;
-using Xamarin.Forms.Platform.Android;
-using Resource = MSO.StimmApp.Droid.Resource;
 using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
+using Xamarin.Forms.Platform.Android;
 using Permission = Android.Content.PM.Permission;
 
-namespace MSO.AppStimmer.Droid
+namespace MSO.StimmApp.Droid
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
