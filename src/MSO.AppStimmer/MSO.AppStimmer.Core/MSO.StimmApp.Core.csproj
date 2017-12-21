@@ -52,6 +52,7 @@
     <Compile Include="Services\AzureAppStimmerService.cs" />
     <Compile Include="Services\IAppStimmerService.cs" />
     <Compile Include="Services\MockAppStimmerService.cs" />
+    <Compile Include="Services\RestAppstimmerService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
