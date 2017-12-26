@@ -17,13 +17,37 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
     public partial class AppStimmerEditorDetailsView_2 : ContentView
     {
         private double imageHeight = 0;
-
-        private string baseTitleBarColor;
+        private string baseGradient;
 
         public AppStimmerEditorDetailsView_2()
         {
             this.InitializeComponent();
-            //this.baseTitleBarColor = App.Settings.AppColors.TitleBarColor;
+            this.baseGradient = "#55000000";
+            //this.Parallax();
+        }
+
+        private void AdjustGradientsIntensity(double scrollY, double imgHeight)
+        {
+            var percentageScrolled = scrollY / (imgHeight - this.TopBarGradientFrame.Height);
+            if (percentageScrolled <= 0.5 || percentageScrolled >= 1.0)
+                return;
+
+            var baseColor = Color.FromHex(this.baseGradient);
+            var baseAlpha = baseColor.A;
+            var targetAlpha = 0.0;
+            var differenceAlpha = baseAlpha - targetAlpha;
+
+            var alphaReduced = ((percentageScrolled - 0.5) * 2) * differenceAlpha;
+            var newAlpha = baseAlpha - alphaReduced;
+
+            var intValue = (int) (newAlpha * 255);
+            var alphaHex = intValue.ToString("X2");
+
+            var newColor = "#" + alphaHex + "000000";
+            this.TitleFrame.EndColor = newColor;
+            this.TopBarGradientFrame.StartColor = newColor;
+
+            //Debug.WriteLine("Percentage scrolled: " + percentageScrolled + " Old apha: " + baseAlpha + " New alpha: " + newAlpha + " hex: " + alphaHex);
         }
 
         public AppStimmerEditorViewModel ViewModel => this.BindingContext as AppStimmerEditorViewModel;
@@ -43,22 +67,119 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
 
         private void Parallax()
         {
-            this.AdjustMainPicture();
-            this.AdjustTitleBarColor();
+            var scrollY = this.MainScrollView.ScrollY;
+            var imgHeight = this.MainPicture.Height;
+
+            this.AdjustMainPicture(scrollY);
+            this.AdjustMainPictureOverlay(scrollY, imgHeight);
+            this.AdjustTopBarOverlayPosition(scrollY);
+            this.AdjustTitlePosition(scrollY, imgHeight);
+            this.AdjustGradientsIntensity(scrollY, imgHeight);
+            //this.AdjustTitleBarColor();
             //this.AdjustMainPictureOverlay();
+        }
+
+        private void AdjustTitlePosition(double scrollY, double imgHeight)
+        {
+            const int baseFontSize = 30;
+            const int targetFontSize = 20;
+
+            const int baseLeftMargin = 10;
+            const int targetLeftMargin = 57;
+
+            const int baseTopMargin = 10;
+            const int baseBottomMargin = 10;
+            const int targetBottomMargin = 13;
+
+            var percentageScrolled = scrollY / (imgHeight - this.TopBarGradientFrame.Height);
+
+            if (percentageScrolled >= 1.0)
+            {
+                this.ViewModel.DisplayNavigationBarTitle = true;
+            }
+            else
+            {
+                this.ViewModel.DisplayNavigationBarTitle = false;
+            }
+
+            if (percentageScrolled <= 0.5)
+            {
+                this.TitleLabel.FontSize = baseFontSize;
+                this.TitleLabel.Margin = new Thickness(baseLeftMargin, baseTopMargin, 0, baseBottomMargin);
+                return;
+            }
+
+            var currentMargin = this.TitleLabel.Margin;
+
+            var leftMarginDifference = targetLeftMargin - baseLeftMargin;
+            var addiotionalMargin = ((percentageScrolled - 0.5) * 2) * leftMarginDifference;
+            var newLeftMargin = baseLeftMargin + addiotionalMargin;
+
+            var bottomMarginDifference = targetBottomMargin - baseBottomMargin;
+            var additionalBottomMargin = ((percentageScrolled - 0.5) * 2) * bottomMarginDifference;
+            var newBottomMargin = baseBottomMargin + additionalBottomMargin;
+
+            this.TitleLabel.Margin = new Thickness(newLeftMargin, currentMargin.Top, currentMargin.Right, newBottomMargin);
+
+            var difference = baseFontSize - targetFontSize;
+            var reached = ((percentageScrolled - 0.5) * 2) * difference;
+            var newFontSize = baseFontSize - reached;
+
+            this.TitleLabel.FontSize = newFontSize;
+        }
+
+        private void AdjustTopBarOverlayPosition(double scrollY)
+        {
+            //this.TopBarGradientFrame.TranslationY = scrollY;
+        }
+
+
+        private void AdjustMainPictureOverlay(double scrollY, double imgHeight)
+        {
+            var percentageScrolled = scrollY / (imgHeight - this.TopBarGradientFrame.Height);
+            if (percentageScrolled <= 0.5)
+            {
+                this.SetNavigationBarOpacity(0);
+                this.MainPictureOverlayFrame.Opacity = 0;
+                return;
+            }
+
+            this.SetNavigationBarOpacity(1);
+
+            var visibleImageHeight = imgHeight - scrollY;
+            if (visibleImageHeight <= this.TopBarGradientFrame.Height)
+            {
+                this.SetNavigationBarOpacity(255);
+            }
+            else
+            {
+                this.SetNavigationBarOpacity(0);
+                var overlayFrameOpacity = (percentageScrolled - 0.5) * 2;
+                //if (overlayFrameOpacity >= 0.9)
+                //    overlayFrameOpacity = 0.9;
+
+                this.MainPictureOverlayFrame.Opacity = overlayFrameOpacity;
+            }
+        }
+
+        private void SetNavigationBarOpacity(int alpha)
+        {
+            var oldColor = this.ViewModel.NavigationBarBackgroundColor;
+            var newColor = new Color(oldColor.R, oldColor.G, oldColor.B, alpha);
+            this.ViewModel.NavigationBarBackgroundColor = newColor;
         }
 
         private void AdjustTitleBarColor()
         {
-            var scrollView = this.MainScrollView;
-            var photoImage = this.MainPicture;
+            //var scrollView = this.MainScrollView;
+            //var photoImage = this.MainPicture;
 
-            var scrolled = scrollView.ScrollY;
-            var imgHeight = photoImage.Height;
+            //var scrolled = scrollView.ScrollY;
+            //var imgHeight = 
 
-            var percentageScrolled = scrolled / imgHeight;
+            //var percentageScrolled = scrolled / imgHeight;
 
-            var settings = App.Settings.AppColors;
+            //var settings = App.Settings.AppColors;
             //var cloned = settings.CloneJson();
 
             //if (percentageScrolled > 0.5)
@@ -74,20 +195,20 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
         }
 
 
-        private void AdjustMainPictureOverlay()
-        {
-            var scrollView = this.MainScrollView;
-            var overlayFrame = this.MainPictureOverlayFrame;
-            var photoImage = this.MainPicture;
+        //private void AdjustMainPictureOverlay()
+        //{
+        //    var scrollView = this.MainScrollView;
+        //    var overlayFrame = this.MainPictureOverlayFrame;
+        //    var photoImage = this.MainPicture;
 
-            var scrolled = scrollView.ScrollY;
-            var imgHeight = photoImage.Height;
+        //    var scrolled = scrollView.ScrollY;
+        //    var imgHeight = photoImage.Height;
 
-            var percentageScrolled = scrolled / imgHeight;
+        //    var percentageScrolled = scrolled / imgHeight;
 
-            //Debug.WriteLine("Percentage scrolled: " + percentageScrolled);
-            //overlayFrame.Opacity = percentageScrolled;
-        }
+        //    //Debug.WriteLine("Percentage scrolled: " + percentageScrolled);
+        //    //overlayFrame.Opacity = percentageScrolled;
+        //}
 
         //private void Parallax2()
         //{
@@ -98,32 +219,33 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
         //    image.TranslationY = scrollView.ScrollY - parallexRegion * (scrollView.ScrollY / scrollRegion);
         //}
 
-        private void AdjustMainPicture()
+        private void AdjustMainPicture(double scrollY)
         {
-            var scrollView = this.MainScrollView;
-            var photoImage = this.MainPicture;
-            var title = this.TitleFrame;
+            var image = this.MainPicture;
 
             if (this.imageHeight <= 0)
-                this.imageHeight = photoImage.Height;
+                this.imageHeight = image.Height;
 
-            var y = scrollView.ScrollY * .4;
+            var y = scrollY * .5;
 
             if (y >= 0)
             {
                 //Move the Image's Y coordinate a fraction of the ScrollView's Y position
-                photoImage.Scale = 1;
-                photoImage.TranslationY = y;
-                title.TranslationY = -y;
+                image.Scale = 1;
+                image.TranslationY = y;
             }
             else
             {
-                Debug.WriteLine("Else");
                 ////Calculate a scale that equalizes the height vs scroll
-                double newHeight = this.imageHeight + (scrollView.ScrollY * -1);
-                photoImage.Scale = newHeight / this.imageHeight;
-                photoImage.TranslationY = scrollView.ScrollY / 2;
+                var newHeight = this.imageHeight + (scrollY * -1);
+                image.Scale = newHeight / this.imageHeight;
+                image.TranslationY = scrollY / 2;
             }
+        }
+
+        private void BackButtonImage_OnTapped(object sender, EventArgs e)
+        {
+            App.NavigationService.GoBack();
         }
     }
 }

@@ -1,74 +1,118 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
-             xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-             x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorDetailsView_2">
-  <ContentView.Content>
-        <ScrollView x:Name="MainScrollView" Scrolled="MainScrollView_OnScrolled">
-            <Grid RowSpacing="10">
-              <Grid.RowDefinitions>
-                  <RowDefinition Height="Auto"></RowDefinition>
-                  <RowDefinition Height="*"></RowDefinition>
-              </Grid.RowDefinitions>
-
-                <Grid x:Name="MainPicture">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorDetailsView_2"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
+    <ContentView.Content>
+        <Grid>
+            <elements:ScrollbarLessScrollView x:Name="MainScrollView" Scrolled="MainScrollView_OnScrolled">
+                <Grid RowSpacing="0">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
-                    <Image 
-                        Grid.Row="0" Grid.RowSpan="2"
-                        AbsoluteLayout.LayoutBounds="0,0,1,1"
-                        AbsoluteLayout.LayoutFlags="All"
-                        Aspect="AspectFill"
-                        Opacity=".8"
-                        Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}" />
-                    <elements:GradientFrame x:Name="TitleFrame" 
-                        Grid.Row="1"
-                        Padding="0" 
-                        EndColor="#AA000000"
-                        OutlineColor="Transparent"
-                        StartColor="#00000000">
+
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <Image
+                            x:Name="MainPicture"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Aspect="AspectFill"
+                            HeightRequest="360"
+                            HorizontalOptions="Fill"
+                            Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
+                            VerticalOptions="Fill" />
+
+                        <Frame
+                            x:Name="MainPictureOverlayFrame"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Padding="0"
+                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
+                            CornerRadius="0"
+                            HorizontalOptions="Fill"
+                            Opacity="0"
+                            OutlineColor="Transparent"
+                            VerticalOptions="Fill" />
+
+                        <elements:GradientFrame
+                            x:Name="TitleFrame"
+                            Grid.Row="1"
+                            Padding="0"
+                            EndColor="#55000000"
+                            OutlineColor="Transparent"
+                            StartColor="#00000000" />
+                    </Grid>
+
+                    <Grid
+                        Grid.Row="0"
+                        Padding="0"
+                        BackgroundColor="Transparent"
+                        HeightRequest="57"
+                        VerticalOptions="End">
                         <Label
-                            Margin="12,12,0,12"
-                            FontSize="20"
+                            x:Name="TitleLabel"
+                            Grid.Row="0"
+                            Margin="10,0,0,0"
+                            FontSize="30"
+                            HeightRequest="57"
+                            IsVisible="{Binding DisplayNavigationBarTitle, Converter={StaticResource BooleanConverter}, ConverterParameter=inverted}"
                             Text="{Binding AppStimmer.Title}"
-                            TextColor="White" />
-                    </elements:GradientFrame>
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+                    </Grid>
 
-                    <Frame x:Name="MainPictureOverlayFrame" 
-                           Grid.Row="0" 
-                           Grid.RowSpan="2" 
-                           BackgroundColor="PaleVioletRed" 
-                           OutlineColor="Transparent" 
-                           Padding="0" 
-                           Opacity="0" ></Frame>
+                    <StackLayout Grid.Row="1">
+                        <BoxView BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}" HeightRequest="800" />
+                    </StackLayout>
                 </Grid>
+            </elements:ScrollbarLessScrollView>
 
-                <StackLayout Grid.Row="1">
-                    <BoxView HeightRequest="800" BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}">
-                        
-                    </BoxView>
-                    <!--<Image 
-                           Aspect="AspectFill" HeightRequest="300"
-                           HorizontalOptions="Fill"
-                           Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
-                           VerticalOptions="Fill" />
-                    <Image HeightRequest="300"
-                           Aspect="AspectFill"
-                           HorizontalOptions="Fill"
-                           Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
-                           VerticalOptions="Fill" />
-                    <Image HeightRequest="300"
-                           Aspect="AspectFill"
-                           HorizontalOptions="Fill"
-                           Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
-                           VerticalOptions="Fill" />-->
-                </StackLayout>
+            <elements:GradientFrame
+                x:Name="TopBarGradientFrame"
+                Grid.Row="0"
+                Padding="0"
+                BackgroundColor="{Binding NavigationBarBackgroundColor}"
+                EndColor="#00000000"
+                HeightRequest="57"
+                OutlineColor="Transparent"
+                StartColor="#55000000"
+                VerticalOptions="Start" />
+            <StackLayout
+                HeightRequest="57"
+                HorizontalOptions="Start"
+                Orientation="Horizontal"
+                Spacing="0"
+                VerticalOptions="Start">
+                <Image
+                    Margin="17"
+                    HorizontalOptions="Start"
+                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.arrow-left.scale-100.png}"
+                    VerticalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackButtonImage_OnTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
 
-            </Grid>
-          
-        </ScrollView> 
-  </ContentView.Content>
+                <Label
+                    Margin="0,14,0,0"
+                    FontSize="20"
+                    IsVisible="{Binding DisplayNavigationBarTitle}"
+                    Text="{Binding AppStimmer.Title}"
+                    TextColor="White" />
+            </StackLayout>
+
+            <!--<elements:CustomNavigationBar
+                x:Name="CustomNavigationBar"
+                BackgroundColor="{Binding NavigationBarBackgroundColor}"
+                VerticalOptions="Start" />-->
+        </Grid>
+    </ContentView.Content>
 </ContentView>

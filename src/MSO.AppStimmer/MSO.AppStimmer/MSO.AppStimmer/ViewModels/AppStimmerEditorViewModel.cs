@@ -5,6 +5,7 @@ using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Core.ViewModels;
+using Xamarin.Forms;
 
 namespace MSO.StimmApp.ViewModels
 {
@@ -17,6 +18,8 @@ namespace MSO.StimmApp.ViewModels
         private bool isEditable;
         private RelayCommand<AppStimmerEditorDisplayType> setDisplayModeCommand;
         private RelayCommand<ModelEditFinishedType> endEditCommand;
+        private Color navigationBarBackgroundColor;
+        private bool displayNavigationBarTitle;
 
         public bool IsAddingAttachment
         {
@@ -28,13 +31,13 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService) :
             this(appStimmerService, new AppStimmer(), AppStimmerEditorDisplayType.Overview, isEditable: true)
         {
-            Debug.WriteLine(@"First constructor called. IsEditable: " + isEditable);
+            //Debug.WriteLine(@"First constructor called. IsEditable: " + isEditable);
         }
 
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer)
             : this(appStimmerService, appStimmer, AppStimmerEditorDisplayType.Overview, isEditable: true)
         {
-            Debug.WriteLine(@"Second constructor called. IsEditable: " + isEditable);
+            //Debug.WriteLine(@"Second constructor called. IsEditable: " + isEditable);
         }
 
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer,
@@ -50,6 +53,10 @@ namespace MSO.StimmApp.ViewModels
             {
                 this.BeginAppStimmerEdit();
             }
+
+            var navigationBarColor = Color.FromHex(App.Settings.AppColors.PrimaryColor);
+            // make navigation bar background transparent, except the buttons
+            this.NavigationBarBackgroundColor = new Color(navigationBarColor.R, navigationBarColor.G, navigationBarColor.B, 0);
         }
 
         private void BeginAppStimmerEdit()
@@ -63,6 +70,12 @@ namespace MSO.StimmApp.ViewModels
             set => this.Set(ref this.appStimmer, value);
         }
 
+        public Color NavigationBarBackgroundColor
+        {
+            get => this.navigationBarBackgroundColor;
+            set => this.Set(ref this.navigationBarBackgroundColor, value);
+        }
+
         public AppStimmerEditorDisplayType DisplayType
         {
             get => this.displayType;
@@ -73,6 +86,12 @@ namespace MSO.StimmApp.ViewModels
         {
             get => this.isEditable;
             set => this.Set(ref this.isEditable, value);
+        }
+
+        public bool DisplayNavigationBarTitle
+        {
+            get => this.displayNavigationBarTitle;
+            set => this.Set(ref this.displayNavigationBarTitle, value);
         }
 
         public RelayCommand<AppStimmerEditorDisplayType> SetDisplayModeCommand => this.setDisplayModeCommand ?? (this.setDisplayModeCommand =
