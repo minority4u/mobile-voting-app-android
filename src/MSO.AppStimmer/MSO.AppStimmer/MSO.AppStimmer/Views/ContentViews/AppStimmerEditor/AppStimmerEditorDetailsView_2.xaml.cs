@@ -23,7 +23,7 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
         public AppStimmerEditorDetailsView_2()
         {
             this.InitializeComponent();
-            this.baseTitleBarColor = App.Settings.AppColors.TitleBarColor;
+            //this.baseTitleBarColor = App.Settings.AppColors.TitleBarColor;
         }
 
         public AppStimmerEditorViewModel ViewModel => this.BindingContext as AppStimmerEditorViewModel;
