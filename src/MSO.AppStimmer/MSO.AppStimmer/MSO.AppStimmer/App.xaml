@@ -50,6 +50,8 @@
             <converter:AppStimmerAttachmentsToMainPictureConverter x:Key="AppStimmerAttachmentsToMainPictureConverter" />
             <converter:ImageAttachmentToImageAttachmentViewModel x:Key="ImageAttachmentToImageAttachmentViewModel" />
             <converter:ImageSourceToImageConverter x:Key="ImageSourceToImageConverter" />
+            <converter:AppStimmerAttachmentsToMediaAttachmentsConverter x:Key="AppStimmerAttachmentsToMediaAttachmentsConverter" />
+            <converter:AppStimmerAttachmentsToMediaAddachmentCountConverter x:Key="AppStimmerAttachmentsToMediaAddachmentCountConverter" />
             <converter:AppStimmerMainPictureAvailabilityToVisibilityConverter x:Key="AppStimmerMainPictureAvailabilityToVisibilityConverter" />
         </ResourceDictionary>
     </Application.Resources>

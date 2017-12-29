@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using MSO.StimmApp.Core.Enums;
@@ -20,6 +21,8 @@ namespace MSO.StimmApp.ViewModels
         private RelayCommand<ModelEditFinishedType> endEditCommand;
         private Color navigationBarBackgroundColor;
         private bool displayNavigationBarTitle;
+        private ObservableCollection<AppStimmerAttachment> appStimmerMediaAttachments;
+        private string appStimmerDescription;
 
         public bool IsAddingAttachment
         {
@@ -67,6 +70,12 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmer AppStimmer
         {
             get => this.appStimmer;
+            set => this.Set(ref this.appStimmer, value); 
+        }
+
+        public AppStimmer AppStimmerMediaAttachments
+        {
+            get => this.appStimmer;
             set => this.Set(ref this.appStimmer, value);
         }
 
@@ -74,6 +83,34 @@ namespace MSO.StimmApp.ViewModels
         {
             get => this.navigationBarBackgroundColor;
             set => this.Set(ref this.navigationBarBackgroundColor, value);
+        }
+
+        public string AppStimmerDescription
+        {
+            get
+            {
+                foreach (var attachment in this.AppStimmer.Attachments)
+                {
+                    if (!attachment.IsMainAttachment && attachment.AttachmentType == AttachmentType.Text)
+                    {
+                        this.appStimmerDescription = attachment.AttachmentSource;
+                    }
+                }
+
+                return this.appStimmerDescription;
+            }
+            set
+            {
+                foreach (var attachment in this.AppStimmer.Attachments)
+                {
+                    if (!attachment.IsMainAttachment && attachment.AttachmentType == AttachmentType.Text)
+                    {
+                        attachment.AttachmentSource = value;
+                    }
+                }
+
+                this.Set(ref this.appStimmerDescription, value);
+            } 
         }
 
         public AppStimmerEditorDisplayType DisplayType

@@ -3,12 +3,16 @@
     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorDetailsView_2"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
+    xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
-    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
+
     <ContentView.Content>
         <Grid>
             <elements:ScrollbarLessScrollView x:Name="MainScrollView" Scrolled="MainScrollView_OnScrolled">
-                <Grid RowSpacing="0">
+                <Grid Padding="0" RowSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
@@ -21,14 +25,12 @@
                         </Grid.RowDefinitions>
                         <Image
                             x:Name="MainPicture"
-                            Grid.Row="0"
                             Grid.RowSpan="2"
                             Aspect="AspectFill"
                             HeightRequest="360"
                             HorizontalOptions="Fill"
                             Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
                             VerticalOptions="Fill" />
-
                         <Frame
                             x:Name="MainPictureOverlayFrame"
                             Grid.Row="0"
@@ -69,8 +71,95 @@
                             VerticalTextAlignment="Center" />
                     </Grid>
 
-                    <StackLayout Grid.Row="1">
-                        <BoxView BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}" HeightRequest="800" />
+
+                    <StackLayout
+                        Grid.Row="1"
+                        Orientation="Vertical"
+                        Spacing="0">
+                        <StackLayout
+                            BackgroundColor="White"
+                            Orientation="Vertical"
+                            Spacing="0">
+                            <Grid>
+                                <Label
+                                    Margin="10"
+                                    FontSize="20"
+                                    HorizontalOptions="Start"
+                                    Text="Medien"
+                                    TextColor="#00897B" />
+                                <Label
+                                    Margin="10"
+                                    FontSize="16"
+                                    HorizontalOptions="End"
+                                    HorizontalTextAlignment="Center"
+                                    Text="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMediaAddachmentCountConverter}}"
+                                    TextColor="Gray"
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center" />
+                            </Grid>
+
+                            <xForms:SfListView
+                                BackgroundColor="White"
+                                HeightRequest="100"
+                                IsScrollBarVisible="False"
+                                ItemSize="100"
+                                ItemsSource="{Binding AppStimmer.Attachments, Mode=OneWay, Converter={StaticResource AppStimmerAttachmentsToMediaAttachmentsConverter}}"
+                                Orientation="Horizontal">
+                                <xForms:SfListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Padding="5,5,5,10">
+                                            <attachments:ImageAttachmentView ViewModel="{Binding ., Converter={StaticResource ImageAttachmentToImageAttachmentViewModel}}" WidthRequest="100">
+                                                <attachments:ImageAttachmentView.IsVisible>
+                                                    <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Picture">
+                                                        <Binding Path="AttachmentType" />
+                                                        <Binding Path="IsMainAttachment" />
+                                                    </converter:MultiBinding>
+                                                </attachments:ImageAttachmentView.IsVisible>
+                                            </attachments:ImageAttachmentView>
+                                            <attachments:VideoAttachmentView>
+                                                <attachments:VideoAttachmentView.IsVisible>
+                                                    <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Video">
+                                                        <Binding Path="AttachmentType" />
+                                                        <Binding Path="IsMainAttachment" />
+                                                    </converter:MultiBinding>
+                                                </attachments:VideoAttachmentView.IsVisible>
+                                            </attachments:VideoAttachmentView>
+                                        </Grid>
+                                    </DataTemplate>
+                                </xForms:SfListView.ItemTemplate>
+                            </xForms:SfListView>
+                        </StackLayout>
+
+                        <!--<Grid
+                            Margin="10,0,10,0"
+                            BackgroundColor="White"
+                            HorizontalOptions="StartAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" Text="Beschreibung" />
+                            <BoxView
+                                Grid.Column="1"
+                                HeightRequest="1"
+                                VerticalOptions="CenterAndExpand"
+                                Color="LightSeaGreen" />
+                        </Grid>-->
+
+                        <Frame
+                            Padding="0"
+                            BackgroundColor="White"
+                            CornerRadius="0"
+                            OutlineColor="Transparent">
+                            <elements:ExpandableEditor
+                                Margin="10,0,10,0"
+                                BackgroundColor="White"
+                                HeightRequest="2000"
+                                Text="{Binding AppStimmerDescription}"
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
+                        </Frame>
+
+                        <!--<BoxView BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}" HeightRequest="800" />-->
                     </StackLayout>
                 </Grid>
             </elements:ScrollbarLessScrollView>

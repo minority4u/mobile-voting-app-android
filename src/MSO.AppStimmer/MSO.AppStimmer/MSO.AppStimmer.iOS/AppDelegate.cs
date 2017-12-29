@@ -1,5 +1,6 @@
 ﻿
 using Foundation;
+using Syncfusion.ListView.XForms.iOS;
 using UIKit;
 
 namespace MSO.AppStimmer.iOS
@@ -10,7 +11,8 @@ namespace MSO.AppStimmer.iOS
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
 			global::Xamarin.Forms.Forms.Init();
-			LoadApplication(new StimmApp.App());
+		    SfListViewRenderer.Init();
+            LoadApplication(new StimmApp.App());
 
 			return base.FinishedLaunching(app, options);
 		}
