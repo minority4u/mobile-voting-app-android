@@ -23,6 +23,8 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
         {
             this.InitializeComponent();
             this.baseGradient = "#55000000";
+
+            
             //this.Parallax();
         }
 
