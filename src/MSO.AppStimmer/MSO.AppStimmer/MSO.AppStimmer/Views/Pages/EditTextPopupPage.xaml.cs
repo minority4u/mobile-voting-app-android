@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSO.StimmApp.Services;
 using MSO.StimmApp.ViewModels;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
@@ -15,18 +16,29 @@ namespace MSO.StimmApp.Views.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditTextPopupPage : PopupPage
     {
+        private ISoftwareKeyboardService keyboardService;
+
         public EditTextPopupPage(EditAppStimmerTextViewModel viewModel)
         {
-            try
-            {
-                this.InitializeComponent();
-                this.BindingContext = viewModel;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                throw;
-            }          
+            this.InitializeComponent();
+            this.BindingContext = viewModel;
+            this.TextEditor.Focus();
+
+            this.keyboardService = App.KeyboardService;
+            keyboardService.Hide += KeyboardServiceOnHide;
+            keyboardService.Show += KeyboardServiceOnShow;
+        }
+
+        private async void KeyboardServiceOnShow(object sender, SoftwareKeyboardEventArgs args)
+        {
+            if (!this.ViewModel.FinishedEdit)
+                await this.MainFrame.TranslateTo(0, -150, 250U, Easing.Linear);           
+        }
+
+        private async void KeyboardServiceOnHide(object sender, SoftwareKeyboardEventArgs args)
+        {
+            if (!this.ViewModel.FinishedEdit)
+                await this.MainFrame.TranslateTo(0, 0, 250U, Easing.Linear);
         }
 
         public EditAppStimmerTextViewModel ViewModel => this.BindingContext as EditAppStimmerTextViewModel;
@@ -50,6 +62,7 @@ namespace MSO.StimmApp.Views.Pages
 
         private async void Button_OnClicked(object sender, EventArgs e)
         {
+            this.ViewModel.FinishedEdit = true;
             await PopupNavigation.PopAsync(true);
         }
 

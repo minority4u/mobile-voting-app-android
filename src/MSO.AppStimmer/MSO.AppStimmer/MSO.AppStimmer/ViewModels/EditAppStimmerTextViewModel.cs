@@ -23,8 +23,7 @@ namespace MSO.StimmApp.ViewModels
         private AppStimmer appStimmer;
         private RelayCommand saveTextCommand;
         private EditAppStimmerTextType textType;
-        private ISoftwareKeyboardService keyboardService;
-
+        
         public EditAppStimmerTextViewModel(string editorDescription, AppStimmer appStimmer, 
             EditAppStimmerTextType textType, int maxCharacters)
         {
@@ -32,11 +31,7 @@ namespace MSO.StimmApp.ViewModels
             this.AppStimmer = appStimmer;          
             this.MaxCharacters = maxCharacters;
             this.textType = textType;
-            this.keyboardService = App.KeyboardService;
-            keyboardService.Hide += KeyboardServiceOnHide;
-            keyboardService.Show += KeyboardServiceOnShow;
-
-
+            
             switch (textType)
             {
                 case EditAppStimmerTextType.Title:
@@ -48,18 +43,10 @@ namespace MSO.StimmApp.ViewModels
             }
         }
 
-        private void KeyboardServiceOnShow(object sender, SoftwareKeyboardEventArgs args)
-        {
-            Debug.WriteLine("Keyboard shown");
-        }
-
-        private void KeyboardServiceOnHide(object sender, SoftwareKeyboardEventArgs args)
-        {
-            Debug.WriteLine("Keyboard hidden");
-        }
-
         public RelayCommand SaveTextCommand => this.saveTextCommand ?? (this.saveTextCommand =
             new RelayCommand(this.SaveText));
+
+        public bool FinishedEdit { get; set; } = false;
 
         private async void SaveText()
         {
@@ -73,6 +60,7 @@ namespace MSO.StimmApp.ViewModels
                     break;
             }
 
+            this.FinishedEdit = true;
             await PopupNavigation.PopAsync(true);          
         }
 

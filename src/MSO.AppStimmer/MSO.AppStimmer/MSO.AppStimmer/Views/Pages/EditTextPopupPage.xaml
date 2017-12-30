@@ -15,6 +15,7 @@
             <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
         </Grid.GestureRecognizers>
         <Frame
+            x:Name="MainFrame"
             Padding="0"
             BackgroundColor="White"
             CornerRadius="10"
@@ -33,6 +34,7 @@
                     FontSize="20"
                     Text="{Binding EditorDescription}" />
                 <elements:ExpandableEditor
+                    x:Name="TextEditor"
                     Margin="18,20,20,0"
                     FontSize="15"
                     Text="{Binding Text}">
