@@ -14,12 +14,12 @@ using MSO.StimmApp.Elements;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: ExportRenderer(typeof(ExpandableEditor), typeof(BottomlinelessEditorRenderer))]
+[assembly: ExportRenderer(typeof(BottomlinelessExpandableEditor), typeof(BottomlinelessExpandableEditorRenderer))]
 namespace MSO.StimmApp.Droid.Renderers
 {
-    class BottomlinelessEditorRenderer : EditorRenderer
+    class BottomlinelessExpandableEditorRenderer : EditorRenderer
     {
-        public BottomlinelessEditorRenderer(Context context) : base(context)
+        public BottomlinelessExpandableEditorRenderer(Context context) : base(context)
         {
 
         }

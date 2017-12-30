@@ -34,20 +34,12 @@ namespace MSO.StimmApp.Core.Services
                 new AppStimmer
                 {
                     Title = "Straße kaputt",
+                    Picture = "MSO.StimmApp.Resources.Images.Photo.jpg",
+                    Appstract = "Von meinem Galaxy! Von meinem Galaxy! Von meinem Galaxy!",
+                    Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",
+
                     Attachments = new ObservableCollection<AppStimmerAttachment>()
                     {
-                        new AppStimmerAttachment
-                        {
-                            AttachmentSource = "MSO.StimmApp.Resources.Images.Photo.jpg",
-                            AttachmentType = AttachmentType.Picture,
-                            IsMainAttachment = true
-                        },
-                        new AppStimmerAttachment
-                        {
-                            AttachmentSource = "Dies ist ein aussagekräftiger Appstract!",
-                            AttachmentType = AttachmentType.Text,
-                            IsMainAttachment = true
-                        },
                         new AppStimmerAttachment
                         {
                             AttachmentSource = "https://googlechrome.github.io/samples/picture-element/images/butterfly.jpg",
@@ -82,12 +74,6 @@ namespace MSO.StimmApp.Core.Services
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
                             Description = "So sieht die Bank aus.",
                             AttachmentType = AttachmentType.Picture,
-                        },
-                        new AppStimmerAttachment
-                        {
-                            AttachmentSource = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",
-                            Description = "Dies ist ein Text.",
-                            AttachmentType = AttachmentType.Text
                         },
                         new AppStimmerAttachment
                         {

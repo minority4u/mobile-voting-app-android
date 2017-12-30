@@ -6,6 +6,7 @@
     xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
     xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:enums="clr-namespace:MSO.StimmApp.Enums;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
 
@@ -29,7 +30,7 @@
                             Aspect="AspectFill"
                             HeightRequest="290"
                             HorizontalOptions="Fill"
-                            Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
+                            Source="{Binding AppStimmer.Picture, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
                             VerticalOptions="Fill" />
                         <Frame
                             x:Name="MainPictureOverlayFrame"
@@ -61,7 +62,7 @@
                         <Label
                             x:Name="TitleLabel"
                             Grid.Row="0"
-                            Margin="10,0,0,0"
+                            Margin="15,0,0,0"
                             FontSize="30"
                             HeightRequest="57"
                             IsVisible="{Binding DisplayNavigationBarTitle, Converter={StaticResource BooleanConverter}, ConverterParameter=inverted}"
@@ -69,6 +70,19 @@
                             TextColor="White"
                             VerticalOptions="Center"
                             VerticalTextAlignment="Center" />
+                        <elements:TintedSvgCachedImage
+                            Margin="15"
+                            HeightRequest="20"
+                            HorizontalOptions="End"
+                            IsVisible="{Binding DisplayNavigationBarTitle, Converter={StaticResource BooleanConverter}, ConverterParameter=inverted}"
+                            Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
+                            TintColor="White"
+                            VerticalOptions="Center"
+                            WidthRequest="20">
+                            <elements:TintedSvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EditAppStractCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
+                            </elements:TintedSvgCachedImage.GestureRecognizers>
+                        </elements:TintedSvgCachedImage>
                     </Grid>
 
 
@@ -85,7 +99,7 @@
                                     Margin="30,10,30,10"
                                     FontSize="17"
                                     HorizontalTextAlignment="Center"
-                                    Text="Von meinem Galaxy! Von meinem Galaxy! Von meinem Galaxy!"
+                                    Text="{Binding AppStimmer.Appstract}"
                                     TextColor="#838383"
                                     VerticalTextAlignment="Center" />
                                 <elements:TintedSvgCachedImage
@@ -95,7 +109,11 @@
                                     Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
                                     TintColor="Gray"
                                     VerticalOptions="Center"
-                                    WidthRequest="17" />
+                                    WidthRequest="17">
+                                    <elements:TintedSvgCachedImage.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding EditAppStractCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Appstract}" />
+                                    </elements:TintedSvgCachedImage.GestureRecognizers>
+                                </elements:TintedSvgCachedImage>
                             </Grid>
 
                             <Grid
@@ -186,7 +204,7 @@
                                 Margin="10,0,10,0"
                                 BackgroundColor="White"
                                 HeightRequest="2000"
-                                Text="{Binding AppStimmerDescription}"
+                                Text="{Binding AppStimmer.Description}"
                                 TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
                         </Frame>
 
@@ -207,12 +225,12 @@
                 VerticalOptions="Start" />
             <StackLayout
                 HeightRequest="57"
-                HorizontalOptions="Start"
+                HorizontalOptions="FillAndExpand"
                 Orientation="Horizontal"
                 Spacing="0"
                 VerticalOptions="Start">
                 <Image
-                    Margin="17"
+                    Margin="15"
                     HorizontalOptions="Start"
                     Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.arrow-left.scale-100.png}"
                     VerticalOptions="Start">
@@ -228,6 +246,20 @@
                     Text="{Binding AppStimmer.Title}"
                     TextColor="White" />
             </StackLayout>
+
+            <elements:TintedSvgCachedImage
+                Margin="15"
+                HeightRequest="20"
+                HorizontalOptions="End"
+                IsVisible="{Binding DisplayNavigationBarTitle}"
+                Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
+                TintColor="White"
+                VerticalOptions="Start"
+                WidthRequest="20">
+                <elements:TintedSvgCachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding EditAppStractCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
+                </elements:TintedSvgCachedImage.GestureRecognizers>
+            </elements:TintedSvgCachedImage>
 
             <!--<elements:CustomNavigationBar
                 x:Name="CustomNavigationBar"

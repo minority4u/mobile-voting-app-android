@@ -293,17 +293,18 @@
     <Compile Include="Effects\BlueSliderEffect.cs" />
     <Compile Include="Effects\RedSliderEffect.cs" />
     <Compile Include="MainApplication.cs" />
-    <Compile Include="Renderers\ExpandableEditorRenderer.cs" />
     <Compile Include="Renderers\Scrollbardisabledrenderer.cs" />
     <Compile Include="Renderers\VideoPlaybackSliderRenderer.cs" />
     <Compile Include="Renderers\ZoomScrollViewRenderer.cs" />
+    <Compile Include="Resources\GlobalLayoutListener.cs" />
     <Compile Include="Resources\NavigationBarController.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Renderers\BottomlinelessEditorRenderer.cs" />
+    <Compile Include="Renderers\BottomlinelessExpandableEditorRenderer.cs" />
     <Compile Include="Renderers\GradientFrameRenderer.cs" />
     <Compile Include="Renderers\MyScrollViewRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\SoftwareKeyboardService.cs" />
     <Compile Include="XFormsAppCompatDroid.cs" />
   </ItemGroup>
   <ItemGroup>

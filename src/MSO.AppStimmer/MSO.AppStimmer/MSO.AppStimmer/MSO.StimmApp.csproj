@@ -39,6 +39,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Behaviors\EditorLengthValidatorBehavior.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Converter\AppStimmerAttachmentsToDescriptionAttachmentConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentsToMainPictureConverter.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="Converter\AppStimmerEditorDisplayTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\AppStimmerEditorEditableToTitleConverter.cs" />
     <Compile Include="Converter\AppStimmerMainPictureAvailabilityToVisibilityConverter.cs" />
+    <Compile Include="Converter\CharactersAndMaxCharactersToStringConverter.cs" />
     <Compile Include="Converter\ColorChannelsToColorConverter.cs" />
     <Compile Include="Converter\ColorToColorChannelConverter.cs" />
     <Compile Include="Converter\CrossAudioManagerTimeSpanToStringConverter.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="Elements\CustomNavigationBar.xaml.cs">
       <DependentUpon>CustomNavigationBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Elements\BottomlinelessExpandableEditor.cs" />
     <Compile Include="Elements\ExpandableEditor.cs" />
     <Compile Include="Elements\PinchToZoomContainer.cs" />
     <Compile Include="Elements\ScrollbarLessScrollView.cs" />
@@ -77,6 +80,7 @@
     <Compile Include="Elements\VideoPlaybackSlider.cs" />
     <Compile Include="Elements\ZoomableScrollView.cs" />
     <Compile Include="Elements\ZoomImage.cs" />
+    <Compile Include="Enums\EditAppStimmerTextType.cs" />
     <Compile Include="Extensions\Colors.cs" />
     <Compile Include="Elements\GradientFrame.cs" />
     <Compile Include="Extensions\Images.cs" />
@@ -88,11 +92,16 @@
     <Compile Include="Messages\AppStimmerButtonPressedMessage.cs" />
     <Compile Include="Models\MenuPageItem.cs" />
     <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\ISoftwareKeyboardService.cs" />
+    <Compile Include="Services\SoftwareKeyboardEventArgs.cs" />
+    <Compile Include="Services\SoftwareKeyboardEventHandler.cs" />
+    <Compile Include="Services\SoftwareKeyboardServiceBase.cs" />
     <Compile Include="ViewModels\AppStimmerEditorViewModel.cs" />
     <Compile Include="ViewModels\AppStimmersViewModel.cs" />
     <Compile Include="ViewModels\AppStimmerViewModel.cs" />
     <Compile Include="ViewModels\AudioAttachmentViewModel.cs" />
     <Compile Include="ViewModels\CurrentUserViewModel.cs" />
+    <Compile Include="ViewModels\EditAppStimmerTextViewModel.cs" />
     <Compile Include="ViewModels\ImageAttachmentViewModel.cs" />
     <Compile Include="ViewModels\MenuPageMasterViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
@@ -177,6 +186,9 @@
     </Compile>
     <Compile Include="MenuPageMaster.xaml.cs">
       <DependentUpon>MenuPageMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\EditTextPopupPage.xaml.cs">
+      <DependentUpon>EditTextPopupPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -634,7 +646,13 @@
     <EmbeddedResource Include="Resources\Icons\video_call.scale-100.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Icons\edit_pet.svg" />
+    <EmbeddedResource Include="Resources\Icons\edit_pen.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\EditTextPopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

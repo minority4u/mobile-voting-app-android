@@ -30,6 +30,9 @@ namespace MSO.StimmApp
         public static IPlaybackController PlaybackController => 
             CrossMediaManager.Current.PlaybackController;
 
+        public static ISoftwareKeyboardService KeyboardService =>
+            DependencyService.Get<ISoftwareKeyboardService>();
+
         public static Dictionary<string, string> ReplaceSvgStringMap = new Dictionary<string, string>();
 
         public static bool IsTestMode = true;
@@ -40,7 +43,7 @@ namespace MSO.StimmApp
         {
             this.InitializeComponent();
             DependencyService.Register<INavigationBarController>();
-
+    
             this.InitializeApplicationCache();
  
             var menuPage = new MenuPage();

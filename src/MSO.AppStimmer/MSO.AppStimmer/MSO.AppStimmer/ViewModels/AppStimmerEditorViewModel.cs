@@ -1,11 +1,15 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Core.ViewModels;
+using MSO.StimmApp.Enums;
+using MSO.StimmApp.Views.Pages;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.ViewModels
@@ -21,8 +25,8 @@ namespace MSO.StimmApp.ViewModels
         private RelayCommand<ModelEditFinishedType> endEditCommand;
         private Color navigationBarBackgroundColor;
         private bool displayNavigationBarTitle;
-        private ObservableCollection<AppStimmerAttachment> appStimmerMediaAttachments;
         private string appStimmerDescription;
+        private RelayCommand<EditAppStimmerTextType> editAppstractCommand;
 
         public bool IsAddingAttachment
         {
@@ -136,6 +140,29 @@ namespace MSO.StimmApp.ViewModels
 
         public RelayCommand<ModelEditFinishedType> EndEditCommand => this.endEditCommand ?? (this.endEditCommand =
             new RelayCommand<ModelEditFinishedType>((type) => this.EndEdit(type)));
+
+        public RelayCommand<EditAppStimmerTextType> EditAppStractCommand => this.editAppstractCommand ?? (this.editAppstractCommand =
+            new RelayCommand<EditAppStimmerTextType>((type) => this.EditAppstract(type)));
+
+        private async void EditAppstract(EditAppStimmerTextType type)
+        {
+            var description = "Editor";
+
+            switch (type)
+            {
+                case EditAppStimmerTextType.Appstract:
+                    description = "Appstract";
+                    break;
+                case EditAppStimmerTextType.Title:
+                    description = "Titel";
+                    break;
+            }
+
+            var viewModel = new EditAppStimmerTextViewModel(description, this.AppStimmer, type, 60);
+            var page = new EditTextPopupPage(viewModel);
+
+            await PopupNavigation.PushAsync(page);
+        }
 
         private void SetDisplayMode(AppStimmerEditorDisplayType type)
         {

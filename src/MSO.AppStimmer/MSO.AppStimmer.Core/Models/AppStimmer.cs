@@ -15,12 +15,7 @@ namespace MSO.StimmApp.Core.Models
         public AppStimmer() : base(true)
         {
             this.Id = Guid.NewGuid();
-
-            this.attachments = new ObservableCollection<AppStimmerAttachment>
-            {
-                new AppStimmerAttachment{IsMainAttachment = true, AttachmentType = AttachmentType.Picture},
-                new AppStimmerAttachment{IsMainAttachment = true, AttachmentType = AttachmentType.Text}
-            };
+            this.attachments = new ObservableCollection<AppStimmerAttachment>();
         }
 
         public string Title

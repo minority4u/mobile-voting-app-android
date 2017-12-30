@@ -2,7 +2,7 @@
 
 namespace MSO.StimmApp.Core.Models
 {
-    public class BaseAttachment : ModelBase
+    public class BaseAttachment : EditableModelBase<AppStimmerAttachment>
     {
         private bool isMainAttachment;
         public BaseAttachment(bool isMainAttachment) : base(true)

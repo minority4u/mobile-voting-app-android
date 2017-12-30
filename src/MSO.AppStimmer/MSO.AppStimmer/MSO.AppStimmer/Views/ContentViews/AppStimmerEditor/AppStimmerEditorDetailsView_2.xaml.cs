@@ -57,7 +57,6 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
         private async void AddAttachmentImageButton_OnTapped(object sender, EventArgs e)
         {
             //this.ViewModel.IsAddingAttachment = true;
-
             var page = new AddAttachmentPopupPage(this.ViewModel);
             await PopupNavigation.PushAsync(page);
         }
@@ -86,7 +85,7 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             const int baseFontSize = 30;
             const int targetFontSize = 20;
 
-            const int baseLeftMargin = 10;
+            const int baseLeftMargin = 15;
             const int targetLeftMargin = 57;
 
             const int baseTopMargin = 10;
