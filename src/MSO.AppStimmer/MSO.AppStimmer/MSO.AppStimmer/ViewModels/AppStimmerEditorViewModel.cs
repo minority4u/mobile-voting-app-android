@@ -26,7 +26,7 @@ namespace MSO.StimmApp.ViewModels
         private Color navigationBarBackgroundColor;
         private bool displayNavigationBarTitle;
         private string appStimmerDescription;
-        private RelayCommand<EditAppStimmerTextType> editAppstractCommand;
+        private RelayCommand<EditAppStimmerTextType> editTextCommand;
 
         public bool IsAddingAttachment
         {
@@ -141,24 +141,27 @@ namespace MSO.StimmApp.ViewModels
         public RelayCommand<ModelEditFinishedType> EndEditCommand => this.endEditCommand ?? (this.endEditCommand =
             new RelayCommand<ModelEditFinishedType>((type) => this.EndEdit(type)));
 
-        public RelayCommand<EditAppStimmerTextType> EditAppStractCommand => this.editAppstractCommand ?? (this.editAppstractCommand =
-            new RelayCommand<EditAppStimmerTextType>((type) => this.EditAppstract(type)));
+        public RelayCommand<EditAppStimmerTextType> EditTextCommand => this.editTextCommand ?? (this.editTextCommand =
+            new RelayCommand<EditAppStimmerTextType>((type) => this.EditText(type)));
 
-        private async void EditAppstract(EditAppStimmerTextType type)
+        private async void EditText(EditAppStimmerTextType type)
         {
             var description = "Editor";
+            var maxCharacters = 0;
 
             switch (type)
             {
                 case EditAppStimmerTextType.Appstract:
                     description = "Appstract";
+                    maxCharacters = 60;
                     break;
                 case EditAppStimmerTextType.Title:
                     description = "Titel";
+                    maxCharacters = 25;
                     break;
             }
 
-            var viewModel = new EditAppStimmerTextViewModel(description, this.AppStimmer, type, 60);
+            var viewModel = new EditAppStimmerTextViewModel(description, this.AppStimmer, type, maxCharacters);
             var page = new EditTextPopupPage(viewModel);
 
             await PopupNavigation.PushAsync(page);

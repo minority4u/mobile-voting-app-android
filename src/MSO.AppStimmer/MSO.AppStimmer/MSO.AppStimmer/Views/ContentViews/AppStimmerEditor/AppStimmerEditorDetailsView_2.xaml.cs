@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using MSO.Common;
 using MSO.StimmApp.ViewModels;
 using MSO.StimmApp.Views.Pages;
 using Rg.Plugins.Popup.Services;
+using Syncfusion.ListView.XForms;
+using Syncfusion.ListView.XForms.Helpers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -18,14 +21,48 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
     {
         private double imageHeight = 0;
         private string baseGradient;
+        private double dragStarted;
+        private double previousOffset;
+        private ScrollState currentScrollState;
+        private ScrollView scrollView;
+        private static int addAttachmentButtonVisibilityScroledOffset = 75;
 
         public AppStimmerEditorDetailsView_2()
         {
             this.InitializeComponent();
             this.baseGradient = "#55000000";
 
-            
+            scrollView = this.AttachmentsScrollView.GetScrollView();
+            scrollView.Scrolled += AttachmentsScrollVIew_OnScrolled;
+
             //this.Parallax();
+        }
+
+        private void AttachmentsScrollView_OnScrollStateChanged(object sender, ScrollStateChangedEventArgs e)
+        {
+            this.currentScrollState = e.ScrollState;
+            switch (this.currentScrollState)
+            {
+                case ScrollState.Dragging:
+                    this.dragStarted = this.scrollView.ScrollX;
+                    break;
+            }
+        }
+
+        private async void AttachmentsScrollVIew_OnScrolled(object sender, ScrolledEventArgs e)
+        {
+            var scrolled = this.scrollView.ScrollX;
+            var dragged = scrolled - this.dragStarted;
+
+            if (dragged > addAttachmentButtonVisibilityScroledOffset)
+            {
+                await this.AddAttachmentButton.TranslateTo(130, 0, 250U, Easing.Linear);
+                //this.AddAttachmentButton.IsVisible = false;
+            }
+            if (dragged < addAttachmentButtonVisibilityScroledOffset)
+            {
+                await this.AddAttachmentButton.TranslateTo(0, 0, 250U, Easing.Linear);
+            }           
         }
 
         private void AdjustGradientsIntensity(double scrollY, double imgHeight)
@@ -120,7 +157,8 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             var additionalBottomMargin = ((percentageScrolled - 0.5) * 2) * bottomMarginDifference;
             var newBottomMargin = baseBottomMargin + additionalBottomMargin;
 
-            this.TitleLabel.Margin = new Thickness(newLeftMargin, currentMargin.Top, currentMargin.Right, newBottomMargin);
+            this.TitleLabel.Margin =
+                new Thickness(newLeftMargin, currentMargin.Top, currentMargin.Right, newBottomMargin);
 
             var difference = baseFontSize - targetFontSize;
             var reached = ((percentageScrolled - 0.5) * 2) * difference;
@@ -244,9 +282,33 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             }
         }
 
-        private void BackButtonImage_OnTapped(object sender, EventArgs e)
+        private async void BackButtonImage_OnTapped(object sender, EventArgs e)
         {
+            //    var page = this.Parent.Parent;
+
+            //    await this.FadeTo(0, 1000, Easing.BounceOut);
+            //    
+            //}
+
             App.NavigationService.GoBack();
+        }
+
+        private async void EditDescriptionButton_OnTapped(object sender, EventArgs e)
+        {
+            var viewModel = new EditAppStimmerDescriptionViewModel(this.ViewModel.AppStimmer);
+            var page = new EditAppStimmerDescriptionPopupPage(viewModel);
+
+            await PopupNavigation.PushAsync(page);
+        }
+
+        private void AttachmentsScrollView_OnSwipeStarted(object sender, SwipeStartedEventArgs e)
+        {
+            Debug.WriteLine("Swipe started: " + e.SwipeDirection);
+        }
+
+        private void AttachmentsScrollView_OnSwiping(object sender, SwipingEventArgs e)
+        {
+            Debug.WriteLine("Swiping " + e.SwipeDirection);
         }
     }
 }

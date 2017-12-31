@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.ViewModels;
 using Xamarin.Forms;
@@ -19,6 +20,12 @@ namespace MSO.StimmApp.Views.Pages
             this.InitializeComponent();
             this.BindingContext = viewModel;
         }
+
+        //protected override async void OnDisappearing()
+        //{
+        //    await this.FadeTo(0, 1000, Easing.BounceOut);
+        //    base.OnDisappearing();
+        //}
 
         public AppStimmerEditorViewModel ViewModel => this.BindingContext as AppStimmerEditorViewModel;
 

@@ -43,13 +43,6 @@ namespace MSO.StimmApp.Views.Pages
 
         public EditAppStimmerTextViewModel ViewModel => this.BindingContext as EditAppStimmerTextViewModel;
 
-        // Method for animation child in PopupPage
-        // Invoked before custom animation begin
-        protected override Task OnDisappearingAnimationBegin()
-        {
-            return Content.FadeTo(1);
-        }
-
         protected override bool OnBackgroundClicked()
         {
             base.OnBackgroundClicked();
@@ -64,6 +57,18 @@ namespace MSO.StimmApp.Views.Pages
         {
             this.ViewModel.FinishedEdit = true;
             await PopupNavigation.PopAsync(true);
+        }
+
+        //protected override Task OnAppearingAnimationEnd()
+        //{
+        //    return Content.FadeTo(0.5);
+        //}
+
+        // Method for animation child in PopupPage
+        // Invoked before custom animation begin
+        protected override Task OnDisappearingAnimationBegin()
+        {
+            return Content.FadeTo(1);
         }
 
         private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)

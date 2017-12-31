@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="MSO.StimmApp.Views.Pages.EditAppStimmerDescriptionPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    HasSystemPadding="True">
+    <Grid>
+        <ScrollView Margin="0,57,0,0" BackgroundColor="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="200" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Column="0" Orientation="Vertical">
+                    <elements:ExpandableEditor Text="{Binding Text}" />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+
+        <Grid
+            ColumnSpacing="0"
+            HeightRequest="57"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="End">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button
+                x:Name="CancelButton"
+                Grid.Column="0"
+                BackgroundColor="Transparent"
+                Clicked="CancelButton_OnClicked"
+                Text="Abbrechen" />
+            <Button
+                x:Name="SubmitButton"
+                Grid.Column="1"
+                BackgroundColor="Transparent"
+                Command="{Binding SaveDescriptionCommand}"
+                Text="Ok" />
+        </Grid>
+
+        <StackLayout
+            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
+            HeightRequest="57"
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal"
+            Spacing="0"
+            VerticalOptions="Start">
+            <Image
+                Margin="15"
+                HorizontalOptions="Start"
+                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.arrow-left.scale-100.png}"
+                VerticalOptions="Start">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="BackButtonImage_OnTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Label
+                Margin="0,14,0,0"
+                FontSize="20"
+                Text="Beschreibung editieren"
+                TextColor="White" />
+        </StackLayout>
+    </Grid>
+</pages:PopupPage>

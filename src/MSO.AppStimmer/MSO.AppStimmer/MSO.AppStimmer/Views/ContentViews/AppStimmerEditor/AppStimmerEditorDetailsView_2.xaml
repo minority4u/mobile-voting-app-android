@@ -7,6 +7,7 @@
     xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:enums="clr-namespace:MSO.StimmApp.Enums;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
 
@@ -80,7 +81,7 @@
                             VerticalOptions="Center"
                             WidthRequest="20">
                             <elements:TintedSvgCachedImage.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding EditAppStractCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
+                                <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
                             </elements:TintedSvgCachedImage.GestureRecognizers>
                         </elements:TintedSvgCachedImage>
                     </Grid>
@@ -111,7 +112,7 @@
                                     VerticalOptions="Center"
                                     WidthRequest="17">
                                     <elements:TintedSvgCachedImage.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding EditAppStractCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Appstract}" />
+                                        <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Appstract}" />
                                     </elements:TintedSvgCachedImage.GestureRecognizers>
                                 </elements:TintedSvgCachedImage>
                             </Grid>
@@ -139,36 +140,53 @@
                                     Color="#838383" />
                             </Grid>
                             <StackLayout Orientation="Vertical" Spacing="0">
-                                <xForms:SfListView
-                                    BackgroundColor="White"
-                                    HeightRequest="120"
-                                    IsScrollBarVisible="False"
-                                    ItemSize="100"
-                                    ItemsSource="{Binding AppStimmer.Attachments, Mode=OneWay, Converter={StaticResource AppStimmerAttachmentsToMediaAttachmentsConverter}}"
-                                    Orientation="Horizontal">
-                                    <xForms:SfListView.ItemTemplate>
-                                        <DataTemplate>
-                                            <Grid Padding="5,5,5,10">
-                                                <attachments:ImageAttachmentView ViewModel="{Binding ., Converter={StaticResource ImageAttachmentToImageAttachmentViewModel}}" WidthRequest="100">
-                                                    <attachments:ImageAttachmentView.IsVisible>
-                                                        <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Picture">
-                                                            <Binding Path="AttachmentType" />
-                                                            <Binding Path="IsMainAttachment" />
-                                                        </converter:MultiBinding>
-                                                    </attachments:ImageAttachmentView.IsVisible>
-                                                </attachments:ImageAttachmentView>
-                                                <attachments:VideoAttachmentView>
-                                                    <attachments:VideoAttachmentView.IsVisible>
-                                                        <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Video">
-                                                            <Binding Path="AttachmentType" />
-                                                            <Binding Path="IsMainAttachment" />
-                                                        </converter:MultiBinding>
-                                                    </attachments:VideoAttachmentView.IsVisible>
-                                                </attachments:VideoAttachmentView>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </xForms:SfListView.ItemTemplate>
-                                </xForms:SfListView>
+                                <Grid>
+                                    <xForms:SfListView
+                                        x:Name="AttachmentsScrollView"
+                                        BackgroundColor="White"
+                                        HeightRequest="100"
+                                        IsScrollBarVisible="False" ScrollStateChanged="AttachmentsScrollView_OnScrollStateChanged"
+                                        ItemSize="100"
+                                        ItemsSource="{Binding AppStimmer.Attachments}"
+                                        Orientation="Horizontal"
+                                        SelectionBackgroundColor="Transparent">
+                                        <xForms:SfListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Padding="5,5,5,10">
+                                                    <attachments:ImageAttachmentView ViewModel="{Binding ., Converter={StaticResource ImageAttachmentToImageAttachmentViewModel}}" WidthRequest="100">
+                                                        <attachments:ImageAttachmentView.IsVisible>
+                                                            <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Picture">
+                                                                <Binding Path="AttachmentType" />
+                                                                <Binding Path="IsMainAttachment" />
+                                                            </converter:MultiBinding>
+                                                        </attachments:ImageAttachmentView.IsVisible>
+                                                    </attachments:ImageAttachmentView>
+                                                    <attachments:VideoAttachmentView>
+                                                        <attachments:VideoAttachmentView.IsVisible>
+                                                            <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Video">
+                                                                <Binding Path="AttachmentType" />
+                                                                <Binding Path="IsMainAttachment" />
+                                                            </converter:MultiBinding>
+                                                        </attachments:VideoAttachmentView.IsVisible>
+                                                    </attachments:VideoAttachmentView>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </xForms:SfListView.ItemTemplate>
+                                    </xForms:SfListView>
+                                    <elements:TintedSvgCachedImage
+                                        x:Name="AddAttachmentButton"
+                                        Margin="0,0,50,0"
+                                        HeightRequest="65"
+                                        HorizontalOptions="End"
+                                        Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
+                                        TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.StandardButtonColor}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="65">
+                                        <forms:SvgCachedImage.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
+                                        </forms:SvgCachedImage.GestureRecognizers>
+                                    </elements:TintedSvgCachedImage>
+                                </Grid>
 
                                 <Grid
                                     Margin="15,10,15,0"
@@ -178,6 +196,7 @@
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
                                     </Grid.ColumnDefinitions>
                                     <Label
                                         Grid.Column="0"
@@ -191,6 +210,17 @@
                                         HorizontalOptions="Fill"
                                         VerticalOptions="CenterAndExpand"
                                         Color="#838383" />
+                                    <elements:TintedSvgCachedImage
+                                        x:Name="EditDescriptionButton"
+                                        Grid.Column="2"
+                                        HeightRequest="17"
+                                        Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
+                                        TintColor="Gray"
+                                        WidthRequest="17">
+                                        <elements:TintedSvgCachedImage.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="EditDescriptionButton_OnTapped" />
+                                        </elements:TintedSvgCachedImage.GestureRecognizers>
+                                    </elements:TintedSvgCachedImage>
                                 </Grid>
                             </StackLayout>
                         </StackLayout>
@@ -203,6 +233,7 @@
                             <Label
                                 Margin="10,0,10,0"
                                 BackgroundColor="White"
+                                FontSize="17"
                                 HeightRequest="2000"
                                 Text="{Binding AppStimmer.Description}"
                                 TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
@@ -257,7 +288,7 @@
                 VerticalOptions="Start"
                 WidthRequest="20">
                 <elements:TintedSvgCachedImage.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding EditAppStractCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
+                    <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
                 </elements:TintedSvgCachedImage.GestureRecognizers>
             </elements:TintedSvgCachedImage>
 

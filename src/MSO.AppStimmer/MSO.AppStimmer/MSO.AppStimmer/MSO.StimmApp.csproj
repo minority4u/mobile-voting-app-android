@@ -101,6 +101,7 @@
     <Compile Include="ViewModels\AppStimmerViewModel.cs" />
     <Compile Include="ViewModels\AudioAttachmentViewModel.cs" />
     <Compile Include="ViewModels\CurrentUserViewModel.cs" />
+    <Compile Include="ViewModels\EditAppStimmerDescriptionViewModel.cs" />
     <Compile Include="ViewModels\EditAppStimmerTextViewModel.cs" />
     <Compile Include="ViewModels\ImageAttachmentViewModel.cs" />
     <Compile Include="ViewModels\MenuPageMasterViewModel.cs" />
@@ -186,6 +187,9 @@
     </Compile>
     <Compile Include="MenuPageMaster.xaml.cs">
       <DependentUpon>MenuPageMaster.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\EditAppStimmerDescriptionPopupPage.xaml.cs">
+      <DependentUpon>EditAppStimmerDescriptionPopupPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\EditTextPopupPage.xaml.cs">
       <DependentUpon>EditTextPopupPage.xaml</DependentUpon>
@@ -650,6 +654,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Pages\EditTextPopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\EditAppStimmerDescriptionPopupPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
