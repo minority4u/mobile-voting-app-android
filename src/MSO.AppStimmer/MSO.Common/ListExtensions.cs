@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MSO.Common
 {
@@ -19,6 +20,17 @@ namespace MSO.Common
                 list[k] = list[n];
                 list[n] = value;
             }
+        }
+
+        public static async Task ReplaceAllItemsAsync<T>(this ICollection<T> collection,
+            ICollection<T> collectionWithNewItems)
+        {
+            await Task.Run(() =>
+            {
+                collection.Clear();
+                foreach (var element in collectionWithNewItems)
+                    collection.Add(element);
+            });
         }
     }
 }

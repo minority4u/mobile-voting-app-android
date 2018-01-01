@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
+using MSO.Common;
 using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
@@ -188,7 +189,7 @@ namespace MSO.StimmApp.ViewModels
         }
 
 
-        public void AddAttachment(AppStimmerAttachment attachment)
+        public async void AddAttachment(AppStimmerAttachment attachment)
         {
             switch (attachment.AttachmentType)
             {
@@ -206,7 +207,11 @@ namespace MSO.StimmApp.ViewModels
                 //    break;
             }
 
-            this.AppStimmer.Attachments.Add(attachment);
+            var oldAttachments = this.AppStimmer.Attachments;
+            this.AppStimmer.Attachments = new ObservableCollection<AppStimmerAttachment>(oldAttachments)
+            {
+                attachment
+            };
         }
     }
 }

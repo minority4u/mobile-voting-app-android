@@ -145,15 +145,18 @@
                                         x:Name="AttachmentsScrollView"
                                         BackgroundColor="White"
                                         HeightRequest="100"
-                                        IsScrollBarVisible="False" ScrollStateChanged="AttachmentsScrollView_OnScrollStateChanged"
+                                        IsScrollBarVisible="False"
                                         ItemSize="100"
-                                        ItemsSource="{Binding AppStimmer.Attachments}"
+                                        ItemsSource="{Binding AppStimmer.Attachments, Mode=OneWay, Converter={StaticResource AppStimmerAttachmentsToMediaAttachmentsViewConverter}}"
                                         Orientation="Horizontal"
+                                        ScrollStateChanged="AttachmentsScrollView_OnScrollStateChanged"
                                         SelectionBackgroundColor="Transparent">
                                         <xForms:SfListView.ItemTemplate>
                                             <DataTemplate>
-                                                <Grid Padding="5,5,5,10">
-                                                    <attachments:ImageAttachmentView ViewModel="{Binding ., Converter={StaticResource ImageAttachmentToImageAttachmentViewModel}}" WidthRequest="100">
+                                                <ContentView Padding="5,5,5,10" Content="{Binding View}" />
+                                                <!--<Grid Padding="5,5,5,10">
+                                                -->
+                                                <!--<attachments:ImageAttachmentView ViewModel="{Binding ., Converter={StaticResource ImageAttachmentToImageAttachmentViewModel}}" WidthRequest="100">
                                                         <attachments:ImageAttachmentView.IsVisible>
                                                             <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Picture">
                                                                 <Binding Path="AttachmentType" />
@@ -168,8 +171,15 @@
                                                                 <Binding Path="IsMainAttachment" />
                                                             </converter:MultiBinding>
                                                         </attachments:VideoAttachmentView.IsVisible>
-                                                    </attachments:VideoAttachmentView>
-                                                </Grid>
+                                                        <attachments:VideoAttachmentView.IsEnabled>
+                                                            <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Video">
+                                                                <Binding Path="AttachmentType" />
+                                                                <Binding Path="IsMainAttachment" />
+                                                            </converter:MultiBinding>
+                                                        </attachments:VideoAttachmentView.IsEnabled>
+                                                    </attachments:VideoAttachmentView>-->
+                                                <!--
+                                                </Grid>-->
                                             </DataTemplate>
                                         </xForms:SfListView.ItemTemplate>
                                     </xForms:SfListView>

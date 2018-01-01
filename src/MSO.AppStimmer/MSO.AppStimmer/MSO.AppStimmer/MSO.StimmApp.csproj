@@ -45,6 +45,7 @@
     <Compile Include="Converter\AppStimmerAttachmentsToMainPictureConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentsToMediaAddachmentCountConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentsToMediaAttachmentsConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentsToMediaAttachmentsViewConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentToViewEnabledConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentViewToViewModelConverter.cs" />
     <Compile Include="Converter\AppStimmerEditorDisplayTypeToViewVisibilityConverter.cs" />
@@ -90,6 +91,7 @@
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Messages\AppStimmerButtonPressedMessage.cs" />
+    <Compile Include="Models\MediaAttachmentViewEntry.cs" />
     <Compile Include="Models\MenuPageItem.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ISoftwareKeyboardService.cs" />

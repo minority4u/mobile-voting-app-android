@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     CloseWhenBackgroundIsClicked="True"
     HasSystemPadding="False">
@@ -23,7 +24,7 @@
                 Grid.Row="0"
                 Grid.RowSpan="2">
                 <elements:PinchToZoomContainer.Content>
-                    <Image Aspect="AspectFill" Source="{Binding AttachmentSource, Converter={StaticResource ImageSourceToImageConverter}}" />
+                    <forms:CachedImage Aspect="AspectFill" Source="{Binding AttachmentSource, Converter={StaticResource ImageSourceToImageConverter}}" />
                 </elements:PinchToZoomContainer.Content>
             </elements:PinchToZoomContainer>
 

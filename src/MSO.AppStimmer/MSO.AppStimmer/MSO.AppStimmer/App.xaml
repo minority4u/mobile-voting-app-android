@@ -33,6 +33,7 @@
 
             <viewModels:ViewModelLocator x:Key="Locator" />
             <converter:ImageResourceConverter x:Key="ImageSourceConverter" />
+            <converter:AppStimmerAttachmentsToMediaAttachmentsViewConverter x:Key="AppStimmerAttachmentsToMediaAttachmentsViewConverter" />
             <converter:AppStimmerAttachmentToViewEnabledConverter x:Key="AppStimmerAttachmentToViewEnabledConverter" />
             <converter:AppStimmerAttachmentTypeToViewEnabledConverter x:Key="AppStimmerAttachmentTypeToViewEnabledConverter" />
             <converter:HexStringToColorConverter x:Key="HexStringToColorConverter" />

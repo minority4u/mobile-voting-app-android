@@ -13,9 +13,10 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VideoAttachmentView : ContentView
     {
-        public VideoAttachmentView()
+        public VideoAttachmentView(AppStimmerAttachment attachment)
         {
             this.InitializeComponent();
+            this.BindingContext = attachment;
         }
 
         public AppStimmerAttachment AppStimmer => this.BindingContext as AppStimmerAttachment;
