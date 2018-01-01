@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight.Messaging;
 using MSO.StimmApp.Core.Enums;
+using MSO.StimmApp.Core.Messages;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.ViewModels;
 using Plugin.Media;
@@ -85,10 +87,18 @@ namespace MSO.StimmApp.Elements
                 case AttachmentType.Text:
                     this.AddText();
                     break;
+                case AttachmentType.Document:
+                    this.AddDocument();
+                    break;
             }
 
             await PopupNavigation.PopAllAsync();
         }
+
+	    private void AddDocument()
+	    {
+	        throw new NotImplementedException();
+	    }
 
 	    private async Task AddVideoFromGallery()
 	    {
@@ -103,7 +113,8 @@ namespace MSO.StimmApp.Elements
 	        };
 
 	        this.ViewModel.AddAttachment(attachment);
-        }
+	        Messenger.Default.Send(new AppStimmerAttachmentAddedMessage());
+	    }
 
 	    private async Task AddPictureFromGallery()
         {
@@ -122,6 +133,7 @@ namespace MSO.StimmApp.Elements
             };
 
             this.ViewModel.AddAttachment(attachment);
+            Messenger.Default.Send(new AppStimmerAttachmentAddedMessage());
         }
 
 	    private void AddLocation()
@@ -137,7 +149,8 @@ namespace MSO.StimmApp.Elements
             };
 
 	        this.ViewModel.AddAttachment(attachment);
-	    }
+	        Messenger.Default.Send(new AppStimmerAttachmentAddedMessage());
+        }
 
 	    private async Task AddPicture()
 	    {
@@ -154,6 +167,7 @@ namespace MSO.StimmApp.Elements
 	        };
 
 	        this.ViewModel.AddAttachment(attachment);
+	        Messenger.Default.Send(new AppStimmerAttachmentAddedMessage());
         }
 
 	    private async Task AddVideo()
@@ -171,6 +185,7 @@ namespace MSO.StimmApp.Elements
 	        };
 
 	        this.ViewModel.AddAttachment(attachment);
+	        Messenger.Default.Send(new AppStimmerAttachmentAddedMessage());
         }
 
 	    private void AddAudio()

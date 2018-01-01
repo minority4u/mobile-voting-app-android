@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FFImageLoading.Work;
 
-namespace MSO.StimmApp
+namespace MSO.StimmApp.Core.Messages
 {
-    
+    public class AppStimmerAttachmentAddedMessage
+    {
+
+    }
 }

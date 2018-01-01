@@ -70,7 +70,7 @@ namespace MSO.StimmApp.ViewModels
             set
             {
                 this.Set(ref this.text, value);
-                this.CharactersCount = value.Length; 
+                this.CharactersCount = value?.Length ?? 0; 
             } 
         }
 

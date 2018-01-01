@@ -54,13 +54,17 @@
     <Compile Include="Converter\CharactersAndMaxCharactersToStringConverter.cs" />
     <Compile Include="Converter\ColorChannelsToColorConverter.cs" />
     <Compile Include="Converter\ColorToColorChannelConverter.cs" />
+    <Compile Include="Converter\ColorToDarkerColorConverter.cs" />
     <Compile Include="Converter\CrossAudioManagerTimeSpanToStringConverter.cs" />
     <Compile Include="Converter\ImageAttachmentToImageAttachmentViewModel.cs" />
     <Compile Include="Converter\ImageSourceToImageConverter.cs" />
     <Compile Include="Converter\ImageToSvgSourceConverter.cs" />
     <Compile Include="Converter\CrossVideoManagerTimeSpanToStringConverter.cs" />
     <Compile Include="Converter\LocalImageResourceConverter.cs" />
+    <Compile Include="Converter\StringToPlaceholderConverter.cs" />
+    <Compile Include="Converter\StringToPlaceholderOpacityConverter.cs" />
     <Compile Include="Converter\ÁppStimmerEditorDisplayTypeToOpacityConverter.cs" />
+    <Compile Include="Elements\BottomlinelessEntry.cs" />
     <Compile Include="Elements\ColoredNavigationPage.xaml.cs">
       <DependentUpon>ColoredNavigationPage.xaml</DependentUpon>
     </Compile>

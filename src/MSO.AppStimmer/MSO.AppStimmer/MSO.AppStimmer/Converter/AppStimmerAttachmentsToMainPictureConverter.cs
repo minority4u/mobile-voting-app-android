@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSO.StimmApp.Core;
 using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Extensions;
@@ -27,7 +28,7 @@ namespace MSO.StimmApp.Converter
             }
             catch (Exception)
             {
-                imgSource = Constants.NoImageProvidedImageSource;
+                imgSource = ImageSource.FromResource(Constants.NoImageProvidedImageSource);
             }
 
             return imgSource;

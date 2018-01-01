@@ -16,6 +16,7 @@ namespace MSO.StimmApp.Core.Models
         {
             this.Id = Guid.NewGuid();
             this.attachments = new ObservableCollection<AppStimmerAttachment>();
+            this.Picture = Constants.NoImageProvidedImageSource;
         }
 
         public string Title

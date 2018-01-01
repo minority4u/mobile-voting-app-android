@@ -43,7 +43,11 @@
                             HorizontalOptions="Fill"
                             Opacity="0"
                             OutlineColor="Transparent"
-                            VerticalOptions="Fill" />
+                            VerticalOptions="Fill">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="MainPicture_OnTapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
 
                         <elements:GradientFrame
                             x:Name="TitleFrame"
@@ -67,15 +71,19 @@
                             FontSize="30"
                             HeightRequest="57"
                             IsVisible="{Binding DisplayNavigationBarTitle, Converter={StaticResource BooleanConverter}, ConverterParameter=inverted}"
-                            Text="{Binding AppStimmer.Title}"
-                            TextColor="White"
+                            Text="{Binding AppStimmer.Title, Converter={StaticResource StringToPlaceholderConverter}, ConverterParameter='Titel hinzufügen...'}"
+                            TextColor="{Binding AppStimmer.Title, Converter={StaticResource ColorToDarkerColorConverter}, ConverterParameter='#FFFFFF 0.9'}"
                             VerticalOptions="Center"
-                            VerticalTextAlignment="Center" />
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
+                            </Label.GestureRecognizers>
+                        </Label>
                         <elements:TintedSvgCachedImage
                             Margin="15"
                             HeightRequest="20"
                             HorizontalOptions="End"
-                            IsVisible="{Binding DisplayNavigationBarTitle, Converter={StaticResource BooleanConverter}, ConverterParameter=inverted}"
+                            IsVisible="{Binding IsEditable}"
                             Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
                             TintColor="White"
                             VerticalOptions="Center"
@@ -85,7 +93,6 @@
                             </elements:TintedSvgCachedImage.GestureRecognizers>
                         </elements:TintedSvgCachedImage>
                     </Grid>
-
 
                     <StackLayout
                         Grid.Row="1"
@@ -99,14 +106,22 @@
                                 <Label
                                     Margin="30,10,30,10"
                                     FontSize="17"
+                                    HorizontalOptions="Center"
                                     HorizontalTextAlignment="Center"
-                                    Text="{Binding AppStimmer.Appstract}"
+                                    Opacity="{Binding AppStimmer.Appstract, Converter={StaticResource StringToPlaceholderOpacityConverter}, ConverterParameter=0.6}"
+                                    Text="{Binding AppStimmer.Appstract, Converter={StaticResource StringToPlaceholderConverter}, ConverterParameter='Bitte füge einen Appstract hinzu, das wäre nett...'}"
                                     TextColor="#838383"
-                                    VerticalTextAlignment="Center" />
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Appstract}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
                                 <elements:TintedSvgCachedImage
                                     Margin="20"
                                     HeightRequest="17"
                                     HorizontalOptions="End"
+                                    IsVisible="{Binding IsEditable}"
                                     Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
                                     TintColor="Gray"
                                     VerticalOptions="Center"
@@ -154,32 +169,6 @@
                                         <xForms:SfListView.ItemTemplate>
                                             <DataTemplate>
                                                 <ContentView Padding="5,5,5,10" Content="{Binding View}" />
-                                                <!--<Grid Padding="5,5,5,10">
-                                                -->
-                                                <!--<attachments:ImageAttachmentView ViewModel="{Binding ., Converter={StaticResource ImageAttachmentToImageAttachmentViewModel}}" WidthRequest="100">
-                                                        <attachments:ImageAttachmentView.IsVisible>
-                                                            <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Picture">
-                                                                <Binding Path="AttachmentType" />
-                                                                <Binding Path="IsMainAttachment" />
-                                                            </converter:MultiBinding>
-                                                        </attachments:ImageAttachmentView.IsVisible>
-                                                    </attachments:ImageAttachmentView>
-                                                    <attachments:VideoAttachmentView>
-                                                        <attachments:VideoAttachmentView.IsVisible>
-                                                            <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Video">
-                                                                <Binding Path="AttachmentType" />
-                                                                <Binding Path="IsMainAttachment" />
-                                                            </converter:MultiBinding>
-                                                        </attachments:VideoAttachmentView.IsVisible>
-                                                        <attachments:VideoAttachmentView.IsEnabled>
-                                                            <converter:MultiBinding Converter="{StaticResource AppStimmerAttachmentToViewEnabledConverter}" ConverterParameter="Video">
-                                                                <Binding Path="AttachmentType" />
-                                                                <Binding Path="IsMainAttachment" />
-                                                            </converter:MultiBinding>
-                                                        </attachments:VideoAttachmentView.IsEnabled>
-                                                    </attachments:VideoAttachmentView>-->
-                                                <!--
-                                                </Grid>-->
                                             </DataTemplate>
                                         </xForms:SfListView.ItemTemplate>
                                     </xForms:SfListView>
@@ -188,6 +177,7 @@
                                         Margin="0,0,50,0"
                                         HeightRequest="65"
                                         HorizontalOptions="End"
+                                        IsVisible="{Binding IsEditable}"
                                         Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
                                         TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.StandardButtonColor}"
                                         VerticalOptions="Center"
@@ -224,6 +214,7 @@
                                         x:Name="EditDescriptionButton"
                                         Grid.Column="2"
                                         HeightRequest="17"
+                                        IsVisible="{Binding IsEditable}"
                                         Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
                                         TintColor="Gray"
                                         WidthRequest="17">
@@ -245,8 +236,13 @@
                                 BackgroundColor="White"
                                 FontSize="17"
                                 HeightRequest="2000"
-                                Text="{Binding AppStimmer.Description}"
-                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />
+                                Opacity="{Binding AppStimmer.Description, Converter={StaticResource StringToPlaceholderOpacityConverter}, ConverterParameter=0.35}"
+                                Text="{Binding AppStimmer.Description, Converter={StaticResource StringToPlaceholderConverter}, ConverterParameter='Hier kannst du den AppStimmer ausführlich beschreiben...'}"
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="EditDescriptionButton_OnTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
                         </Frame>
 
                         <!--<BoxView BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}" HeightRequest="800" />-->
@@ -284,7 +280,8 @@
                     Margin="0,14,0,0"
                     FontSize="20"
                     IsVisible="{Binding DisplayNavigationBarTitle}"
-                    Text="{Binding AppStimmer.Title}"
+                    Opacity="{Binding AppStimmer.Title, Converter={StaticResource StringToPlaceholderOpacityConverter}, ConverterParameter=0.6}"
+                    Text="{Binding AppStimmer.Title, Converter={StaticResource StringToPlaceholderConverter}, ConverterParameter='Titel hinzufügen...'}"
                     TextColor="White" />
             </StackLayout>
 

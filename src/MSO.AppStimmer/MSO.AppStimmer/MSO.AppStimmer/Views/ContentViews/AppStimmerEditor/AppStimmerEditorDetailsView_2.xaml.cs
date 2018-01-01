@@ -5,9 +5,15 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight.Messaging;
 using MSO.Common;
+using MSO.StimmApp.Core.Enums;
+using MSO.StimmApp.Core.Messages;
+using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.ViewModels;
 using MSO.StimmApp.Views.Pages;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
 using Rg.Plugins.Popup.Services;
 using Syncfusion.ListView.XForms;
 using Syncfusion.ListView.XForms.Helpers;
@@ -35,7 +41,14 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             scrollView = this.AttachmentsScrollView.GetScrollView();
             scrollView.Scrolled += AttachmentsScrollVIew_OnScrolled;
 
+            Messenger.Default.Register<AppStimmerAttachmentAddedMessage>(this, this.OnAppStimmerAttachmentAdded);
             //this.Parallax();
+        }
+
+        private async void OnAppStimmerAttachmentAdded(AppStimmerAttachmentAddedMessage obj)
+        {
+            await Task.Delay(500);
+            this.AttachmentsScrollView.ScrollTo(1000);
         }
 
         private void AttachmentsScrollView_OnScrollStateChanged(object sender, ScrollStateChangedEventArgs e)
@@ -295,6 +308,9 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
 
         private async void EditDescriptionButton_OnTapped(object sender, EventArgs e)
         {
+            if (!this.ViewModel.IsEditable)
+                return;
+
             var viewModel = new EditAppStimmerDescriptionViewModel(this.ViewModel.AppStimmer);
             var page = new EditAppStimmerDescriptionPopupPage(viewModel);
 
@@ -309,6 +325,23 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
         private void AttachmentsScrollView_OnSwiping(object sender, SwipingEventArgs e)
         {
             Debug.WriteLine("Swiping " + e.SwipeDirection);
+        }
+
+        private async void MainPicture_OnTapped(object sender, EventArgs e)
+        {
+            if (!this.ViewModel.IsEditable)
+                return;
+
+            var options = new PickMediaOptions
+            {
+                CompressionQuality = 92
+            };
+            var file = await CrossMedia.Current.PickPhotoAsync(options);
+            if (file == null)
+                return;
+
+            var path = file.Path;
+            this.ViewModel.AppStimmer.Picture = path;
         }
     }
 }

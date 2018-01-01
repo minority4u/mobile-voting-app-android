@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FFImageLoading.Work;
+using Xamarin.Forms;
 
-namespace MSO.StimmApp
+namespace MSO.StimmApp.Elements
 {
-    
+    public class BottomlinelessEntry : Entry
+    {
+
+    }
 }

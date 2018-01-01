@@ -147,6 +147,9 @@ namespace MSO.StimmApp.ViewModels
 
         private async void EditText(EditAppStimmerTextType type)
         {
+            if (!this.IsEditable)
+                return;
+
             var description = "Editor";
             var maxCharacters = 0;
 
@@ -154,7 +157,7 @@ namespace MSO.StimmApp.ViewModels
             {
                 case EditAppStimmerTextType.Appstract:
                     description = "Appstract";
-                    maxCharacters = 60;
+                    maxCharacters = 100;
                     break;
                 case EditAppStimmerTextType.Title:
                     description = "Titel";

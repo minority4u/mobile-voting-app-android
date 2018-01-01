@@ -52,7 +52,10 @@
             <converter:ImageAttachmentToImageAttachmentViewModel x:Key="ImageAttachmentToImageAttachmentViewModel" />
             <converter:ImageSourceToImageConverter x:Key="ImageSourceToImageConverter" />
             <converter:CharactersAndMaxCharactersToStringConverter x:Key="CharactersAndMaxCharactersToStringConverter" />
+            <converter:StringToPlaceholderOpacityConverter x:Key="StringToPlaceholderOpacityConverter" />
             <converter:AppStimmerAttachmentsToMediaAttachmentsConverter x:Key="AppStimmerAttachmentsToMediaAttachmentsConverter" />
+            <converter:StringToPlaceholderConverter x:Key="StringToPlaceholderConverter" />
+            <converter:ColorToDarkerColorConverter x:Key="ColorToDarkerColorConverter" />
             <converter:AppStimmerAttachmentsToMediaAddachmentCountConverter x:Key="AppStimmerAttachmentsToMediaAddachmentCountConverter" />
             <converter:AppStimmerMainPictureAvailabilityToVisibilityConverter x:Key="AppStimmerMainPictureAvailabilityToVisibilityConverter" />
         </ResourceDictionary>
