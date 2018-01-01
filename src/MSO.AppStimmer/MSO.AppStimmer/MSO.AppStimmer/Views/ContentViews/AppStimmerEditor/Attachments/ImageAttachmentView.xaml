@@ -13,14 +13,16 @@
                 Padding="0"
                 CornerRadius="0"
                 OutlineColor="Transparent">
-                <Image
+                <forms:CachedImage
                     x:Name="ImageView"
                     Aspect="AspectFill"
+                    DownsampleHeight="100"
+                    DownsampleWidth="100"
                     Source="{Binding AttachmentSource, Converter={StaticResource ImageSourceToImageConverter}}">
-                    <Image.GestureRecognizers>
+                    <forms:CachedImage.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
-                    </Image.GestureRecognizers>
-                </Image>
+                    </forms:CachedImage.GestureRecognizers>
+                </forms:CachedImage>
             </Frame>
             <!--<elements:ExpandableEditor Text="{Binding ViewModel.Attachment.Description}" TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}" />-->
             <!--<Frame CornerRadius="5"  Padding="0"  IsVisible="{Binding ViewModel.Attachment, Converter={StaticResource AppStimmerMainPictureAvailabilityToVisibilityConverter}, ConverterParameter=inverted}">
