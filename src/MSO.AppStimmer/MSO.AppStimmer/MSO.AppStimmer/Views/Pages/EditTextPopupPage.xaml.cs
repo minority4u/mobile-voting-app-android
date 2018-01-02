@@ -22,11 +22,16 @@ namespace MSO.StimmApp.Views.Pages
         {
             this.InitializeComponent();
             this.BindingContext = viewModel;
-            this.TextEditor.Focus();
 
             this.keyboardService = App.KeyboardService;
             keyboardService.Hide += KeyboardServiceOnHide;
             keyboardService.Show += KeyboardServiceOnShow;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            this.TextEditor.Focus();
         }
 
         private async void KeyboardServiceOnShow(object sender, SoftwareKeyboardEventArgs args)
