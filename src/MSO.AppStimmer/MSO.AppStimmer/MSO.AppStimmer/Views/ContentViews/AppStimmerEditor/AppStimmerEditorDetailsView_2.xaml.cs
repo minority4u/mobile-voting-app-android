@@ -45,9 +45,9 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             //this.Parallax();
         }
 
-        private async void OnAppStimmerAttachmentAdded(AppStimmerAttachmentAddedMessage obj)
-        {
-            await Task.Delay(500);
+        private async void OnAppStimmerAttachmentAdded(AppStimmerAttachmentAddedMessage message)
+        {  
+            await Task.Delay(250);
             this.AttachmentsScrollView.ScrollTo(1000);
         }
 

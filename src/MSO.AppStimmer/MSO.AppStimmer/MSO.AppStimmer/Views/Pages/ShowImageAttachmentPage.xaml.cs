@@ -148,7 +148,7 @@ namespace MSO.StimmApp.Views.Pages
             //var view = this.DescriptionLabel;
             
 
-            Debug.WriteLine("abc");
+            //Debug.WriteLine("abc");
 
             //if (view.IsVisible)
             //{

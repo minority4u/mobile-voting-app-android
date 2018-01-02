@@ -75,6 +75,9 @@
     <Compile Include="Elements\ExpandableEditor.cs" />
     <Compile Include="Elements\PinchToZoomContainer.cs" />
     <Compile Include="Elements\ScrollbarLessScrollView.cs" />
+    <Compile Include="Elements\SubmitButton.xaml.cs">
+      <DependentUpon>SubmitButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Elements\TintedSvgCachedImage.cs" />
     <Compile Include="Converter\AppStimmerAttachmentTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
@@ -111,6 +114,7 @@
     <Compile Include="ViewModels\EditAppStimmerTextViewModel.cs" />
     <Compile Include="ViewModels\ImageAttachmentViewModel.cs" />
     <Compile Include="ViewModels\MenuPageMasterViewModel.cs" />
+    <Compile Include="ViewModels\PictureAttachmentPreviewViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShowVideoAttachmentViewModel.cs" />
     <Compile Include="ViewModels\VideoAttachmentViewModel.cs" />
@@ -200,6 +204,9 @@
     <Compile Include="Views\Pages\EditTextPopupPage.xaml.cs">
       <DependentUpon>EditTextPopupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\PictureAttachmentPreviewPage.xaml.cs">
+      <DependentUpon>PictureAttachmentPreviewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
@@ -211,6 +218,9 @@
     </Compile>
     <Compile Include="Views\Pages\ShowVideoAttachmentPage.xaml.cs">
       <DependentUpon>ShowVideoAttachmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\VideoAttachmentPreviewPage.xaml.cs">
+      <DependentUpon>VideoAttachmentPreviewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -666,6 +676,27 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Pages\EditAppStimmerDescriptionPopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\VideoAttachmentPreviewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\PictureAttachmentPreviewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\material_arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Elements\SubmitButton.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -3,8 +3,10 @@ using System.Diagnostics;
 using System.Linq;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
 using MSO.Common;
 using MSO.StimmApp.Core.Enums;
+using MSO.StimmApp.Core.Messages;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Core.ViewModels;
@@ -51,7 +53,6 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmerEditorViewModel(IAppStimmerService appStimmerService, AppStimmer appStimmer,
             AppStimmerEditorDisplayType displayType, bool isEditable)
         {
-            Debug.WriteLine(@"Third constructor called. IsEditable: " + isEditable);
             this.appStimmerService = appStimmerService;
             this.AppStimmer = appStimmer;
             this.DisplayType = displayType;
@@ -62,9 +63,20 @@ namespace MSO.StimmApp.ViewModels
                 this.BeginAppStimmerEdit();
             }
 
+            Messenger.Default.Register<AppStimmerAttachmentAddedMessage>(this, this.OnAppStimmerAttachmentAdded);
+
             var navigationBarColor = Color.FromHex(App.Settings.AppColors.PrimaryColor);
             // make navigation bar background transparent, except the buttons
             this.NavigationBarBackgroundColor = new Color(navigationBarColor.R, navigationBarColor.G, navigationBarColor.B, 0);
+        }
+
+        private void OnAppStimmerAttachmentAdded(AppStimmerAttachmentAddedMessage message)
+        {
+            var oldAttachments = this.AppStimmer.Attachments;
+            this.AppStimmer.Attachments = new ObservableCollection<AppStimmerAttachment>(oldAttachments)
+            {
+                message.Attachment
+            };
         }
 
         private void BeginAppStimmerEdit()
@@ -189,32 +201,6 @@ namespace MSO.StimmApp.ViewModels
             }
 
             App.NavigationService.GoBack();
-        }
-
-
-        public async void AddAttachment(AppStimmerAttachment attachment)
-        {
-            switch (attachment.AttachmentType)
-            {
-                //case AttachmentType.Text:
-                //    attachment.Description = "Irgendeine Beschreibung";
-                //    attachment.AttachmentSource = "Irgendein sinnloser Text, den keiner braucht. Wirklich keiner.";
-                //    break;
-                //case AttachmentType.Gallery:
-                //    attachment.Description = "Sehr schönes Bild";
-                //    attachment.AttachmentSource = "MSO.StimmApp.Resources.Images.SampleProfilePicture.jpg";
-                //    break;
-                //case AttachmentType.Video:
-                //    attachment.Description = "Irgendein Video";
-                //    attachment.AttachmentSource = "https://archive.org/download/BigBuckBunny_328/BigBuckBunny_512kb.mp4";
-                //    break;
-            }
-
-            var oldAttachments = this.AppStimmer.Attachments;
-            this.AppStimmer.Attachments = new ObservableCollection<AppStimmerAttachment>(oldAttachments)
-            {
-                attachment
-            };
         }
     }
 }

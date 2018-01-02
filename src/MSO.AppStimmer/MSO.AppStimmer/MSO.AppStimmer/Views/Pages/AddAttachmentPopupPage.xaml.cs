@@ -40,10 +40,10 @@ namespace MSO.StimmApp.Views.Pages
 
         // Method for animation child in PopupPage
         // Invoked before custom animation begin
-        protected override Task OnDisappearingAnimationBegin()
-        {
-            return Content.FadeTo(1);
-        }
+        //protected override Task OnDisappearingAnimationBegin()
+        //{
+        //    return Content.FadeTo(1);
+        //}
 
         protected override bool OnBackButtonPressed()
         {
@@ -53,9 +53,9 @@ namespace MSO.StimmApp.Views.Pages
         }
 
         // Invoced when background is clicked
-        protected override bool OnBackgroundClicked()
-        {
-            return this.CloseWhenBackgroundIsClicked;
-        }
+        //protected override bool OnBackgroundClicked()
+        //{
+        //    return this.CloseWhenBackgroundIsClicked;
+        //}
     }
 }

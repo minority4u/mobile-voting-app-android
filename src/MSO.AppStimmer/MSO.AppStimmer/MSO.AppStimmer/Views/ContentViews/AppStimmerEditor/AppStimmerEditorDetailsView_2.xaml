@@ -172,6 +172,13 @@
                                             </DataTemplate>
                                         </xForms:SfListView.ItemTemplate>
                                     </xForms:SfListView>
+                                    <BoxView
+                                        Margin="0,0,60,0"
+                                        BackgroundColor="White"
+                                        HeightRequest="40"
+                                        HorizontalOptions="End"
+                                        VerticalOptions="Center"
+                                        WidthRequest="40" />
                                     <elements:TintedSvgCachedImage
                                         x:Name="AddAttachmentButton"
                                         Margin="0,0,50,0"

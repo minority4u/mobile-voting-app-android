@@ -52,9 +52,9 @@ namespace MSO.StimmApp.Views.Pages
 
         protected override void OnAppearing()
         {
-            VideoView.Source = this.ViewModel.Attachment.AttachmentSource;
-            this.ViewModel.Start();
             base.OnAppearing();
+            VideoView.Source = this.ViewModel.Attachment.AttachmentSource;
+            this.ViewModel.Start();          
         }
 
         protected override void OnDisappearing()

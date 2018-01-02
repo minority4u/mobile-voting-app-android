@@ -20,8 +20,12 @@ namespace MSO.StimmApp.Converter
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
+        {          
+            var placeholderString = parameter.ToString();
+            if (string.IsNullOrEmpty(value?.ToString()) || value?.ToString() == placeholderString)
+                return string.Empty;
+
+            return value.ToString();
         }
     }
 }

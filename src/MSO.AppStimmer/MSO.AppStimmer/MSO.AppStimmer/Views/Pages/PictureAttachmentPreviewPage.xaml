@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="MSO.StimmApp.Views.Pages.PictureAttachmentPreviewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView">
+    <Grid x:Name="MainGrid" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <forms:CachedImage Aspect="AspectFill" Source="{Binding Attachment.AttachmentSource, Converter={StaticResource ImageSourceToImageConverter}}" />
+        <Grid
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            BackgroundColor="#88000000"
+            HeightRequest="50"
+            HorizontalOptions="FillAndExpand"
+            RowSpacing="0"
+            VerticalOptions="End">
+            <elements:BottomlinelessEntry
+                Margin="0,0,76,0"
+                Placeholder="Beschriftung hinzufügen..."
+                PlaceholderColor="#CCCCCC"
+                Text="{Binding Attachment.Description}"
+                TextColor="White"
+                VerticalOptions="Center" />
+        </Grid>
+
+        <elements:SubmitButton
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Margin="0,0,25,10"
+            HorizontalOptions="End"
+            VerticalOptions="End">
+            <elements:SubmitButton.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SubmitCommand}" />
+            </elements:SubmitButton.GestureRecognizers>
+        </elements:SubmitButton>
+    </Grid>
+</pages:PopupPage>
