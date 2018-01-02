@@ -97,28 +97,24 @@ namespace MSO.StimmApp.Elements
             }
         }
 
-	    private void AddDocument()
-	    {
-	        throw new NotImplementedException();
-	    }
-
 	    private async Task AddVideoFromGallery()
 	    {
-	        //var file = await CrossMedia.Current.PickVideoAsync();
-	        //if (file == null)
-	        //    return;
+            var file = await CrossMedia.Current.PickVideoAsync();
+            if (file == null)
+                return;
 
-	        //var attachment = new AppStimmerAttachment
-	        //{
-	        //    AttachmentSource = file.Path,
-	        //    AttachmentType = AttachmentType.Video
-	        //};
+            var attachment = new AppStimmerAttachment
+            {
+                AttachmentSource = file.Path,
+                AttachmentType = AttachmentType.Video
+            };
 
-	        //this.ViewModel.AddAttachment(attachment);
-	        //Messenger.Default.Send(new AppStimmerAttachmentAddedMessage());
-	    }
+            var viewModel = new ShowVideoAttachmentViewModel(attachment);
+	        var page = new VideoAttachmentPreviewPage(viewModel);
+	        await PopupNavigation.PushAsync(page);
+        }
 
-	    private async Task AddPictureFromGallery()
+        private async Task AddPictureFromGallery()
         {         
             var options = new PickMediaOptions
             {
@@ -138,22 +134,6 @@ namespace MSO.StimmApp.Elements
             var viewModel = new PictureAttachmentPreviewViewModel(attachment);
             var page = new PictureAttachmentPreviewPage(viewModel);         
             await PopupNavigation.PushAsync(page);
-        }
-
-	    private void AddLocation()
-	    {
-	        throw new NotImplementedException();
-	    }
-
-	    private void AddText()
-	    {
-         //   var attachment = new AppStimmerAttachment
-         //   {
-         //       AttachmentType = AttachmentType.Text
-         //   };
-
-	        //this.ViewModel.AddAttachment(attachment);
-	        //Messenger.Default.Send(new AppStimmerAttachmentAddedMessage());
         }
 
 	    private async Task AddPicture()
@@ -182,25 +162,52 @@ namespace MSO.StimmApp.Elements
 
 	    private async Task AddVideo()
 	    {
-	        //await CrossMedia.Current.Initialize();
+            await CrossMedia.Current.Initialize();
 
-	        //var file = await CrossMedia.Current.TakeVideoAsync(new StoreVideoOptions());
-	        //if (file == null)
-	        //    return;
+	        var options = new StoreVideoOptions
+	        {
+	            CompressionQuality = 50
+	        };
 
-	        //var attachment = new AppStimmerAttachment
-	        //{
-	        //    AttachmentSource = file.Path,
-	        //    AttachmentType = AttachmentType.Video
-	        //};
+            var file = await CrossMedia.Current.TakeVideoAsync(options);
+            if (file == null)
+                return;
 
-	        //this.ViewModel.AddAttachment(attachment);
-	        //Messenger.Default.Send(new AppStimmerAttachmentAddedMessage());
+            var attachment = new AppStimmerAttachment
+            {
+                AttachmentSource = file.Path,
+                AttachmentType = AttachmentType.Video
+            };
+
+	        var viewModel = new ShowVideoAttachmentViewModel(attachment);
+	        var page = new VideoAttachmentPreviewPage(viewModel);
+	        await PopupNavigation.PushAsync(page);
         }
 
 	    private void AddAudio()
 	    {
+	        //throw new NotImplementedException();
+	    }
+
+	    private void AddLocation()
+	    {
+	        // throw new NotImplementedException();
+	    }
+
+	    private void AddText()
+	    {
+	        //   var attachment = new AppStimmerAttachment
+	        //   {
+	        //       AttachmentType = AttachmentType.Text
+	        //   };
+
+	        //this.ViewModel.AddAttachment(attachment);
+	        //Messenger.Default.Send(new AppStimmerAttachmentAddedMessage());
+	    }
+
+	    private void AddDocument()
+	    {
 	        throw new NotImplementedException();
 	    }
-	}
+    }
 }

@@ -35,7 +35,7 @@ namespace MSO.StimmApp.Core.Services
                 {
                     Title = "Straße kaputt",
                     Picture = "MSO.StimmApp.Resources.Images.Photo.jpg",
-                    Appstract = "Von meinem Galaxy! Von meinem Galaxy! Von meinem Galaxy!",
+                    Appstract = "Die Straßen im Dorf haben viele Löcher. Sie müssen gestopft werden.",
                     Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",
 
                     Attachments = new ObservableCollection<AppStimmerAttachment>()
@@ -91,59 +91,31 @@ namespace MSO.StimmApp.Core.Services
                 },
                 new AppStimmer
                 {
-                    Title = "Parkbank voller Moos",
-                    Attachments = new ObservableCollection<AppStimmerAttachment>()
-                    {
-                        new AppStimmerAttachment
-                        {
-                            AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
-                            Description = "So sieht die Bank aus.",
-                            AttachmentType = AttachmentType.Picture,
-                            IsMainAttachment = true
-                        },
-                    }
+                    Title = "Parkbänke voller Moos",
+                    Picture ="MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
+                    Appstract = "Alle Parkbänke verfaulen langsam. Es sollten neue gebaut werden.",
+                    Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",               
                 },
                 new AppStimmer
                 {
-                    Title = "Besserer Spielplatz",
-                    Attachments = new ObservableCollection<AppStimmerAttachment>()
-                    {
-                        new AppStimmerAttachment
-                        {
-                            AttachmentSource = "MSO.StimmApp.Resources.Images.Spielplatz.jpg",
-                            Description = "Das ist der alte Spielplatz.",
-                            AttachmentType = AttachmentType.Picture,
-                            IsMainAttachment = true
-                        },
-                    }
+                    Title = "Besserere Spielplätze",
+                    Picture ="MSO.StimmApp.Resources.Images.Spielplatz.jpg",
+                    Appstract = "Unsere Kinder sitzen nur noch am PC. Wir brauchen neue Spielplätze, damit sie mal rauskommen.",
+                    Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",
                 },
                 new AppStimmer
                 {
                     Title = "Neuer Bahnhof",
-                    Attachments = new ObservableCollection<AppStimmerAttachment>()
-                    {
-                        new AppStimmerAttachment
-                        {
-                            AttachmentSource = "MSO.StimmApp.Resources.Images.Alter_Bahnhof.jpg",
-                            Description = "Der Bahnhof fällt bald auseinander.",
-                            AttachmentType = AttachmentType.Picture,
-                            IsMainAttachment = true
-                        },
-                    }
+                    Picture ="MSO.StimmApp.Resources.Images.Alter_Bahnhof.jpg",
+                    Appstract = "Unser Bahnhof ist in die Jahre gekommen. Es wird Zeit, einen neuen zu bauen!",
+                    Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",
                 },
                 new AppStimmer
                 {
-                    Title = "Die Hochschule sieht nicht gut aus.",
-                    Attachments = new ObservableCollection<AppStimmerAttachment>()
-                    {
-                        new AppStimmerAttachment
-                        {
-                            AttachmentSource = "MSO.StimmApp.Resources.Images.Alte_Schule.jpg",
-                            Description = "Es gibt nicht einmal Elektrizität",
-                            AttachmentType = AttachmentType.Picture,
-                            IsMainAttachment = true
-                        },
-                    }
+                    Title = "Neue Hochschule",
+                    Picture ="MSO.StimmApp.Resources.Images.Alte_Schule.jpg",
+                    Appstract = "Die städtische Hochschule ist zu klein, und nicht modern genug. Es muss eine neue gebaut werden!",
+                    Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",
                 },
             };
 

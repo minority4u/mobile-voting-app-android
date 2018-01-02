@@ -172,27 +172,31 @@
                                             </DataTemplate>
                                         </xForms:SfListView.ItemTemplate>
                                     </xForms:SfListView>
-                                    <BoxView
-                                        Margin="0,0,60,0"
-                                        BackgroundColor="White"
-                                        HeightRequest="40"
-                                        HorizontalOptions="End"
-                                        VerticalOptions="Center"
-                                        WidthRequest="40" />
-                                    <elements:TintedSvgCachedImage
+                                    <Grid
                                         x:Name="AddAttachmentButton"
-                                        Margin="0,0,50,0"
+                                        Margin="0,0,60,0"
                                         HeightRequest="65"
                                         HorizontalOptions="End"
                                         IsVisible="{Binding IsEditable}"
-                                        Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
-                                        TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.StandardButtonColor}"
                                         VerticalOptions="Center"
                                         WidthRequest="65">
-                                        <forms:SvgCachedImage.GestureRecognizers>
+                                        <Grid.GestureRecognizers>
                                             <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
-                                        </forms:SvgCachedImage.GestureRecognizers>
-                                    </elements:TintedSvgCachedImage>
+                                        </Grid.GestureRecognizers>
+                                        <BoxView
+                                            BackgroundColor="White"
+                                            HeightRequest="40"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            WidthRequest="40" />
+                                        <elements:TintedSvgCachedImage
+                                            HeightRequest="65"
+                                            HorizontalOptions="Center"
+                                            Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
+                                            TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.StandardButtonColor}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="65" />
+                                    </Grid>
                                 </Grid>
 
                                 <Grid

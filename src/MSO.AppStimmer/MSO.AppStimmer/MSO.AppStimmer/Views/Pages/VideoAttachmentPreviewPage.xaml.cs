@@ -19,14 +19,14 @@ namespace MSO.StimmApp.Views.Pages
             this.InitializeComponent();
             this.BindingContext = viewModel;
 
-            var deviceOrientiation = App.DeviceOrientationService.GetOrientation();
-            this.OnDeviceOrientationChanged(deviceOrientiation);
+            //var deviceOrientiation = App.DeviceOrientationService.GetOrientation();
+            //this.OnDeviceOrientationChanged(deviceOrientiation);
 
-            MessagingCenter.Subscribe<DeviceOrientationChangeMessage>(this, DeviceOrientationChangeMessage.MessageId, (message) =>
-            {
-                var deviceOrientation = message.Orientation;
-                this.OnDeviceOrientationChanged(deviceOrientation);
-            });
+            //MessagingCenter.Subscribe<DeviceOrientationChangeMessage>(this, DeviceOrientationChangeMessage.MessageId, (message) =>
+            //{
+            //    var deviceOrientation = message.Orientation;
+            //    this.OnDeviceOrientationChanged(deviceOrientation);
+            //});
         }
 
         public ShowVideoAttachmentViewModel ViewModel => this.BindingContext as ShowVideoAttachmentViewModel;
@@ -38,19 +38,18 @@ namespace MSO.StimmApp.Views.Pages
             this.ViewModel.Start();         
         }
 
-        private void OnDeviceOrientationChanged(DeviceOrientations orientation)
-        {
-            if (orientation == DeviceOrientations.Portrait)
-            {
-                this.VideoView.SetValue(Grid.RowProperty, 1);
-                this.VideoView.SetValue(Grid.RowSpanProperty, 1);
-            }
-            if (orientation == DeviceOrientations.Landscape)
-            {
-                this.VideoView.SetValue(Grid.RowProperty, 0);
-                this.VideoView.SetValue(Grid.RowSpanProperty, this.VideoPlayerGrid.RowDefinitions.Count);
-            }
-        }
-
+        //private void OnDeviceOrientationChanged(DeviceOrientations orientation)
+        //{
+        //    if (orientation == DeviceOrientations.Portrait)
+        //    {
+        //        this.VideoView.SetValue(Grid.RowProperty, 1);
+        //        this.VideoView.SetValue(Grid.RowSpanProperty, 1);
+        //    }
+        //    if (orientation == DeviceOrientations.Landscape)
+        //    {
+        //        this.VideoView.SetValue(Grid.RowProperty, 0);
+        //        this.VideoView.SetValue(Grid.RowSpanProperty, this.VideoPlayerGrid.RowDefinitions.Count);
+        //    }
+        //}
     }
 }

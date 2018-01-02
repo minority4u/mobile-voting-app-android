@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
+using MSO.StimmApp.Core.Messages;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.ViewModels;
 using Plugin.MediaManager;
@@ -13,6 +15,7 @@ using Plugin.MediaManager.Abstractions;
 using Plugin.MediaManager.Abstractions.Enums;
 using Plugin.MediaManager.Abstractions.EventArguments;
 using Plugin.MediaManager.Abstractions.Implementations;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.ViewModels
@@ -26,6 +29,7 @@ namespace MSO.StimmApp.ViewModels
         private RelayCommand seekCommand;
         private RelayCommand togglePlaybackCommand;
         private bool isPlaying;
+        private RelayCommand submitCommand;
 
         [PreferredConstructor]
         public ShowVideoAttachmentViewModel(AppStimmerAttachment attachment)
@@ -49,6 +53,15 @@ namespace MSO.StimmApp.ViewModels
 
         public RelayCommand TogglePlaybackCommand => this.togglePlaybackCommand?? (this.togglePlaybackCommand =
             new RelayCommand(this.TogglePlayback));
+
+        public RelayCommand SubmitCommand => this.submitCommand ?? (this.submitCommand =
+            new RelayCommand(this.Submit));
+
+        private async void Submit()
+        {
+            Messenger.Default.Send(new AppStimmerAttachmentAddedMessage(this.Attachment));
+            await PopupNavigation.PopAllAsync();
+        }
 
         private void TogglePlayback()
         {
@@ -91,7 +104,6 @@ namespace MSO.StimmApp.ViewModels
         {
             get
             {
-                Debug.WriteLine("Progress valiue: " + this.progressValue);
                 return this.progressValue;
             } 
             set => this.Set(ref this.progressValue, value);

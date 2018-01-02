@@ -3,21 +3,39 @@
     x:Class="MSO.StimmApp.Views.Pages.VideoAttachmentPreviewPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
-    <Grid x:Name="VideoPlayerGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40*" />
-            <RowDefinition Height="30*" />
-            <RowDefinition Height="40*" />
-        </Grid.RowDefinitions>
-
+    <Grid x:Name="VideoPlayerGrid" BackgroundColor="Black">
         <forms:VideoView
             x:Name="VideoView"
             AspectMode="AspectFill"
             HorizontalOptions="FillAndExpand"
             Source="{}"
             VerticalOptions="FillAndExpand" />
+        <Grid
+            BackgroundColor="#88000000"
+            HeightRequest="50"
+            HorizontalOptions="FillAndExpand"
+            RowSpacing="0"
+            VerticalOptions="End">
+            <elements:BottomlinelessEntry
+                Margin="0,0,76,0"
+                Placeholder="Beschriftung hinzufügen..."
+                PlaceholderColor="#CCCCCC"
+                Text="{Binding Attachment.Description}"
+                TextColor="White"
+                VerticalOptions="Center" />
+        </Grid>
+
+        <elements:SubmitButton
+            Margin="0,0,25,10"
+            HorizontalOptions="End"
+            VerticalOptions="End">
+            <elements:SubmitButton.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SubmitCommand}" />
+            </elements:SubmitButton.GestureRecognizers>
+        </elements:SubmitButton>
 
         <!--<Grid
             Grid.Row="2"
