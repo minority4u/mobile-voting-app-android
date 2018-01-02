@@ -156,6 +156,7 @@ namespace MSO.StimmApp.Elements
 	    {
 	        await CrossMedia.Current.Initialize();
 
+
 	        var file = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions());
 	        if (file == null)
 	            return;

@@ -29,57 +29,76 @@
             Padding="0"
             BackgroundColor="White"
             CornerRadius="10"
-            HeightRequest="225"
             HorizontalOptions="Center"
             OutlineColor="Transparent"
-            VerticalOptions="Center"
-            WidthRequest="300">
+            VerticalOptions="Center">
             <Frame.GestureRecognizers>
                 <TapGestureRecognizer Tapped="FrameGestureRecognizer_OnTapped" />
             </Frame.GestureRecognizers>
-            <StackLayout Orientation="Vertical" Spacing="0">
-                <Label
-                    Margin="20,20,20,0"
-                    FontAttributes="Bold"
-                    FontSize="20"
-                    Text="{Binding EditorDescription}" />
-                <elements:ExpandableEditor
-                    x:Name="TextEditor"
-                    Margin="18,20,20,0"
-                    FontSize="15"
-                    Text="{Binding Text}">
-                    <elements:ExpandableEditor.Behaviors>
-                        <behaviors:EditorLengthValidatorBehavior BindingContext="{Binding Path=.}" MaxLength="{Binding MaxCharacters}" />
-                    </elements:ExpandableEditor.Behaviors>
-                </elements:ExpandableEditor>
-                <Label Margin="0,3,22,0" HorizontalOptions="End">
-                    <Label.Text>
-                        <converter:MultiBinding Converter="{StaticResource CharactersAndMaxCharactersToStringConverter}">
-                            <Binding Path="CharactersCount" />
-                            <Binding Path="MaxCharacters" />
-                        </converter:MultiBinding>
-                    </Label.Text>
-                </Label>
+            <Grid>
                 <StackLayout
-                    Margin="0,15,0,5"
-                    HorizontalOptions="EndAndExpand"
-                    Orientation="Horizontal"
-                    VerticalOptions="EndAndExpand">
-                    <Button
-                        BackgroundColor="White"
-                        BorderColor="White"
-                        BorderWidth="0"
-                        Clicked="Button_OnClicked"
-                        Text="ABBRECHEN"
-                        TextColor="DarkOrange" />
-                    <Button
-                        BackgroundColor="White"
-                        BorderColor="White"
-                        Command="{Binding SaveTextCommand}"
-                        Text="FERTIG"
-                        TextColor="DarkOrange" />
+                    Orientation="Vertical"
+                    Spacing="0"
+                    WidthRequest="300">
+                    <Grid WidthRequest="300">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Margin="20,20,20,0"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Text="{Binding EditorDescription}" />
+                        <elements:ExpandableEditor
+                            x:Name="TextEditor"
+                            Grid.Row="1"
+                            Margin="18,20,20,0"
+                            FontSize="15"
+                            Text="{Binding Text}">
+                            <elements:ExpandableEditor.Behaviors>
+                                <behaviors:EditorLengthValidatorBehavior BindingContext="{Binding Path=.}" MaxLength="{Binding MaxCharacters}" />
+                            </elements:ExpandableEditor.Behaviors>
+                        </elements:ExpandableEditor>
+                        <Label
+                            Grid.Row="2"
+                            Margin="0,3,22,0"
+                            HorizontalOptions="End">
+                            <Label.Text>
+                                <converter:MultiBinding Converter="{StaticResource CharactersAndMaxCharactersToStringConverter}">
+                                    <Binding Path="CharactersCount" />
+                                    <Binding Path="MaxCharacters" />
+                                </converter:MultiBinding>
+                            </Label.Text>
+                        </Label>
+                        <StackLayout
+                            Grid.Row="3"
+                            Margin="0,15,0,5"
+                            HorizontalOptions="End"
+                            Orientation="Horizontal"
+                            VerticalOptions="End">
+                            <Button
+                                BackgroundColor="White"
+                                BorderColor="White"
+                                BorderWidth="0"
+                                Clicked="Button_OnClicked"
+                                Text="ABBRECHEN"
+                                TextColor="DarkOrange" />
+                            <Button
+                                BackgroundColor="White"
+                                BorderColor="White"
+                                Command="{Binding SaveTextCommand}"
+                                Text="FERTIG"
+                                TextColor="DarkOrange" />
+                        </StackLayout>
+                    </Grid>
+
                 </StackLayout>
-            </StackLayout>
+            </Grid>
+
         </Frame>
     </Grid>
 </pages:PopupPage>
