@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
+using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.Core.Messages;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
@@ -11,6 +12,7 @@ using MSO.StimmApp.Core.ViewModels;
 using MSO.StimmApp.Views;
 using MSO.StimmApp.Views.Pages;
 using Rg.Plugins.Popup.Services;
+using Xamarin.Forms;
 
 namespace MSO.StimmApp.ViewModels
 {
@@ -23,6 +25,7 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmersViewModel(IAppStimmerService appStimmerService)
         {
             this.appStimmerService = appStimmerService;
+            this.LoadAllAppStimmers();
 
             Messenger.Default.Register<AppStimmerAddedMessage>(this, this.OnAppStimmerAdded);
             Messenger.Default.Register<AppStimmerUpdatedMessage>(this, this.OnAppStimmerUpdated);
@@ -30,8 +33,16 @@ namespace MSO.StimmApp.ViewModels
 
         private void OnAppStimmerUpdated(AppStimmerUpdatedMessage message)
         {
-            this.RemoveJobIfApPStimmerExists(message.AppStimmer.Id);
-            this.AppStimmers.Add(message.AppStimmer);
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                var existingAppStimmer = this.AppStimmers.FirstOrDefault(a => a.Id == message.AppStimmer.Id);
+
+                if (existingAppStimmer != null)
+                {
+                    var index = this.appStimmers.IndexOf(existingAppStimmer);
+                    this.AppStimmers[index] = message.AppStimmer;
+                }
+            });      
         }
 
         private void RemoveJobIfApPStimmerExists(Guid id)
@@ -45,11 +56,7 @@ namespace MSO.StimmApp.ViewModels
 
         private void OnAppStimmerAdded(AppStimmerAddedMessage message)
         {
-            var oldAppStimmers = this.AppStimmers;
-            this.AppStimmers = new ObservableCollection<AppStimmer>(oldAppStimmers)
-            {
-                message.AppStimmer
-            };
+            Device.BeginInvokeOnMainThread(() => this.AppStimmers.Add(message.AppStimmer));
         }
 
 
@@ -67,7 +74,7 @@ namespace MSO.StimmApp.ViewModels
 
         public void EditAppStimmer(AppStimmer appStimmer)
         {
-            var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, appStimmer);
+            var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, appStimmer, AppStimmerEditorDisplayType.Details, isEditable: false);
             App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor, viewModel);
         }
     }

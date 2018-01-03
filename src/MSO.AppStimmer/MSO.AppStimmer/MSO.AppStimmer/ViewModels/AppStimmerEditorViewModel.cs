@@ -56,13 +56,12 @@ namespace MSO.StimmApp.ViewModels
             AppStimmerEditorDisplayType displayType, bool isEditable)
         {
             this.appStimmerService = appStimmerService;
-            this.AppStimmer = appStimmer;
             this.DisplayType = displayType;
             this.IsEditable = isEditable;
 
-            if (this.isEditable)
+            if (this.IsEditable)
             {
-                this.AppStimmer.BeginEdit();
+                this.BeginAppStimmerEdit(appStimmer);
             }
 
             Messenger.Default.Register<AppStimmerAttachmentAddedMessage>(this, this.OnAppStimmerAttachmentAdded);
@@ -70,6 +69,12 @@ namespace MSO.StimmApp.ViewModels
             var navigationBarColor = Color.FromHex(App.Settings.AppColors.PrimaryColor);
             // make navigation bar background transparent, except the buttons
             this.NavigationBarBackgroundColor = new Color(navigationBarColor.R, navigationBarColor.G, navigationBarColor.B, 0);
+        }
+
+        private void BeginAppStimmerEdit(AppStimmer apst)
+        {
+            this.AppStimmer = apst;
+            this.AppStimmer.BeginEdit();
         }
 
         private void OnAppStimmerAttachmentAdded(AppStimmerAttachmentAddedMessage message)
@@ -159,15 +164,11 @@ namespace MSO.StimmApp.ViewModels
 
         private async void SaveAppStimmer()
         {
-            // ToDo: Proper state handling. Who sets the IsNew flag to false?
-            if (this.AppStimmer.IsNew)
-            {
-                this.AppStimmer.IsNew = false;
-            }
-
             this.AppStimmer.EndEdit();
             await Task.Run(() => this.appStimmerService.SaveAppStimmer(this.AppStimmer));
-            await PopupNavigation.PopAsync();
+
+            this.BeginAppStimmerEdit(new AppStimmer());
+            App.NavigationService.GoBack(); 
         }
 
         private async void EditText(EditAppStimmerTextType type)

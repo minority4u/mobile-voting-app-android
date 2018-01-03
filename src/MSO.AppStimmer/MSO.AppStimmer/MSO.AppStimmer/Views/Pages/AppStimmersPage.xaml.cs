@@ -19,12 +19,6 @@ namespace MSO.StimmApp.Views.Pages
         public AppStimmersViewModel ViewModel => this.BindingContext as AppStimmersViewModel;
         SearchBar searchBar = null;
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            await this.ViewModel.LoadAllAppStimmers();
-        }
-
         private  void AppStimmersListView_OnItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs itemTappedEventArgs)
         {
             // close the searchbar keyboard if we tab in the background

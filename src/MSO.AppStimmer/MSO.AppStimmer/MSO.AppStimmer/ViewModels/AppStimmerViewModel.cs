@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using MSO.StimmApp.Core.Enums;
+using MSO.StimmApp.Core.Messages;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Core.ViewModels;
@@ -29,6 +30,29 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmerViewModel(IAppStimmerService appStimmerService)
         {
             this.appStimmerService = appStimmerService;
+            this.LoadAppStimmers();
+
+            Messenger.Default.Register<AppStimmerAddedMessage>(this, this.OnAppStimmerAdded);
+            Messenger.Default.Register<AppStimmerUpdatedMessage>(this, this.OnAppStimmerUpdated);
+        }
+
+        private void OnAppStimmerAdded(AppStimmerAddedMessage message)
+        {
+            Device.BeginInvokeOnMainThread(() =>this.AppStimmers.Add(message.AppStimmer));
+        }
+
+        private void OnAppStimmerUpdated(AppStimmerUpdatedMessage message)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                var existingAppStimmer = this.AppStimmers.FirstOrDefault(a => a.Id == message.AppStimmer.Id);
+
+                if (existingAppStimmer != null)
+                {
+                    var index = this.appStimmers.IndexOf(existingAppStimmer);
+                    this.AppStimmers[index] = message.AppStimmer;
+                }
+            });
         }
 
         public async Task LoadAppStimmers()

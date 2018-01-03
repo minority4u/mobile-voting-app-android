@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
     BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
@@ -29,11 +30,13 @@
                                 <RowDefinition Height="50" />
                             </Grid.RowDefinitions>
 
-                            <Image
+                            <forms:CachedImage
                                 x:Name="AppStimmerPicture"
                                 Grid.Row="0"
                                 Grid.RowSpan="3"
                                 Aspect="AspectFill"
+                                DownsampleHeight="500"
+                                DownsampleWidth="500"
                                 HorizontalOptions="Fill"
                                 Source="{Binding Picture, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
                                 VerticalOptions="Fill" />

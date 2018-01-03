@@ -1,6 +1,8 @@
 ﻿using System;
 using MSO.StimmApp.Elements;
 using MSO.StimmApp.Models;
+using MSO.StimmApp.Views;
+using MSO.StimmApp.Views.Pages;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
@@ -24,9 +26,16 @@ namespace MSO.StimmApp
                 return;
 
             var page = (Page) Activator.CreateInstance(item.TargetType);
-            page.Title = item.Title;
-
-            this.InitializePage(page);
+            if (page is AppStimmerEditorPage)
+            {
+                App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor);
+            }
+            else
+            {
+                page.Title = item.Title;
+                this.InitializePage(page);
+            }
+            
             this.ResetMenuPage();
         }
 

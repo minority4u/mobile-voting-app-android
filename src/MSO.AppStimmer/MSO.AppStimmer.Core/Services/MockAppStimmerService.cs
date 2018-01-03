@@ -13,15 +13,26 @@ namespace MSO.StimmApp.Core.Services
 {
     public class MockAppStimmerService : IAppStimmerService
     {
+        private readonly List<AppStimmer> appStimmers;
+
+        public MockAppStimmerService()
+        {
+            this.appStimmers = this.GetRandomAppStimmers();
+        }
+
         public async Task<List<AppStimmer>> GetAllAppStimmers()
         {
-            var result = await Task.Run(() => this.GetRandomAppStimmers());
+            var result = await Task.Run(() => this.GetAppStimmers());
             return result;
+        }
+
+        private List<AppStimmer> GetAppStimmers()
+        {
+            return this.appStimmers;
         }
 
         public void SaveAppStimmer(AppStimmer appStimmer)
         {
-            // ToDo: Proper state handling. Who sets the IsNew flag to false?
             if (appStimmer.IsNew)
             {
                 appStimmer.IsNew = false;
@@ -30,6 +41,22 @@ namespace MSO.StimmApp.Core.Services
             else
             {
                 Messenger.Default.Send(new AppStimmerUpdatedMessage(appStimmer));
+            }
+
+            this.UpdateOrAddAppStimmer(appStimmer);
+        }
+
+        private void UpdateOrAddAppStimmer(AppStimmer appStimmer)
+        {
+            var existingAppStimmer = this.appStimmers.FirstOrDefault(a => a.Id == appStimmer.Id);
+            if (existingAppStimmer != null)
+            {
+                var index = this.appStimmers.IndexOf(existingAppStimmer);
+                this.appStimmers[index] = appStimmer;
+            }
+            else
+            {
+                this.appStimmers.Add(appStimmer);
             }
         }
 
@@ -44,6 +71,7 @@ namespace MSO.StimmApp.Core.Services
             {
                 new AppStimmer
                 {
+                    IsNew = false,
                     Title = "Straße kaputt",
                     Picture = "MSO.StimmApp.Resources.Images.Photo.jpg",
                     Appstract = "Die Straßen im Dorf haben viele Löcher. Sie müssen gestopft werden.",
@@ -102,6 +130,7 @@ namespace MSO.StimmApp.Core.Services
                 },
                 new AppStimmer
                 {
+                    IsNew = false,
                     Title = "Parkbänke voller Moos",
                     Picture ="MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
                     Appstract = "Alle Parkbänke verfaulen langsam. Es sollten neue gebaut werden.",
@@ -109,6 +138,7 @@ namespace MSO.StimmApp.Core.Services
                 },
                 new AppStimmer
                 {
+                    IsNew = false,
                     Title = "Besserere Spielplätze",
                     Picture ="MSO.StimmApp.Resources.Images.Spielplatz.jpg",
                     Appstract = "Unsere Kinder sitzen nur noch am PC. Wir brauchen neue Spielplätze, damit sie mal rauskommen.",
@@ -116,6 +146,7 @@ namespace MSO.StimmApp.Core.Services
                 },
                 new AppStimmer
                 {
+                    IsNew = false,
                     Title = "Neuer Bahnhof",
                     Picture ="MSO.StimmApp.Resources.Images.Alter_Bahnhof.jpg",
                     Appstract = "Unser Bahnhof ist in die Jahre gekommen. Es wird Zeit, einen neuen zu bauen!",
@@ -123,6 +154,7 @@ namespace MSO.StimmApp.Core.Services
                 },
                 new AppStimmer
                 {
+                    IsNew = false,
                     Title = "Neue Hochschule",
                     Picture ="MSO.StimmApp.Resources.Images.Alte_Schule.jpg",
                     Appstract = "Die städtische Hochschule ist zu klein, und nicht modern genug. Es muss eine neue gebaut werden!",

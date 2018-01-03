@@ -33,24 +33,8 @@ namespace MSO.StimmApp.Core.Services
             return this.appStimmers;
         }
 
-        //private void AddMockAppStimmersIfNecessary()
-        //{
-        //    var mockAppStimmers = this.GetRandomAppStimmers();
-        //    foreach (var appStimmer in mockAppStimmers)
-        //    {
-        //        var existingAppStimmer = this.appStimmers.FirstOrDefault(a => a.Id == appStimmer.Id);
-        //        if (existingAppStimmer!= null)
-        //            continue;
-
-        //        this.SaveAppStimmer(appStimmer);
-        //    }
-        //}
-
         public async void SaveAppStimmer(AppStimmer appStimmer)
         {
-            await this.UpdateOrAddAppStimmer(appStimmer);
-
-            // ToDo: Proper state handling. Who sets the IsNew flag to false?
             if (appStimmer.IsNew)
             {
                 appStimmer.IsNew = false;
@@ -60,18 +44,20 @@ namespace MSO.StimmApp.Core.Services
             {
                 Messenger.Default.Send(new AppStimmerUpdatedMessage(appStimmer));
             }
+
+            await this.UpdateOrAddAppStimmer(appStimmer);
         }
 
         private async Task UpdateOrAddAppStimmer(AppStimmer appStimmer)
         {
             var existingAppStimmer = this.appStimmers.FirstOrDefault(a => a.Id == appStimmer.Id);
-            if (existingAppStimmer == null)
+            if (existingAppStimmer != null)
             {
-                this.appStimmers.Add(appStimmer);
+                var index = this.appStimmers.IndexOf(existingAppStimmer);
+                this.appStimmers[index] = appStimmer;
             }
             else
             {
-                this.appStimmers.Remove(existingAppStimmer);
                 this.appStimmers.Add(appStimmer);
             }
 

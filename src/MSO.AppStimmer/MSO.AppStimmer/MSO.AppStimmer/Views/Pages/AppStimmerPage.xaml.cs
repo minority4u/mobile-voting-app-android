@@ -15,10 +15,10 @@ namespace MSO.StimmApp.Views.Pages
 
         AppStimmerViewModel ViewModel => this.BindingContext as AppStimmerViewModel;
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            await this.ViewModel.LoadAppStimmers();
-        }
+        //protected override async void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    await this.ViewModel.LoadAppStimmers();
+        //}
     }
 }

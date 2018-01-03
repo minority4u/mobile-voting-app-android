@@ -318,7 +318,14 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             //    
             //}
 
-            App.NavigationService.GoBack();
+            if (App.NavigationService.CanGoBack())
+            {
+                App.NavigationService.GoBack();
+            }
+            else
+            {
+
+            }
         }
 
         private async void EditDescriptionButton_OnTapped(object sender, EventArgs e)

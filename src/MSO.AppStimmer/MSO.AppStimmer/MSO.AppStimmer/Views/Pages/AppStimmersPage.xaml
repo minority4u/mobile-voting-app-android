@@ -5,15 +5,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:appStimmers="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmers;assembly=MSO.StimmApp"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    BackgroundColor="Black"
     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <Grid BackgroundColor="White">
+        <Grid>
             <StackLayout>
                 <SearchBar
                     x:Name="SearchBar"
+                    BackgroundColor="Transparent"
                     HeightRequest="50"
                     Placeholder="Search here to filter"
                     TextChanged="SearchBar_OnTextChanged" />
@@ -42,24 +43,23 @@
                                         Padding="0"
                                         CornerRadius="8"
                                         OutlineColor="Black">
-
-
                                         <StackLayout
                                             BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmersItemColor}"
                                             HeightRequest="250"
                                             Orientation="Vertical"
                                             Spacing="0"
                                             VerticalOptions="FillAndExpand">
-                                            <SearchBar Placeholder="Search here to filter" />
                                             <Grid>
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="*" />
                                                     <RowDefinition Height="50" />
                                                 </Grid.RowDefinitions>
-                                                <Image
+                                                <forms:CachedImage
                                                     Grid.Row="0"
                                                     Grid.RowSpan="2"
                                                     Aspect="AspectFill"
+                                                    DownsampleHeight="200"
+                                                    DownsampleWidth="200"
                                                     HeightRequest="250"
                                                     HorizontalOptions="Fill"
                                                     Source="{Binding Picture, Converter={StaticResource ImageSourceToImageConverter}}"
