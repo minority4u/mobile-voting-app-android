@@ -1,13 +1,15 @@
 ﻿using System;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.ViewModels;
+using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MSO.StimmApp.Views.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AppStimmersPage : ContentPage
+    public partial class AppStimmersPage : PopupPage
     {
         public AppStimmersPage()
         {
@@ -23,7 +25,7 @@ namespace MSO.StimmApp.Views.Pages
             await this.ViewModel.LoadAllAppStimmers();
         }
 
-        private void AppStimmersListView_OnItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs itemTappedEventArgs)
+        private async void AppStimmersListView_OnItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs itemTappedEventArgs)
         {
             // close the searchbar keyboard if we tab in the background
             if (SearchBar.IsFocused)
@@ -35,7 +37,7 @@ namespace MSO.StimmApp.Views.Pages
             if (!(itemTappedEventArgs.ItemData is AppStimmer appStimmer))
                 return;
 
-            this.ViewModel.EditAppStimmer(appStimmer);
+            await this.ViewModel.EditAppStimmer(appStimmer);
         }
 
 
@@ -71,5 +73,9 @@ namespace MSO.StimmApp.Views.Pages
                 return false;
         }
 
+        private async void BackButtonImage_OnTapped(object sender, EventArgs e)
+        {
+            await PopupNavigation.PopAsync();
+        }
     }
 }

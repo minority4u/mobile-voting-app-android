@@ -29,6 +29,7 @@
                             x:Name="MainPicture"
                             Grid.RowSpan="2"
                             Aspect="AspectFill"
+                            BackgroundColor="White"
                             HeightRequest="290"
                             HorizontalOptions="Fill"
                             Source="{Binding AppStimmer.Picture, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"

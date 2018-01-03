@@ -9,6 +9,8 @@ using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Core.ViewModels;
 using MSO.StimmApp.Views;
+using MSO.StimmApp.Views.Pages;
+using Rg.Plugins.Popup.Services;
 
 namespace MSO.StimmApp.ViewModels
 {
@@ -63,10 +65,11 @@ namespace MSO.StimmApp.ViewModels
             set => this.Set(ref this.appStimmers, value);
         }
 
-        public void EditAppStimmer(AppStimmer appStimmer)
+        public async Task EditAppStimmer(AppStimmer appStimmer)
         {
             var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, appStimmer);
-            App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor, viewModel);
+            var page = new AppStimmerEditorPage(viewModel);
+            await PopupNavigation.PushAsync(page);
         }
     }
 }

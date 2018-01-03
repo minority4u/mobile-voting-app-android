@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
@@ -156,7 +157,7 @@ namespace MSO.StimmApp.ViewModels
         public RelayCommand SaveAppStimmerCommand => this.saveAppStimmerCommand ?? (this.saveAppStimmerCommand =
             new RelayCommand(this.SaveAppStimmer));
 
-        private void SaveAppStimmer()
+        private async void SaveAppStimmer()
         {
             // ToDo: Proper state handling. Who sets the IsNew flag to false?
             if (this.AppStimmer.IsNew)
@@ -165,7 +166,8 @@ namespace MSO.StimmApp.ViewModels
             }
 
             this.AppStimmer.EndEdit();
-            this.appStimmerService.SaveAppStimmer(this.AppStimmer);
+            await Task.Run(() => this.appStimmerService.SaveAppStimmer(this.AppStimmer));
+            await PopupNavigation.PopAsync();
         }
 
         private async void EditText(EditAppStimmerTextType type)

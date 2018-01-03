@@ -1,21 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<pages:PopupPage
     x:Class="MSO.StimmApp.Views.Pages.AppStimmersPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:appStimmers="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmers;assembly=MSO.StimmApp"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
-    BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}">
+    BackgroundColor="Black"
+    BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
+    HasSystemPadding="True">
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="White">
             <StackLayout>
-                <SearchBar 
-                    
-                    HeightRequest="50" 
-                    Placeholder="Search here to filter" 
+                <SearchBar
                     x:Name="SearchBar"
-                    TextChanged="SearchBar_OnTextChanged"/>
+                    HeightRequest="50"
+                    Placeholder="Search here to filter"
+                    TextChanged="SearchBar_OnTextChanged" />
 
                 <xForms:SfListView
                     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmers.AppStimmersListView"
@@ -84,7 +86,34 @@
                     </xForms:SfListView.ItemTemplate>
                 </xForms:SfListView>
             </StackLayout>
+
+            <Frame
+                x:Name="TopBarGradientFrame"
+                Grid.Row="0"
+                Padding="0"
+                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
+                HeightRequest="57"
+                OutlineColor="Transparent"
+                VerticalOptions="Start">
+                <StackLayout Orientation="Horizontal">
+                    <Image
+                        Margin="15"
+                        HeightRequest="57"
+                        HorizontalOptions="Start"
+                        Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.arrow-left.scale-100.png}"
+                        VerticalOptions="Start">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BackButtonImage_OnTapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label
+                        Margin="0,14,0,0"
+                        FontSize="20"
+                        Text="AppStimmer-Übersicht"
+                        TextColor="White" />
+                </StackLayout>
+            </Frame>
         </Grid>
 
     </ContentPage.Content>
-</ContentPage>
+</pages:PopupPage>
