@@ -60,7 +60,8 @@ namespace MSO.StimmApp.ViewModels
             SimpleIoc.Default.Register<CurrentUserViewModel>();
 
 
-            SimpleIoc.Default.Register(() => navigation);
+            if (!SimpleIoc.Default.IsRegistered<NavigationService>())
+                SimpleIoc.Default.Register(() => navigation);
         }
 
         public MenuPageMasterViewModel Master => ServiceLocator.Current.GetInstance<MenuPageMasterViewModel>();

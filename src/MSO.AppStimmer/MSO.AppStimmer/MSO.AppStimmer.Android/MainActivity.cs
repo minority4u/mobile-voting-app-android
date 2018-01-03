@@ -1,12 +1,19 @@
 ﻿using Android.App;
 using Android.Content.PM;
-using Android.Graphics;
 using Android.OS;
 using DeviceOrientation.Forms.Plugin.Droid;
 using FFImageLoading.Forms.Droid;
+using MSO.StimmApp.Droid.Resources;
+using MSO.StimmApp.Services;
 using Plugin.MediaManager.Forms.Android;
 using Plugin.Permissions;
+<<<<<<< HEAD
 using Xamarin.Forms.Platform.Android;
+=======
+using Plugin.Permissions.Abstractions;
+using Xamarin.Forms;
+using Color = Android.Graphics.Color;
+>>>>>>> origin/master
 using Permission = Android.Content.PM.Permission;
 
 namespace MSO.StimmApp.Droid
@@ -20,6 +27,8 @@ namespace MSO.StimmApp.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
+
+            DependencyService.Register<ISoftwareKeyboardService, SoftwareKeyboardService>();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             CachedImageRenderer.Init();

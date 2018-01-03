@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="MSO.StimmApp.Views.Pages.VideoAttachmentPreviewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <Grid x:Name="VideoPlayerGrid" BackgroundColor="Black">
+        <forms:VideoView
+            x:Name="VideoView"
+            AspectMode="AspectFill"
+            HorizontalOptions="FillAndExpand"
+            Source="{}"
+            VerticalOptions="FillAndExpand" />
+        <Grid
+            BackgroundColor="#88000000"
+            HeightRequest="50"
+            HorizontalOptions="FillAndExpand"
+            RowSpacing="0"
+            VerticalOptions="End">
+            <elements:BottomlinelessEntry
+                Margin="0,0,76,0"
+                Placeholder="Beschriftung hinzufügen..."
+                PlaceholderColor="#CCCCCC"
+                Text="{Binding Attachment.Description}"
+                TextColor="White"
+                VerticalOptions="Center" />
+        </Grid>
+
+        <elements:SubmitButton
+            Margin="0,0,25,10"
+            HorizontalOptions="End"
+            VerticalOptions="End">
+            <elements:SubmitButton.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SubmitCommand}" />
+            </elements:SubmitButton.GestureRecognizers>
+        </elements:SubmitButton>
+
+        <!--<Grid
+            Grid.Row="2"
+            Margin="0,0,0,50"
+            HeightRequest="50"
+            VerticalOptions="End">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="50" />
+
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Column="0"
+                    Margin="5,0,0,0"
+                    Text="{Binding Elapsed, Converter={StaticResource CrossVideoManagerTimeSpanToStringConverter}, ConverterParameter=short}"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Column="2"
+                    Margin="0,0,5,0"
+                    Text="{Binding TotalLength, Converter={StaticResource CrossVideoManagerTimeSpanToStringConverter}, ConverterParameter=short}"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </Grid>
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" />
+        -->
+        <!--<ProgressBar
+                x:Name="ProgressBar"
+                VerticalOptions="End" />-->
+        <!--
+        </Grid>-->
+    </Grid>
+</pages:PopupPage>

@@ -55,8 +55,6 @@ namespace MSO.StimmApp.Elements
 
         void OnPinchUpdated(object sender, PinchGestureUpdatedEventArgs e)
         {
-            Debug.WriteLine(@"Pinch gesture...");
-
             if (e.Status == GestureStatus.Started)
             {
                 // Store the current scale factor applied to the wrapped user interface element,

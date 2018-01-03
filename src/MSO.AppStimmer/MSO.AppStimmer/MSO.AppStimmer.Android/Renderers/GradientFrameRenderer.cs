@@ -1,4 +1,6 @@
 ﻿
+using System;
+using System.ComponentModel;
 using Android.Content;
 using Android.Graphics.Drawables;
 using Android.Views;
@@ -14,6 +16,12 @@ namespace MSO.StimmApp.Droid.Renderers
 {
     class GradientFrameRenderer : FrameRenderer
     {
+        private string startColor;
+        private string endColor;
+        private string backgroundColor;
+        private bool drawNormalBackground;
+        private GradientFrame myFrame;
+
         private readonly GradientDrawable.Orientation orientation;
 
 
@@ -29,13 +37,41 @@ namespace MSO.StimmApp.Droid.Renderers
             if (frame == null)
                 return;
 
-            SetBackground(frame.StartColor, frame.EndColor);
+            this.myFrame = frame;
+            SetBackground();
         }
 
-        private void SetBackground(string startColor, string endColor)
+        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            var startColorAndroid = Color.FromHex(startColor).ToAndroid();
-            var endColorAndroid = Color.FromHex(endColor).ToAndroid();
+            base.OnElementPropertyChanged(sender, e);
+
+            if (e.PropertyName == "BackgroundColor" && this.myFrame != null)
+            {
+                var color = this.myFrame.BackgroundColor;
+                var alpha = color.A;
+                if (Math.Abs(alpha) > 0.0)
+                {
+                    this.SetBackgroundColor(color.ToAndroid());
+                }
+                else
+                {
+                    SetBackground();
+                }
+            }
+
+            if ((e.PropertyName == "EndColor" || e.PropertyName == "StartColor") && this.myFrame != null)
+            {
+                SetBackground();
+            }
+        }
+
+        private void SetBackground()
+        {
+            if (string.IsNullOrEmpty(myFrame.StartColor) || string.IsNullOrEmpty(myFrame.EndColor))
+                return;
+
+            var startColorAndroid = Color.FromHex(myFrame.StartColor).ToAndroid();
+            var endColorAndroid = Color.FromHex(myFrame.EndColor).ToAndroid();
 
             var colors = new int[] { startColorAndroid, endColorAndroid };
 

@@ -163,6 +163,21 @@
     <Reference Include="SQLitePCLRaw.provider.e_sqlite3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9c301db686d0bd12, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLitePCLRaw.provider.e_sqlite3.android.1.1.9\lib\MonoAndroid\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Core.XForms, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.Core.15.4.0.20\lib\MonoAndroid10\Syncfusion.Core.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DataSource.Portable, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.DataSource.15.4.0.20\lib\MonoAndroid10\Syncfusion.DataSource.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.Portable, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.GridCommon.15.4.0.20\lib\MonoAndroid10\Syncfusion.GridCommon.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.XForms, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfListView.15.4.0.20\lib\MonoAndroid10\Syncfusion.SfListView.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.XForms.Android, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfListView.15.4.0.20\lib\MonoAndroid10\Syncfusion.SfListView.XForms.Android.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -278,17 +293,23 @@
     <Compile Include="Effects\BlueSliderEffect.cs" />
     <Compile Include="Effects\RedSliderEffect.cs" />
     <Compile Include="MainApplication.cs" />
-    <Compile Include="Renderers\ExpandableEditorRenderer.cs" />
+    <Compile Include="Renderers\BottomlinelessEntryRenderer.cs" />
+    <Compile Include="Renderers\Scrollbardisabledrenderer.cs" />
     <Compile Include="Renderers\VideoPlaybackSliderRenderer.cs" />
     <Compile Include="Renderers\ZoomScrollViewRenderer.cs" />
+    <Compile Include="Resources\GlobalLayoutListener.cs" />
     <Compile Include="Resources\NavigationBarController.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="Renderers\BottomlinelessEditorRenderer.cs" />
+    <Compile Include="Renderers\BottomlinelessExpandableEditorRenderer.cs" />
     <Compile Include="Renderers\GradientFrameRenderer.cs" />
     <Compile Include="Renderers\MyScrollViewRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="SplashActivity.cs" />
+=======
+    <Compile Include="Resources\SoftwareKeyboardService.cs" />
+>>>>>>> origin/master
     <Compile Include="XFormsAppCompatDroid.cs" />
   </ItemGroup>
   <ItemGroup>

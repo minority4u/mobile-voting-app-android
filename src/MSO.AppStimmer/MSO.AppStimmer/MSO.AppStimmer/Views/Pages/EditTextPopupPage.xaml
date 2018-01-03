@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="MSO.StimmApp.Views.Pages.EditTextPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:behaviors="clr-namespace:MSO.StimmApp.Behaviors;assembly=MSO.StimmApp"
+    xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    CloseWhenBackgroundIsClicked="False"
+    HasSystemPadding="False">
+    <!--<pages:PopupPage.Animation>
+        <animations:MoveAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Right" />
+    </pages:PopupPage.Animation>-->
+    <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+        </Grid.GestureRecognizers>
+        <Frame
+            x:Name="MainFrame"
+            Padding="0"
+            BackgroundColor="White"
+            CornerRadius="10"
+            HorizontalOptions="Center"
+            OutlineColor="Transparent"
+            VerticalOptions="Center">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="FrameGestureRecognizer_OnTapped" />
+            </Frame.GestureRecognizers>
+            <Grid>
+                <StackLayout
+                    Orientation="Vertical"
+                    Spacing="0"
+                    WidthRequest="300">
+                    <Grid WidthRequest="300">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Margin="20,20,20,0"
+                            FontAttributes="Bold"
+                            FontSize="20"
+                            Text="{Binding EditorDescription}" />
+                        <elements:ExpandableEditor
+                            x:Name="TextEditor"
+                            Grid.Row="1"
+                            Margin="18,20,20,0"
+                            FontSize="15"
+                            Text="{Binding Text}">
+                            <elements:ExpandableEditor.Behaviors>
+                                <behaviors:EditorLengthValidatorBehavior BindingContext="{Binding Path=.}" MaxLength="{Binding MaxCharacters}" />
+                            </elements:ExpandableEditor.Behaviors>
+                        </elements:ExpandableEditor>
+                        <Label
+                            Grid.Row="2"
+                            Margin="0,3,22,0"
+                            HorizontalOptions="End">
+                            <Label.Text>
+                                <converter:MultiBinding Converter="{StaticResource CharactersAndMaxCharactersToStringConverter}">
+                                    <Binding Path="CharactersCount" />
+                                    <Binding Path="MaxCharacters" />
+                                </converter:MultiBinding>
+                            </Label.Text>
+                        </Label>
+                        <StackLayout
+                            Grid.Row="3"
+                            Margin="0,15,0,5"
+                            HorizontalOptions="End"
+                            Orientation="Horizontal"
+                            VerticalOptions="End">
+                            <Button
+                                BackgroundColor="White"
+                                BorderColor="White"
+                                BorderWidth="0"
+                                Clicked="Button_OnClicked"
+                                Text="ABBRECHEN"
+                                TextColor="DarkOrange" />
+                            <Button
+                                BackgroundColor="White"
+                                BorderColor="White"
+                                Command="{Binding SaveTextCommand}"
+                                Text="FERTIG"
+                                TextColor="DarkOrange" />
+                        </StackLayout>
+                    </Grid>
+
+                </StackLayout>
+            </Grid>
+
+        </Frame>
+    </Grid>
+</pages:PopupPage>

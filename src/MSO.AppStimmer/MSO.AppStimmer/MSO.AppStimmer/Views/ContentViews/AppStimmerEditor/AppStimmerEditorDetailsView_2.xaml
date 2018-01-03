@@ -1,63 +1,319 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
-             x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorDetailsView_2">
-  <ContentView.Content>
-        <ScrollView x:Name="MainScrollView" Scrolled="MainScrollView_OnScrolled">
-            <Grid RowSpacing="10">
-              <Grid.RowDefinitions>
-                  <RowDefinition Height="Auto"></RowDefinition>
-                  <RowDefinition Height="*"></RowDefinition>
-              </Grid.RowDefinitions>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorDetailsView_2"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
+    xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:enums="clr-namespace:MSO.StimmApp.Enums;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
 
-                <Grid x:Name="MainPicture">
+    <ContentView.Content>
+        <Grid>
+            <elements:ScrollbarLessScrollView x:Name="MainScrollView" Scrolled="MainScrollView_OnScrolled">
+                <Grid Padding="0" RowSpacing="0">
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
-                    <Image
+
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <Image
+                            x:Name="MainPicture"
+                            Grid.RowSpan="2"
+                            Aspect="AspectFill"
+                            HeightRequest="290"
+                            HorizontalOptions="Fill"
+                            Source="{Binding AppStimmer.Picture, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
+                            VerticalOptions="Fill" />
+                        <Frame
+                            x:Name="MainPictureOverlayFrame"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Padding="0"
+                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
+                            CornerRadius="0"
+                            HorizontalOptions="Fill"
+                            Opacity="0"
+                            OutlineColor="Transparent"
+                            VerticalOptions="Fill">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="MainPicture_OnTapped" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+                        <elements:GradientFrame
+                            x:Name="TitleFrame"
+                            Grid.Row="1"
+                            Padding="0"
+                            EndColor="#55000000"
+                            OutlineColor="Transparent"
+                            StartColor="#00000000" />
+                    </Grid>
+
+                    <Grid
                         Grid.Row="0"
-                        Grid.RowSpan="2"
-                        AbsoluteLayout.LayoutBounds="0,0,1,1"
-                        AbsoluteLayout.LayoutFlags="All"
-                        Aspect="AspectFill"
-                        Opacity=".8"
-                        Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}" />
-                    <elements:GradientFrame
-                        Grid.Row="1"
                         Padding="0"
-                        EndColor="#AA000000"
-                        OutlineColor="Transparent"
-                        StartColor="#00000000">
+                        BackgroundColor="Transparent"
+                        HeightRequest="57"
+                        VerticalOptions="End">
                         <Label
-                            Margin="12,12,0,12"
-                            FontSize="20"
-                            Text="{Binding AppStimmer.Title}"
-                            TextColor="White" />
-                    </elements:GradientFrame>
+                            x:Name="TitleLabel"
+                            Grid.Row="0"
+                            Margin="15,0,0,0"
+                            FontSize="30"
+                            HeightRequest="57"
+                            IsVisible="{Binding DisplayNavigationBarTitle, Converter={StaticResource BooleanConverter}, ConverterParameter=inverted}"
+                            Text="{Binding AppStimmer.Title, Converter={StaticResource StringToPlaceholderConverter}, ConverterParameter='Titel hinzufügen...'}"
+                            TextColor="{Binding AppStimmer.Title, Converter={StaticResource ColorToDarkerColorConverter}, ConverterParameter='#FFFFFF 0.9'}"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <elements:TintedSvgCachedImage
+                            Margin="15"
+                            HeightRequest="20"
+                            HorizontalOptions="End"
+                            IsVisible="{Binding IsEditable}"
+                            Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
+                            TintColor="White"
+                            VerticalOptions="Center"
+                            WidthRequest="20">
+                            <elements:TintedSvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
+                            </elements:TintedSvgCachedImage.GestureRecognizers>
+                        </elements:TintedSvgCachedImage>
+                    </Grid>
+
+                    <StackLayout
+                        Grid.Row="1"
+                        Orientation="Vertical"
+                        Spacing="0">
+                        <StackLayout
+                            BackgroundColor="White"
+                            Orientation="Vertical"
+                            Spacing="0">
+                            <Grid Padding="0" BackgroundColor="White">
+                                <Label
+                                    Margin="30,10,30,10"
+                                    FontSize="17"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"
+                                    Opacity="{Binding AppStimmer.Appstract, Converter={StaticResource StringToPlaceholderOpacityConverter}, ConverterParameter=0.6}"
+                                    Text="{Binding AppStimmer.Appstract, Converter={StaticResource StringToPlaceholderConverter}, ConverterParameter='Bitte füge einen Appstract hinzu, das wäre nett...'}"
+                                    TextColor="#838383"
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Appstract}" />
+                                    </Label.GestureRecognizers>
+                                </Label>
+                                <elements:TintedSvgCachedImage
+                                    Margin="20"
+                                    HeightRequest="17"
+                                    HorizontalOptions="End"
+                                    IsVisible="{Binding IsEditable}"
+                                    Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
+                                    TintColor="Gray"
+                                    VerticalOptions="Center"
+                                    WidthRequest="17">
+                                    <elements:TintedSvgCachedImage.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Appstract}" />
+                                    </elements:TintedSvgCachedImage.GestureRecognizers>
+                                </elements:TintedSvgCachedImage>
+                            </Grid>
+
+                            <Grid
+                                Margin="15,0,15,0"
+                                BackgroundColor="White"
+                                HeightRequest="30"
+                                HorizontalOptions="Fill">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    Grid.Column="0"
+                                    FontAttributes="Bold"
+                                    Text="MEDIEN"
+                                    TextColor="#838383"
+                                    VerticalOptions="CenterAndExpand" />
+                                <BoxView
+                                    Grid.Column="1"
+                                    HeightRequest="1"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="CenterAndExpand"
+                                    Color="#838383" />
+                            </Grid>
+                            <StackLayout Orientation="Vertical" Spacing="0">
+                                <Grid>
+                                    <xForms:SfListView
+                                        x:Name="AttachmentsScrollView"
+                                        BackgroundColor="White"
+                                        HeightRequest="100"
+                                        IsScrollBarVisible="False"
+                                        ItemSize="100"
+                                        ItemsSource="{Binding AppStimmer.Attachments, Mode=OneWay, Converter={StaticResource AppStimmerAttachmentsToMediaAttachmentsViewConverter}}"
+                                        Orientation="Horizontal"
+                                        ScrollStateChanged="AttachmentsScrollView_OnScrollStateChanged"
+                                        SelectionBackgroundColor="Transparent">
+                                        <xForms:SfListView.ItemTemplate>
+                                            <DataTemplate>
+                                                <ContentView Padding="5,5,5,10" Content="{Binding View}" />
+                                            </DataTemplate>
+                                        </xForms:SfListView.ItemTemplate>
+                                    </xForms:SfListView>
+                                    <Grid
+                                        x:Name="AddAttachmentButton"
+                                        Margin="0,0,60,0"
+                                        HeightRequest="65"
+                                        HorizontalOptions="End"
+                                        IsVisible="{Binding IsEditable}"
+                                        VerticalOptions="Center"
+                                        WidthRequest="65">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
+                                        </Grid.GestureRecognizers>
+                                        <BoxView
+                                            BackgroundColor="White"
+                                            HeightRequest="40"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            WidthRequest="40" />
+                                        <elements:TintedSvgCachedImage
+                                            HeightRequest="65"
+                                            HorizontalOptions="Center"
+                                            Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
+                                            TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.StandardButtonColor}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="65" />
+                                    </Grid>
+                                </Grid>
+
+                                <Grid
+                                    Margin="15,10,15,0"
+                                    BackgroundColor="White"
+                                    HeightRequest="30"
+                                    HorizontalOptions="Fill">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="20" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label
+                                        Grid.Column="0"
+                                        FontAttributes="Bold"
+                                        Text="BESCHREIBUNG"
+                                        TextColor="#838383"
+                                        VerticalOptions="CenterAndExpand" />
+                                    <BoxView
+                                        Grid.Column="1"
+                                        HeightRequest="1"
+                                        HorizontalOptions="Fill"
+                                        VerticalOptions="CenterAndExpand"
+                                        Color="#838383" />
+                                    <elements:TintedSvgCachedImage
+                                        x:Name="EditDescriptionButton"
+                                        Grid.Column="2"
+                                        HeightRequest="17"
+                                        IsVisible="{Binding IsEditable}"
+                                        Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
+                                        TintColor="Gray"
+                                        WidthRequest="17">
+                                        <elements:TintedSvgCachedImage.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="EditDescriptionButton_OnTapped" />
+                                        </elements:TintedSvgCachedImage.GestureRecognizers>
+                                    </elements:TintedSvgCachedImage>
+                                </Grid>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <Frame
+                            Padding="0"
+                            BackgroundColor="White"
+                            CornerRadius="0"
+                            OutlineColor="Transparent">
+                            <Label
+                                Margin="10,0,10,0"
+                                BackgroundColor="White"
+                                FontSize="17"
+                                HeightRequest="2000"
+                                Opacity="{Binding AppStimmer.Description, Converter={StaticResource StringToPlaceholderOpacityConverter}, ConverterParameter=0.35}"
+                                Text="{Binding AppStimmer.Description, Converter={StaticResource StringToPlaceholderConverter}, ConverterParameter='Hier kannst du den AppStimmer ausführlich beschreiben...'}"
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemTextColor}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="EditDescriptionButton_OnTapped" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </Frame>
+
+                        <!--<BoxView BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}" HeightRequest="800" />-->
+                    </StackLayout>
                 </Grid>
+            </elements:ScrollbarLessScrollView>
 
-                <StackLayout Grid.Row="1">
-                    <Image 
-                           Aspect="AspectFill" HeightRequest="300"
-                           HorizontalOptions="Fill"
-                           Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
-                           VerticalOptions="Fill" />
-                    <Image HeightRequest="300"
-                           Aspect="AspectFill"
-                           HorizontalOptions="Fill"
-                           Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
-                           VerticalOptions="Fill" />
-                    <Image HeightRequest="300"
-                           Aspect="AspectFill"
-                           HorizontalOptions="Fill"
-                           Source="{Binding AppStimmer.Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
-                           VerticalOptions="Fill" />
-                </StackLayout>
+            <elements:GradientFrame
+                x:Name="TopBarGradientFrame"
+                Grid.Row="0"
+                Padding="0"
+                BackgroundColor="{Binding NavigationBarBackgroundColor}"
+                EndColor="#00000000"
+                HeightRequest="57"
+                OutlineColor="Transparent"
+                StartColor="#55000000"
+                VerticalOptions="Start" />
+            <StackLayout
+                HeightRequest="57"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                Spacing="0"
+                VerticalOptions="Start">
+                <Image
+                    Margin="15"
+                    HorizontalOptions="Start"
+                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.arrow-left.scale-100.png}"
+                    VerticalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackButtonImage_OnTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
 
-            </Grid>
-          
-        </ScrollView> 
-  </ContentView.Content>
+                <Label
+                    Margin="0,14,0,0"
+                    FontSize="20"
+                    IsVisible="{Binding DisplayNavigationBarTitle}"
+                    Opacity="{Binding AppStimmer.Title, Converter={StaticResource StringToPlaceholderOpacityConverter}, ConverterParameter=0.6}"
+                    Text="{Binding AppStimmer.Title, Converter={StaticResource StringToPlaceholderConverter}, ConverterParameter='Titel hinzufügen...'}"
+                    TextColor="White" />
+            </StackLayout>
+
+            <elements:TintedSvgCachedImage
+                Margin="15"
+                HeightRequest="20"
+                HorizontalOptions="End"
+                IsVisible="{Binding DisplayNavigationBarTitle}"
+                Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
+                TintColor="White"
+                VerticalOptions="Start"
+                WidthRequest="20">
+                <elements:TintedSvgCachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
+                </elements:TintedSvgCachedImage.GestureRecognizers>
+            </elements:TintedSvgCachedImage>
+
+            <!--<elements:CustomNavigationBar
+                x:Name="CustomNavigationBar"
+                BackgroundColor="{Binding NavigationBarBackgroundColor}"
+                VerticalOptions="Start" />-->
+        </Grid>
+    </ContentView.Content>
 </ContentView>

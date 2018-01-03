@@ -33,6 +33,7 @@
 
             <viewModels:ViewModelLocator x:Key="Locator" />
             <converter:ImageResourceConverter x:Key="ImageSourceConverter" />
+            <converter:AppStimmerAttachmentsToMediaAttachmentsViewConverter x:Key="AppStimmerAttachmentsToMediaAttachmentsViewConverter" />
             <converter:AppStimmerAttachmentToViewEnabledConverter x:Key="AppStimmerAttachmentToViewEnabledConverter" />
             <converter:AppStimmerAttachmentTypeToViewEnabledConverter x:Key="AppStimmerAttachmentTypeToViewEnabledConverter" />
             <converter:HexStringToColorConverter x:Key="HexStringToColorConverter" />
@@ -50,6 +51,12 @@
             <converter:AppStimmerAttachmentsToMainPictureConverter x:Key="AppStimmerAttachmentsToMainPictureConverter" />
             <converter:ImageAttachmentToImageAttachmentViewModel x:Key="ImageAttachmentToImageAttachmentViewModel" />
             <converter:ImageSourceToImageConverter x:Key="ImageSourceToImageConverter" />
+            <converter:CharactersAndMaxCharactersToStringConverter x:Key="CharactersAndMaxCharactersToStringConverter" />
+            <converter:StringToPlaceholderOpacityConverter x:Key="StringToPlaceholderOpacityConverter" />
+            <converter:AppStimmerAttachmentsToMediaAttachmentsConverter x:Key="AppStimmerAttachmentsToMediaAttachmentsConverter" />
+            <converter:StringToPlaceholderConverter x:Key="StringToPlaceholderConverter" />
+            <converter:ColorToDarkerColorConverter x:Key="ColorToDarkerColorConverter" />
+            <converter:AppStimmerAttachmentsToMediaAddachmentCountConverter x:Key="AppStimmerAttachmentsToMediaAddachmentCountConverter" />
             <converter:AppStimmerMainPictureAvailabilityToVisibilityConverter x:Key="AppStimmerMainPictureAvailabilityToVisibilityConverter" />
         </ResourceDictionary>
     </Application.Resources>

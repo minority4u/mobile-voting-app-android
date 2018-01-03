@@ -36,11 +36,11 @@
                                 <Image
                                     Grid.Row="0"
                                     Grid.RowSpan="2"
-                                    AbsoluteLayout.LayoutBounds="0,0,1,1"
-                                    AbsoluteLayout.LayoutFlags="All"
                                     Aspect="AspectFill"
-                                    Opacity=".8"
-                                    Source="{Binding Attachments, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}" />
+                                    HeightRequest="250"
+                                    HorizontalOptions="Fill"
+                                    Source="{Binding Picture, Converter={StaticResource ImageSourceToImageConverter}}"
+                                    VerticalOptions="Fill" />
                                 <elements:GradientFrame
                                     Grid.Row="1"
                                     Padding="0"

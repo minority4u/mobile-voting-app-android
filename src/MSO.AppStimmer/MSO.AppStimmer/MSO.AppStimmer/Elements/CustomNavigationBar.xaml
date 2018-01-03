@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Elements.CustomNavigationBar"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    HeightRequest="57">
+    <ContentView.Content>
+        <Grid>
+            <StackLayout Orientation="Horizontal">
+                <Image
+                    Margin="17"
+                    HorizontalOptions="Start"
+                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.arrow-left.scale-100.png}"
+                    VerticalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="BackButtonImage_OnTapped" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

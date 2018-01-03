@@ -39,27 +39,45 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Behaviors\EditorLengthValidatorBehavior.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentsToDescriptionAttachmentConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentsToMainPictureConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentsToMediaAddachmentCountConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentsToMediaAttachmentsConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentsToMediaAttachmentsViewConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentToViewEnabledConverter.cs" />
     <Compile Include="Converter\AppStimmerAttachmentViewToViewModelConverter.cs" />
     <Compile Include="Converter\AppStimmerEditorDisplayTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\AppStimmerEditorEditableToTitleConverter.cs" />
     <Compile Include="Converter\AppStimmerMainPictureAvailabilityToVisibilityConverter.cs" />
+    <Compile Include="Converter\CharactersAndMaxCharactersToStringConverter.cs" />
     <Compile Include="Converter\ColorChannelsToColorConverter.cs" />
     <Compile Include="Converter\ColorToColorChannelConverter.cs" />
+    <Compile Include="Converter\ColorToDarkerColorConverter.cs" />
     <Compile Include="Converter\CrossAudioManagerTimeSpanToStringConverter.cs" />
     <Compile Include="Converter\ImageAttachmentToImageAttachmentViewModel.cs" />
     <Compile Include="Converter\ImageSourceToImageConverter.cs" />
     <Compile Include="Converter\ImageToSvgSourceConverter.cs" />
     <Compile Include="Converter\CrossVideoManagerTimeSpanToStringConverter.cs" />
     <Compile Include="Converter\LocalImageResourceConverter.cs" />
+    <Compile Include="Converter\StringToPlaceholderConverter.cs" />
+    <Compile Include="Converter\StringToPlaceholderOpacityConverter.cs" />
     <Compile Include="Converter\ÁppStimmerEditorDisplayTypeToOpacityConverter.cs" />
+    <Compile Include="Elements\BottomlinelessEntry.cs" />
     <Compile Include="Elements\ColoredNavigationPage.xaml.cs">
       <DependentUpon>ColoredNavigationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Elements\CustomNavigationBar.xaml.cs">
+      <DependentUpon>CustomNavigationBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\BottomlinelessExpandableEditor.cs" />
     <Compile Include="Elements\ExpandableEditor.cs" />
     <Compile Include="Elements\PinchToZoomContainer.cs" />
+    <Compile Include="Elements\ScrollbarLessScrollView.cs" />
+    <Compile Include="Elements\SubmitButton.xaml.cs">
+      <DependentUpon>SubmitButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Elements\TintedSvgCachedImage.cs" />
     <Compile Include="Converter\AppStimmerAttachmentTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
@@ -70,6 +88,7 @@
     <Compile Include="Elements\VideoPlaybackSlider.cs" />
     <Compile Include="Elements\ZoomableScrollView.cs" />
     <Compile Include="Elements\ZoomImage.cs" />
+    <Compile Include="Enums\EditAppStimmerTextType.cs" />
     <Compile Include="Extensions\Colors.cs" />
     <Compile Include="Elements\GradientFrame.cs" />
     <Compile Include="Extensions\Images.cs" />
@@ -79,15 +98,23 @@
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Messages\AppStimmerButtonPressedMessage.cs" />
+    <Compile Include="Models\MediaAttachmentViewEntry.cs" />
     <Compile Include="Models\MenuPageItem.cs" />
     <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\ISoftwareKeyboardService.cs" />
+    <Compile Include="Services\SoftwareKeyboardEventArgs.cs" />
+    <Compile Include="Services\SoftwareKeyboardEventHandler.cs" />
+    <Compile Include="Services\SoftwareKeyboardServiceBase.cs" />
     <Compile Include="ViewModels\AppStimmerEditorViewModel.cs" />
     <Compile Include="ViewModels\AppStimmersViewModel.cs" />
     <Compile Include="ViewModels\AppStimmerViewModel.cs" />
     <Compile Include="ViewModels\AudioAttachmentViewModel.cs" />
     <Compile Include="ViewModels\CurrentUserViewModel.cs" />
+    <Compile Include="ViewModels\EditAppStimmerDescriptionViewModel.cs" />
+    <Compile Include="ViewModels\EditAppStimmerTextViewModel.cs" />
     <Compile Include="ViewModels\ImageAttachmentViewModel.cs" />
     <Compile Include="ViewModels\MenuPageMasterViewModel.cs" />
+    <Compile Include="ViewModels\PictureAttachmentPreviewViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="ViewModels\ShowVideoAttachmentViewModel.cs" />
     <Compile Include="ViewModels\VideoAttachmentViewModel.cs" />
@@ -171,6 +198,15 @@
     <Compile Include="MenuPageMaster.xaml.cs">
       <DependentUpon>MenuPageMaster.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\EditAppStimmerDescriptionPopupPage.xaml.cs">
+      <DependentUpon>EditAppStimmerDescriptionPopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\EditTextPopupPage.xaml.cs">
+      <DependentUpon>EditTextPopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PictureAttachmentPreviewPage.xaml.cs">
+      <DependentUpon>PictureAttachmentPreviewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
@@ -182,6 +218,9 @@
     </Compile>
     <Compile Include="Views\Pages\ShowVideoAttachmentPage.xaml.cs">
       <DependentUpon>ShowVideoAttachmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\VideoAttachmentPreviewPage.xaml.cs">
+      <DependentUpon>VideoAttachmentPreviewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -274,6 +313,18 @@
     </Reference>
     <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.0\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Core.XForms, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.Core.15.4.0.20\lib\portable-win+net45+wp80+win81+wpa81\Syncfusion.Core.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DataSource.Portable, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.DataSource.15.4.0.20\lib\portable-win+net45+wp80+win81+wpa81\Syncfusion.DataSource.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.Portable, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.GridCommon.15.4.0.20\lib\portable-win+net45+wp80+win81+wpa81\Syncfusion.GridCommon.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.XForms, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfListView.15.4.0.20\lib\portable-win+net45+wp80+win81+wpa81\Syncfusion.SfListView.XForms.dll</HintPath>
     </Reference>
     <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
@@ -595,6 +646,57 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorDetailsView_2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\arrow-left.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Elements\CustomNavigationBar.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Photo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\video_call.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\edit_pen.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\EditTextPopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\EditAppStimmerDescriptionPopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\VideoAttachmentPreviewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\PictureAttachmentPreviewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\material_arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Elements\SubmitButton.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

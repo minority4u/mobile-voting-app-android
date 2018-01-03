@@ -7,9 +7,5 @@ using FFImageLoading.Work;
 
 namespace MSO.StimmApp
 {
-    public class Constants
-    {
-        public static Xamarin.Forms.ImageSource NoImageProvidedImageSource  =>
-            Xamarin.Forms.ImageSource.FromResource("MSO.StimmApp.Resources.Images.No_Picture.jpg");
-    }
+    
 }
