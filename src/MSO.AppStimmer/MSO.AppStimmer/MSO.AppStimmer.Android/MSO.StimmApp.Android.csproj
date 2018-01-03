@@ -305,11 +305,8 @@
     <Compile Include="Renderers\MyScrollViewRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="SplashActivity.cs" />
-=======
     <Compile Include="Resources\SoftwareKeyboardService.cs" />
->>>>>>> origin/master
     <Compile Include="XFormsAppCompatDroid.cs" />
   </ItemGroup>
   <ItemGroup>

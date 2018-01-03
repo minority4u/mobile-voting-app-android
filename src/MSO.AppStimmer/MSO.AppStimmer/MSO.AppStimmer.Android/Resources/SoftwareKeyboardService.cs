@@ -1,5 +1,5 @@
 ﻿using Android.App;
-using MSO.AppStimmer.Droid;
+using MSO.StimmApp.Droid;
 using MSO.StimmApp.Services;
 using Xamarin.Forms;
 using Application = Xamarin.Forms.Application;

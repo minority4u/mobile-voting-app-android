@@ -7,13 +7,11 @@ using MSO.StimmApp.Droid.Resources;
 using MSO.StimmApp.Services;
 using Plugin.MediaManager.Forms.Android;
 using Plugin.Permissions;
-<<<<<<< HEAD
 using Xamarin.Forms.Platform.Android;
-=======
 using Plugin.Permissions.Abstractions;
 using Xamarin.Forms;
+using Android.Graphics;
 using Color = Android.Graphics.Color;
->>>>>>> origin/master
 using Permission = Android.Content.PM.Permission;
 
 namespace MSO.StimmApp.Droid
