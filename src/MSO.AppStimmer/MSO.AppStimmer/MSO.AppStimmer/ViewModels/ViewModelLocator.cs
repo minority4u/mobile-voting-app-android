@@ -45,7 +45,8 @@ namespace MSO.StimmApp.ViewModels
 
             if (App.IsTestMode)
             {
-                SimpleIoc.Default.Register<IAppStimmerService, LocalAppStimmerService>();
+                //SimpleIoc.Default.Register<IAppStimmerService, LocalAppStimmerService>();
+                SimpleIoc.Default.Register<IAppStimmerService, MockAppStimmerService>();
             }
             else
             {
