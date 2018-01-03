@@ -310,7 +310,7 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             }
         }
 
-        private async void BackButtonImage_OnTapped(object sender, EventArgs e)
+        private void BackButtonImage_OnTapped(object sender, EventArgs e)
         {
             //    var page = this.Parent.Parent;
 
@@ -318,7 +318,7 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             //    
             //}
 
-            await PopupNavigation.PopAsync();
+            App.NavigationService.GoBack();
         }
 
         private async void EditDescriptionButton_OnTapped(object sender, EventArgs e)

@@ -10,11 +10,14 @@ namespace MSO.StimmApp.Models
 
         public string Icon { get; set; }
 
-        public MenuPageItem(Type targetType, string title, string icon = null)
+        public string PageKey { get; set; }
+
+        public MenuPageItem(Type targetType, string pageKey, string title, string icon = null)
         {
             this.TargetType = targetType;
             this.Title = title;
             this.Icon = icon;
+            this.PageKey = pageKey;
         }
     }
 }

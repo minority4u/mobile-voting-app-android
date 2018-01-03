@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 namespace MSO.StimmApp.Views.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AppStimmerEditorPage : PopupPage
+    public partial class AppStimmerEditorPage : ContentPage
     { 
         public AppStimmerEditorPage()
         {

@@ -70,13 +70,12 @@ namespace MSO.StimmApp.ViewModels
             this.appStimmerService.SaveAppStimmer(this.CurrentAppStimmer);
         }
 
-        public async void ShowDetailsForCurrentAppStimmer()
+        public void ShowDetailsForCurrentAppStimmer()
         {
             var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, this.CurrentAppStimmer, 
                 AppStimmerEditorDisplayType.Overview, isEditable: false);
 
-            var page = new AppStimmerEditorPage(viewModel);
-            await PopupNavigation.PushAsync(page);
+            App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor, viewModel);
         }
     }
 }

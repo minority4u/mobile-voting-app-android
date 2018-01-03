@@ -17,17 +17,16 @@ namespace MSO.StimmApp
             this.MasterPage.ListView.ItemSelected += OnItemSelected;
         }
 
-        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MenuPageItem;
             if (item == null)
                 return;
 
-            var page = (PopupPage) Activator.CreateInstance(item.TargetType);
+            var page = (Page) Activator.CreateInstance(item.TargetType);
             page.Title = item.Title;
 
-            await PopupNavigation.PushAsync(page);
-            //this.InitializePage(page);
+            this.InitializePage(page);
             this.ResetMenuPage();
         }
 

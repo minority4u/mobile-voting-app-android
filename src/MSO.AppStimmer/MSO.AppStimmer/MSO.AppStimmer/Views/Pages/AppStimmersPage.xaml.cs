@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 namespace MSO.StimmApp.Views.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AppStimmersPage : PopupPage
+    public partial class AppStimmersPage : ContentPage
     {
         public AppStimmersPage()
         {
@@ -25,7 +25,7 @@ namespace MSO.StimmApp.Views.Pages
             await this.ViewModel.LoadAllAppStimmers();
         }
 
-        private async void AppStimmersListView_OnItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs itemTappedEventArgs)
+        private  void AppStimmersListView_OnItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs itemTappedEventArgs)
         {
             // close the searchbar keyboard if we tab in the background
             if (SearchBar.IsFocused)
@@ -38,7 +38,7 @@ namespace MSO.StimmApp.Views.Pages
             if (!(itemTappedEventArgs.ItemData is AppStimmer appStimmer))
                 return;
 
-            await this.ViewModel.EditAppStimmer(appStimmer);
+            this.ViewModel.EditAppStimmer(appStimmer);
         }
 
 
