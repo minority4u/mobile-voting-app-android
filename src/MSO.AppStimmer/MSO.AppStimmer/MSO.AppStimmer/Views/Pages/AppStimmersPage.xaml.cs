@@ -10,23 +10,24 @@ namespace MSO.StimmApp.Views.Pages
     {
         public AppStimmersPage()
         {
-            InitializeComponent();
-
+            this.InitializeComponent();
         }
-
         
         public AppStimmersViewModel ViewModel => this.BindingContext as AppStimmersViewModel;
         SearchBar searchBar = null;
 
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await this.ViewModel.LoadAllAppStimmers();
+        }
 
         private void AppStimmersListView_OnItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs itemTappedEventArgs)
         {
             if (!(itemTappedEventArgs.ItemData is AppStimmer appStimmer))
                 return;
 
-
             this.ViewModel.EditAppStimmer(appStimmer);
-
         }
 
 

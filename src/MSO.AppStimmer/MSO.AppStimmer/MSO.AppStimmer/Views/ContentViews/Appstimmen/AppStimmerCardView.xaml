@@ -11,6 +11,8 @@
         <elements:SwipeCardView
             x:Name="SwipeCardView"
             ItemsSource="{Binding AppStimmers}"
+            SwipedLeftCommand="{Binding SwipedLeftCommand}"
+            SwipedRightCommand="{Binding SwipedRightCommand}"
             TopItem="{Binding CurrentAppStimmer}">
             <elements:SwipeCardView.ItemTemplate>
                 <DataTemplate x:Name="AppstimmerTemplate">

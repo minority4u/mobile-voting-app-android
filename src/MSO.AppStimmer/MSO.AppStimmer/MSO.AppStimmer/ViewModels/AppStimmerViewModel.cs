@@ -20,6 +20,8 @@ namespace MSO.StimmApp.ViewModels
         private readonly IAppStimmerService appStimmerService;
         private ObservableCollection<AppStimmer> appStimmers;
         private RelayCommand showDetailsCommand;
+        private RelayCommand swipedLeftCommand;
+        private RelayCommand swipedRightCommand;
 
         [PreferredConstructor]
         public AppStimmerViewModel(IAppStimmerService appStimmerService)
@@ -47,6 +49,24 @@ namespace MSO.StimmApp.ViewModels
 
         public RelayCommand ShowDetailsCommand => this.showDetailsCommand ?? (this.showDetailsCommand =
             new RelayCommand(this.ShowDetailsForCurrentAppStimmer));
+
+        public RelayCommand SwipedLeftCommand => this.swipedLeftCommand ?? (this.swipedLeftCommand =
+            new RelayCommand(this.SwipeLeft));
+
+        public RelayCommand SwipedRightCommand => this.swipedRightCommand ?? (this.swipedRightCommand =
+            new RelayCommand(this.SwipeRight));
+
+        private void SwipeLeft()
+        {
+            //this.CurrentAppStimmer.NumDownvotes += 1;
+            this.appStimmerService.SaveAppStimmer(this.CurrentAppStimmer);
+        }
+
+        private void SwipeRight()
+        {
+            //this.CurrentAppStimmer.NumUpvotes += 1;
+            this.appStimmerService.SaveAppStimmer(this.CurrentAppStimmer);
+        }
 
         public void ShowDetailsForCurrentAppStimmer()
         {
