@@ -57,9 +57,14 @@ namespace MSO.StimmApp.Views.Pages
             if (searchBar?.Text == null)
                 return true;
 
-            // title or description contains the filter expression
-            if (obj is AppStimmer appstimmer && (appstimmer.Description.ToLower().Contains(searchBar.Text.ToLower())
-                                       || appstimmer.Title.ToLower().Contains(searchBar.Text.ToLower())))
+            // checks wheather 
+            // this appstimmer is not empty
+            // searchbartext contains in description or title
+            // user voted for this appstimmer
+            if (obj is AppStimmer appstimmer && 
+                (appstimmer.Description.ToLower().Contains(searchBar.Text.ToLower())
+                                       || appstimmer.Title.ToLower().Contains(searchBar.Text.ToLower()))
+                                       && appstimmer.VotedFor)
                 return true;
             else
                 return false;

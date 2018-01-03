@@ -10,6 +10,7 @@ namespace MSO.StimmApp.Core.Models
         private string appstract;
         private string description;
         private string picture;
+        private Boolean votedFor = false;
         private ObservableCollection<AppStimmerAttachment> attachments;
 
         public AppStimmer() : base(true)
@@ -41,6 +42,12 @@ namespace MSO.StimmApp.Core.Models
         {
             get => this.picture;
             set => this.Set(ref this.picture, value);
+        }
+
+        public Boolean VotedFor
+        {
+            get => this.votedFor;
+            set => this.Set(ref this.votedFor, value);
         }
 
         public ObservableCollection<AppStimmerAttachment> Attachments
