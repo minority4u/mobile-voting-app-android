@@ -41,14 +41,23 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             scrollView = this.AttachmentsScrollView.GetScrollView();
             scrollView.Scrolled += AttachmentsScrollVIew_OnScrolled;
 
-            Messenger.Default.Register<AppStimmerAttachmentAddedMessage>(this, this.OnAppStimmerAttachmentAdded);
+            
+
+            //Messenger.Default.Register<AppStimmerAttachmentAddedMessage>(this, this.OnAppStimmerAttachmentAdded);
             //this.Parallax();
         }
 
         private async void OnAppStimmerAttachmentAdded(AppStimmerAttachmentAddedMessage message)
         {  
-            await Task.Delay(250);
-            this.AttachmentsScrollView.ScrollTo(1000);
+            await Task.Delay(150);
+            await DelayActionAsync(100, () => { this.AttachmentsScrollView.ScrollTo(1000); });
+        }
+
+        public async Task DelayActionAsync(int delay, Action action)
+        {
+            await Task.Delay(delay);
+
+            action();
         }
 
         private void AttachmentsScrollView_OnScrollStateChanged(object sender, ScrollStateChangedEventArgs e)

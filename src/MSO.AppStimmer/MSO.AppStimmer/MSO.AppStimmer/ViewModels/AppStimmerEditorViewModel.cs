@@ -63,6 +63,10 @@ namespace MSO.StimmApp.ViewModels
             {
                 this.BeginAppStimmerEdit(appStimmer);
             }
+            else
+            {
+                this.AppStimmer = appStimmer;
+            }
 
             Messenger.Default.Register<AppStimmerAttachmentAddedMessage>(this, this.OnAppStimmerAttachmentAdded);
 
@@ -164,10 +168,14 @@ namespace MSO.StimmApp.ViewModels
 
         private async void SaveAppStimmer()
         {
-            this.AppStimmer.EndEdit();
-            await Task.Run(() => this.appStimmerService.SaveAppStimmer(this.AppStimmer));
+            if (this.IsEditable)
+            {
+                this.AppStimmer.EndEdit();
+                await Task.Run(() => this.appStimmerService.SaveAppStimmer(this.AppStimmer));
 
-            this.BeginAppStimmerEdit(new AppStimmer());
+                this.BeginAppStimmerEdit(new AppStimmer());
+            }
+            
             App.NavigationService.GoBack(); 
         }
 

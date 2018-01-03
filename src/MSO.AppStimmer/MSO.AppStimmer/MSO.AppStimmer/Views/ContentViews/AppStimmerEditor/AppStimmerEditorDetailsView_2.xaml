@@ -158,7 +158,7 @@
                             <StackLayout Orientation="Vertical" Spacing="0">
                                 <Grid>
                                     <xForms:SfListView
-                                        x:Name="AttachmentsScrollView"
+                                        x:Name="AttachmentsScrollView"  
                                         BackgroundColor="White"
                                         HeightRequest="100"
                                         IsScrollBarVisible="False"
