@@ -31,6 +31,7 @@ namespace MSO.StimmApp.Views.Pages
             if (SearchBar.IsFocused)
             {
                 SearchBar.Unfocus();
+                this.ListView.DataSource.RefreshFilter();
                 return;
             }
 
@@ -54,17 +55,18 @@ namespace MSO.StimmApp.Views.Pages
 
         private bool FilterAppstimmers(object obj)
         {
-            // filter within the title or the description, returns only Appstimmer the user voted for
+            // filter within the title or description, returns only Appstimmer the user voted for
             
-            AppStimmer appStimmer = (AppStimmer)obj;
+            var appStimmer = obj as AppStimmer;
 
             // check wheather no filter is set so far
-            if (searchBar?.Text == null && appStimmer.VotedFor)
+            // show all items the user voted for
+            if ((searchBar == null || searchBar.Text == null) && appStimmer.VotedFor)
                 return true;
 
             // checks wheather 
-            // searchbartext contains in description or title
-            // user voted for this appstimmer
+            // searchbar text contains in description or title
+            // and user voted for this appstimmer
             if ((appStimmer.Description.ToLower().Contains(searchBar.Text.ToLower())
                                        || appStimmer.Title.ToLower().Contains(searchBar.Text.ToLower()))
                                        && appStimmer.VotedFor)
