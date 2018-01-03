@@ -300,11 +300,16 @@
                 Margin="15"
                 HeightRequest="20"
                 HorizontalOptions="End"
-                IsVisible="{Binding DisplayNavigationBarTitle}"
                 Source="resource://MSO.StimmApp.Resources.Icons.edit_pen.svg"
                 TintColor="White"
                 VerticalOptions="Start"
                 WidthRequest="20">
+                <elements:TintedSvgCachedImage.IsVisible>
+                    <converter:MultiBinding Converter="{StaticResource AppStimmerToNavigationBarEditPenVisibilityConverter}">
+                        <Binding Path="DisplayNavigationBarTitle" />
+                        <Binding Path="IsEditable" />
+                    </converter:MultiBinding>
+                </elements:TintedSvgCachedImage.IsVisible>
                 <elements:TintedSvgCachedImage.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
                 </elements:TintedSvgCachedImage.GestureRecognizers>

@@ -31,6 +31,8 @@ namespace MSO.StimmApp.Views.Pages
             tapGesture.Tapped += TapGesture_Tapped;
             this.ImageZoomContainer.GestureRecognizers.Add(tapGesture);
 
+            //App.NavigationBarController.Color = Color.Green;
+
             //var screenHeight = App.NavigationBarController.ScreenHeight;
             //var navigationBarHeight = App.NavigationBarController.Height;
             //var relativeHeight = (float)navigationBarHeight / (float)screenHeight;
@@ -110,37 +112,43 @@ namespace MSO.StimmApp.Views.Pages
             var view1 = this.DescriptionLabel;
             var view2 = this.NavigationBarOverlayFrame;
 
-            Device.BeginInvokeOnMainThread(async () =>
+            var controlsVisible = (view1.Opacity == 1.0);
+
+            Device.BeginInvokeOnMainThread(() =>
             {
-                if (view1.IsVisible)
+                if (controlsVisible)
                 {
-                    await view1.FadeTo(0, 600);
-                    view1.IsVisible = false;
+                    App.NavigationBarController.HideNavigationBar();
+                    view2.TranslateTo(0, this.NavigationBarOverlayFrame.Height, 450U, Easing.Linear);
+
+                    view1.FadeTo(0, 250U, Easing.Linear);              
                 }
                 else
                 {
-                    view1.IsVisible = true;
-                    await view1.FadeTo(1, 600);
+                    App.NavigationBarController.ShowNavigationBar();
+                    view2.TranslateTo(0, 0, 450U, Easing.Linear);
+
+                    view1.FadeTo(1, 600U);
                 }
 
                 //App.NavigationBarController.Color = this.standardNavigationBarColor;
             });
 
-            Device.BeginInvokeOnMainThread(async () =>
-            {
-                if (view2.IsVisible)
-                {
-                    await view2.FadeTo(0, 600);
-                    view2.IsVisible = false;
-                }
-                else
-                {
-                    view2.IsVisible = true;
-                    await view2.FadeTo(1, 600);
-                }
+            //Device.BeginInvokeOnMainThread(async () =>
+            //{
+            //    if (view2.IsVisible)
+            //    {
+            //        await view2.FadeTo(0, 600);
+            //        view2.IsVisible = false;
+            //    }
+            //    else
+            //    {
+            //        view2.IsVisible = true;
+            //        await view2.FadeTo(1, 600);
+            //    }
 
-                //App.NavigationBarController.Color = Color.Black;
-            });
+            //    //App.NavigationBarController.Color = Color.Black;
+            //});
         }
 
         private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)

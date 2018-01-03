@@ -51,6 +51,7 @@
     <Compile Include="Converter\AppStimmerEditorDisplayTypeToViewVisibilityConverter.cs" />
     <Compile Include="Converter\AppStimmerEditorEditableToTitleConverter.cs" />
     <Compile Include="Converter\AppStimmerMainPictureAvailabilityToVisibilityConverter.cs" />
+    <Compile Include="Converter\AppStimmerToNavigationBarEditPenVisibilityConverter.cs" />
     <Compile Include="Converter\CharactersAndMaxCharactersToStringConverter.cs" />
     <Compile Include="Converter\ColorChannelsToColorConverter.cs" />
     <Compile Include="Converter\ColorToColorChannelConverter.cs" />
