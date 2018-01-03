@@ -1,4 +1,5 @@
-﻿using MSO.StimmApp.Core.Models;
+﻿using System;
+using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -24,6 +25,13 @@ namespace MSO.StimmApp.Views.Pages
 
         private void AppStimmersListView_OnItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs itemTappedEventArgs)
         {
+            // close the searchbar keyboard if we tab in the background
+            if (SearchBar.IsFocused)
+            {
+                SearchBar.Unfocus();
+                return;
+            }
+
             if (!(itemTappedEventArgs.ItemData is AppStimmer appStimmer))
                 return;
 
@@ -44,15 +52,20 @@ namespace MSO.StimmApp.Views.Pages
 
         private bool FilterAppstimmers(object obj)
         {
-        // filter within the title or the description
+            // filter within the title or the description, returns only Appstimmer the user voted for
+            
+            AppStimmer appStimmer = (AppStimmer)obj;
 
             // check wheather no filter is set so far
-            if (searchBar?.Text == null)
+            if (searchBar?.Text == null && appStimmer.VotedFor)
                 return true;
 
-            // title or description contains the filter expression
-            if (obj is AppStimmer appstimmer && (appstimmer.Description.ToLower().Contains(searchBar.Text.ToLower())
-                                       || appstimmer.Title.ToLower().Contains(searchBar.Text.ToLower())))
+            // checks wheather 
+            // searchbartext contains in description or title
+            // user voted for this appstimmer
+            if ((appStimmer.Description.ToLower().Contains(searchBar.Text.ToLower())
+                                       || appStimmer.Title.ToLower().Contains(searchBar.Text.ToLower()))
+                                       && appStimmer.VotedFor)
                 return true;
             else
                 return false;

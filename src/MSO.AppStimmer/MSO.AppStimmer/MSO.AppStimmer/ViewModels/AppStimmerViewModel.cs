@@ -60,13 +60,13 @@ namespace MSO.StimmApp.ViewModels
 
         private void SwipeLeft()
         {
-            //this.CurrentAppStimmer.NumDownvotes += 1;
+            this.CurrentAppStimmer.VotedFor = false;
             this.appStimmerService.SaveAppStimmer(this.CurrentAppStimmer);
         }
 
         private void SwipeRight()
         {
-            //this.CurrentAppStimmer.NumUpvotes += 1;
+            this.CurrentAppStimmer.VotedFor = true;
             this.appStimmerService.SaveAppStimmer(this.CurrentAppStimmer);
         }
 
