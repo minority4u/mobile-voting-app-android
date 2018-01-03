@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using MSO.StimmApp.Messages;
+using MSO.StimmApp.ViewModels;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.Elements
@@ -43,7 +44,18 @@ namespace MSO.StimmApp.Elements
             panGesture.PanUpdated += this.OnPanUpdated;
             this.GestureRecognizers.Add(panGesture);
 
+            var tapGesture = new TapGestureRecognizer();
+            tapGesture.Tapped += TapGestureOnTapped;
+            this.GestureRecognizers.Add(tapGesture);
+
             Messenger.Default.Register<AppStimmerButtonPressedMessage>(this, this.OnAppStimmerButtonPressed);
+        }
+
+        AppStimmerViewModel ViewModel => this.BindingContext as AppStimmerViewModel;
+
+        private void TapGestureOnTapped(object sender, EventArgs eventArgs)
+        {        
+            this.ViewModel.ShowDetailsForCurrentAppStimmer();
         }
 
         private void OnAppStimmerButtonPressed(AppStimmerButtonPressedMessage obj)
