@@ -1,6 +1,8 @@
 ﻿using System;
 using MSO.StimmApp.Elements;
 using MSO.StimmApp.Models;
+using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,16 +17,17 @@ namespace MSO.StimmApp
             this.MasterPage.ListView.ItemSelected += OnItemSelected;
         }
 
-        private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MenuPageItem;
             if (item == null)
                 return;
 
-            var page = (Page) Activator.CreateInstance(item.TargetType);
+            var page = (PopupPage) Activator.CreateInstance(item.TargetType);
             page.Title = item.Title;
 
-            this.InitializePage(page);
+            await PopupNavigation.PushAsync(page);
+            //this.InitializePage(page);
             this.ResetMenuPage();
         }
 

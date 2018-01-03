@@ -10,6 +10,8 @@ using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Core.ViewModels;
 using MSO.StimmApp.Views;
+using MSO.StimmApp.Views.Pages;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 
 namespace MSO.StimmApp.ViewModels
@@ -68,12 +70,13 @@ namespace MSO.StimmApp.ViewModels
             this.appStimmerService.SaveAppStimmer(this.CurrentAppStimmer);
         }
 
-        public void ShowDetailsForCurrentAppStimmer()
+        public async void ShowDetailsForCurrentAppStimmer()
         {
             var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, this.CurrentAppStimmer, 
                 AppStimmerEditorDisplayType.Overview, isEditable: false);
 
-            App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor, viewModel);
+            var page = new AppStimmerEditorPage(viewModel);
+            await PopupNavigation.PushAsync(page);
         }
     }
 }

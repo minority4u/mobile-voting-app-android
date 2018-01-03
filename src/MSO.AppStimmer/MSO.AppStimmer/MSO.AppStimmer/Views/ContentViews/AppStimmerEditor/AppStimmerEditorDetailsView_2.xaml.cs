@@ -318,7 +318,7 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             //    
             //}
 
-            App.NavigationService.GoBack();
+            await PopupNavigation.PopAsync();
         }
 
         private async void EditDescriptionButton_OnTapped(object sender, EventArgs e)

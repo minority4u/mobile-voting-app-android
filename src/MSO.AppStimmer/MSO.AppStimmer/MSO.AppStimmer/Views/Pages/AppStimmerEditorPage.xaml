@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage NavigationPage.HasNavigationBar="False"
+<pages:PopupPage
     x:Class="MSO.StimmApp.Views.Pages.AppStimmerEditorPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
     Title="{Binding IsEditable, Converter={StaticResource AppStimmerEditorEditableToTitleConverter}}"
-    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
-    BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}">
+    BackgroundColor="Black"
+    BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}"
+    HasSystemPadding="True">
     <Grid>
         <!--<appStimmerEditor:AppStimmerEditorTabbedView IsVisible="{Binding IsEditable}" />-->
         <appStimmerEditor:AppStimmerEditorDetailsView_2 />
     </Grid>
-</ContentPage>
+</pages:PopupPage>

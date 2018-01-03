@@ -2,13 +2,14 @@
 using System.Threading.Tasks;
 using MSO.StimmApp.Core.Enums;
 using MSO.StimmApp.ViewModels;
+using Rg.Plugins.Popup.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MSO.StimmApp.Views.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AppStimmerEditorPage : ContentPage
+    public partial class AppStimmerEditorPage : PopupPage
     { 
         public AppStimmerEditorPage()
         {
