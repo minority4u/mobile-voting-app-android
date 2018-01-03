@@ -1,18 +1,20 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ListView
+<xForms:SfListView
     x:Class="MSO.StimmApp.Views.ContentViews.AppStimmers.AppStimmersListView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
+    x:Name="ListView"
     BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
-    HasUnevenRows="true"
+    ItemSize="250"
     ItemTapped="AppStimmersListView_OnItemTapped"
-    ItemsSource="{Binding AppStimmers}"
-    SeparatorVisibility="None">
-    <ListView.ItemTemplate>
+    ItemsSource="{Binding AppStimmers}">
+
+    <xForms:SfListView.ItemTemplate>
         <DataTemplate>
             <ViewCell>
                 <ViewCell.View>
@@ -21,13 +23,15 @@
                         Padding="0"
                         CornerRadius="8"
                         OutlineColor="Black">
+
+
                         <StackLayout
                             BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmersItemColor}"
                             HeightRequest="250"
                             Orientation="Vertical"
                             Spacing="0"
                             VerticalOptions="FillAndExpand">
-
+                            <SearchBar Placeholder="Search here to filter" />
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
@@ -59,5 +63,5 @@
                 </ViewCell.View>
             </ViewCell>
         </DataTemplate>
-    </ListView.ItemTemplate>
-</ListView>
+    </xForms:SfListView.ItemTemplate>
+</xForms:SfListView>
