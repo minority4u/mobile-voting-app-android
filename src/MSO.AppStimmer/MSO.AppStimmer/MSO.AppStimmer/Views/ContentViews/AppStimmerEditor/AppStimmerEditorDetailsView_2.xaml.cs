@@ -126,8 +126,23 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             this.AdjustTopBarOverlayPosition(scrollY);
             this.AdjustTitlePosition(scrollY, imgHeight);
             this.AdjustGradientsIntensity(scrollY, imgHeight);
+            this.AdjustSubmitButtonOpacity(scrollY, imgHeight);
             //this.AdjustTitleBarColor();
             //this.AdjustMainPictureOverlay();
+        }
+
+        private void AdjustSubmitButtonOpacity(double scrollY, double imgHeight)
+        {
+            var percentageScrolled = scrollY / (imgHeight - this.TopBarGradientFrame.Height);
+
+            if (percentageScrolled <= 0.66)
+            {
+                this.SubmitButton.Opacity = 1.0;
+                return;
+            }
+
+            var submitButtonOpacity = (percentageScrolled - 0.66) * 3;
+            this.SubmitButton.Opacity = 1 - submitButtonOpacity;
         }
 
         private void AdjustTitlePosition(double scrollY, double imgHeight)

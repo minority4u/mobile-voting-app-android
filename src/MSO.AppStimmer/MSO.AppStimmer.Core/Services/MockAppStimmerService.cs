@@ -4,27 +4,38 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight.Messaging;
 using MSO.StimmApp.Core.Enums;
+using MSO.StimmApp.Core.Messages;
 using MSO.StimmApp.Core.Models;
 
 namespace MSO.StimmApp.Core.Services
 {
     public class MockAppStimmerService : IAppStimmerService
     {
-        public List<AppStimmer> GetAllAppStimmers()
+        public async Task<List<AppStimmer>> GetAllAppStimmers()
         {
-            var result = this.GetRandomAppStimmers();
+            var result = await Task.Run(() => this.GetRandomAppStimmers());
             return result;
         }
 
         public void SaveAppStimmer(AppStimmer appStimmer)
         {
-            throw new NotImplementedException();
+            // ToDo: Proper state handling. Who sets the IsNew flag to false?
+            if (appStimmer.IsNew)
+            {
+                appStimmer.IsNew = false;
+                Messenger.Default.Send(new AppStimmerAddedMessage(appStimmer));
+            }
+            else
+            {
+                Messenger.Default.Send(new AppStimmerUpdatedMessage(appStimmer));
+            }
         }
 
         public void DeleteAppStimmer(AppStimmer appStimmer)
         {
-            throw new NotImplementedException();
+            Messenger.Default.Send(new AppStimmerDeletedMessage(appStimmer));
         }
 
         private List<AppStimmer> GetRandomAppStimmers()

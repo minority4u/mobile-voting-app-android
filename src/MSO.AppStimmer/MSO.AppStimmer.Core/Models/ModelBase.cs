@@ -10,7 +10,7 @@ namespace MSO.StimmApp.Core.Models
     /// </summary>
     public class ModelBase : ObservableObject
     {
-        public ModelBase(bool isNew = true)
+        public ModelBase(bool isNew)
         {
             this.Id = Guid.NewGuid();
             this.IsNew = isNew;

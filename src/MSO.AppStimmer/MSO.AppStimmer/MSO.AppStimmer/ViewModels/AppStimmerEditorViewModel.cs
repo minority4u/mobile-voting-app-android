@@ -30,6 +30,7 @@ namespace MSO.StimmApp.ViewModels
         private bool displayNavigationBarTitle;
         private string appStimmerDescription;
         private RelayCommand<EditAppStimmerTextType> editTextCommand;
+        private RelayCommand saveAppStimmerCommand;
 
         public bool IsAddingAttachment
         {
@@ -60,7 +61,7 @@ namespace MSO.StimmApp.ViewModels
 
             if (this.isEditable)
             {
-                this.BeginAppStimmerEdit();
+                this.AppStimmer.BeginEdit();
             }
 
             Messenger.Default.Register<AppStimmerAttachmentAddedMessage>(this, this.OnAppStimmerAttachmentAdded);
@@ -77,11 +78,6 @@ namespace MSO.StimmApp.ViewModels
             {
                 message.Attachment
             };
-        }
-
-        private void BeginAppStimmerEdit()
-        {
-            this.AppStimmer.BeginEdit();
         }
 
         public AppStimmer AppStimmer
@@ -156,6 +152,21 @@ namespace MSO.StimmApp.ViewModels
 
         public RelayCommand<EditAppStimmerTextType> EditTextCommand => this.editTextCommand ?? (this.editTextCommand =
             new RelayCommand<EditAppStimmerTextType>((type) => this.EditText(type)));
+
+        public RelayCommand SaveAppStimmerCommand => this.saveAppStimmerCommand ?? (this.saveAppStimmerCommand =
+            new RelayCommand(this.SaveAppStimmer));
+
+        private void SaveAppStimmer()
+        {
+            // ToDo: Proper state handling. Who sets the IsNew flag to false?
+            if (this.AppStimmer.IsNew)
+            {
+                this.AppStimmer.IsNew = false;
+            }
+
+            this.AppStimmer.EndEdit();
+            this.appStimmerService.SaveAppStimmer(this.AppStimmer);
+        }
 
         private async void EditText(EditAppStimmerTextType type)
         {

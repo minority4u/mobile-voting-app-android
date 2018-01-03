@@ -269,7 +269,7 @@
                 EndColor="#00000000"
                 HeightRequest="57"
                 OutlineColor="Transparent"
-                StartColor="#55000000"
+                StartColor="#44000000"
                 VerticalOptions="Start" />
             <StackLayout
                 HeightRequest="57"
@@ -293,8 +293,27 @@
                     IsVisible="{Binding DisplayNavigationBarTitle}"
                     Opacity="{Binding AppStimmer.Title, Converter={StaticResource StringToPlaceholderOpacityConverter}, ConverterParameter=0.6}"
                     Text="{Binding AppStimmer.Title, Converter={StaticResource StringToPlaceholderConverter}, ConverterParameter='Titel hinzufügen...'}"
-                    TextColor="White" />
+                    TextColor="White">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding EditTextCommand}" CommandParameter="{x:Static enums:EditAppStimmerTextType.Title}" />
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
+
+            <Label
+                x:Name="SubmitButton"
+                Margin="0,17,20,0"
+                FontAttributes="Bold"
+                HeightRequest="20"
+                HorizontalOptions="End"
+                IsVisible="{Binding IsEditable}"
+                Text="SPEICHERN"
+                TextColor="White"
+                VerticalOptions="Start">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SaveAppStimmerCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
 
             <elements:TintedSvgCachedImage
                 Margin="15"

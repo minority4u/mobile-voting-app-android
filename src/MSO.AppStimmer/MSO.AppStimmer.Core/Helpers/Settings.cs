@@ -13,6 +13,11 @@ namespace MSO.StimmApp.Core.Helpers
     /// </summary>
     public class Settings : ModelBase
     {
+        public Settings() : base(true)
+        {
+
+        }
+
         static ISettings AppSettings =>
             CrossSettings.Current;
 

@@ -41,7 +41,10 @@
     <Compile Include="Helpers\ColorThemes.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Helpers\TaskHelper.cs" />
+    <Compile Include="Messages\AppStimmerAddedMessage.cs" />
     <Compile Include="Messages\AppStimmerAttachmentAddedMessage.cs" />
+    <Compile Include="Messages\AppStimmerDeletedMessage.cs" />
+    <Compile Include="Messages\AppStimmerUpdatedMessage.cs" />
     <Compile Include="Models\AppStimmer.cs" />
     <Compile Include="Models\AppStimmerAttachment.cs" />
     <Compile Include="Models\AppStimmerUser.cs" />
@@ -53,6 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AzureAppStimmerService.cs" />
     <Compile Include="Services\IAppStimmerService.cs" />
+    <Compile Include="Services\LocalAppStimmerService.cs" />
     <Compile Include="Services\MockAppStimmerService.cs" />
     <Compile Include="Services\RestAppstimmerService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
@@ -113,6 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSO.Common\MSO.Common.csproj">
+      <Project>{710a7564-2971-41ff-9dfd-db6fa8d0f2f5}</Project>
+      <Name>MSO.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

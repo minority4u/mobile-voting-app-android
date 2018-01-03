@@ -16,7 +16,7 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmersViewModel(IAppStimmerService appStimmerService)
         {
             this.appStimmerService = appStimmerService;
-            this.appStimmers = new ObservableCollection<AppStimmer>(this.appStimmerService.GetAllAppStimmers());
+            //this.appStimmers = new ObservableCollection<AppStimmer>(this.appStimmerService.GetAllAppStimmers());
         }
 
         public ObservableCollection<AppStimmer> AppStimmers

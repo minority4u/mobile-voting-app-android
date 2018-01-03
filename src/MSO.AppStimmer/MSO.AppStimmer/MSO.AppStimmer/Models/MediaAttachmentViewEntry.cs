@@ -13,6 +13,11 @@ namespace MSO.StimmApp.Models
         private AppStimmerAttachment attachment;
         private ContentView view;
 
+        public MediaAttachmentViewEntry() : base (true)
+        {
+
+        }
+
         public AppStimmerAttachment Attachment
         {
             get => this.attachment;

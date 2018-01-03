@@ -1,4 +1,5 @@
 ﻿using System;
+using MSO.StimmApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +11,14 @@ namespace MSO.StimmApp.Views.Pages
         public AppStimmerPage()
         {
             this.InitializeComponent();
+        }
+
+        AppStimmerViewModel ViewModel => this.BindingContext as AppStimmerViewModel;
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            await this.ViewModel.LoadAppStimmers();
         }
     }
 }

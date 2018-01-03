@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
@@ -24,19 +25,12 @@ namespace MSO.StimmApp.ViewModels
         public AppStimmerViewModel(IAppStimmerService appStimmerService)
         {
             this.appStimmerService = appStimmerService;
-            this.appStimmers = new ObservableCollection<AppStimmer>();
-            var appStimmersFromService = this.appStimmerService.GetAllAppStimmers();
+        }
 
-            // ToDo This is for debugging purposes only, to simulate a long list of AppStimmers. Change later.
-            for (var i = 0; i < 10; i++)
-            {
-                foreach (var appStimmer in appStimmersFromService)
-                    this.appStimmers.Add(appStimmer);
-            }
-            
-            //this.appStimmers.Shuffle();
-
-            this.currentAppStimmer = this.appStimmers.First();
+        public async Task LoadAppStimmers()
+        {
+            var allAppStimmers = await this.appStimmerService.GetAllAppStimmers();
+            this.AppStimmers = new ObservableCollection<AppStimmer>(allAppStimmers);
         }
 
         public AppStimmer CurrentAppStimmer
