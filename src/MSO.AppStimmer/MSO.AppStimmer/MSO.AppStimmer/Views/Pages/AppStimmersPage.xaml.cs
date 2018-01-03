@@ -24,6 +24,13 @@ namespace MSO.StimmApp.Views.Pages
 
         private void AppStimmersListView_OnItemTapped(object sender, Syncfusion.ListView.XForms.ItemTappedEventArgs itemTappedEventArgs)
         {
+            // close the searchbar keyboard if we tab in the background
+            if (SearchBar.IsFocused)
+            {
+                SearchBar.Unfocus();
+                return;
+            }
+
             if (!(itemTappedEventArgs.ItemData is AppStimmer appStimmer))
                 return;
 
