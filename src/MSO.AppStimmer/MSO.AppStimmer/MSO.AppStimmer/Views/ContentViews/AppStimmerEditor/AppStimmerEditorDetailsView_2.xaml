@@ -158,7 +158,7 @@
                             <StackLayout Orientation="Vertical" Spacing="0">
                                 <Grid>
                                     <xForms:SfListView
-                                        x:Name="AttachmentsScrollView"  
+                                        x:Name="AttachmentsScrollView"
                                         BackgroundColor="White"
                                         HeightRequest="100"
                                         IsScrollBarVisible="False"
@@ -194,7 +194,7 @@
                                             HeightRequest="65"
                                             HorizontalOptions="Center"
                                             Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
-                                            TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.StandardButtonColor}"
+                                            TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
                                             VerticalOptions="Center"
                                             WidthRequest="65" />
                                     </Grid>
@@ -266,7 +266,7 @@
                 x:Name="TopBarGradientFrame"
                 Grid.Row="0"
                 Padding="0"
-                BackgroundColor="{Binding NavigationBarBackgroundColor}"
+                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
                 EndColor="#00000000"
                 HeightRequest="57"
                 OutlineColor="Transparent"
@@ -304,12 +304,12 @@
             <Label
                 x:Name="SubmitButton"
                 Margin="0,17,20,0"
+                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
                 FontAttributes="Bold"
                 HeightRequest="20"
                 HorizontalOptions="End"
                 IsVisible="{Binding IsEditable}"
                 Text="SPEICHERN"
-                TextColor="White"
                 VerticalOptions="Start">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding SaveAppStimmerCommand}" />

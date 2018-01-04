@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSO.StimmApp.Elements;
+using MSO.StimmApp.ViewModels;
 using Rg.Plugins.Popup.Pages;
 using TK.CustomMap;
 using Xamarin.Forms;
@@ -18,40 +20,71 @@ namespace MSO.StimmApp.Views.Pages
         public MapsContentPage()
         {
             this.InitializeComponent();
+        }
 
-            var map = new TKCustomMap(MapSpan.FromCenterAndRadius(new Position(37, -122), Distance.FromMiles(10)));
-            map.MapLongPress += MapOnMapLongPress;
+        public MapsContentPage(MapAttachmentViewModel viewModel)
+        {
+            this.InitializeComponent();
+            this.BindingContext = viewModel;
 
-            var pin = new TKCustomMapPin
+            var pos = this.ViewModel.SelectedPin.Position;
+            var map = new TKCustomMap(MapSpan.FromCenterAndRadius(pos, Distance.FromMiles(10)));
+            map.SetBinding(TKCustomMap.MapLongPressCommandProperty, "MapLongPressedCommand");
+
+            map.Pins = this.ViewModel.Pins;
+            map.SelectedPin = this.ViewModel.SelectedPin;
+
+            map.SetValue(Grid.RowProperty, 0);
+            map.SetValue(Grid.RowSpanProperty, 2);
+
+            var grid = new Grid();
+            var rows = new RowDefinitionCollection();
+            var firstRow = new RowDefinition
             {
-                Position = new Position(37, -122),
-
+                Height = new GridLength(10, GridUnitType.Star),
             };
 
-            var pins = new ObservableCollection<TKCustomMapPin>();
-            pins.Add(pin);
+            var secondRow = new RowDefinition
+            {
+                Height = new GridLength(90, GridUnitType.Star)
+            };
 
-            map.Pins = pins;
-            map.SelectedPin = pin;
-            //var pin = new Pin()
-            //{
-            //    Position = new Position(37, -122),
-            //    Label = "Some Pin!"
-            //};
-            //map.Pins.Add(pin);
+            rows.Add(firstRow);
+            rows.Add(secondRow);
+            grid.RowDefinitions = rows;
 
-            this.Content = map;
+            var topBarOverlay = new GradientFrame();
+            topBarOverlay.StartColor = "#99000000";
+            topBarOverlay.EndColor = "#00000000";
+            topBarOverlay.SetValue(Grid.RowProperty, 0);
+            topBarOverlay.SetValue(Grid.RowSpanProperty, 1);
+            topBarOverlay.IsVisible = this.ViewModel.Attachment.IsNew;
 
+            var saveButton = new Label();
+            saveButton.TextColor = Color.White;
+            saveButton.Text = "SPEICHERN";
+            saveButton.FontSize = 17;
+            saveButton.Margin = new Thickness(15, 15, 15, 15);
+            saveButton.VerticalOptions = LayoutOptions.Start;
+            saveButton.HorizontalOptions = LayoutOptions.End;
+            saveButton.IsVisible = this.ViewModel.Attachment.IsNew;
 
-            //MyMap.MoveToRegion(
-            //    MapSpan.FromCenterAndRadius(
-            //        new Position(37, -122), Distance.FromMiles(1)));
+            var tapGesture = new TapGestureRecognizer();
+            tapGesture.Tapped += TapGestureOnTapped;
+            saveButton.GestureRecognizers.Add(tapGesture);
+              
+            grid.Children.Add(map);
+            grid.Children.Add(topBarOverlay);
+            grid.Children.Add(saveButton);
+
+            this.Content = grid;
         }
 
-        private void MapOnMapLongPress(object sender, TKGenericEventArgs<Position> tkGenericEventArgs)
+        private async void TapGestureOnTapped(object sender, EventArgs eventArgs)
         {
-            Debug.WriteLine("Latitude: " + tkGenericEventArgs.Value.Latitude);
-            Debug.WriteLine("Longitude: " + tkGenericEventArgs.Value.Longitude);
+            await this.ViewModel.SaveAttachment();
         }
+
+        MapAttachmentViewModel ViewModel => this.BindingContext as MapAttachmentViewModel;
     }
 }
