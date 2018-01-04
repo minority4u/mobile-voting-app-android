@@ -62,6 +62,7 @@
     <Compile Include="Converter\ImageToSvgSourceConverter.cs" />
     <Compile Include="Converter\CrossVideoManagerTimeSpanToStringConverter.cs" />
     <Compile Include="Converter\LocalImageResourceConverter.cs" />
+    <Compile Include="Converter\MediaAttachmentCountToViewVisibilityConverter.cs" />
     <Compile Include="Converter\StringToPlaceholderConverter.cs" />
     <Compile Include="Converter\StringToPlaceholderOpacityConverter.cs" />
     <Compile Include="Converter\ÁppStimmerEditorDisplayTypeToOpacityConverter.cs" />

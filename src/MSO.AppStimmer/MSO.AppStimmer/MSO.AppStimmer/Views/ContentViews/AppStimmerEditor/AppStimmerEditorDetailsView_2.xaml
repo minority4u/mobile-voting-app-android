@@ -138,6 +138,12 @@
                                 BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                                 HeightRequest="30"
                                 HorizontalOptions="Fill">
+                                <Grid.IsVisible>
+                                    <converter:MultiBinding Converter="{StaticResource MediaAttachmentCountToViewVisibilityConverter}">
+                                        <Binding Path="AppStimmer.Attachments" />
+                                        <Binding Path="IsEditable" />
+                                    </converter:MultiBinding>
+                                </Grid.IsVisible>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
@@ -157,6 +163,13 @@
                             </Grid>
                             <StackLayout Orientation="Vertical" Spacing="0">
                                 <Grid>
+                                    <Grid.IsVisible>
+                                        <converter:MultiBinding Converter="{StaticResource MediaAttachmentCountToViewVisibilityConverter}">
+                                            <Binding Path="AppStimmer.Attachments" />
+                                            <Binding Path="IsEditable" />
+                                        </converter:MultiBinding>
+                                    </Grid.IsVisible>
+
                                     <xForms:SfListView
                                         x:Name="AttachmentsScrollView"
                                         BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
