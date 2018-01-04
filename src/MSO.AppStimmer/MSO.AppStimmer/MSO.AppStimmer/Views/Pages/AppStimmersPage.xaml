@@ -32,7 +32,8 @@
                     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
                     ItemSize="250"
                     ItemTapped="AppStimmersListView_OnItemTapped"
-                    ItemsSource="{Binding AppStimmers}">
+                    ItemsSource="{Binding AppStimmers}"
+                    SelectionBackgroundColor="Transparent">
 
                     <xForms:SfListView.ItemTemplate>
                         <DataTemplate>

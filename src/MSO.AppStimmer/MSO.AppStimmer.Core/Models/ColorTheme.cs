@@ -2,8 +2,12 @@
 {
     public class ColorTheme : ModelBase
     {
-        private string primaryColor = "#F9C470";
+        private string primaryColor = "#4DD0E1";
+        private string lightColor = "#8BF6FF";
+        private string darkColor = "#0093C4";
+
         private string secondaryColor = "#F1F4F6";
+        
         private string menuPageColor = "#AA000000";
         private string bottomActionBarColor = "#88FFFFFF";
         private string simpleControlsColor = "#A9A9A9";
@@ -189,6 +193,18 @@
         {
             get => this.popupBorderColor;
             set => this.Set(ref this.popupColor, value);
+        }
+
+        public string LightColor
+        {
+            get => this.lightColor;
+            set => this.Set(ref this.lightColor, value);
+        }
+
+        public string DarkColor
+        {
+            get => this.darkColor;
+            set => this.Set(ref this.darkColor, value);
         }
     }
 }
