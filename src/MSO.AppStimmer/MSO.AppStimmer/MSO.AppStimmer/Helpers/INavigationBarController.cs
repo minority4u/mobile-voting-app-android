@@ -18,5 +18,7 @@ namespace MSO.StimmApp.Helpers
         void HideNavigationBar();
 
         void ShowNavigationBar();
+
+        void SetStatusBarColor(Xamarin.Forms.Color color);
     }
 }

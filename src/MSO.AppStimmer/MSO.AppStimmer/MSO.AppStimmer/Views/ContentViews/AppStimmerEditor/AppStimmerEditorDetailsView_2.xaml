@@ -323,6 +323,7 @@
                 HorizontalOptions="End"
                 IsVisible="{Binding IsEditable}"
                 Text="SPEICHERN"
+                TextColor="White"
                 VerticalOptions="Start">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding SaveAppStimmerCommand}" />

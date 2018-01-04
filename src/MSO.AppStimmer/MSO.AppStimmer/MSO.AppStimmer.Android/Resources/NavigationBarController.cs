@@ -18,8 +18,15 @@ namespace MSO.StimmApp.Droid.Resources
         public void SetStatusBarColor(Xamarin.Forms.Color color)
         {
             var androidColor = color.ToAndroid();
+            ((Activity)Forms.Context).Window.SetStatusBarColor(androidColor);
+        }
+        public void SetNavigationBarColor(Xamarin.Forms.Color color)
+        {
+            var androidColor = color.ToAndroid();
             ((Activity)Forms.Context).Window.SetNavigationBarColor(androidColor);
         }
+
+
 
         public Color GetStatusBarColor()
         {

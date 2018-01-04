@@ -53,6 +53,9 @@ namespace MSO.StimmApp
             menuPage.InitializePage(standardPage);
 
             this.MainPage = menuPage;
+
+            var color = Color.FromHex(Settings.Current.AppColors.DarkColor);
+            App.NavigationBarController.SetStatusBarColor(color);
         }
 
         private void InitializeApplicationCache()

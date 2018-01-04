@@ -91,9 +91,8 @@ namespace MSO.StimmApp.Core.Services
                         },
                         new AppStimmerAttachment
                         {
-                            AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
-                            Description = "So sieht die Bank aus.",
-                            AttachmentType = AttachmentType.Picture,
+                            AttachmentSource = "48.3;8.5",
+                            AttachmentType = AttachmentType.Location,
                         },
                         new AppStimmerAttachment
                         {
