@@ -11,6 +11,7 @@ using Xamarin.Forms.Platform.Android;
 using Plugin.Permissions.Abstractions;
 using Xamarin.Forms;
 using Android.Graphics;
+using TK.CustomMap.Droid;
 using Color = Android.Graphics.Color;
 using Permission = Android.Content.PM.Permission;
 
@@ -32,7 +33,8 @@ namespace MSO.StimmApp.Droid
             CachedImageRenderer.Init();
             VideoViewRenderer.Init();
             DeviceOrientationImplementation.Init();
-            Xamarin.FormsMaps.Init(this, bundle);
+            //Xamarin.FormsMaps.Init(this, bundle);
+            TKGoogleMaps.Init(this, bundle);
 
             LoadApplication(new StimmApp.App());
 
