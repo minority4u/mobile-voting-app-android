@@ -32,6 +32,7 @@ namespace MSO.StimmApp.Droid
             CachedImageRenderer.Init();
             VideoViewRenderer.Init();
             DeviceOrientationImplementation.Init();
+            Xamarin.FormsMaps.Init(this, bundle);
 
             LoadApplication(new StimmApp.App());
 

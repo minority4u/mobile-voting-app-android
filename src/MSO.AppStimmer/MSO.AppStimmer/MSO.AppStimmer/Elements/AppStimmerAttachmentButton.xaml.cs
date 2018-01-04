@@ -87,6 +87,7 @@ namespace MSO.StimmApp.Elements
                     break;
                 case AttachmentType.Location:
                     this.AddLocation();
+
                     break;
                 case AttachmentType.Text:
                     this.AddText();
@@ -189,9 +190,10 @@ namespace MSO.StimmApp.Elements
 	        //throw new NotImplementedException();
 	    }
 
-	    private void AddLocation()
+	    private async void AddLocation()
 	    {
-	        // throw new NotImplementedException();
+	        var page = new MapsContentPage();
+	        await PopupNavigation.PushAsync(page);
 	    }
 
 	    private void AddText()
