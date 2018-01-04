@@ -114,6 +114,7 @@
     <Compile Include="ViewModels\EditAppStimmerDescriptionViewModel.cs" />
     <Compile Include="ViewModels\EditAppStimmerTextViewModel.cs" />
     <Compile Include="ViewModels\ImageAttachmentViewModel.cs" />
+    <Compile Include="ViewModels\MapAttachmentViewModel.cs" />
     <Compile Include="ViewModels\MenuPageMasterViewModel.cs" />
     <Compile Include="ViewModels\PictureAttachmentPreviewViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />

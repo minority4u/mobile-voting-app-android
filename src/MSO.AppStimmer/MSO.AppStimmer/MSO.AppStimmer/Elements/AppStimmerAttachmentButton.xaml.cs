@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Messaging;
 using MSO.StimmApp.Core.Enums;
@@ -192,7 +193,20 @@ namespace MSO.StimmApp.Elements
 
 	    private async void AddLocation()
 	    {
-	        var page = new MapsContentPage();
+            var latidude = 49.4703216; // UAS Mannheim
+	        var longitude = 8.478948; // UAS Mannheim
+	        var attachmentSource = latidude.ToString(CultureInfo.InvariantCulture) + ';' + longitude.ToString(CultureInfo.InvariantCulture);
+
+            var attachment = new AppStimmerAttachment
+	        {
+	            AttachmentType = AttachmentType.Location,
+                AttachmentSource = attachmentSource,
+                Description = "HS Mannheim"
+            };
+
+            var viewModel = new MapAttachmentViewModel(attachment);
+	        var page = new MapsContentPage(viewModel);
+
 	        await PopupNavigation.PushAsync(page);
 	    }
 
