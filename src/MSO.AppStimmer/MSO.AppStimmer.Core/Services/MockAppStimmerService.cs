@@ -160,6 +160,60 @@ namespace MSO.StimmApp.Core.Services
                     Appstract = "Die städtische Hochschule ist zu klein, und nicht modern genug. Es muss eine neue gebaut werden!",
                     Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",
                 },
+
+                new AppStimmer
+                {
+                    IsNew = false,
+                    Title = "Kreisverkehr an der B3",
+                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer1.png",
+                    Appstract = "Neuer Kreisverkehr an der B3 Dorfeinfahrtsstraße.",
+                    Description = "An der Dorfeinfahrtsstraße von der B3 kommt es die ganze Zeit zu Unfällen verursacht durch Raser. Letzte Woche gab es schon wieder ein Tödlicher Unfall. Es muss endlich ein Kreisverkehr gebaut werden. ",
+                },
+
+                new AppStimmer
+                {
+                    IsNew = false,
+                    Title = "Schwimmbad Sanierung",
+                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer2.png",
+                    Appstract = "Schwimmbad muss dringend saniert werden.",
+                    Description = "Es gibt keine Gelegenheit mehr, mal schnell ein paar Bahnen zu schwimmen seit dem das Hallenbad geschlossen wurde. Zudem ist das nächste Hallenbad 25 min entfernt und daher keine Option nach dem Feierabend für viele Menschen.",
+                },
+
+                new AppStimmer
+                {
+                    IsNew = false,
+                    Title = "Müll in der Fußgängerzone",
+                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer3.png",
+                    Appstract = "Bitte einmal die Fußgängerzone fegen lassen.",
+                    Description = "Die Fußgängerzone wird zu wenig gesäubert, der Müll sammelt sich immer häufiger an bevor dieses weggeräumt wird, das macht die Fußgängerzone unattraktiv und weniger Leute gehen einkaufen.",
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer3_1.png",
+                            AttachmentType = AttachmentType.Picture,
+                        }
+                        }
+                },
+                new AppStimmer
+                {
+                    IsNew = false,
+                    Title = "Grafitti am Bahnhof",
+                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer4.png",
+                    Appstract = "Entfernt bitte das Grafitti!",
+                    Description = "Entfernt bitte das unsägliche Penis Graffiti vom Bahnhof. Das ist eine Schande für unser Dorf! Jeden Tag muss ich daran vorbeilaufen.",
+                },
+
+                new AppStimmer
+                {
+                    IsNew = false,
+                    Title = "Dunkel wie im Mittelalter",
+                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer5.png",
+                    Appstract = "Wir brauichen mehr Straßenlaternen in unserer Gemeinde.",
+                    Description = "In der Scheuchzerstraße stehen zu wenig Strassenlaternen. Es ist einfach zu dunkel. Nachts traue ich mich kaum mehr aus dem Haus. ",
+                },
+
+
             };
 
             return list;
