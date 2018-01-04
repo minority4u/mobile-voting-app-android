@@ -15,10 +15,23 @@ namespace MSO.StimmApp.Views.Pages
     {
         public MapsContentPage()
         {
-            InitializeComponent();
-            MyMap.MoveToRegion(
-                MapSpan.FromCenterAndRadius(
-                    new Position(37, -122), Distance.FromMiles(1)));
+            this.InitializeComponent();
+
+            var map = new Map(MapSpan.FromCenterAndRadius(new Position(37, -122), Distance.FromMiles(10)));
+
+            var pin = new Pin()
+            {
+                Position = new Position(37, -122),
+                Label = "Some Pin!"
+            };
+            map.Pins.Add(pin);
+
+            this.Content = map;
+
+
+            //MyMap.MoveToRegion(
+            //    MapSpan.FromCenterAndRadius(
+            //        new Position(37, -122), Distance.FromMiles(1)));
         }
     }
 }

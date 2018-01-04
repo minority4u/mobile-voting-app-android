@@ -3,13 +3,12 @@
     x:Class="MSO.StimmApp.Views.Pages.MapsContentPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
-    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
-    <StackLayout VerticalOptions="StartAndExpand" Padding="30">
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <!--<StackLayout VerticalOptions="StartAndExpand" Padding="30">
         <maps:Map WidthRequest="320" HeightRequest="200"
                   x:Name="MyMap"
                   IsShowingUser="true"
-                  MapType="Hybrid"
-        />
-    </StackLayout>
+                  MapType="Hybrid"/>
+    </StackLayout>-->
 </pages:PopupPage>
