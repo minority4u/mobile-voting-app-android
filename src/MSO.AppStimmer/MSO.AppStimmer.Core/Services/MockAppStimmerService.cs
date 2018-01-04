@@ -173,7 +173,7 @@ namespace MSO.StimmApp.Core.Services
                 new AppStimmer
                 {
                     IsNew = false,
-                    Title = "Müll in der Fußgängerzone",
+                    Title = "Dreckige Fußgängerzone",
                     Picture ="MSO.StimmApp.Resources.Images.Appstimmer3.png",
                     Appstract = "Bitte einmal die Fußgängerzone fegen lassen.",
                     Description = "Die Fußgängerzone wird zu wenig gesäubert, der Müll sammelt sich immer häufiger an bevor dieses weggeräumt wird, das macht die Fußgängerzone unattraktiv und weniger Leute gehen einkaufen.",
