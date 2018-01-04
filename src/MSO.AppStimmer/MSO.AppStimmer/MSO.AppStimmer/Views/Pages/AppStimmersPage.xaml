@@ -16,7 +16,7 @@
                     x:Name="SearchBar"
                     BackgroundColor="Transparent"
                     HeightRequest="50"
-                    Placeholder="Search here to filter"
+                    Placeholder="Filtern..."
                     TextChanged="SearchBar_OnTextChanged" />
 
                 <xForms:SfListView
