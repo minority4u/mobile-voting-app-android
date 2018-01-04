@@ -3,12 +3,17 @@
     public class ColorTheme : ModelBase
     {
         private string primaryColor = "#4DD0E1";
-        private string lightColor = "#8BF6FF";
-        private string darkColor = "#0093C4";
+        private string textOnPrimaryColor = "#000000";
+        private string lightColor = "#88FFFF";
+        private string darkColor = "#009FAF";
 
-        private string secondaryColor = "#BDBDBD";
-        private string secondaryLightColor = "#EFEFEF";
-        private string secondaryDarkColor = "#8D8D8D";
+        private string secondaryColor = "#AED581";
+        private string textOnSecondaryColor = "#000000";
+        private string secondaryLightColor = "#E1FFB1";
+        private string secondaryDarkColor = "#7DA453";
+
+        private string pageBackgroundColor = "#E1E2E1";
+        private string textOnPageBackgroundColor = "#000000";
         
         private string menuPageColor = "#AA000000";
         private string bottomActionBarColor = "#88FFFFFF";
@@ -45,6 +50,12 @@
         {
             get => this.primaryColor;
             set => this.Set(ref this.primaryColor, value);
+        }
+
+        public string TextOnPageBackgroundColor
+        {
+            get => this.textOnPageBackgroundColor;
+            set => this.Set(ref this.textOnPrimaryColor, value);
         }
 
         public string SecondaryColor
@@ -219,6 +230,24 @@
         {
             get => this.secondaryDarkColor;
             set => this.Set(ref this.secondaryDarkColor, value);
+        }
+
+        public string PageBackgroundColor
+        {
+            get => this.pageBackgroundColor;
+            set => this.Set(ref this.pageBackgroundColor, value);
+        }
+
+        public string TextOnPrimaryColor
+        {
+            get => this.textOnPrimaryColor;
+            set => this.Set(ref this.textOnPrimaryColor, value);
+        }
+
+        public string TextOnSecondaryColor
+        {
+            get => this.textOnSecondaryColor;
+            set => this.Set(ref this.textOnSecondaryColor, value);
         }
     }
 }

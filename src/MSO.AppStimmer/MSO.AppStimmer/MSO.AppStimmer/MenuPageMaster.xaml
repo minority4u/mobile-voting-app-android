@@ -13,12 +13,12 @@
     <StackLayout Orientation="Vertical">
         <ListView
             x:Name="MenuItemsList"
-            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.MenuPageColor}"
+            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
             ItemsSource="{Binding MenuItems}"
             RowHeight="50"
             SeparatorVisibility="Default">
 
-            <ListView.Header>
+            <ListView.Header >
                 <contentViews:CurrentUserView />
             </ListView.Header>
 
@@ -34,14 +34,14 @@
                             <elements:TintedSvgCachedImage
                                 HeightRequest="30"
                                 Source="{Binding Icon, Converter={StaticResource ImageToSvgSourceConverter}}"
-                                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.MenuPageIconColor}"
+                                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryDarkColor}"
                                 VerticalOptions="Center"
                                 WidthRequest="30" />
 
                             <Label
                                 FontSize="Small"
                                 Text="{Binding Title}"
-                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.MenuPageTextColor}"
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.TextOnPageBackgroundColor}"
                                 VerticalOptions="Center" />
                         </StackLayout>
                     </ViewCell>

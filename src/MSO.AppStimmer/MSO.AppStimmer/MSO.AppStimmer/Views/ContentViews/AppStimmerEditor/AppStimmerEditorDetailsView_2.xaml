@@ -29,7 +29,7 @@
                             x:Name="MainPicture"
                             Grid.RowSpan="2"
                             Aspect="AspectFill"
-                            BackgroundColor="White"
+                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                             HeightRequest="290"
                             HorizontalOptions="Fill"
                             Source="{Binding AppStimmer.Picture, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
@@ -100,10 +100,10 @@
                         Orientation="Vertical"
                         Spacing="0">
                         <StackLayout
-                            BackgroundColor="White"
+                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                             Orientation="Vertical"
                             Spacing="0">
-                            <Grid Padding="0" BackgroundColor="White">
+                            <Grid Padding="0" BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}">
                                 <Label
                                     Margin="30,10,30,10"
                                     FontSize="17"
@@ -135,7 +135,7 @@
 
                             <Grid
                                 Margin="15,0,15,0"
-                                BackgroundColor="White"
+                                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                                 HeightRequest="30"
                                 HorizontalOptions="Fill">
                                 <Grid.ColumnDefinitions>
@@ -159,7 +159,7 @@
                                 <Grid>
                                     <xForms:SfListView
                                         x:Name="AttachmentsScrollView"
-                                        BackgroundColor="White"
+                                        BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                                         HeightRequest="100"
                                         IsScrollBarVisible="False"
                                         ItemSize="100"
@@ -185,7 +185,7 @@
                                             <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
                                         </Grid.GestureRecognizers>
                                         <BoxView
-                                            BackgroundColor="White"
+                                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryTextColor}"
                                             HeightRequest="40"
                                             HorizontalOptions="Center"
                                             VerticalOptions="Center"
@@ -202,7 +202,7 @@
 
                                 <Grid
                                     Margin="15,10,15,0"
-                                    BackgroundColor="White"
+                                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                                     HeightRequest="30"
                                     HorizontalOptions="Fill">
                                     <Grid.ColumnDefinitions>
@@ -240,12 +240,12 @@
 
                         <Frame
                             Padding="0"
-                            BackgroundColor="White"
+                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                             CornerRadius="0"
                             OutlineColor="Transparent">
                             <Label
                                 Margin="10,0,10,0"
-                                BackgroundColor="White"
+                                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                                 FontSize="17"
                                 HeightRequest="2000"
                                 Opacity="{Binding AppStimmer.Description, Converter={StaticResource StringToPlaceholderOpacityConverter}, ConverterParameter=0.35}"

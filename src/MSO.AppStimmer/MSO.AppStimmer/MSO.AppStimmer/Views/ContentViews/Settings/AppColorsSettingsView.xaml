@@ -10,7 +10,7 @@
         <StackLayout>
             <StackLayout>
                 <Label
-                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
+                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                     Text="Farbschema:"
                     TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryTextColor}" />
                 <!--<Slider

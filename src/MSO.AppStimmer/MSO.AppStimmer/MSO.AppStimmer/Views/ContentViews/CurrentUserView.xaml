@@ -6,7 +6,7 @@
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     BindingContext="{Binding CurrentUser, Source={StaticResource Locator}}">
     <ContentView.Content>
-        <Grid>
+        <Grid BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}" HeightRequest="200">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50" />
                 <ColumnDefinition Width="*" />
@@ -31,14 +31,14 @@
                 FontSize="11"
                 Style="{DynamicResource SubtitleStyle}"
                 Text="{Binding User.Username}"
-                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.MenuPageTextColor}" />
+                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.TextOnSecondaryColor}" />
             <Label
                 Grid.Row="1"
                 Grid.Column="1"
                 FontSize="11"
                 Style="{DynamicResource SubtitleStyle}"
                 Text="{Binding User.MailAddress}"
-                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.MenuPageTextColor}" />
+                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.TextOnSecondaryColor}" />
         </Grid>
     </ContentView.Content>
 </ContentView>

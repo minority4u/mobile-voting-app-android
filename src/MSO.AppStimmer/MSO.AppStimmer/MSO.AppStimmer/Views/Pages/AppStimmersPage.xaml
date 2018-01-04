@@ -8,6 +8,7 @@
     xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <Grid>
@@ -28,7 +29,7 @@
                     xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
                     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
                     x:Name="ListView"
-                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
+                    BackgroundColor="Transparent"
                     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
                     ItemSize="250"
                     ItemTapped="AppStimmersListView_OnItemTapped"
@@ -45,7 +46,6 @@
                                         CornerRadius="8"
                                         OutlineColor="Black">
                                         <StackLayout
-                                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmersItemColor}"
                                             HeightRequest="250"
                                             Orientation="Vertical"
                                             Spacing="0"
