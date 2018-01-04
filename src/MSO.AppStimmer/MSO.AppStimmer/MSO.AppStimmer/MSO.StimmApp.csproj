@@ -184,6 +184,9 @@
     <Compile Include="Views\Pages\AddAttachmentPopupPage.xaml.cs">
       <DependentUpon>AddAttachmentPopupPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\AddMainPicturePopupPage.xaml.cs">
+      <DependentUpon>AddMainPicturePopupPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\AppStimmerEditorPage.xaml.cs">
       <DependentUpon>AppStimmerEditorPage.xaml</DependentUpon>
     </Compile>
@@ -698,6 +701,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Elements\SubmitButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\AddMainPicturePopupPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

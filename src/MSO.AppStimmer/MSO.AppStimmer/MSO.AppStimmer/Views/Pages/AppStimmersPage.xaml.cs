@@ -13,7 +13,13 @@ namespace MSO.StimmApp.Views.Pages
     {
         public AppStimmersPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();         
+        }
+
+        protected override void OnAppearing()
+        {
+            this.ListView.DataSource.Filter = FilterAppstimmers;
+            this.ListView.DataSource.RefreshFilter();
         }
         
         public AppStimmersViewModel ViewModel => this.BindingContext as AppStimmersViewModel;
@@ -41,7 +47,6 @@ namespace MSO.StimmApp.Views.Pages
             searchBar = (sender as SearchBar);
             if (ListView.DataSource != null)
             {
-                this.ListView.DataSource.Filter = FilterAppstimmers;
                 this.ListView.DataSource.RefreshFilter();
             }
         }
@@ -53,17 +58,35 @@ namespace MSO.StimmApp.Views.Pages
             
             var appStimmer = obj as AppStimmer;
 
-            // check wheather no filter is set so far
-            // show all items the user voted for
-            if ((searchBar == null || searchBar.Text == null) && appStimmer.VotedFor)
-                return true;
+            if (appStimmer == null)
+                return false;
 
-            // checks wheather 
+            if ((searchBar?.Text == null))
+            {
+                if (appStimmer.VotedFor)
+                    return true;
+                else
+                    return false;
+            }
+                
+
+
+            //// check wheather no filter is set so far
+            //// show all items the user voted for
+            //if ((searchBar == null || searchBar.Text == null) && appStimmer.VotedFor)
+            //    return true;
+
+            //if (searchBar?.Text == null)
+            //    return true;
+
+            // checks whether 
             // searchbar text contains in description or title
             // and user voted for this appstimmer
+
             if ((appStimmer.Description.ToLower().Contains(searchBar.Text.ToLower())
-                                       || appStimmer.Title.ToLower().Contains(searchBar.Text.ToLower()))
-                                       && appStimmer.VotedFor)
+                || appStimmer.Title.ToLower().Contains(searchBar.Text.ToLower())
+                || appStimmer.Appstract.ToLower().Contains(searchBar.Text.ToLower()))
+                    && appStimmer.VotedFor)
                 return true;
             else
                 return false;

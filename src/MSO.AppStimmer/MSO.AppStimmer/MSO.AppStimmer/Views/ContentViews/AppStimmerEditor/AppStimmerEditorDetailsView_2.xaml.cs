@@ -363,16 +363,19 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             if (!this.ViewModel.IsEditable)
                 return;
 
-            var options = new PickMediaOptions
-            {
-                CompressionQuality = 92
-            };
-            var file = await CrossMedia.Current.PickPhotoAsync(options);
-            if (file == null)
-                return;
+            var page = new AddMainPicturePopupPage(this.ViewModel);
+            await PopupNavigation.PushAsync(page);
 
-            var path = file.Path;
-            this.ViewModel.AppStimmer.Picture = path;
+            //var options = new PickMediaOptions
+            //{
+            //    CompressionQuality = 92
+            //};
+            //var file = await CrossMedia.Current.PickPhotoAsync(options);
+            //if (file == null)
+            //    return;
+
+            //var path = file.Path;
+            //this.ViewModel.AppStimmer.Picture = path;
         }
     }
 }

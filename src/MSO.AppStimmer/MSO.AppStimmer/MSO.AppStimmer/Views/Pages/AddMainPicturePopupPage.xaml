@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+             x:Class="MSO.StimmApp.Views.Pages.AddMainPicturePopupPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="85*" />
+                <RowDefinition Height="15*" />
+            </Grid.RowDefinitions>
+
+            <Frame
+                Grid.Row="1"
+                Margin="15,0,15,0"
+                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PopupColor}"
+                CornerRadius="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="75"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid RowSpacing="0" Grid.Row="0" Grid.Column="0" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Image
+                            x:Name="AddCameraPictureButton"
+                            Grid.Row="0" Grid.Column="0"
+                            Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.camera_circle.scale-100.png}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AddCameraButton_OnTapped"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label
+                            Grid.Row="1"
+                            FontSize="10"
+                            HorizontalTextAlignment="Center"
+                            Text="Kamera" />
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1" RowSpacing="0" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Image
+                            x:Name="AddGalleryPictureButton"
+                            Grid.Row="0" Grid.Column="0"
+                            Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.gallery_circle.scale-100.png}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="AddGalleryButton_OnTapped"></TapGestureRecognizer>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Label
+                            Grid.Row="1"
+                            FontSize="10"
+                            HorizontalTextAlignment="Center"
+                            Text="Galerie" />
+                    </Grid>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</pages:PopupPage>
