@@ -7,7 +7,7 @@
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
     <Frame
         Padding="0"
-        BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}"
+        BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
         CornerRadius="30"
         HeightRequest="60"
         OutlineColor="Transparent"

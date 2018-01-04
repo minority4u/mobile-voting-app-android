@@ -6,7 +6,9 @@
         private string lightColor = "#8BF6FF";
         private string darkColor = "#0093C4";
 
-        private string secondaryColor = "#F1F4F6";
+        private string secondaryColor = "#BDBDBD";
+        private string secondaryLightColor = "#EFEFEF";
+        private string secondaryDarkColor = "#8D8D8D";
         
         private string menuPageColor = "#AA000000";
         private string bottomActionBarColor = "#88FFFFFF";
@@ -205,6 +207,18 @@
         {
             get => this.darkColor;
             set => this.Set(ref this.darkColor, value);
+        }
+
+        public string SecondaryLightColor
+        {
+            get => this.secondaryLightColor;
+            set => this.Set(ref this.secondaryLightColor, value);
+        }
+
+        public string SecondaryDarkColor
+        {
+            get => this.secondaryDarkColor;
+            set => this.Set(ref this.secondaryDarkColor, value);
         }
     }
 }
