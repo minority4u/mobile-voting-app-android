@@ -72,11 +72,10 @@ namespace MSO.StimmApp.Core.Services
                 new AppStimmer
                 {
                     IsNew = false,
-                    Title = "Straße kaputt",
-                    Picture = "MSO.StimmApp.Resources.Images.Photo.jpg",
-                    Appstract = "Die Straßen im Dorf haben viele Löcher. Sie müssen gestopft werden.",
+                    Title = "Parkbänke voller Moos",
+                    Picture ="MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
+                    Appstract = "Alle Parkbänke verfaulen langsam. Es sollten neue gebaut werden.",
                     Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",
-
                     Attachments = new ObservableCollection<AppStimmerAttachment>()
                     {
                         new AppStimmerAttachment
@@ -126,15 +125,7 @@ namespace MSO.StimmApp.Core.Services
                             Description = "Dies ist eine Audio-Aufnahme",
                             AttachmentType = AttachmentType.Audio
                         }
-                    }                   
-                },
-                new AppStimmer
-                {
-                    IsNew = false,
-                    Title = "Parkbänke voller Moos",
-                    Picture ="MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
-                    Appstract = "Alle Parkbänke verfaulen langsam. Es sollten neue gebaut werden.",
-                    Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",               
+                    }
                 },
                 new AppStimmer
                 {

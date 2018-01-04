@@ -11,9 +11,9 @@ namespace MSO.StimmApp.ViewModels
         {
             this.User = new AppStimmerUser()
             {
-                MailAddress = "tinderchampion@sexy.net",
-                Username = "Anonymous_666",
-                ProfilePicture = "MSO.StimmApp.Resources.Images.Anonymous.jpg"
+                MailAddress = "info@appstimmer.com",
+                Username = "appstimmer_demo",
+                ProfilePicture = "MSO.StimmApp.Resources.Images.placeholder.png"
             };
         }
 
