@@ -37,6 +37,10 @@ namespace MSO.StimmApp.Converter
                         entry.View = new VideoAttachmentView(attachment);
                         mediaAttachmentsViewEntries.Add(entry);
                         break;
+                    case AttachmentType.Location:
+                        entry.View = new LocationAttachmentView(attachment);
+                        mediaAttachmentsViewEntries.Add(entry);
+                        break;
                 }
             }
 

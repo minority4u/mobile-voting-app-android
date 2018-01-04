@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments.LocationAttachmentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
+    <ContentView.Content>
+        <Grid>
+            <Frame
+                Padding="0"
+                CornerRadius="0"
+                OutlineColor="Transparent">
+                <forms:CachedImage
+                    x:Name="ImageView"
+                    Aspect="AspectFill"
+                    DownsampleHeight="100"
+                    DownsampleWidth="100"
+                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Images.Google_maps.png}">
+                    <forms:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                    </forms:CachedImage.GestureRecognizers>
+                </forms:CachedImage>
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

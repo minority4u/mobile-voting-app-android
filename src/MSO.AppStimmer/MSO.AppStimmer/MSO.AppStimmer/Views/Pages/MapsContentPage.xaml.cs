@@ -58,6 +58,7 @@ namespace MSO.StimmApp.Views.Pages
             topBarOverlay.EndColor = "#00000000";
             topBarOverlay.SetValue(Grid.RowProperty, 0);
             topBarOverlay.SetValue(Grid.RowSpanProperty, 1);
+            topBarOverlay.IsVisible = this.ViewModel.Attachment.IsNew;
 
             var saveButton = new Label();
             saveButton.TextColor = Color.White;
@@ -66,6 +67,7 @@ namespace MSO.StimmApp.Views.Pages
             saveButton.Margin = new Thickness(15, 15, 15, 15);
             saveButton.VerticalOptions = LayoutOptions.Start;
             saveButton.HorizontalOptions = LayoutOptions.End;
+            saveButton.IsVisible = this.ViewModel.Attachment.IsNew;
 
             var tapGesture = new TapGestureRecognizer();
             tapGesture.Tapped += TapGestureOnTapped;

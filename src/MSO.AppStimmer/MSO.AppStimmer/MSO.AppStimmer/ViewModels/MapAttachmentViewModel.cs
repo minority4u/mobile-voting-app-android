@@ -81,6 +81,12 @@ namespace MSO.StimmApp.ViewModels
 
         public async Task SaveAttachment()
         {
+            var latidude = this.SelectedPin.Position.Latitude;
+            var longitude = this.SelectedPin.Position.Longitude;
+
+            var attachmentSource = latidude.ToString(CultureInfo.InvariantCulture) + ';' + longitude.ToString(CultureInfo.InvariantCulture);
+            this.Attachment.AttachmentSource = attachmentSource;
+
             Messenger.Default.Send(new AppStimmerAttachmentAddedMessage(this.Attachment));
             await PopupNavigation.PopAllAsync();
         }
