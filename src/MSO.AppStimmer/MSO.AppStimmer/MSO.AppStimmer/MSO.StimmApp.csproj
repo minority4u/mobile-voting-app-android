@@ -781,6 +781,14 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Images\Google_maps.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Appstimmer1_1.jpg" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer1_2.jpg" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer1_3.jpg" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer2_1.png" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer2_2.png" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer3_2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
