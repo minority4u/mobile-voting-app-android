@@ -72,6 +72,141 @@ namespace MSO.StimmApp.Core.Services
                 new AppStimmer
                 {
                     IsNew = false,
+                    Title = "Kreisverkehr an der B3",
+                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer1.png",
+                    Appstract = "Neuer Kreisverkehr an der B3 Dorfeinfahrtsstraße.",
+                    Description = "An der Dorfeinfahrtsstraße von der B3 kommt es die ganze Zeit zu Unfällen verursacht durch Raser. Letzte Woche gab es schon wieder ein Tödlicher Unfall. Es muss endlich ein Kreisverkehr gebaut werden. ",
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer1_1.jpg",
+                            Description = "Aufnahme vom 05.12.2017.",
+                            AttachmentType = AttachmentType.Picture,
+                        },
+
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer1_2.jpg",
+                            Description = "Aufnahme vom 20.12.2017.",
+                            AttachmentType = AttachmentType.Picture,
+                        },
+
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer1_3.jpg",
+                            Description = "Aufnahme vom 01.02.2018.",
+                            AttachmentType = AttachmentType.Picture,
+                        },
+
+                        new AppStimmerAttachment
+                        {
+                        AttachmentSource = "48.5;8.3",
+                        AttachmentType = AttachmentType.Location,
+                    },
+                    }
+                },
+
+                new AppStimmer
+                {
+                    IsNew = false,
+                    Title = "Schwimmbad Sanierung",
+                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer2.png",
+                    Appstract = "Schwimmbad muss dringend saniert werden.",
+                    Description = "Es gibt keine Gelegenheit mehr, mal schnell ein paar Bahnen zu schwimmen seit dem das Hallenbad geschlossen wurde. Zudem ist das nächste Hallenbad 25 min entfernt und daher keine Option nach dem Feierabend für viele Menschen.",
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "48.1;8.6",
+                            AttachmentType = AttachmentType.Location,
+                        },
+
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer2_1.png",
+                            Description = "Sprungbecken von vorne.",
+                            AttachmentType = AttachmentType.Picture,
+                        },
+
+                        new AppStimmerAttachment
+                        {
+                        AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer2_2.png",
+                        Description = "Die Duschen sind auch ziemlich mitgenommen.",
+                        AttachmentType = AttachmentType.Picture,
+                        }
+                    }
+                },
+
+                new AppStimmer
+                {
+                    IsNew = false,
+                    Title = "Dreckige Fußgängerzone",
+                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer3.png",
+                    Appstract = "Bitte einmal die Fußgängerzone fegen lassen.",
+                    Description = "Die Fußgängerzone wird zu wenig gesäubert, der Müll sammelt sich immer häufiger an bevor dieses weggeräumt wird, das macht die Fußgängerzone unattraktiv und weniger Leute gehen einkaufen.",
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "48.3;8.5",
+                            AttachmentType = AttachmentType.Location,
+                        },
+
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer3_1.png",
+                            Description = "Fussgängerzone oberer Teil.",
+                            AttachmentType = AttachmentType.Picture,
+                        },
+
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer3_2.png",
+                            Description = "Fussgängerzone untereer Bereich.",
+                            AttachmentType = AttachmentType.Picture,
+                        },
+
+                        }
+                },
+
+                new AppStimmer
+                {
+                    IsNew = false,
+                    Title = "Grafitti am Bahnhof",
+                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer4.png",
+                    Appstract = "Entfernt bitte das Grafitti!",
+                    Description = "Entfernt bitte das unsägliche Penis Graffiti vom Bahnhof. Das ist eine Schande für unser Dorf! Jeden Tag muss ich daran vorbeilaufen.",
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "48.3;8.5",
+                            AttachmentType = AttachmentType.Location,
+                        },
+
+                    }
+                },
+
+                new AppStimmer
+                {
+                    IsNew = false,
+                    Title = "Dunkel wie im Mittelalter",
+                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer5.png",
+                    Appstract = "Wir brauichen mehr Straßenlaternen in unserer Gemeinde.",
+                    Description = "In der Scheuchzerstraße stehen zu wenig Strassenlaternen. Es ist einfach zu dunkel. Nachts traue ich mich kaum mehr aus dem Haus. ",
+                    Attachments = new ObservableCollection<AppStimmerAttachment>()
+                    {
+                        new AppStimmerAttachment
+                        {
+                            AttachmentSource = "48.3;8.5",
+                            AttachmentType = AttachmentType.Location,
+                        },
+                    }
+                },
+                new AppStimmer
+                {
+                    IsNew = false,
                     Title = "Parkbänke voller Moos",
                     Picture ="MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
                     Appstract = "Alle Parkbänke verfaulen langsam. Es sollten neue gebaut werden.",
@@ -91,9 +226,8 @@ namespace MSO.StimmApp.Core.Services
                         },
                         new AppStimmerAttachment
                         {
-                            AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
-                            Description = "So sieht die Bank aus.",
-                            AttachmentType = AttachmentType.Picture,
+                            AttachmentSource = "48.3;8.5",
+                            AttachmentType = AttachmentType.Location,
                         },
                         new AppStimmerAttachment
                         {
@@ -152,57 +286,7 @@ namespace MSO.StimmApp.Core.Services
                     Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",
                 },
 
-                new AppStimmer
-                {
-                    IsNew = false,
-                    Title = "Kreisverkehr an der B3",
-                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer1.png",
-                    Appstract = "Neuer Kreisverkehr an der B3 Dorfeinfahrtsstraße.",
-                    Description = "An der Dorfeinfahrtsstraße von der B3 kommt es die ganze Zeit zu Unfällen verursacht durch Raser. Letzte Woche gab es schon wieder ein Tödlicher Unfall. Es muss endlich ein Kreisverkehr gebaut werden. ",
-                },
-
-                new AppStimmer
-                {
-                    IsNew = false,
-                    Title = "Schwimmbad Sanierung",
-                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer2.png",
-                    Appstract = "Schwimmbad muss dringend saniert werden.",
-                    Description = "Es gibt keine Gelegenheit mehr, mal schnell ein paar Bahnen zu schwimmen seit dem das Hallenbad geschlossen wurde. Zudem ist das nächste Hallenbad 25 min entfernt und daher keine Option nach dem Feierabend für viele Menschen.",
-                },
-
-                new AppStimmer
-                {
-                    IsNew = false,
-                    Title = "Dreckige Fußgängerzone",
-                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer3.png",
-                    Appstract = "Bitte einmal die Fußgängerzone fegen lassen.",
-                    Description = "Die Fußgängerzone wird zu wenig gesäubert, der Müll sammelt sich immer häufiger an bevor dieses weggeräumt wird, das macht die Fußgängerzone unattraktiv und weniger Leute gehen einkaufen.",
-                    Attachments = new ObservableCollection<AppStimmerAttachment>()
-                    {
-                        new AppStimmerAttachment
-                        {
-                            AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer3_1.png",
-                            AttachmentType = AttachmentType.Picture,
-                        }
-                        }
-                },
-                new AppStimmer
-                {
-                    IsNew = false,
-                    Title = "Grafitti am Bahnhof",
-                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer4.png",
-                    Appstract = "Entfernt bitte das Grafitti!",
-                    Description = "Entfernt bitte das unsägliche Penis Graffiti vom Bahnhof. Das ist eine Schande für unser Dorf! Jeden Tag muss ich daran vorbeilaufen.",
-                },
-
-                new AppStimmer
-                {
-                    IsNew = false,
-                    Title = "Dunkel wie im Mittelalter",
-                    Picture ="MSO.StimmApp.Resources.Images.Appstimmer5.png",
-                    Appstract = "Wir brauichen mehr Straßenlaternen in unserer Gemeinde.",
-                    Description = "In der Scheuchzerstraße stehen zu wenig Strassenlaternen. Es ist einfach zu dunkel. Nachts traue ich mich kaum mehr aus dem Haus. ",
-                },
+                
 
 
             };

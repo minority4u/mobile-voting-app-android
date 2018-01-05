@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight.Ioc;
 using MSO.Common;
+using MSO.StimmApp.Core.Helpers;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.ViewModels;
 using MSO.StimmApp.Models;
@@ -91,6 +92,10 @@ namespace MSO.StimmApp.ViewModels
             {
                 this.Set(ref this.selectedColorThemeIndex, value);
                 App.Settings.AppColors = this.ColorThemes[this.selectedColorThemeIndex].ColorTheme;
+
+
+                var color = Color.FromHex(Settings.Current.AppColors.DarkColor);
+                App.NavigationBarController.SetStatusBarColor(color);
             }
         }
 

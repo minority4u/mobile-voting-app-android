@@ -6,7 +6,7 @@
   <item>
     <bitmap
         android:src="@drawable/splashscreen_small"
-        android:tileMode="repeat"
+        android:tileMode="disabled"
         android:gravity="center"
         android:name="SplashImage"
         />

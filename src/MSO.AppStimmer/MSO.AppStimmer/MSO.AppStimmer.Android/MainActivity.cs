@@ -38,7 +38,7 @@ namespace MSO.StimmApp.Droid
 
             LoadApplication(new StimmApp.App());
 
-            Window.SetStatusBarColor(Color.Black);
+            
             Window.SetNavigationBarColor(Color.Black);
 
             //Notification.Builder builder = new Notification.Builder(this)
