@@ -80,6 +80,7 @@ namespace MSO.StimmApp.Core.Services
                     {
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer1_1.jpg",
                             Description = "Aufnahme vom 05.12.2017.",
                             AttachmentType = AttachmentType.Picture,
@@ -87,6 +88,7 @@ namespace MSO.StimmApp.Core.Services
 
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer1_2.jpg",
                             Description = "Aufnahme vom 20.12.2017.",
                             AttachmentType = AttachmentType.Picture,
@@ -94,6 +96,7 @@ namespace MSO.StimmApp.Core.Services
 
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer1_3.jpg",
                             Description = "Aufnahme vom 01.02.2018.",
                             AttachmentType = AttachmentType.Picture,
@@ -101,12 +104,12 @@ namespace MSO.StimmApp.Core.Services
 
                         new AppStimmerAttachment
                         {
-                        AttachmentSource = "48.5;8.3",
-                        AttachmentType = AttachmentType.Location,
-                    },
+                            IsNew = false,
+                            AttachmentSource = "48.5;8.3",
+                            AttachmentType = AttachmentType.Location,
+                        },
                     }
                 },
-
                 new AppStimmer
                 {
                     IsNew = false,
@@ -118,12 +121,14 @@ namespace MSO.StimmApp.Core.Services
                     {
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "48.1;8.6",
                             AttachmentType = AttachmentType.Location,
                         },
 
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer2_1.png",
                             Description = "Sprungbecken von vorne.",
                             AttachmentType = AttachmentType.Picture,
@@ -131,13 +136,13 @@ namespace MSO.StimmApp.Core.Services
 
                         new AppStimmerAttachment
                         {
-                        AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer2_2.png",
-                        Description = "Die Duschen sind auch ziemlich mitgenommen.",
-                        AttachmentType = AttachmentType.Picture,
+                            IsNew = false,
+                            AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer2_2.png",
+                            Description = "Die Duschen sind auch ziemlich mitgenommen.",
+                            AttachmentType = AttachmentType.Picture,
                         }
                     }
                 },
-
                 new AppStimmer
                 {
                     IsNew = false,
@@ -149,12 +154,14 @@ namespace MSO.StimmApp.Core.Services
                     {
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "48.3;8.5",
                             AttachmentType = AttachmentType.Location,
                         },
 
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer3_1.png",
                             Description = "Fussgängerzone oberer Teil.",
                             AttachmentType = AttachmentType.Picture,
@@ -162,14 +169,14 @@ namespace MSO.StimmApp.Core.Services
 
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Appstimmer3_2.png",
                             Description = "Fussgängerzone untereer Bereich.",
                             AttachmentType = AttachmentType.Picture,
                         },
 
-                        }
+                    }
                 },
-
                 new AppStimmer
                 {
                     IsNew = false,
@@ -181,13 +188,13 @@ namespace MSO.StimmApp.Core.Services
                     {
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "48.3;8.5",
                             AttachmentType = AttachmentType.Location,
                         },
 
                     }
                 },
-
                 new AppStimmer
                 {
                     IsNew = false,
@@ -199,6 +206,7 @@ namespace MSO.StimmApp.Core.Services
                     {
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "48.3;8.5",
                             AttachmentType = AttachmentType.Location,
                         },
@@ -215,46 +223,54 @@ namespace MSO.StimmApp.Core.Services
                     {
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "https://googlechrome.github.io/samples/picture-element/images/butterfly.jpg",
                             AttachmentType = AttachmentType.Picture,
                         },
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
                             Description = "So sieht die Bank aus.",
                             AttachmentType = AttachmentType.Picture,
                         },
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "48.3;8.5",
                             AttachmentType = AttachmentType.Location,
                         },
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
                             Description = "So sieht die Bank aus.",
                             AttachmentType = AttachmentType.Picture,
                         },
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
                             Description = "Dies ist ein cooles Video",
                             AttachmentType = AttachmentType.Video
                         },
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "MSO.StimmApp.Resources.Images.Kaputte_Parkbank.jpg",
                             Description = "So sieht die Bank aus.",
                             AttachmentType = AttachmentType.Picture,
                         },
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
                             Description = "Dies ist ein cooles Video",
                             AttachmentType = AttachmentType.Video
                         },
                         new AppStimmerAttachment
                         {
+                            IsNew = false,
                             AttachmentSource = "https://ccrma.stanford.edu/~jos/mp3/gtr-jazz.mp3",
                             Description = "Dies ist eine Audio-Aufnahme",
                             AttachmentType = AttachmentType.Audio
@@ -285,10 +301,6 @@ namespace MSO.StimmApp.Core.Services
                     Appstract = "Die städtische Hochschule ist zu klein, und nicht modern genug. Es muss eine neue gebaut werden!",
                     Description = "Do you see any Teletubbies in here? Do you see a slender plastic tag clipped to my shirt with my name printed on it? Do you see a little Asian child with a blank expression on his face sitting outside on a mechanical helicopter that shakes when you put quarters in it? No? Well, that\'s what you see at a toy store. And you must think you\'re in a toy store, because you\'re here shopping for an infant named Jeb.",
                 },
-
-                
-
-
             };
 
             return list;
