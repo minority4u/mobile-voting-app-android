@@ -8,6 +8,7 @@
     xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     CloseWhenBackgroundIsClicked="False"
     HasSystemPadding="False">
     <!--<pages:PopupPage.Animation>
@@ -53,16 +54,18 @@
                             FontAttributes="Bold"
                             FontSize="20"
                             Text="{Binding EditorDescription}" />
-                        <elements:ExpandableEditor
+                        <elements:BottomlineColoredExpandableEditor
                             x:Name="TextEditor"
                             Grid.Row="1"
                             Margin="18,20,20,0"
+                            FocusColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
                             FontSize="15"
+                            NoFocusColor="#B6B6B6"
                             Text="{Binding Text}">
-                            <elements:ExpandableEditor.Behaviors>
+                            <elements:BottomlineColoredExpandableEditor.Behaviors>
                                 <behaviors:EditorLengthValidatorBehavior BindingContext="{Binding Path=.}" MaxLength="{Binding MaxCharacters}" />
-                            </elements:ExpandableEditor.Behaviors>
-                        </elements:ExpandableEditor>
+                            </elements:BottomlineColoredExpandableEditor.Behaviors>
+                        </elements:BottomlineColoredExpandableEditor>
                         <Label
                             Grid.Row="2"
                             Margin="0,3,22,0"
@@ -76,23 +79,21 @@
                         </Label>
                         <StackLayout
                             Grid.Row="3"
-                            Margin="0,15,0,5"
+                            Margin="0,15,20,5"
                             HorizontalOptions="End"
                             Orientation="Horizontal"
                             VerticalOptions="End">
                             <Button
-                                BackgroundColor="White"
-                                BorderColor="White"
+                                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
                                 BorderWidth="0"
                                 Clicked="Button_OnClicked"
                                 Text="ABBRECHEN"
-                                TextColor="DarkOrange" />
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryTextColor}" />
                             <Button
-                                BackgroundColor="White"
-                                BorderColor="White"
+                                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
                                 Command="{Binding SaveTextCommand}"
                                 Text="FERTIG"
-                                TextColor="DarkOrange" />
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryTextColor}" />
                         </StackLayout>
                     </Grid>
 

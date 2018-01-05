@@ -322,6 +322,7 @@
     <Compile Include="Effects\BlueSliderEffect.cs" />
     <Compile Include="Effects\RedSliderEffect.cs" />
     <Compile Include="MainApplication.cs" />
+    <Compile Include="Renderers\BottomlineColoredExpandableEditorRenderer.cs" />
     <Compile Include="Renderers\BottomlinelessEntryRenderer.cs" />
     <Compile Include="Renderers\CustomMapRenderer.cs" />
     <Compile Include="Renderers\Scrollbardisabledrenderer.cs" />

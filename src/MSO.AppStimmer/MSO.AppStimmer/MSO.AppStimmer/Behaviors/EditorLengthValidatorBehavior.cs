@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace MSO.StimmApp.Behaviors
 {
-    public class EditorLengthValidatorBehavior : Behavior<ExpandableEditor>
+    public class EditorLengthValidatorBehavior : Behavior<BottomlineColoredExpandableEditor>
     {
         public static readonly BindableProperty MaxLengthProperty =
             BindableProperty.Create(nameof(MaxLength), typeof(int), typeof(EditorLengthValidatorBehavior), 0, BindingMode.TwoWay);
@@ -26,14 +26,14 @@ namespace MSO.StimmApp.Behaviors
 
         //public int MaxLength { get; set; }
 
-        protected override void OnAttachedTo(ExpandableEditor bindable)
+        protected override void OnAttachedTo(BottomlineColoredExpandableEditor bindable)
         {
             base.OnAttachedTo(bindable);
             bindable.TextChanged += OnEntryTextChanged;
             bindable.BindingContextChanged += (sender, _) => this.BindingContext = ((BindableObject)sender).BindingContext;
         }
 
-        protected override void OnDetachingFrom(ExpandableEditor bindable)
+        protected override void OnDetachingFrom(BottomlineColoredExpandableEditor bindable)
         {
             base.OnDetachingFrom(bindable);
             bindable.TextChanged -= OnEntryTextChanged;
@@ -41,7 +41,7 @@ namespace MSO.StimmApp.Behaviors
 
         private void OnEntryTextChanged(object sender, TextChangedEventArgs e)
         {
-            var editor = (ExpandableEditor)sender;
+            var editor = (BottomlineColoredExpandableEditor)sender;
 
             if (editor.Text != null && this.MaxLength >= 1 && editor.Text.Length > this.MaxLength)
             {

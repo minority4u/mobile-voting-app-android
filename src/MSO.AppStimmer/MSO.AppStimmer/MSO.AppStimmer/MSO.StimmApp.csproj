@@ -66,6 +66,7 @@
     <Compile Include="Converter\StringToPlaceholderConverter.cs" />
     <Compile Include="Converter\StringToPlaceholderOpacityConverter.cs" />
     <Compile Include="Converter\ÁppStimmerEditorDisplayTypeToOpacityConverter.cs" />
+    <Compile Include="Elements\BottomlineColoredExpandableEditor.cs" />
     <Compile Include="Elements\BottomlinelessEntry.cs" />
     <Compile Include="Elements\ColoredNavigationPage.xaml.cs">
       <DependentUpon>ColoredNavigationPage.xaml</DependentUpon>
