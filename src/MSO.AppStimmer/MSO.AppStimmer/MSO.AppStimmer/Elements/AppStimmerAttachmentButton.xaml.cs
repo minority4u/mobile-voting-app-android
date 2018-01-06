@@ -2,11 +2,14 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using MSO.StimmApp.Core.Enums;
+using MSO.StimmApp.Core.Maps;
 using MSO.StimmApp.Core.Messages;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.ViewModels;
+using MSO.StimmApp.Views;
 using MSO.StimmApp.Views.Pages;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
@@ -27,6 +30,7 @@ namespace MSO.StimmApp.Elements
         public static readonly BindableProperty AttachmentTypeProperty =
             BindableProperty.Create(nameof(AttachmentType), typeof(AttachmentType), typeof(AppStimmerAttachmentButton), AttachmentType.Picture, BindingMode.TwoWay);
 
+        [PreferredConstructor]
         public AppStimmerAttachmentButton ()
 		{
 			this.InitializeComponent();
@@ -201,13 +205,10 @@ namespace MSO.StimmApp.Elements
 	        {
 	            AttachmentType = AttachmentType.Location,
                 AttachmentSource = attachmentSource,
-                Description = "HS Mannheim"
             };
 
             var viewModel = new MapAttachmentViewModel(attachment);
-	        var page = new MapsContentPage(viewModel);
-
-	        await PopupNavigation.PushAsync(page);
+	        App.NavigationService.NavigateTo(PagesKeys.MapsContent, viewModel);
 	    }
 
 	    private void AddText()

@@ -57,6 +57,9 @@
             <converter:StringToPlaceholderConverter x:Key="StringToPlaceholderConverter" />
             <converter:MediaAttachmentCountToViewVisibilityConverter x:Key="MediaAttachmentCountToViewVisibilityConverter" />
             <converter:ColorToDarkerColorConverter x:Key="ColorToDarkerColorConverter" />
+            <converter:MapAttachmentDescriptionToVisibilityConverter x:Key="MapAttachmentDescriptionToVisibilityConverter" />
+            <converter:MapSearchTextToPredictionsVisibilityConverter x:Key="MapSearchTextToPredictionsVisibilityConverter" />
+            <converter:CollectionCountToVisibilityConverter x:Key="CollectionCountToVisibilityConverter" />
             <converter:AppStimmerToNavigationBarEditPenVisibilityConverter x:Key="AppStimmerToNavigationBarEditPenVisibilityConverter" />
             <converter:AppStimmerAttachmentsToMediaAddachmentCountConverter x:Key="AppStimmerAttachmentsToMediaAddachmentCountConverter" />
             <converter:AppStimmerMainPictureAvailabilityToVisibilityConverter x:Key="AppStimmerMainPictureAvailabilityToVisibilityConverter" />

@@ -1,11 +1,196 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<pages:PopupPage
+<ContentPage
     x:Class="MSO.StimmApp.Views.Pages.MapsContentPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:MSO.StimmApp.Converter;assembly=MSO.StimmApp"
     xmlns:customMap="clr-namespace:TK.CustomMap;assembly=TK.CustomMap"
-    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
-    <!--<pages:PopupPage.Content>
-        <customMap:TKCustomMap x:Name="MyMap" />
-    </pages:PopupPage.Content>-->
-</pages:PopupPage>
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Frame
+            Margin="15,15,15,0"
+            Padding="0"
+            BackgroundColor="White"
+            CornerRadius="5"
+            HasShadow="True"
+            HeightRequest="60"
+            IsVisible="{Binding Attachment.IsNew}"
+            VerticalOptions="Start">
+            <SearchBar
+                x:Name="PlacesSearchBar"
+                BackgroundColor="Transparent"
+                Focused="PlacesSearchBar_OnFocused"
+                HorizontalOptions="Center"
+                Placeholder="Hier suchen..."
+                Text="{Binding SearchText}"
+                TextChanged="PlacesSearchBar_OnTextChanged"
+                TextColor="Black"
+                VerticalOptions="Start" />
+        </Frame>
+
+        <Frame
+            x:Name="SearchPredictionsFrame"
+            Margin="15,85,15,0"
+            Padding="0"
+            CornerRadius="5"
+            HasShadow="True"
+            HeightRequest="200"
+            IsVisible="{Binding IsSearching}"
+            VerticalOptions="Start">
+            <xForms:SfListView
+                x:Name="SearchPredictionsListView"
+                BackgroundColor="White"
+                ItemSize="50"
+                ItemTapped="SearchPredictionsListView_OnItemTapped"
+                ItemsSource="{Binding AutoCompletePredictions}"
+                SelectionBackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}">
+                <xForms:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="4*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
+
+                                <elements:TintedSvgCachedImage
+                                    Grid.Column="0"
+                                    Margin="0"
+                                    HeightRequest="30"
+                                    HorizontalOptions="Center"
+                                    Source="resource://MSO.StimmApp.Resources.Icons.google_maps_marker.svg"
+                                    TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryDarkColor}"
+                                    VerticalOptions="Center"
+                                    WidthRequest="30" />
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    HeightRequest="20"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Start"
+                                    LineBreakMode="TailTruncation"
+                                    Text="{Binding Description}"
+                                    VerticalOptions="Center" />
+                                <elements:TintedSvgCachedImage
+                                    Grid.Row="0"
+                                    Grid.Column="2"
+                                    Margin="0"
+                                    HeightRequest="15"
+                                    HorizontalOptions="Center"
+                                    Source="resource://MSO.StimmApp.Resources.Icons.arrow_up_left.svg"
+                                    TintColor="#838383"
+                                    VerticalOptions="Center"
+                                    WidthRequest="15" />
+                                <BoxView
+                                    Grid.Column="1"
+                                    Grid.ColumnSpan="2"
+                                    HeightRequest="1"
+                                    HorizontalOptions="Fill"
+                                    VerticalOptions="End"
+                                    Color="#DDDDDD" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </xForms:SfListView.ItemTemplate>
+            </xForms:SfListView>
+        </Frame>
+
+        <elements:CustomTkCustomMap
+            x:Name="MapsView"
+            MapClicked="MapsView_OnMapClicked"
+            MapLongPressCommand="{Binding MapLongPressedCommand}"
+            Pins="{Binding Pins}"
+            SelectedPin="{Binding SelectedPin}"
+            VerticalOptions="FillAndExpand" />
+        <Grid
+            BackgroundColor="#99000000"
+            HeightRequest="50"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="{Binding Attachment.IsNew}"
+            RowSpacing="0"
+            VerticalOptions="End">
+            <elements:BottomlinelessEntry
+                Margin="10,0,76,0"
+                Placeholder="Beschreibung hinzufügen..."
+                PlaceholderColor="#CCCCCC"
+                Text="{Binding Attachment.Description}"
+                TextColor="White"
+                VerticalOptions="Center" />
+        </Grid>
+        <StackLayout
+            x:Name="BottomStackLayout"
+            BackgroundColor="#99000000"
+            Spacing="0"
+            VerticalOptions="EndAndExpand">
+            <StackLayout.IsVisible>
+                <converter:MultiBinding Converter="{StaticResource MapAttachmentDescriptionToVisibilityConverter}">
+                    <Binding Path="Attachment.IsNew" />
+                    <Binding Path="Attachment.Description" />
+                </converter:MultiBinding>
+            </StackLayout.IsVisible>
+            <Label
+                x:Name="DescriptionLabel"
+                FontSize="15"
+                HeightRequest="60"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Attachment.Description}"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+        </StackLayout>
+
+        <elements:SubmitButton
+            Margin="0,0,30,10"
+            HorizontalOptions="End"
+            IsVisible="{Binding Attachment.IsNew}"
+            VerticalOptions="End">
+            <elements:SubmitButton.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureOnTapped" />
+            </elements:SubmitButton.GestureRecognizers>
+        </elements:SubmitButton>
+    </Grid>
+    <!--<StackLayout Spacing="0">-->
+    <!--<Grid></Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>-->
+
+    <!--<SearchBar
+            x:Name="PlacesSearchBar"
+            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
+            HeightRequest="50"
+            Text="{Binding SearchText}"
+            TextChanged="PlacesSearchBar_OnTextChanged"
+            TextColor="White" />-->
+
+    <!--<AbsoluteLayout BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}" IsVisible="{Binding SearchText, Converter={StaticResource MapSearchTextToPredictionsVisibilityConverter}}">
+            <ActivityIndicator
+                x:Name="IsSearchingSpinner"
+                AbsoluteLayout.LayoutBounds="0.5, 0.1, 50, 50"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                IsRunning="{Binding IsSearching}" />
+            <ListView
+                x:Name="SearchPredictions"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="SizeProportional"
+                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
+                IsVisible="True"
+                ItemsSource="{Binding AutoCompletePredictions}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Detail="{Binding PlaceId}" Text="{Binding Description}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </AbsoluteLayout>-->
+
+
+    <!--</StackLayout>-->
+</ContentPage>

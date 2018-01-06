@@ -59,9 +59,27 @@ namespace MSO.StimmApp.Droid.Renderers
             var colorAndroid = color.ToAndroid();
 
             if (Build.VERSION.SdkInt >= BuildVersionCodes.Lollipop)
+            {
+                IntPtr IntPtrtextViewClass = JNIEnv.FindClass(typeof(TextView));
+                IntPtr mCursorDrawableResProperty = JNIEnv.GetFieldID(IntPtrtextViewClass, "mCursorDrawableRes", "I");
+                JNIEnv.SetField(Control.Handle, mCursorDrawableResProperty, 0); // replace 0 with a Resource.Drawable.my_cursor 
+
                 Control.BackgroundTintList = ColorStateList.ValueOf(colorAndroid);
+            }
             else
+            {
                 Control.Background.SetColorFilter(colorAndroid, PorterDuff.Mode.SrcAtop);
+            }
+
+            var textLength = editor.Text?.Length;
+            if (textLength == 0)
+            {
+                editor.TextColor = color;
+            }
+            else
+            {
+                editor.TextColor = Xamarin.Forms.Color.Black;
+            }
         }
     }
 }

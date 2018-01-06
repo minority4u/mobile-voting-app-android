@@ -12,66 +12,45 @@ namespace MSO.StimmApp.Core.Helpers
     {
         // this is the default color theme. The values are stored in the model as default values.
         // No need to specify them here.
-        public static ColorTheme SummerBreeze = new ColorTheme();
+        public static ColorTheme GreenSky = new ColorTheme();
             
-        public static ColorTheme DarkMenace = new ColorTheme
+        public static ColorTheme NightAndDay = new ColorTheme
         {
-            PrimaryColor = "#000000",
-            SecondaryColor = "#000000",
-            MenuPageColor = "#000000",
-            ListViewHeaderColor = "#B81215",
-            MenuPageIconColor = "#B81215",
-            AppStimmersItemTitleColor = "#B81215",
-            StandardButtonColor = "#B81215",
-            SimpleControlsColor = "#B81215",
-            ActiveTabIndicatorColor = "#B81215",
-            BottomActionBarColor = "#FF000000",
-            AppStimmerAttachmentItemColor = "#000000",
-            AppStimmerAttachmentItemTextColor = "#FFFFFF",
-            AppStimmersItemColor = "#000000",
-            PopupColor = "#B81215",
-            PrimaryTextColor = "#FFFFFF",
-            SecondaryTextColor = "#FFFFFF",
-            SubtitleTextColor = "#696969",
-            PopupTextColor = "#FFFFFF",
-            MenuPageTextColor = "#FFFFFF",
-            SwipeLeftIndicatorColor = "#DB6E7A",
-            SwipeRightIndicatorColor = "#6EDBCF",
-            NoSwipeIndicatorColor = "#000000",
-            SwipeCardColor = "#000000",
-            SwipeCardBackgroundColor = "#000000"
+            PrimaryColor = "#FF7043",
+            TextOnPrimaryColor = "#000000",
+            LightColor = "#FFA270",
+            DarkColor = "#C63F17",
+
+            SecondaryColor = "#212121",
+            TextOnSecondaryColor = "#FFFFFF",
+            SecondaryLightColor = "#484848",
+            SecondaryDarkColor = "#000000"
         };
 
-        public static ColorTheme PurplePassion = new ColorTheme
+        public static ColorTheme Relaxed = new ColorTheme
         {
-            PrimaryColor = "#8A2BE2",
-            ListViewHeaderColor = "#8A2BE2",
-            MenuPageIconColor = "#8A2BE2",
-            AppStimmersItemTitleColor = "#8A2BE2",
-            StandardButtonColor = "#8A2BE2",
-            PopupColor = "#8A2BE2",
+            PrimaryColor = "#3F51B5",
+            TextOnPrimaryColor = "#FFFFFF",
+            LightColor = "#757DE8",
+            DarkColor = "#002984",
+
+            SecondaryColor = "#C5E1A5",
+            TextOnSecondaryColor = "#000000",
+            SecondaryLightColor = "#F8FFD7",
+            SecondaryDarkColor = "#94AF76"
         };
 
-        public static ColorTheme MintGreen = new ColorTheme
+        public static ColorTheme WalkInTheForest = new ColorTheme
         {
-            PrimaryColor = "#3CB5B8",
-            SecondaryColor = "#F1F4F6",
-            MenuPageColor = "#AA000000",                    
-            ListViewHeaderColor = "#A67CAD",
-            MenuPageIconColor = "#3CB5B8",
+            PrimaryColor = "#43A047",
+            TextOnPrimaryColor = "#000000",
+            LightColor = "#76D275",
+            DarkColor = "#00701A",
 
-            NoSwipeIndicatorColor = "#FFFFFF",
-            SimpleControlsColor = "#A9A9A9",
-            ActiveTabIndicatorColor = "#FFFFFF",
-            BottomActionBarColor = "#FFFFFF",
-            AppStimmerAttachmentItemColor = "#FFFFFF",
-            AppStimmersItemColor = "#FFFFFF",
-            PopupColor = "#FFFFFF",
-            PrimaryTextColor = "#FFFFFF",
-            SecondaryTextColor = "#000000",
-            SubtitleTextColor = "#696969",
-            PopupTextColor = "#FFFFFF",
-            MenuPageTextColor = "#FFFFFF",
+            SecondaryColor = "#AFB42B",
+            TextOnSecondaryColor = "#000000",
+            SecondaryLightColor = "#E4E65E",
+            SecondaryDarkColor = "#7C8500"
         };
     }
 }

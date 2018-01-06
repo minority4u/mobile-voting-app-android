@@ -240,7 +240,7 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
 
         private void SetNavigationBarOpacity(int alpha)
         {
-            var oldColor = this.ViewModel.NavigationBarBackgroundColor;
+            var oldColor = Color.FromHex(App.Settings.AppColors.PrimaryColor);
             var newColor = new Color(oldColor.R, oldColor.G, oldColor.B, alpha);
             this.ViewModel.NavigationBarBackgroundColor = newColor;
         }

@@ -54,7 +54,7 @@
                             x:Name="TitleFrame"
                             Grid.Row="1"
                             Padding="0"
-                            EndColor="#55000000"
+                            EndColor="#88000000"
                             OutlineColor="Transparent"
                             StartColor="#00000000" />
                     </Grid>
@@ -198,7 +198,7 @@
                                             <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
                                         </Grid.GestureRecognizers>
                                         <BoxView
-                                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryTextColor}"
+                                            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.TextOnSecondaryColor}"
                                             HeightRequest="40"
                                             HorizontalOptions="Center"
                                             VerticalOptions="Center"
@@ -283,7 +283,7 @@
                 EndColor="#00000000"
                 HeightRequest="57"
                 OutlineColor="Transparent"
-                StartColor="#44000000"
+                StartColor="#88000000"
                 VerticalOptions="Start" />
             <StackLayout
                 HeightRequest="57"

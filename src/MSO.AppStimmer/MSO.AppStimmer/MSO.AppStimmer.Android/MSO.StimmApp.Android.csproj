@@ -324,7 +324,7 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Renderers\BottomlineColoredExpandableEditorRenderer.cs" />
     <Compile Include="Renderers\BottomlinelessEntryRenderer.cs" />
-    <Compile Include="Renderers\CustomMapRenderer.cs" />
+    <Compile Include="Renderers\MyMapRenderer.cs" />
     <Compile Include="Renderers\Scrollbardisabledrenderer.cs" />
     <Compile Include="Renderers\VideoPlaybackSliderRenderer.cs" />
     <Compile Include="Renderers\ZoomScrollViewRenderer.cs" />
@@ -418,7 +418,28 @@
     <AndroidResource Include="Resources\drawable\splashscreen_small.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\drawable\google_maps.png" />
+    <AndroidResource Include="Resources\drawable\google_maps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\google_maps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\marker_appStimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\marker_appStimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\marker_appStimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\marker_appStimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\marker_appStimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\marker_appStimmer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

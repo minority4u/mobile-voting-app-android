@@ -38,23 +38,23 @@ namespace MSO.StimmApp.ViewModels
             {
                 new ColorThemeItem()
                 {
-                    Description = "Summer Breeze",
-                    ColorTheme = Core.Helpers.ColorThemes.SummerBreeze
+                    Description = "Green Sky",
+                    ColorTheme = Core.Helpers.ColorThemes.GreenSky
                 },
                 new ColorThemeItem()
                 {
-                    Description = "Dark Menace",
-                    ColorTheme = Core.Helpers.ColorThemes.DarkMenace
+                    Description = "Night and Day",
+                    ColorTheme = Core.Helpers.ColorThemes.NightAndDay
                 },
                 new ColorThemeItem()
                 {
-                    Description = "Purple Passion",
-                    ColorTheme = Core.Helpers.ColorThemes.PurplePassion
+                    Description = "Relaxed",
+                    ColorTheme = Core.Helpers.ColorThemes.Relaxed
                 },
                 new ColorThemeItem()
                 {
                     Description = "Walk in the Forest",
-                    ColorTheme = Core.Helpers.ColorThemes.MintGreen
+                    ColorTheme = Core.Helpers.ColorThemes.WalkInTheForest
                 },
             };
 

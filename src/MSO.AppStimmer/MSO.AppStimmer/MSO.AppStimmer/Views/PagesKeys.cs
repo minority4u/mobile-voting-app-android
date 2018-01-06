@@ -11,5 +11,7 @@
         public static string Settings => "Settings";
 
         public static string AddAttachmentPopup => "AddAttachmentPopup";
+
+        public static string MapsContent => "MapsContentPage";
     }
 }

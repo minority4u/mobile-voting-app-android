@@ -41,6 +41,15 @@
     <Compile Include="Helpers\ColorThemes.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Helpers\TaskHelper.cs" />
+    <Compile Include="Maps\AutoCompletePrediction.cs" />
+    <Compile Include="Maps\IPlacesService.cs" />
+    <Compile Include="Maps\MapLocation.cs" />
+    <Compile Include="Maps\Place.cs" />
+    <Compile Include="Maps\PlacesException.cs" />
+    <Compile Include="Maps\PlacesSearchOptions.cs" />
+    <Compile Include="Maps\PlacesSearchResult.cs" />
+    <Compile Include="Maps\PlacesService.cs" />
+    <Compile Include="Maps\PlaceType.cs" />
     <Compile Include="Messages\AppStimmerAddedMessage.cs" />
     <Compile Include="Messages\AppStimmerAttachmentAddedMessage.cs" />
     <Compile Include="Messages\AppStimmerDeletedMessage.cs" />

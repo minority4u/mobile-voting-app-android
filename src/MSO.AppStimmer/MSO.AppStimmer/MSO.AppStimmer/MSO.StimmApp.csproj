@@ -53,6 +53,7 @@
     <Compile Include="Converter\AppStimmerMainPictureAvailabilityToVisibilityConverter.cs" />
     <Compile Include="Converter\AppStimmerToNavigationBarEditPenVisibilityConverter.cs" />
     <Compile Include="Converter\CharactersAndMaxCharactersToStringConverter.cs" />
+    <Compile Include="Converter\CollectionCountToVisibilityConverter.cs" />
     <Compile Include="Converter\ColorChannelsToColorConverter.cs" />
     <Compile Include="Converter\ColorToColorChannelConverter.cs" />
     <Compile Include="Converter\ColorToDarkerColorConverter.cs" />
@@ -62,6 +63,8 @@
     <Compile Include="Converter\ImageToSvgSourceConverter.cs" />
     <Compile Include="Converter\CrossVideoManagerTimeSpanToStringConverter.cs" />
     <Compile Include="Converter\LocalImageResourceConverter.cs" />
+    <Compile Include="Converter\MapAttachmentDescriptionToVisibilityConverter.cs" />
+    <Compile Include="Converter\MapSearchTextToPredictionsVisibilityConverter.cs" />
     <Compile Include="Converter\MediaAttachmentCountToViewVisibilityConverter.cs" />
     <Compile Include="Converter\StringToPlaceholderConverter.cs" />
     <Compile Include="Converter\StringToPlaceholderOpacityConverter.cs" />
@@ -75,6 +78,7 @@
       <DependentUpon>CustomNavigationBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Elements\BottomlinelessExpandableEditor.cs" />
+    <Compile Include="Elements\CustomTkCustomMap.cs" />
     <Compile Include="Elements\ExpandableEditor.cs" />
     <Compile Include="Elements\PinchToZoomContainer.cs" />
     <Compile Include="Elements\ScrollbarLessScrollView.cs" />
@@ -222,6 +226,9 @@
     </Compile>
     <Compile Include="Views\Pages\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Pages\PictureAttachmentPreviewPage.xaml.cs">
       <DependentUpon>PictureAttachmentPreviewPage.xaml</DependentUpon>
@@ -789,6 +796,21 @@
     <EmbeddedResource Include="Resources\Images\Appstimmer2_1.png" />
     <EmbeddedResource Include="Resources\Images\Appstimmer2_2.png" />
     <EmbeddedResource Include="Resources\Images\Appstimmer3_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\Page2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\google_maps_marker.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\arrow_up_left.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\marker_appStimmer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />

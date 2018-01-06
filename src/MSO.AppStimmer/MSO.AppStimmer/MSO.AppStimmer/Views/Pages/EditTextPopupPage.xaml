@@ -88,12 +88,12 @@
                                 BorderWidth="0"
                                 Clicked="Button_OnClicked"
                                 Text="ABBRECHEN"
-                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryTextColor}" />
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.TextOnSecondaryColor}" />
                             <Button
                                 BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
                                 Command="{Binding SaveTextCommand}"
                                 Text="FERTIG"
-                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryTextColor}" />
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.TextOnSecondaryColor}" />
                         </StackLayout>
                     </Grid>
 

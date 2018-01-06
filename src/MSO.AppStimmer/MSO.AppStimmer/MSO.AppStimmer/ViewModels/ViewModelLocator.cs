@@ -14,6 +14,7 @@
 
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
+using MSO.StimmApp.Core.Maps;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Services;
 using MSO.StimmApp.Views;
@@ -40,8 +41,10 @@ namespace MSO.StimmApp.ViewModels
             navigation.Configure(PagesKeys.AppStimmers, typeof(AppStimmersPage));
             navigation.Configure(PagesKeys.Settings, typeof(SettingsPage));
             navigation.Configure(PagesKeys.AddAttachmentPopup, typeof(AddAttachmentPopupPage));
+            navigation.Configure(PagesKeys.MapsContent, typeof(MapsContentPage));
 
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
+            SimpleIoc.Default.Register<IPlacesService, PlacesService>();
 
             if (App.IsTestMode)
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MSO.StimmApp.Core.Maps;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.ViewModels;
 using MSO.StimmApp.Views.Pages;
@@ -23,12 +24,10 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
 
         public AppStimmerAttachment Attachment => this.BindingContext as AppStimmerAttachment;
 
-        private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
             var viewModel = new MapAttachmentViewModel(this.Attachment);
-            var page = new MapsContentPage(viewModel);
-
-            await PopupNavigation.PushAsync(page);
+            App.NavigationService.NavigateTo(PagesKeys.MapsContent, viewModel);
         }
     }
 }
