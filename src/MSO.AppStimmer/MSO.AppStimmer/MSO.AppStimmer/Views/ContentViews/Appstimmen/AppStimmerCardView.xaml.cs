@@ -17,7 +17,10 @@ namespace MSO.StimmApp.Views.ContentViews.Appstimmen
 
             this.LayoutChanged += (sender, e) =>
 		    {
-		        this.SwipeCardView.CardMoveDistance = (int)(this.Width * 0.40f);
+                // change the floating point value to control the cardmovement
+                // bigger floating number = more flexibility before swipe recognition
+                // smaller number = faster swipe recognition
+		        this.SwipeCardView.CardMoveDistance = (int)(this.Width * 0.20f);
 		    };
 
 		    //var frame = this.SwipeCardView.cards[this.SwipeCardView.topCardIndex].FindByName<Frame>("CardFrame");

@@ -3,6 +3,7 @@
     x:Class="MSO.StimmApp.Views.ContentViews.Appstimmen.AppStimmerButtonsView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:appStimmer="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView">
     <ContentView.Content>
@@ -11,8 +12,8 @@
             Orientation="Horizontal"
             Spacing="-5">
             <xfShapeView:ShapeView
-                BorderColor="#F1F1F1"
-                BorderWidth="9"
+                BorderColor="{Binding Source={x:Static appStimmer:App.Settings}, Path=AppColors.PrimaryColor}"
+                BorderWidth="4"
                 HeightRequest="100"
                 ShapeType="Circle"
                 WidthRequest="100">
@@ -29,8 +30,8 @@
             </xfShapeView:ShapeView>
 
             <xfShapeView:ShapeView
-                BorderColor="#F1F1F1"
-                BorderWidth="9"
+                BorderColor="{Binding Source={x:Static appStimmer:App.Settings}, Path=AppColors.PrimaryColor}"
+                BorderWidth="4"
                 HeightRequest="65"
                 HorizontalOptions="Center"
                 ShapeType="Circle"
@@ -48,8 +49,8 @@
             </xfShapeView:ShapeView>
 
             <xfShapeView:ShapeView
-                BorderColor="#F1F1F1"
-                BorderWidth="9"
+                BorderColor="{Binding Source={x:Static appStimmer:App.Settings}, Path=AppColors.PrimaryColor}"
+                BorderWidth="4"
                 HeightRequest="100"
                 ShapeType="Circle"
                 WidthRequest="100">
