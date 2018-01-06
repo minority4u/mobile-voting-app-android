@@ -6,7 +6,7 @@
     xmlns:appStimmer="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:appstimmen="clr-namespace:MSO.StimmApp.Views.ContentViews.Appstimmen;assembly=MSO.StimmApp"
     Title="Appstimmen"
-    BackgroundColor="White"
+    BackgroundColor="{Binding Source={x:Static appStimmer:App.Settings}, Path=AppColors.PageBackgroundColor}"
     BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
 
     <!--<xfGloss:ContentPageGloss.BackgroundGradient>
