@@ -13,6 +13,7 @@ using MSO.StimmApp.Core.Maps;
 using MSO.StimmApp.Core.Messages;
 using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.Core.ViewModels;
+using Plugin.Geolocator;
 using Plugin.MediaManager.Abstractions;
 using Rg.Plugins.Popup.Services;
 using TK.CustomMap;
@@ -37,16 +38,6 @@ namespace MSO.StimmApp.ViewModels
         {
             this.Attachment = attachment;
             this.Pins = new ObservableCollection<TKCustomMapPin>();
-
-            if (attachment.AttachmentSource != null)
-            {
-                var positions = attachment.AttachmentSource.Split(';');
-                var latidude = Convert.ToDouble(positions[0], CultureInfo.InvariantCulture);
-                var longitude = Convert.ToDouble(positions[1], CultureInfo.InvariantCulture);
-
-                var position = new Position(latidude, longitude);
-                this.SelectPosition(position);
-            }
 
             this.placesService = SimpleIoc.Default.GetInstance<IPlacesService>();
         }
@@ -87,16 +78,17 @@ namespace MSO.StimmApp.ViewModels
             set => this.Set(ref this.isSearching, value);
         }
 
-        public RelayCommand<Position> MapLongPressedCommand => this.mapLongPressedCommand ?? (this.mapLongPressedCommand =
-            new RelayCommand<Position>(position => this.LongPressed(position)));
+        public RelayCommand<Position> MapLongPressedCommand =>
+            this.mapLongPressedCommand ?? (this.mapLongPressedCommand =
+                new RelayCommand<Position>(position => this.LongPressed(position)));
 
         public async Task SearchForPlaces(string text)
         {
             Debug.WriteLine("Executing google places search: '{0}'", text);
             var searchoptions = new PlacesSearchOptions
             {
-                PlaceType = PlaceType.All, 
-                BaseLocation = new MapLocation{Latitude = 49.4699789, Longitude = 8.4802401 }, // UAS Mannheim
+                PlaceType = PlaceType.All,
+                BaseLocation = new MapLocation {Latitude = 49.4699789, Longitude = 8.4802401}, // UAS Mannheim
                 Countries = "country:de",
                 Radius = 1000 * 100 // 100 km
             };
@@ -124,15 +116,19 @@ namespace MSO.StimmApp.ViewModels
             this.Pins.Clear();
             this.Pins.Add(pin);
 
-            this.SelectedPin = new TKCustomMapPin { Position = position };
+            this.SelectedPin = new TKCustomMapPin {Position = position};
         }
 
-        public async Task SaveAttachment()
+        public void SaveAttachment()
         {
+            if (this.SelectedPin == null)
+                return;
+
             var latidude = this.SelectedPin.Position.Latitude;
             var longitude = this.SelectedPin.Position.Longitude;
 
-            var attachmentSource = latidude.ToString(CultureInfo.InvariantCulture) + ';' + longitude.ToString(CultureInfo.InvariantCulture);
+            var attachmentSource = latidude.ToString(CultureInfo.InvariantCulture) + ';' +
+                                   longitude.ToString(CultureInfo.InvariantCulture);
             this.Attachment.AttachmentSource = attachmentSource;
 
             Messenger.Default.Send(new AppStimmerAttachmentAddedMessage(this.Attachment));

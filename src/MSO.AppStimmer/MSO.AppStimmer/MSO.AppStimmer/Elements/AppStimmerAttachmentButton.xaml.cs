@@ -11,6 +11,7 @@ using MSO.StimmApp.Core.Models;
 using MSO.StimmApp.ViewModels;
 using MSO.StimmApp.Views;
 using MSO.StimmApp.Views.Pages;
+using Plugin.Geolocator;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Plugin.MediaManager;
@@ -195,16 +196,12 @@ namespace MSO.StimmApp.Elements
 	        //throw new NotImplementedException();
 	    }
 
-	    private async void AddLocation()
+	    private void AddLocation()
 	    {
-            var latidude = 49.4703216; // UAS Mannheim
-	        var longitude = 8.478948; // UAS Mannheim
-	        var attachmentSource = latidude.ToString(CultureInfo.InvariantCulture) + ';' + longitude.ToString(CultureInfo.InvariantCulture);
-
             var attachment = new AppStimmerAttachment
 	        {
 	            AttachmentType = AttachmentType.Location,
-                AttachmentSource = attachmentSource,
+                AttachmentSource = string.Empty,
             };
 
             var viewModel = new MapAttachmentViewModel(attachment);

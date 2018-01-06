@@ -153,6 +153,22 @@
                 <TapGestureRecognizer Tapped="TapGestureOnTapped" />
             </elements:SubmitButton.GestureRecognizers>
         </elements:SubmitButton>
+
+        <Image
+            x:Name="GetCurrentPositionButton"
+            Margin="10,0,0,60"
+            HeightRequest="50"
+            HorizontalOptions="Start"
+            IsVisible="{Binding Attachment.IsNew}"
+            Opacity="0.9"
+            Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.bullseye.scale-100.png}"
+            VerticalOptions="End"
+            WidthRequest="50">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GetCurrentLocation_OnTapped" />
+            </Image.GestureRecognizers>
+        </Image>
+
     </Grid>
     <!--<StackLayout Spacing="0">-->
     <!--<Grid></Grid>

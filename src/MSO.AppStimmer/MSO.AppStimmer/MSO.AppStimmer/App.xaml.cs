@@ -7,6 +7,7 @@ using MSO.StimmApp.Core.Helpers;
 using MSO.StimmApp.Helpers;
 using MSO.StimmApp.Services;
 using MSO.StimmApp.Views.Pages;
+using Plugin.Geolocator;
 using Plugin.MediaManager;
 using Plugin.MediaManager.Abstractions;
 using Xamarin.Forms;
@@ -32,6 +33,18 @@ namespace MSO.StimmApp
 
         public static ISoftwareKeyboardService KeyboardService =>
             DependencyService.Get<ISoftwareKeyboardService>();
+
+        public static bool IsLocationAvailable()
+        {
+            if (!CrossGeolocator.IsSupported)
+                return false;
+
+            var enabled = CrossGeolocator.Current.IsGeolocationEnabled;
+            var available = CrossGeolocator.Current.IsGeolocationAvailable;
+
+            var result = enabled && available;
+            return result;
+        }
 
         public static Dictionary<string, string> ReplaceSvgStringMap = new Dictionary<string, string>();
 

@@ -15,6 +15,7 @@
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using MSO.StimmApp.Core.Maps;
+using MSO.StimmApp.Core.Maps.Geo;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Services;
 using MSO.StimmApp.Views;
@@ -45,6 +46,7 @@ namespace MSO.StimmApp.ViewModels
 
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
             SimpleIoc.Default.Register<IPlacesService, PlacesService>();
+            SimpleIoc.Default.Register<IGeoLocationService, GeoLocationService>();
 
             if (App.IsTestMode)
             {

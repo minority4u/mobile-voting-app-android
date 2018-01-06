@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Ioc;
 using MSO.StimmApp.Core.Maps;
+using MSO.StimmApp.Core.Maps.Geo;
 using MSO.StimmApp.Elements;
 using MSO.StimmApp.ViewModels;
+using Plugin.Geolocator;
 using Rg.Plugins.Popup.Pages;
 using TK.CustomMap;
 using Xamarin.Forms;
@@ -20,26 +23,68 @@ namespace MSO.StimmApp.Views.Pages
     public partial class MapsContentPage : ContentPage
     {
         private IPlacesService placesService;
+        private IGeoLocationService locationService;
         private bool suppressShowingResults;
 
         public MapsContentPage()
         {
             this.InitializeComponent();
+            this.placesService = SimpleIoc.Default.GetInstance<IPlacesService>();
+            this.locationService = SimpleIoc.Default.GetInstance<IGeoLocationService>();
+        }
+
+        //protected override async void OnAppearing()
+        //{    
+        //    base.OnAppearing();     
+        //}
+
+        private async Task TrySelectPositionFromCurrentLocation()
+        {
+            var timeout = TimeSpan.FromSeconds(5);
+            var position = await this.locationService.TryGetCurrentPosition(timeout);
+
+            if (position == null)
+                return;
+
+            var mapPos = new Position(position.Latitude, position.Longitude);
+            this.ViewModel.SelectPosition(mapPos);
+
+            var region = MapSpan.FromCenterAndRadius(mapPos, Distance.FromKilometers(0.25));
+            this.MapsView.MoveToMapRegion(region);
         }
 
         public MapsContentPage(MapAttachmentViewModel viewModel)
         {
             this.InitializeComponent();
             this.BindingContext = viewModel;
-            this.placesService = SimpleIoc.Default.GetInstance<IPlacesService>();
 
-            var pos = this.ViewModel.SelectedPin.Position;
-            this.MapsView.MapRegion = MapSpan.FromCenterAndRadius(pos, Distance.FromKilometers(0.5));
+            this.placesService = SimpleIoc.Default.GetInstance<IPlacesService>();
+            this.locationService = SimpleIoc.Default.GetInstance<IGeoLocationService>();
+
+            var attachment = this.ViewModel.Attachment;
+
+            // Mannheim train station. We want to show the "get current location" functionality, that's why it isn't set to UAS Mannheim at the beginning.
+            var position = new Position(49.3977085, 8.3647718);
+            var radius = 1.0;
+
+            if (!string.IsNullOrEmpty(attachment.AttachmentSource))
+            {
+                var positions = attachment.AttachmentSource.Split(';');
+                var latidude = Convert.ToDouble(positions[0], CultureInfo.InvariantCulture);
+                var longitude = Convert.ToDouble(positions[1], CultureInfo.InvariantCulture);
+                radius = 0.25;
+
+                position = new Position(latidude, longitude);
+                this.ViewModel.SelectPosition(position);
+            }
+
+            var region = MapSpan.FromCenterAndRadius(position, Distance.FromKilometers(radius));
+            this.MapsView.MapRegion = region;    
         }
 
-        private async void TapGestureOnTapped(object sender, EventArgs eventArgs)
+        private  void TapGestureOnTapped(object sender, EventArgs eventArgs)
         {
-            await this.ViewModel.SaveAttachment();
+            this.ViewModel.SaveAttachment();
         }
 
         MapAttachmentViewModel ViewModel => this.BindingContext as MapAttachmentViewModel;
@@ -136,6 +181,11 @@ namespace MSO.StimmApp.Views.Pages
             await this.ShowResultsFrameAsync(false);
 
             this.suppressShowingResults = false;
+        }
+
+        private async void GetCurrentLocation_OnTapped(object sender, EventArgs e)
+        {
+            await this.TrySelectPositionFromCurrentLocation();
         }
     }
 
