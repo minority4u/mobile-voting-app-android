@@ -30,6 +30,7 @@ namespace MSO.StimmApp.ViewModels
         {
             Messenger.Default.Send(new AppStimmerAttachmentAddedMessage(this.Attachment));
             await PopupNavigation.PopAllAsync();
+            App.NavigationService.GoBack();
         }
 
         public AppStimmerAttachment Attachment

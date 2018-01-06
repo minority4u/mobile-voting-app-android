@@ -37,12 +37,12 @@ namespace MSO.StimmApp.ViewModels
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             var navigation = new NavigationService();
-            navigation.Configure(PagesKeys.AppStimmer, typeof(AppStimmerPage));
-            navigation.Configure(PagesKeys.AppStimmerEditor, typeof(AppStimmerEditorPage));
-            navigation.Configure(PagesKeys.AppStimmers, typeof(AppStimmersPage));
-            navigation.Configure(PagesKeys.Settings, typeof(SettingsPage));
-            navigation.Configure(PagesKeys.AddAttachmentPopup, typeof(AddAttachmentPopupPage));
-            navigation.Configure(PagesKeys.MapsContent, typeof(MapsContentPage));
+            //navigation.Configure(PagesKeys.AppStimmer, typeof(AppStimmerPage));
+            //navigation.Configure(PagesKeys.AppStimmerEditor, typeof(AppStimmerEditorPage));
+            //navigation.Configure(PagesKeys.AppStimmers, typeof(AppStimmersPage));
+            //navigation.Configure(PagesKeys.Settings, typeof(SettingsPage));
+            //navigation.Configure(PagesKeys.AddAttachmentPopup, typeof(AddAttachmentPopupPage));
+            //navigation.Configure(PagesKeys.MapsContent, typeof(MapsContentPage));
 
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
             SimpleIoc.Default.Register<IPlacesService, PlacesService>();

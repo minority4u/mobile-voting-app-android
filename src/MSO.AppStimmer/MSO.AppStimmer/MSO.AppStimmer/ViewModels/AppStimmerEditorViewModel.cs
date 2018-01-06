@@ -176,7 +176,7 @@ namespace MSO.StimmApp.ViewModels
                 this.BeginAppStimmerEdit(new AppStimmer());
             }
             
-            App.NavigationService.GoBack(); 
+            await App.NavigationService.GoBack(); 
         }
 
         private async void EditText(EditAppStimmerTextType type)
@@ -210,9 +210,8 @@ namespace MSO.StimmApp.ViewModels
             this.DisplayType = type;
         }
 
-        private void EndEdit(ModelEditFinishedType type)
+        private async void EndEdit(ModelEditFinishedType type)
         {
-            Debug.WriteLine(("Finished model edit: " + type));
             if (type == ModelEditFinishedType.Cancel)
             {
                 this.AppStimmer.CancelEdit();
@@ -222,7 +221,7 @@ namespace MSO.StimmApp.ViewModels
                 this.AppStimmer.EndEdit();
             }
 
-            App.NavigationService.GoBack();
+            await App.NavigationService.GoBack();
         }
     }
 }

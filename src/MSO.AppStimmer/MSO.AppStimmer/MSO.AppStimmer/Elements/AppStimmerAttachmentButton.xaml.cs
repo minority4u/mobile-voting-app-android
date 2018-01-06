@@ -92,8 +92,7 @@ namespace MSO.StimmApp.Elements
                     await this.AddVideoFromGallery();
                     break;
                 case AttachmentType.Location:
-                    this.AddLocation();
-
+                    await this.AddLocation();
                     break;
                 case AttachmentType.Text:
                     this.AddText();
@@ -118,8 +117,8 @@ namespace MSO.StimmApp.Elements
 
             var viewModel = new ShowVideoAttachmentViewModel(attachment);
 	        var page = new VideoAttachmentPreviewPage(viewModel);
-	        await PopupNavigation.PushAsync(page);
-        }
+	        App.NavigationService.NavigateTo(page);
+	    }
 
         private async Task AddPictureFromGallery()
         {         
@@ -139,8 +138,8 @@ namespace MSO.StimmApp.Elements
             };
 
             var viewModel = new PictureAttachmentPreviewViewModel(attachment);
-            var page = new PictureAttachmentPreviewPage(viewModel);         
-            await PopupNavigation.PushAsync(page);
+            var page = new PictureAttachmentPreviewPage(viewModel);
+            App.NavigationService.NavigateTo(page);
         }
 
 	    private async Task AddPicture()
@@ -164,7 +163,7 @@ namespace MSO.StimmApp.Elements
 
 	        var viewModel = new PictureAttachmentPreviewViewModel(attachment);
 	        var page = new PictureAttachmentPreviewPage(viewModel);
-	        await PopupNavigation.PushAsync(page);
+	        App.NavigationService.NavigateTo(page);
         }
 
 	    private async Task AddVideo()
@@ -188,7 +187,7 @@ namespace MSO.StimmApp.Elements
 
 	        var viewModel = new ShowVideoAttachmentViewModel(attachment);
 	        var page = new VideoAttachmentPreviewPage(viewModel);
-	        await PopupNavigation.PushAsync(page);
+	        App.NavigationService.NavigateTo(page);
         }
 
 	    private void AddAudio()
@@ -196,7 +195,7 @@ namespace MSO.StimmApp.Elements
 	        //throw new NotImplementedException();
 	    }
 
-	    private void AddLocation()
+	    private async Task AddLocation()
 	    {
             var attachment = new AppStimmerAttachment
 	        {
@@ -205,7 +204,9 @@ namespace MSO.StimmApp.Elements
             };
 
             var viewModel = new MapAttachmentViewModel(attachment);
-	        App.NavigationService.NavigateTo(PagesKeys.MapsContent, viewModel);
+            var page = new MapsContentPage(viewModel);
+
+	        await App.NavigationService.NavigateTo(page);
 	    }
 
 	    private void AddText()

@@ -10,8 +10,6 @@ namespace MSO.StimmApp.Views.ContentViews.Settings
         public AppColorsSettingsView()
         {
             this.InitializeComponent();
-
-            this.ColorThemePicker.Effects.Add(Effect.Resolve(("AndroidEffects.ColoredPickerLineEffect")));
         }
 
         public SettingsViewModel ViewModel => this.BindingContext as SettingsViewModel;

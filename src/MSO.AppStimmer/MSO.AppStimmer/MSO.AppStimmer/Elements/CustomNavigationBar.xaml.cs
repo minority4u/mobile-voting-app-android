@@ -17,9 +17,9 @@ namespace MSO.StimmApp.Elements
             this.InitializeComponent();
         }
 
-        private void BackButtonImage_OnTapped(object sender, EventArgs e)
+        private async void BackButtonImage_OnTapped(object sender, EventArgs e)
         {
-            App.NavigationService.GoBack();
+            await App.NavigationService.GoBack();
         }
     }
 }

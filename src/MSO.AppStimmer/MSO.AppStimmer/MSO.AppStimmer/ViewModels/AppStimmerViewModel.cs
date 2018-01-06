@@ -38,7 +38,7 @@ namespace MSO.StimmApp.ViewModels
 
         private void OnAppStimmerAdded(AppStimmerAddedMessage message)
         {
-            Device.BeginInvokeOnMainThread(() =>this.AppStimmers.Add(message.AppStimmer));
+            Device.BeginInvokeOnMainThread(() => this.AppStimmers.Add(message.AppStimmer));
         }
 
         private void OnAppStimmerUpdated(AppStimmerUpdatedMessage message)
@@ -74,7 +74,7 @@ namespace MSO.StimmApp.ViewModels
         }
 
         public RelayCommand ShowDetailsCommand => this.showDetailsCommand ?? (this.showDetailsCommand =
-            new RelayCommand(this.ShowDetailsForCurrentAppStimmer));
+            new RelayCommand(this.ShowDetailsForAppStimmer));
 
         public RelayCommand SwipedLeftCommand => this.swipedLeftCommand ?? (this.swipedLeftCommand =
             new RelayCommand(this.SwipeLeft));
@@ -94,12 +94,18 @@ namespace MSO.StimmApp.ViewModels
             this.appStimmerService.SaveAppStimmer(this.CurrentAppStimmer);
         }
 
-        public void ShowDetailsForCurrentAppStimmer()
+        private async void ShowDetailsForAppStimmer()
+        {
+            await this.ShowDetailsForCurrentAppStimmer();
+        }
+
+        public async Task ShowDetailsForCurrentAppStimmer()
         {
             var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, this.CurrentAppStimmer, 
                 AppStimmerEditorDisplayType.Overview, isEditable: false);
 
-            App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor, viewModel);
+            var page = new AppStimmerEditorPage(viewModel);
+            await App.NavigationService.NavigateTo(page);
         }
     }
 }

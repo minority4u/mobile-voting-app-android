@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Rg.Plugins.Popup.Pages;
+using Xamarin.Forms;
 
 namespace MSO.StimmApp.Services
 {
@@ -11,14 +12,9 @@ namespace MSO.StimmApp.Services
     {
         //
         // Summary:
-        //     The key corresponding to the currently displayed page.
-        string CurrentPageKey { get; }
-
-        //
-        // Summary:
         //     If possible, instructs the navigation service to discard the current page and
         //     display the previous page on the navigation stack.
-        void GoBack();
+        Task GoBack(bool animated = true);
         //
         // Summary:
         //     Instructs the navigation service to display a new page corresponding to the given
@@ -28,7 +24,7 @@ namespace MSO.StimmApp.Services
         // Parameters:
         //   pageKey:
         //     The key corresponding to the page that should be displayed.
-        void NavigateTo(string pageKey);
+        Task NavigateTo(Page page, bool animated = true, bool replaceRoot = false);
         //
         // Summary:
         //     Instructs the navigation service to display a new page corresponding to the given

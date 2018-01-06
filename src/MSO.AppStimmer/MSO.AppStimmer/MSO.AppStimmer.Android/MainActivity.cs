@@ -11,6 +11,7 @@ using Xamarin.Forms.Platform.Android;
 using Plugin.Permissions.Abstractions;
 using Xamarin.Forms;
 using Android.Graphics;
+using Android.Views;
 using TK.CustomMap.Droid;
 using Color = Android.Graphics.Color;
 using Permission = Android.Content.PM.Permission;

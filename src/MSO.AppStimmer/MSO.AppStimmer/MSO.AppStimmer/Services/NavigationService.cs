@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using MSO.Common;
@@ -13,38 +14,32 @@ namespace MSO.StimmApp.Services
     /// </summary>
     public class NavigationService : INavigationService
     {
-        private readonly Dictionary<string, Type> pagesByKey = new Dictionary<string, Type>();
         private NavigationPage navigation;
+
+        private uint fadeOutLength = 250;
+        private uint fadeInLength = 150;
+
+        private Easing easing = Easing.Linear;
+        private string animationName = "PageExitAnimation";
 
         public void Initialize(NavigationPage navigationPage)
         {
             this.navigation = navigationPage;
         }
 
-        public string CurrentPageKey
+        public async Task GoBack(bool animated = true)
         {
-            get
+            if (!this.CanGoBack())
+                return;
+
+            if (!animated)
             {
-                lock (pagesByKey)
-                {
-                    if (this.navigation.CurrentPage == null)
-                        return null;
-
-                    var pageType = this.navigation.CurrentPage.GetType();
-
-                    if (!pagesByKey.ContainsValue(pageType))
-                        return null;
-
-                    var result = pagesByKey.First(p => p.Value == pageType).Key;
-                    return result;
-                }
+                await this.navigation.PopAsync(true);
             }
-        }
-
-        public void GoBack()
-        {
-            if (this.CanGoBack())
-                this.navigation.PopAsync();
+            else
+            {
+                this.NavigateBackAnimated();
+            }        
         }
 
         public bool CanGoBack()
@@ -53,72 +48,99 @@ namespace MSO.StimmApp.Services
             return result;
         }
 
-        public void NavigateTo(string pageKey)
+        public async Task NavigateTo(Page page, bool animated = true, bool replaceRoot = false)
         {
-            this.NavigateTo(pageKey, null);
-        }
-
-        // Required for interface
-        public void NavigateTo(string pageKey, object parameter)
-        {
-            var paramsArray = new[] { parameter };
-            this.NavigateTo(pageKey, false, paramsArray);
-        }
-
-        // Two or more parameters
-        public void NavigateTo(string pageKey, params object[] parametersArray)
-        {
-            this.NavigateTo(pageKey, false, parametersArray);
-        }
-
-        private void NavigateTo(string pageKey, bool replaceRoot, params object[] parameters)
-        {
-            lock (this.pagesByKey)
+            if (!replaceRoot)
             {
-                if (!this.pagesByKey.ContainsKey(pageKey))
+                if (!animated)
                 {
-                    var exceptionMessage = $"No such page: {pageKey}. Did you forget to call NavigationService.Configure?";
-                    throw new ArgumentException(exceptionMessage, nameof(pageKey));
-                }
-
-                var type = this.pagesByKey[pageKey];
-                var constructor = ReflectionHelper.GetConstructor(type, parameters);
-
-                if (constructor == null)
-                {
-                    var exceptionMessage = $"No suitable constructor found for page {pageKey}";
-                    throw new InvalidOperationException(exceptionMessage);
-                }
-
-                if (!replaceRoot)
-                {
-                    var page = constructor.Invoke(parameters) as Page;
-                    navigation.PushAsync(page, false);
+                    await navigation.PushAsync(page, true);
                 }
                 else
                 {
-                    var page = constructor.Invoke(parameters) as Page;
-                    var root = navigation.Navigation.NavigationStack.First();
-                    navigation.Navigation.InsertPageBefore(page, root);
-                    navigation.PopToRootAsync(false);
+                    this.NavigateToAnimated(page);
                 }
             }
-        }
-
-        public void Configure(string pageKey, Type pageType)
-        {
-            lock (pagesByKey)
+            else
             {
-                if (pagesByKey.ContainsKey(pageKey))
-                    pagesByKey[pageKey] = pageType;
-                else
-                    pagesByKey.Add(pageKey, pageType);
+                NavigateToNewRootAnimated(page, animated);
             }
         }
 
-        public void SetNewRoot(string pageKey)
+        public async Task SetNewRoot(Page page)
         {
-            this.NavigateTo(pageKey, true);
+            await this.NavigateTo(page, false, true);
+        }
+
+
+        private void NavigateToNewRootAnimated(Page page, bool animated)
+        {
+            var fadeOutAction = new Action<double>((v) =>
+            {
+                this.navigation.CurrentPage.Opacity = v / 100;
+            });
+
+            var fadeInAction = new Action<double, bool>(async (d, b) =>
+            {
+                page.Opacity = 0;
+
+                var root = navigation.Navigation.NavigationStack.First();
+                navigation.Navigation.InsertPageBefore(page, root);
+
+                await navigation.PopToRootAsync(animated);
+                page.FadeTo(1, this.fadeInLength, this.easing);
+            });
+
+            var owner = page;
+            var rate = 1U;
+
+            var animation = new Animation(fadeOutAction, 100, 0, Easing.Linear);
+            animation.Commit(owner, this.animationName, rate, this.fadeOutLength, this.easing, fadeInAction);
+        }
+
+        private void NavigateBackAnimated()
+        {
+            var fadeOutAction = new Action<double>((v) =>
+            {
+                this.navigation.CurrentPage.Opacity = v / 100;
+            });
+
+            var fadeInAction = new Action<double, bool>(async (d, b) =>
+            {
+                await this.navigation.PopAsync(true);
+
+                var newPage = this.navigation.CurrentPage;
+                newPage.Opacity = 0;
+
+                newPage.FadeTo(1, this.fadeInLength, this.easing);
+            });
+
+            var owner = this.navigation.CurrentPage;
+            var rate = 1U;
+
+            var animation = new Animation(fadeOutAction, 100, 0, Easing.Linear);
+            animation.Commit(owner, this.animationName, rate, this.fadeOutLength, this.easing, fadeInAction);
+        }
+
+        private void NavigateToAnimated(Page page)
+        {
+            var fadeOutAction = new Action<double>((v) =>
+            {
+                this.navigation.CurrentPage.Opacity = v / 100;
+            });
+
+            var fadeInAction = new Action<double, bool>(async (d, b) =>
+            {
+                page.Opacity = 0;
+                navigation.PushAsync(page, true);             
+                page.FadeTo(1, this.fadeInLength, this.easing);
+            });
+
+            var owner = page;
+            var rate = 1U;
+
+            var animation = new Animation(fadeOutAction, 100, 0, Easing.Linear);
+            animation.Commit(owner, this.animationName, rate, this.fadeOutLength, this.easing, fadeInAction);
         }
     }
 }

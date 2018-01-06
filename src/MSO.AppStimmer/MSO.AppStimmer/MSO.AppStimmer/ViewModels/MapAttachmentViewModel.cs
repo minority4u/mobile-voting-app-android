@@ -119,7 +119,7 @@ namespace MSO.StimmApp.ViewModels
             this.SelectedPin = new TKCustomMapPin {Position = position};
         }
 
-        public void SaveAttachment()
+        public async Task SaveAttachment()
         {
             if (this.SelectedPin == null)
                 return;
@@ -132,7 +132,7 @@ namespace MSO.StimmApp.ViewModels
             this.Attachment.AttachmentSource = attachmentSource;
 
             Messenger.Default.Send(new AppStimmerAttachmentAddedMessage(this.Attachment));
-            App.NavigationService.GoBack();
+            await App.NavigationService.GoBack();
         }
     }
 }

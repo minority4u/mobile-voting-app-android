@@ -319,22 +319,12 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             }
         }
 
-        private void BackButtonImage_OnTapped(object sender, EventArgs e)
+        private async void BackButtonImage_OnTapped(object sender, EventArgs e)
         {
-            //    var page = this.Parent.Parent;
+            if (!App.NavigationService.CanGoBack())
+                return;
 
-            //    await this.FadeTo(0, 1000, Easing.BounceOut);
-            //    
-            //}
-
-            if (App.NavigationService.CanGoBack())
-            {
-                App.NavigationService.GoBack();
-            }
-            else
-            {
-
-            }
+            await App.NavigationService.GoBack();
         }
 
         private async void EditDescriptionButton_OnTapped(object sender, EventArgs e)
@@ -345,7 +335,7 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor
             var viewModel = new EditAppStimmerDescriptionViewModel(this.ViewModel.AppStimmer);
             var page = new EditAppStimmerDescriptionPopupPage(viewModel);
 
-            await PopupNavigation.PushAsync(page);
+            await App.NavigationService.NavigateTo(page);
         }
 
         private void AttachmentsScrollView_OnSwipeStarted(object sender, SwipeStartedEventArgs e)

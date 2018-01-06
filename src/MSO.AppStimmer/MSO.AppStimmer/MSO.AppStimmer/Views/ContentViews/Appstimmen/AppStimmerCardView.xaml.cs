@@ -85,9 +85,9 @@ namespace MSO.StimmApp.Views.ContentViews.Appstimmen
 
 	    public AppStimmerViewModel ViewModel => this.BindingContext as AppStimmerViewModel;
 
-	    private void ShowDetailsImageButton_OnTapped(object sender, EventArgs e)
+	    private async void ShowDetailsImageButton_OnTapped(object sender, EventArgs e)
 	    {
-	        this.ViewModel.ShowDetailsForCurrentAppStimmer();
+	        await this.ViewModel.ShowDetailsForCurrentAppStimmer();
 	    }
 
 	    private void PanGestureRecognizer_OnPanUpdated(object sender, PanUpdatedEventArgs e)

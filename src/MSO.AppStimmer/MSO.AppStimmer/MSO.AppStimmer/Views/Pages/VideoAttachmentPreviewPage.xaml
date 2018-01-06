@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<pages:PopupPage
+<ContentPage
     x:Class="MSO.StimmApp.Views.Pages.VideoAttachmentPreviewPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
-    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    NavigationPage.HasNavigationBar="False">
     <Grid x:Name="VideoPlayerGrid" BackgroundColor="Black">
         <forms:VideoView
             x:Name="VideoView"
@@ -70,4 +71,4 @@
         <!--
         </Grid>-->
     </Grid>
-</pages:PopupPage>
+</ContentPage>

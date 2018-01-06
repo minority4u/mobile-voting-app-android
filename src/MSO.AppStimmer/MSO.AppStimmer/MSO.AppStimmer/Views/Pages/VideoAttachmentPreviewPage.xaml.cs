@@ -12,7 +12,7 @@ using Xamarin.Forms.Xaml;
 namespace MSO.StimmApp.Views.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class VideoAttachmentPreviewPage : PopupPage
+    public partial class VideoAttachmentPreviewPage : ContentPage
     {
         public VideoAttachmentPreviewPage(ShowVideoAttachmentViewModel viewModel)
         {

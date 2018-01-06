@@ -291,15 +291,15 @@
                 Orientation="Horizontal"
                 Spacing="0"
                 VerticalOptions="Start">
-                <Image
-                    Margin="15"
+                <ContentView
+                    Margin="19"
                     HorizontalOptions="Start"
-                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.arrow-left.scale-100.png}"
                     VerticalOptions="Start">
-                    <Image.GestureRecognizers>
+                    <ContentView.GestureRecognizers>
                         <TapGestureRecognizer Tapped="BackButtonImage_OnTapped" />
-                    </Image.GestureRecognizers>
-                </Image>
+                    </ContentView.GestureRecognizers>
+                    <Image Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.arrow-left.scale-100.png}" />
+                </ContentView>
 
                 <Label
                     Margin="0,14,0,0"

@@ -72,10 +72,12 @@ namespace MSO.StimmApp.ViewModels
             set => this.Set(ref this.appStimmers, value);
         }
 
-        public void EditAppStimmer(AppStimmer appStimmer)
+        public async Task EditAppStimmer(AppStimmer appStimmer)
         {
             var viewModel = new AppStimmerEditorViewModel(this.appStimmerService, appStimmer, AppStimmerEditorDisplayType.Details, isEditable: false);
-            App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor, viewModel);
+            var page = new AppStimmerEditorPage(viewModel);
+
+            await App.NavigationService.NavigateTo(page);
         }
     }
 }

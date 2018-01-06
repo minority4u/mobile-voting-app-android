@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using MSO.StimmApp.Elements;
 using MSO.StimmApp.Models;
 using MSO.StimmApp.Views;
@@ -19,23 +21,33 @@ namespace MSO.StimmApp
             this.MasterPage.ListView.ItemSelected += OnItemSelected;
         }
 
-        private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MenuPageItem;
             if (item == null)
                 return;
 
             var page = (Page) Activator.CreateInstance(item.TargetType);
+            
             if (page is AppStimmerEditorPage)
             {
-                App.NavigationService.NavigateTo(PagesKeys.AppStimmerEditor);
+                App.NavigationService.NavigateTo(page);
             }
             else
             {
-                page.Title = item.Title;
-                this.InitializePage(page);
+                App.NavigationService.NavigateTo(page, true, true);
             }
-            
+
+            //if (page is AppStimmerEditorPage)
+            //{
+
+            //}
+            //else
+            //{
+            //    page.Title = item.Title;
+            //    this.InitializePage(page);
+            //}
+
             this.ResetMenuPage();
         }
 
@@ -44,6 +56,7 @@ namespace MSO.StimmApp
             var navigationPage = new ColoredNavigationPage(page);
 
             App.NavigationService.Initialize(navigationPage);
+
             this.Detail = navigationPage;
         }
 

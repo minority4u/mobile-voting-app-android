@@ -68,8 +68,6 @@ namespace MSO.StimmApp.Views.Pages
                 else
                     return false;
             }
-                
-
 
             //// check wheather no filter is set so far
             //// show all items the user voted for
@@ -90,11 +88,6 @@ namespace MSO.StimmApp.Views.Pages
                 return true;
             else
                 return false;
-        }
-
-        private async void BackButtonImage_OnTapped(object sender, EventArgs e)
-        {
-            await PopupNavigation.PopAsync();
         }
     }
 }

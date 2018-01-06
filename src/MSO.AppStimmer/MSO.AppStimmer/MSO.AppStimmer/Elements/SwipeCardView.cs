@@ -53,9 +53,9 @@ namespace MSO.StimmApp.Elements
 
         AppStimmerViewModel ViewModel => this.BindingContext as AppStimmerViewModel;
 
-        private void TapGestureOnTapped(object sender, EventArgs eventArgs)
+        private async void TapGestureOnTapped(object sender, EventArgs eventArgs)
         {        
-            this.ViewModel.ShowDetailsForCurrentAppStimmer();
+            await this.ViewModel.ShowDetailsForCurrentAppStimmer();
         }
 
         private void OnAppStimmerButtonPressed(AppStimmerButtonPressedMessage obj)

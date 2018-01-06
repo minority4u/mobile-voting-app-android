@@ -82,9 +82,9 @@ namespace MSO.StimmApp.Views.Pages
             this.MapsView.MapRegion = region;    
         }
 
-        private  void TapGestureOnTapped(object sender, EventArgs eventArgs)
+        private async void TapGestureOnTapped(object sender, EventArgs eventArgs)
         {
-            this.ViewModel.SaveAttachment();
+            await this.ViewModel.SaveAttachment();
         }
 
         MapAttachmentViewModel ViewModel => this.BindingContext as MapAttachmentViewModel;

@@ -12,7 +12,7 @@ using Xamarin.Forms.Xaml;
 namespace MSO.StimmApp.Views.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EditAppStimmerDescriptionPopupPage : PopupPage
+    public partial class EditAppStimmerDescriptionPopupPage : ContentPage
     {
         public EditAppStimmerDescriptionPopupPage(EditAppStimmerDescriptionViewModel viewModel)
         {
@@ -24,12 +24,12 @@ namespace MSO.StimmApp.Views.Pages
 
         private async void BackButtonImage_OnTapped(object sender, EventArgs e)
         {
-            await PopupNavigation.PopAsync();
+            await App.NavigationService.GoBack();
         }
 
         private async void CancelButton_OnClicked(object sender, EventArgs e)
         {
-            await PopupNavigation.PopAsync();
+            await App.NavigationService.GoBack();
         }
     }
 }

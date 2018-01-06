@@ -24,10 +24,12 @@ namespace MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments
 
         public AppStimmerAttachment Attachment => this.BindingContext as AppStimmerAttachment;
 
-        private void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
             var viewModel = new MapAttachmentViewModel(this.Attachment);
-            App.NavigationService.NavigateTo(PagesKeys.MapsContent, viewModel);
+            var page = new MapsContentPage(viewModel);
+
+            await App.NavigationService.NavigateTo(page);
         }
     }
 }

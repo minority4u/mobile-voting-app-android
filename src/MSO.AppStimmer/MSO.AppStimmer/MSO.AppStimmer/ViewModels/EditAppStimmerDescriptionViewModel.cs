@@ -29,7 +29,7 @@ namespace MSO.StimmApp.ViewModels
         private async void SaveText()
         {
             this.AppStimmer.Description = this.Text;
-            await PopupNavigation.PopAsync(true);
+            await App.NavigationService.GoBack();
         }
 
         public string Text
