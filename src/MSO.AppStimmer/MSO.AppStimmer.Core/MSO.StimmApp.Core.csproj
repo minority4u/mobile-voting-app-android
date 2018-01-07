@@ -39,7 +39,6 @@
     <Compile Include="Enums\AttachmentType.cs" />
     <Compile Include="Enums\ModelEditFinishedType.cs" />
     <Compile Include="Helpers\ColorThemes.cs" />
-    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Helpers\TaskHelper.cs" />
     <Compile Include="Maps\AutoCompletePrediction.cs" />
     <Compile Include="Maps\Geo\GeoLocationService.cs" />

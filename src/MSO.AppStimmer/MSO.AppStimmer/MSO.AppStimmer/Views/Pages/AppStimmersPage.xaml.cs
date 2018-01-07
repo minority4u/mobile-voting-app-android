@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using MSO.StimmApp.Core.Models;
+using MSO.StimmApp.Services;
 using MSO.StimmApp.ViewModels;
 using Rg.Plugins.Popup.Pages;
 using Rg.Plugins.Popup.Services;
@@ -16,10 +18,31 @@ namespace MSO.StimmApp.Views.Pages
             this.InitializeComponent();         
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             this.ListView.DataSource.Filter = FilterAppstimmers;
             this.ListView.DataSource.RefreshFilter();
+
+            this.SearchBar.Opacity = this.SearchBar.Scale = 0;
+            this.ListView.Opacity = 0;
+
+            await Task.Delay(Animator.DelaySpeed);          
+
+            var appstimmersAppearingAction = new Action<double>((v) =>
+            {
+                this.ListView.ItemSpacing = (-100 + v);
+                this.ListView.Opacity = v / 100;
+                this.ListView.Scale = v / 100;
+            });
+
+            var searchBarFadeInAction = new Action<double, bool>(async (d, b) =>
+            {
+                Animator.SimpleFade(this.SearchBar, Animator.FadeType.In);
+            });
+
+
+            var animation = new Animation(appstimmersAppearingAction, 0, 100, Easing.Linear);
+            animation.Commit(this, "ApPStimmerAttachmentsAnimation", 1, 500, Easing.Linear, searchBarFadeInAction);
         }
         
         public AppStimmersViewModel ViewModel => this.BindingContext as AppStimmersViewModel;

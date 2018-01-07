@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DeviceOrientation.Forms.Plugin.Abstractions;
+using MSO.StimmApp.Services;
 using MSO.StimmApp.ViewModels;
 using Rg.Plugins.Popup.Pages;
 using Xamarin.Forms;
@@ -31,11 +32,19 @@ namespace MSO.StimmApp.Views.Pages
 
         public ShowVideoAttachmentViewModel ViewModel => this.BindingContext as ShowVideoAttachmentViewModel;
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
             VideoView.Source = this.ViewModel.Attachment.AttachmentSource;
-            this.ViewModel.Start();         
+            this.ViewModel.Start();
+
+            this.SubmitButton.Opacity = this.SubmitButton.Scale = 0;
+            this.DescriptionGrid.Opacity = this.DescriptionGrid.Scale = 0;
+
+            await Task.Delay(300);
+
+            await Animator.SimpleFade(this.DescriptionGrid, Animator.FadeType.In);
+            Animator.SimpleFade(this.SubmitButton, Animator.FadeType.In);              
         }
 
         //private void OnDeviceOrientationChanged(DeviceOrientations orientation)

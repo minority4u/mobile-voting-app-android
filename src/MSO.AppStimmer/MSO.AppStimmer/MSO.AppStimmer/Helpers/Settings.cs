@@ -4,8 +4,9 @@ using MSO.StimmApp.Core.Models;
 using Newtonsoft.Json;
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
+using Xamarin.Forms;
 
-namespace MSO.StimmApp.Core.Helpers
+namespace MSO.StimmApp
 {
     /// <summary>
     ///     This is the Settings static class that can be used in the solution.
@@ -41,6 +42,24 @@ namespace MSO.StimmApp.Core.Helpers
                     this.Set(ref original, value);
 
                 AppSettings.AddOrUpdateValue(AppColorsSettingKey, colorThemeValue);
+            }
+        }
+
+        private const string AppStimmerAttachmentMarginKey = "AttachmentMargin";
+        private static readonly string AppStimmerAttachmentMarginDefault = JsonConvert.SerializeObject(new Thickness(-30,0,0,0));
+
+        public Thickness AttachmentMargin
+        {
+            get => JsonConvert.DeserializeObject<Thickness>(AppSettings.GetValueOrDefault(AppStimmerAttachmentMarginKey, AppStimmerAttachmentMarginDefault));
+            set
+            {
+                var original = AttachmentMargin;
+                var margin = JsonConvert.SerializeObject(value);
+
+                if (AppSettings.AddOrUpdateValue(nameof(AttachmentMargin), margin))
+                    this.Set(ref original, value);
+
+                AppSettings.AddOrUpdateValue(AppStimmerAttachmentMarginKey, margin);
             }
         }
     }

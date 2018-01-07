@@ -12,6 +12,7 @@
             Orientation="Horizontal"
             Spacing="2">
             <xfShapeView:ShapeView
+                x:Name="DislikeButton"
                 BorderColor="#F2866A"
                 BorderWidth="50"
                 HeightRequest="85"
@@ -30,6 +31,7 @@
             </xfShapeView:ShapeView>
 
             <xfShapeView:ShapeView
+                x:Name="InfoButton"
                 BorderColor="CornflowerBlue"
                 BorderWidth="50"
                 HeightRequest="65"
@@ -49,6 +51,7 @@
             </xfShapeView:ShapeView>
 
             <xfShapeView:ShapeView
+                x:Name="LikeButton"
                 BorderColor="#62DD9F"
                 BorderWidth="50"
                 HeightRequest="85"

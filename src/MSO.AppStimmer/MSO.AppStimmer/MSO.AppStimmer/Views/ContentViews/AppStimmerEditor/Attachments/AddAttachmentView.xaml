@@ -63,20 +63,6 @@
                 AttachmentType="{x:Static enums:AttachmentType.Document}"
                 Description="Dokument"
                 IconSource="MSO.StimmApp.Resources.Icons.document_circle.scale-100.png" />
-            <!--<elements:AppStimmerAttachmentButton
-                    x:Name="AddAudioButton"
-                    Grid.Row="0"
-                    Grid.Column="2"
-                    AttachmentType="{x:Static enums:AttachmentType.Audio}"
-                    Description="Audio"
-                    IconSource="MSO.StimmApp.Resources.Icons.audio_circle.scale-100.png" />-->
-            <!--<elements:AppStimmerAttachmentButton
-                    x:Name="AddTextButton"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    AttachmentType="{x:Static enums:AttachmentType.Text}"
-                    Description="Text"
-                    IconSource="MSO.StimmApp.Resources.Icons.text_circle.scale-100.png" />-->
         </Grid>
     </ContentView.Content>
 </ContentView>

@@ -75,6 +75,7 @@ namespace MSO.StimmApp.ViewModels
             this.NavigationBarBackgroundColor = new Color(navigationBarColor.R, navigationBarColor.G, navigationBarColor.B, 0);
         }
 
+
         private void BeginAppStimmerEdit(AppStimmer apst)
         {
             this.AppStimmer = apst;

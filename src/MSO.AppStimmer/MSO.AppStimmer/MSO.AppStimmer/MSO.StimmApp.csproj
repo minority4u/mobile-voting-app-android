@@ -102,6 +102,7 @@
     <Compile Include="Elements\GradientFrame.cs" />
     <Compile Include="Extensions\Images.cs" />
     <Compile Include="Helpers\INavigationBarController.cs" />
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="ImageResourceExtension.cs" />
     <Compile Include="MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
@@ -109,6 +110,7 @@
     <Compile Include="Messages\AppStimmerButtonPressedMessage.cs" />
     <Compile Include="Models\MediaAttachmentViewEntry.cs" />
     <Compile Include="Models\MenuPageItem.cs" />
+    <Compile Include="Services\Animator.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ISoftwareKeyboardService.cs" />
     <Compile Include="Services\SoftwareKeyboardEventArgs.cs" />

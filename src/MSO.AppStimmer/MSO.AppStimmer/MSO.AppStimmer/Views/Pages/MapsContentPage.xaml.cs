@@ -10,6 +10,7 @@ using GalaSoft.MvvmLight.Ioc;
 using MSO.StimmApp.Core.Maps;
 using MSO.StimmApp.Core.Maps.Geo;
 using MSO.StimmApp.Elements;
+using MSO.StimmApp.Services;
 using MSO.StimmApp.ViewModels;
 using Plugin.Geolocator;
 using Rg.Plugins.Popup.Pages;
@@ -37,6 +38,22 @@ namespace MSO.StimmApp.Views.Pages
         //{    
         //    base.OnAppearing();     
         //}
+
+        protected override async void OnAppearing()
+        {
+            this.SubmitButton.Opacity = this.SubmitButton.Scale = 0;
+            this.DescriptionGrid.Opacity = this.DescriptionGrid.Scale = 0;
+            this.GetCurrentPositionButton.Opacity = this.GetCurrentPositionButton.Scale = 0;
+            this.SearchBarFrame.Opacity = this.SearchBarFrame.Scale = 0;
+
+            await Task.Delay(500);
+
+            await Animator.SimpleFade(this.SearchBarFrame, Animator.FadeType.In);
+            Animator.SimpleFade(this.DescriptionGrid, Animator.FadeType.In);
+            Animator.SimpleFade(this.SubmitButton, Animator.FadeType.In);         
+            Animator.SimpleFade(this.GetCurrentPositionButton, Animator.FadeType.In);
+        }
+
 
         private async Task TrySelectPositionFromCurrentLocation()
         {

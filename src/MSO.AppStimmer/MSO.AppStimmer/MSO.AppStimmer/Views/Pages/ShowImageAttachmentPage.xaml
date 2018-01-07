@@ -35,6 +35,7 @@
             <StackLayout
                 x:Name="BottomStackLayout"
                 Grid.Row="1"
+                BackgroundColor="Transparent"
                 Spacing="0"
                 VerticalOptions="EndAndExpand">
                 <Label

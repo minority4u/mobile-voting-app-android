@@ -20,6 +20,7 @@
             DownsampleWidth="600"
             Source="{Binding Attachment.AttachmentSource, Converter={StaticResource ImageSourceToImageConverter}}" />
         <Grid
+            x:Name="DescriptionGrid"
             Grid.Row="0"
             Grid.RowSpan="2"
             BackgroundColor="#88000000"
@@ -37,6 +38,7 @@
         </Grid>
 
         <elements:SubmitButton
+            x:Name="SubmitButton"
             Grid.Row="0"
             Grid.RowSpan="2"
             Margin="0,0,25,10"

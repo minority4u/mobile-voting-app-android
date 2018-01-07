@@ -18,6 +18,7 @@ namespace MSO.StimmApp.Views.ContentViews.Appstimmen
             this.InitializeComponent();
         }
 
+
         private void LikeImageButton_OnTapped(object sender, EventArgs e)
         {
             Messenger.Default.Send(new AppStimmerButtonPressedMessage(true));
