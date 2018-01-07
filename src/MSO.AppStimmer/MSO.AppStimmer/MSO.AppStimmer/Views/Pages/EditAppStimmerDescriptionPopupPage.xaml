@@ -6,9 +6,10 @@
     xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    Title="Beschreibung editieren">
+    Title="Beschreibung editieren"
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}">
     <Grid>
-        <ScrollView Margin="0,57,0,0" BackgroundColor="White">
+        <ScrollView Margin="0,0,0,0" BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

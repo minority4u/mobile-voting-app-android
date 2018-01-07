@@ -28,7 +28,7 @@
         <Frame
             x:Name="MainFrame"
             Padding="0"
-            BackgroundColor="White"
+            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
             CornerRadius="10"
             HorizontalOptions="Center"
             OutlineColor="Transparent"
@@ -96,10 +96,8 @@
                                 TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.TextOnSecondaryColor}" />
                         </StackLayout>
                     </Grid>
-
                 </StackLayout>
             </Grid>
-
         </Frame>
     </Grid>
 </pages:PopupPage>

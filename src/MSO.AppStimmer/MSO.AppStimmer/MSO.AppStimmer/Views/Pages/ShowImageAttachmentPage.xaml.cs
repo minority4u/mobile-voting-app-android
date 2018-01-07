@@ -128,7 +128,7 @@ namespace MSO.StimmApp.Views.Pages
                     App.NavigationBarController.ShowNavigationBar();
                     view2.TranslateTo(0, 0, 450U, Easing.Linear);
 
-                    view1.FadeTo(1, 600U);
+                    view1.FadeTo(1, 250U, Easing.Linear);
                 }
 
                 //App.NavigationBarController.Color = this.standardNavigationBarColor;

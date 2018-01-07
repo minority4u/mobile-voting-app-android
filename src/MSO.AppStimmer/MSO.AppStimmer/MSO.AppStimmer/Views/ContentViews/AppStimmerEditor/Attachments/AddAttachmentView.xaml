@@ -34,7 +34,7 @@
                 Grid.Column="1"
                 AttachmentType="{x:Static enums:AttachmentType.GalleryPicture}"
                 Description="Bild (Galerie)"
-                IconSource="MSO.StimmApp.Resources.Icons.picture_circle.scale-100.png" />
+                IconSource="MSO.StimmApp.Resources.Icons.camera_blue_circle.png" />
             <elements:AppStimmerAttachmentButton
                 x:Name="AddLocationButton"
                 Grid.Row="0"

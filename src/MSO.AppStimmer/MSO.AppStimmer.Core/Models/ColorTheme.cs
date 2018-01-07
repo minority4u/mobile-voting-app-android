@@ -12,7 +12,7 @@
         private string secondaryLightColor = "#E1FFB1";
         private string secondaryDarkColor = "#7DA453";
 
-        private string pageBackgroundColor = "#E1E2E1";
+        private string pageBackgroundColor = "#F5F5F6";
         private string textOnPageBackgroundColor = "#000000";
         
         private string menuPageColor = "#AA000000";

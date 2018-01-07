@@ -10,28 +10,28 @@
         <StackLayout
             HorizontalOptions="Center"
             Orientation="Horizontal"
-            Spacing="-5">
+            Spacing="2">
             <xfShapeView:ShapeView
-                BorderColor="{Binding Source={x:Static appStimmer:App.Settings}, Path=AppColors.PrimaryColor}"
-                BorderWidth="4"
-                HeightRequest="100"
+                BorderColor="#F2866A"
+                BorderWidth="50"
+                HeightRequest="85"
                 ShapeType="Circle"
-                WidthRequest="100">
+                WidthRequest="85">
                 <xfShapeView:ShapeView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="DislikeImageButton_OnTapped" />
                 </xfShapeView:ShapeView.GestureRecognizers>
 
                 <xfShapeView:ShapeView.Content>
                     <elements:TintedSvgCachedImage
-                        Margin="30"
+                        Margin="25"
                         Source="resource://MSO.StimmApp.Resources.Icons.dislike.svg"
-                        TintColor="#F2866A" />
+                        TintColor="White" />
                 </xfShapeView:ShapeView.Content>
             </xfShapeView:ShapeView>
 
             <xfShapeView:ShapeView
-                BorderColor="{Binding Source={x:Static appStimmer:App.Settings}, Path=AppColors.PrimaryColor}"
-                BorderWidth="4"
+                BorderColor="CornflowerBlue"
+                BorderWidth="50"
                 HeightRequest="65"
                 HorizontalOptions="Center"
                 ShapeType="Circle"
@@ -44,24 +44,24 @@
                     <elements:TintedSvgCachedImage
                         Margin="20"
                         Source="resource://MSO.StimmApp.Resources.Icons.info.svg"
-                        TintColor="CornflowerBlue" />
+                        TintColor="White" />
                 </xfShapeView:ShapeView.Content>
             </xfShapeView:ShapeView>
 
             <xfShapeView:ShapeView
-                BorderColor="{Binding Source={x:Static appStimmer:App.Settings}, Path=AppColors.PrimaryColor}"
-                BorderWidth="4"
-                HeightRequest="100"
+                BorderColor="#62DD9F"
+                BorderWidth="50"
+                HeightRequest="85"
                 ShapeType="Circle"
-                WidthRequest="100">
+                WidthRequest="85">
                 <xfShapeView:ShapeView.GestureRecognizers>
                     <TapGestureRecognizer Tapped="LikeImageButton_OnTapped" />
                 </xfShapeView:ShapeView.GestureRecognizers>
                 <xfShapeView:ShapeView.Content>
                     <elements:TintedSvgCachedImage
-                        Margin="30"
+                        Margin="25"
                         Source="resource://MSO.StimmApp.Resources.Icons.like.svg"
-                        TintColor="#62DD9F" />
+                        TintColor="White" />
                 </xfShapeView:ShapeView.Content>
             </xfShapeView:ShapeView>
         </StackLayout>

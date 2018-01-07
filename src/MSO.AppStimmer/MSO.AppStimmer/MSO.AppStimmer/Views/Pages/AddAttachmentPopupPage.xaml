@@ -8,10 +8,12 @@
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
-    BackgroundColor="Transparent"
-    CloseWhenBackgroundIsClicked="True"
+    CloseWhenBackgroundIsClicked="False"
     HasSystemPadding="True">
     <Grid>
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+        </Grid.GestureRecognizers>
         <Grid.RowDefinitions>
             <RowDefinition Height="70*" />
             <RowDefinition Height="30*" />
@@ -20,8 +22,11 @@
         <Frame
             Grid.Row="1"
             Margin="15,0,15,0"
-            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PopupColor}"
+            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
             CornerRadius="10">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="FrameGestureRecognizer_OnTapped" />
+            </Frame.GestureRecognizers>
             <attachments:AddAttachmentView />
         </Frame>
     </Grid>

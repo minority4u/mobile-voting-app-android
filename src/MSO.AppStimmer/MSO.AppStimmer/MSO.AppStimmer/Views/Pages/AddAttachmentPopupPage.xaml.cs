@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MSO.StimmApp.ViewModels;
 using Rg.Plugins.Popup.Pages;
+using Rg.Plugins.Popup.Services;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,41 +22,14 @@ namespace MSO.StimmApp.Views.Pages
 
         public AppStimmerEditorViewModel ViewModel => this.BindingContext as AppStimmerEditorViewModel;
 
-        protected override void OnAppearing()
+        private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
-            base.OnAppearing();
+            await PopupNavigation.PopAsync(true);
         }
 
-        protected override void OnDisappearing()
+        private void FrameGestureRecognizer_OnTapped(object sender, EventArgs e)
         {
-            base.OnDisappearing();
+            // ignore. This method is there just to prevent the view from closing when a user clicks the frame instead of the transparent page background.
         }
-
-        // Method for animation child in PopupPage
-        // Invoced after custom animation end
-        protected override Task OnAppearingAnimationEnd()
-        {
-            return base.OnAppearingAnimationEnd();
-        }
-
-        // Method for animation child in PopupPage
-        // Invoked before custom animation begin
-        //protected override Task OnDisappearingAnimationBegin()
-        //{
-        //    return Content.FadeTo(1);
-        //}
-
-        protected override bool OnBackButtonPressed()
-        {
-            // Prevent hide popup
-            return base.OnBackButtonPressed();
-            //return true;
-        }
-
-        // Invoced when background is clicked
-        //protected override bool OnBackgroundClicked()
-        //{
-        //    return this.CloseWhenBackgroundIsClicked;
-        //}
     }
 }
