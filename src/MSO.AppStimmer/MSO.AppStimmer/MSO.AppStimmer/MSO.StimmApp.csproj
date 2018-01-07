@@ -53,11 +53,13 @@
     <Compile Include="Converter\AppStimmerMainPictureAvailabilityToVisibilityConverter.cs" />
     <Compile Include="Converter\AppStimmerToNavigationBarEditPenVisibilityConverter.cs" />
     <Compile Include="Converter\CharactersAndMaxCharactersToStringConverter.cs" />
+    <Compile Include="Converter\Class1.cs" />
     <Compile Include="Converter\CollectionCountToVisibilityConverter.cs" />
     <Compile Include="Converter\ColorChannelsToColorConverter.cs" />
     <Compile Include="Converter\ColorToColorChannelConverter.cs" />
     <Compile Include="Converter\ColorToDarkerColorConverter.cs" />
     <Compile Include="Converter\CrossAudioManagerTimeSpanToStringConverter.cs" />
+    <Compile Include="Converter\DescriptionAvailabilityToVisibilityConverter.cs" />
     <Compile Include="Converter\ImageAttachmentToImageAttachmentViewModel.cs" />
     <Compile Include="Converter\ImageSourceToImageConverter.cs" />
     <Compile Include="Converter\ImageToSvgSourceConverter.cs" />

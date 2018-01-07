@@ -105,7 +105,7 @@
                             Spacing="0">
                             <Grid Padding="0" BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}">
                                 <Label
-                                    Margin="30,10,30,10"
+                                    Margin="35,10,35,10"
                                     FontSize="17"
                                     HorizontalOptions="Center"
                                     HorizontalTextAlignment="Center"
@@ -218,6 +218,12 @@
                                     BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                                     HeightRequest="30"
                                     HorizontalOptions="Fill">
+                                    <Grid.IsVisible>
+                                        <converter:MultiBinding Converter="{StaticResource DescriptionAvailabilityToVisibilityConverter}">
+                                            <Binding Path="AppStimmer.IsNew" />
+                                            <Binding Path="AppStimmer.Description" />
+                                        </converter:MultiBinding>
+                                    </Grid.IsVisible>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
@@ -256,6 +262,12 @@
                             BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
                             CornerRadius="0"
                             OutlineColor="Transparent">
+                            <Frame.IsVisible>
+                                <converter:MultiBinding Converter="{StaticResource DescriptionAvailabilityToVisibilityConverter}">
+                                    <Binding Path="AppStimmer.IsNew" />
+                                    <Binding Path="AppStimmer.Description" />
+                                </converter:MultiBinding>
+                            </Frame.IsVisible>
                             <Label
                                 Margin="10,0,10,0"
                                 BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"

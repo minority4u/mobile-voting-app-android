@@ -11,6 +11,7 @@
     <ContentView.Content>
         <elements:SwipeCardView
             x:Name="SwipeCardView"
+            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
             ItemsSource="{Binding AppStimmers}"
             SwipedLeftCommand="{Binding SwipedLeftCommand}"
             SwipedRightCommand="{Binding SwipedRightCommand}"

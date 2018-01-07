@@ -51,6 +51,7 @@
                 FontSize="15"
                 HeightRequest="50"
                 HorizontalTextAlignment="Center"
+                IsVisible="{Binding Attachment.Description, Converter={StaticResource StringToVisibilityConverter}}"
                 Text="{Binding Attachment.Description}"
                 TextColor="White"
                 VerticalTextAlignment="Center" />

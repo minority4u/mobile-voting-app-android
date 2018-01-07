@@ -8,6 +8,7 @@
     xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
     Title="{Binding IsEditable, Converter={StaticResource AppStimmerEditorEditableToTitleConverter}}"
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
     BindingContext="{Binding AppStimmerEditor, Source={StaticResource Locator}}"
     NavigationPage.HasNavigationBar="False">
     <Grid>

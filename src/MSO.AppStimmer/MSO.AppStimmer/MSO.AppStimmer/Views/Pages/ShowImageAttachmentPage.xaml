@@ -43,6 +43,7 @@
                     FontSize="15"
                     HeightRequest="60"
                     HorizontalTextAlignment="Center"
+                    IsVisible="{Binding Description, Converter={StaticResource StringToVisibilityConverter}}"
                     Text="{Binding Description}"
                     TextColor="White"
                     VerticalTextAlignment="Center" />

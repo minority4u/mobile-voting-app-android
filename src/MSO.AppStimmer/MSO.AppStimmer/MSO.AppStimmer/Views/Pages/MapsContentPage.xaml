@@ -116,7 +116,7 @@
             RowSpacing="0"
             VerticalOptions="End">
             <elements:BottomlinelessEntry
-                Margin="10,0,76,0"
+                Margin="10,0,90,0"
                 Placeholder="Beschreibung hinzufügen..."
                 PlaceholderColor="#CCCCCC"
                 Text="{Binding Attachment.Description}"

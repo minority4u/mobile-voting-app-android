@@ -37,6 +37,8 @@
             <converter:AppStimmerAttachmentToViewEnabledConverter x:Key="AppStimmerAttachmentToViewEnabledConverter" />
             <converter:AppStimmerAttachmentTypeToViewEnabledConverter x:Key="AppStimmerAttachmentTypeToViewEnabledConverter" />
             <converter:HexStringToColorConverter x:Key="HexStringToColorConverter" />
+            <converter:DescriptionAvailabilityToVisibilityConverter x:Key="DescriptionAvailabilityToVisibilityConverter" />
+            <converter:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
             <converter:BooleanConverter x:Key="BooleanConverter" />
             <converter:ColorToColorChannelConverter x:Key="ColorToColorChannelConverter" />
             <converter:ColorChannelsToColorConverter x:Key="ColorChannelsToColorConverter" />
