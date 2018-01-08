@@ -31,6 +31,7 @@ namespace MSO.StimmApp.Views.Pages
 
         private async void AddCameraButton_OnTapped(object sender, EventArgs e)
         {
+            PopupNavigation.PopAsync();
             await CrossMedia.Current.Initialize();
 
             var options = new StoreCameraMediaOptions
@@ -44,12 +45,11 @@ namespace MSO.StimmApp.Views.Pages
 
             var path = file.Path;
             this.ViewModel.AppStimmer.Picture = path;
-
-            await PopupNavigation.PopAsync();
         }
 
         private async void AddGalleryButton_OnTapped(object sender, EventArgs e)
         {
+            PopupNavigation.PopAsync();
             var options = new PickMediaOptions
             {
                 CompressionQuality = 50
@@ -61,8 +61,6 @@ namespace MSO.StimmApp.Views.Pages
 
             var path = file.Path;
             this.ViewModel.AppStimmer.Picture = path;
-
-            await PopupNavigation.PopAsync();
         }
     }
 }
