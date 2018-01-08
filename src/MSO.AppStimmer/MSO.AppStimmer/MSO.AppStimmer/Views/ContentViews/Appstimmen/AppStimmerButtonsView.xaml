@@ -40,7 +40,7 @@
                 VerticalOptions="Center"
                 WidthRequest="65">
                 <xfShapeView:ShapeView.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ShowDetailsCommand}" />
+                    <TapGestureRecognizer Command="{Binding ShowDetailsCommand}" Tapped="TapGestureRecognizer_OnTapped" />
                 </xfShapeView:ShapeView.GestureRecognizers>
                 <xfShapeView:ShapeView.Content>
                     <elements:TintedSvgCachedImage

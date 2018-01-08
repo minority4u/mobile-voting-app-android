@@ -19,14 +19,24 @@ namespace MSO.StimmApp.Views.ContentViews.Appstimmen
         }
 
 
-        private void LikeImageButton_OnTapped(object sender, EventArgs e)
+        private async void LikeImageButton_OnTapped(object sender, EventArgs e)
         {
+            await this.LikeButton.ScaleTo(0.80, 100, Easing.Linear);
+            this.LikeButton.ScaleTo(1, 100, Easing.Linear);
             Messenger.Default.Send(new AppStimmerButtonPressedMessage(true));
         }
 
-        private void DislikeImageButton_OnTapped(object sender, EventArgs e)
+        private async void DislikeImageButton_OnTapped(object sender, EventArgs e)
         {
+            await this.DislikeButton.ScaleTo(0.80, 100, Easing.Linear);
+            this.DislikeButton.ScaleTo(1, 100, Easing.Linear);
             Messenger.Default.Send(new AppStimmerButtonPressedMessage(false));
+        }
+
+        private async void TapGestureRecognizer_OnTapped(object sender, EventArgs e)
+        {
+            await this.InfoButton.ScaleTo(0.80, 100, Easing.Linear);
+            this.InfoButton.ScaleTo(1, 100, Easing.Linear);
         }
     }
 }

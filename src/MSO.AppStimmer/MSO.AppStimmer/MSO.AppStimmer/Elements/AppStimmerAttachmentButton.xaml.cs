@@ -72,6 +72,9 @@ namespace MSO.StimmApp.Elements
 
         private async void AttachmentImageButton_OnTapped(object sender, EventArgs e)
         {
+            await this.AttachmentImageButton.ScaleTo(0.80, 50, Easing.Linear);
+            await this.AttachmentImageButton.ScaleTo(1, 50, Easing.Linear);
+
             await PopupNavigation.PopAsync();
 
             switch (this.AttachmentType)

@@ -177,6 +177,9 @@ namespace MSO.StimmApp.Views.Pages
         private async void AddAttachmentImageButton_OnTapped(object sender, EventArgs e)
         {
             //this.ViewModel.IsAddingAttachment = true;
+            await this.AddAttachmentButton.ScaleTo(0.8, 100, Easing.Linear);
+            await this.AddAttachmentButton.ScaleTo(1, 100, Easing.Linear);
+
             var page = new AddAttachmentPopupPage(this.ViewModel);
             await PopupNavigation.PushAsync(page);
         }

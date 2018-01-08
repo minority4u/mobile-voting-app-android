@@ -202,6 +202,9 @@ namespace MSO.StimmApp.Views.Pages
 
         private async void GetCurrentLocation_OnTapped(object sender, EventArgs e)
         {
+            await this.GetCurrentPositionButton.ScaleTo(0.70, 50, Easing.Linear);
+            await this.GetCurrentPositionButton.ScaleTo(1, 70, Easing.Linear);
+
             await this.TrySelectPositionFromCurrentLocation();
         }
     }
