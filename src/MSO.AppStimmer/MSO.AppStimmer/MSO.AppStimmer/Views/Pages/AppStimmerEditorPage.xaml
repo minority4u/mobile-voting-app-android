@@ -356,7 +356,7 @@
                 TextColor="White"
                 VerticalOptions="Start">
                 <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SaveAppStimmerCommand}" />
+                    <TapGestureRecognizer Command="{Binding SaveAppStimmerCommand}" Tapped="SaveAppStimmerButton_OnTapped" />
                 </Label.GestureRecognizers>
             </Label>
 

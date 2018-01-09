@@ -113,6 +113,7 @@
     <Compile Include="Services\Animator.cs" />
     <Compile Include="Services\INavigationService.cs" />
     <Compile Include="Services\ISoftwareKeyboardService.cs" />
+    <Compile Include="Services\IToastService.cs" />
     <Compile Include="Services\SoftwareKeyboardEventArgs.cs" />
     <Compile Include="Services\SoftwareKeyboardEventHandler.cs" />
     <Compile Include="Services\SoftwareKeyboardServiceBase.cs" />

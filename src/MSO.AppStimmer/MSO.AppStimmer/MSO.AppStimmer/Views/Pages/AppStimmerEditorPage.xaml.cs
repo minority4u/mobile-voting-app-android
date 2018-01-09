@@ -381,5 +381,10 @@ namespace MSO.StimmApp.Views.Pages
             var newColor = new Color(oldColor.R, oldColor.G, oldColor.B, alpha);
             this.ViewModel.NavigationBarBackgroundColor = newColor;
         }
+
+        private void SaveAppStimmerButton_OnTapped(object sender, EventArgs e)
+        {
+            App.ToastService.ShortAlert("AppStimmer erfolgreich erstellt!");
+        }
     }
 }

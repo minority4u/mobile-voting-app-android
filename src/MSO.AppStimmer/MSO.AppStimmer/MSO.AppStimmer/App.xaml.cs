@@ -34,6 +34,9 @@ namespace MSO.StimmApp
         public static ISoftwareKeyboardService KeyboardService =>
             DependencyService.Get<ISoftwareKeyboardService>();
 
+        public static IToastService ToastService =>
+            DependencyService.Get<IToastService>();
+
         public static bool IsLocationAvailable()
         {
             if (!CrossGeolocator.IsSupported)
