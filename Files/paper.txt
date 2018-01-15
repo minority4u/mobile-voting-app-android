@@ -1,0 +1,44 @@
+﻿Einleitung:
+Der digitale Wandel stellt unsere Gesellschaft vor eine große Herausforderung.
+Vor allem strukturschwache Regionen, wie ländliche Räume, drohen abgehängt zu
+werden. 
+Szenario (Bsp)
+(siehe pains )
+Demokratie
+Bürgerbeteiligung
+Oftmals wird die demokratische Teilhabe als bürokratisch und bürgerfern
+gesehen.
+Daher ist es schwierig sich mit seinem persönlichen Anliegen einzubringen.
+Auch wenn man das geschafft hat sind die Entscheidungsfindungen oft nicht sehr
+gut kommuniziert.
+
+
+Der digitale Wandel stellt unsere Gesellschaft vor eine große Herausforderung. 
+Besonders strukturschwache Regionen, wie ländliche Räume, drohen vom technologischen Fortschritt 
+abgehängt zu werden. Das liegt vor allem an der fehlenden oder zumindest schwacher digitalen 
+Infrastruktur, weshalb dort lebende Menschen besonderen Wert auf persönliche Beziehungen legen 
+und soziale Kontakte pfelgen. Oftmals wird die demokratische Teilnahme seitens der Bürger als 
+bürokratisch und bürgerfern empfunden. In solchen Regionen, ist es nur schwer Möglich 
+sich in die Bürokratie einzubringen. Selbst wenn persönliche Anliegen zu Entscheidungsträgern
+vordringen, werden daraus resultierende Entscheidungen nicht transparent komminiziert.
+
+
+Motivation:
+Unser Ziel ist es, diese Barrieren zu entfernen, um die Bürger und Entscheider
+zusammenzubringen. Wir wollen den Bürgern einen direkten Weg geben, ihre
+Anliegen zu kommunizieren und dabei Mitstreiter zu finden. Die Entscheider
+bekommen direkte Informationen, über die Anliegen der Bürger und bekommen die
+Möglichkeit ihre Entscheidungen zu erklären. 
+
+Innerhalb einer Vorlesung an der Hochschule Mannheim, zur Mobilen Software
+Entwicklung, war es unsere Aufgabe eine mobile, innovative Applikation
+zu entwerfen. Im gegeben Kontext "Smart Rural Areas", einem Forschungsprogramm
+des Fraunhofer-Instituts für experimentelles Software Engineering (IESE),
+entwickelten wir ein Konzept, das die vorher beschriebenen
+Barrieren entfernen soll, um die Bürger dazu zu ermutigen sich in die
+politischen Entscheindungen des Stadtrates demokratisch einzubringen. 
+Wir bieten den Bürgern einen direkten Weg ihre Anliegen an den Stadtrat zu
+bringen und Mitstreiter zu finden. Diese Anliegen können anschließend von
+den Stadtratsmitglieder besprochen und Ergebnisse mitgeteilt und begründet werden.
+Unsere Applikation richtet daher an alle Bürger, die in ländlichen Regionen
+leben und sich effektiv in die Politik der lokalen Kommunen einbringen wollen.
