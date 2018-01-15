@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.Appstimmen.AppStimmerCardView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
+    BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
+    <ContentView.Content>
+        <elements:SwipeCardView
+            x:Name="SwipeCardView"
+            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
+            ItemsSource="{Binding AppStimmers}"
+            SwipedLeftCommand="{Binding SwipedLeftCommand}"
+            SwipedRightCommand="{Binding SwipedRightCommand}"
+            TopItem="{Binding CurrentAppStimmer}">
+            <elements:SwipeCardView.ItemTemplate>
+                <DataTemplate x:Name="AppstimmerTemplate">
+                    <Frame
+                        x:Name="CardFrame"
+                        Padding="0"
+                        CornerRadius="8"
+                        InputTransparent="True">
+
+                        <Grid RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+
+                            <forms:CachedImage
+                                x:Name="AppStimmerPicture"
+                                Grid.Row="0"
+                                Grid.RowSpan="3"
+                                Aspect="AspectFill"
+                                DownsampleHeight="500"
+                                DownsampleWidth="500"
+                                HorizontalOptions="Fill"
+                                Source="{Binding Picture, Converter={StaticResource AppStimmerAttachmentsToMainPictureConverter}}"
+                                VerticalOptions="Fill" />
+
+                            <elements:GradientFrame
+                                Grid.Row="2"
+                                Padding="0"
+                                EndColor="#88000000"
+                                OutlineColor="Transparent"
+                                StartColor="#00000000">
+                                <Label
+                                    Margin="12,12,0,12"
+                                    FontSize="20"
+                                    Text="{Binding Title}"
+                                    TextColor="White" />
+                            </elements:GradientFrame>
+                            <StackLayout
+                                Grid.Row="0"
+                                Orientation="Horizontal"
+                                Spacing="0"
+                                VerticalOptions="StartAndExpand">
+                                <Image
+                                    x:Name="LikeImage"
+                                    Margin="20,35,0,0"
+                                    Aspect="AspectFit"
+                                    HeightRequest="80"
+                                    Opacity="0.0"
+                                    Rotation="-30"
+                                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Images.like.png}"
+                                    VerticalOptions="StartAndExpand"
+                                    WidthRequest="150" />
+                                <Image
+                                    x:Name="DislikeImage"
+                                    Margin="0,35,20,0"
+                                    Aspect="AspectFit"
+                                    HeightRequest="80"
+                                    Opacity="0.0"
+                                    Rotation="30"
+                                    Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Images.nope.png}"
+                                    VerticalOptions="EndAndExpand"
+                                    WidthRequest="150" />
+                            </StackLayout>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </elements:SwipeCardView.ItemTemplate>
+        </elements:SwipeCardView>
+    </ContentView.Content>
+</ContentView>

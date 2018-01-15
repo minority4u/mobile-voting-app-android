@@ -4,11 +4,31 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:appStimmer="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
-    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
+    xmlns:appstimmen="clr-namespace:MSO.StimmApp.Views.ContentViews.Appstimmen;assembly=MSO.StimmApp"
     Title="Appstimmen"
-    BackgroundColor="#F1F4F6"
+    BackgroundColor="{Binding Source={x:Static appStimmer:App.Settings}, Path=AppColors.PageBackgroundColor}"
     BindingContext="{Binding AppStimmer, Source={StaticResource Locator}}">
+
+    <!--<xfGloss:ContentPageGloss.BackgroundGradient>
+        <xfGloss:Gradient>
+            <xfGloss:GradientStep StepColor="White" StepPercentage="0" />
+            <xfGloss:GradientStep StepColor="White" StepPercentage=".5" />
+            <xfGloss:GradientStep StepColor="#ccd9ff" StepPercentage="1" />
+        </xfGloss:Gradient>
+    </xfGloss:ContentPageGloss.BackgroundGradient>-->
+
     <ContentPage.Content>
-        <controls:AppStimmerCardView Padding="20" />
+        <Grid ColumnSpacing="0" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80*" />
+                <RowDefinition Height="20*" />
+            </Grid.RowDefinitions>
+
+            <appstimmen:AppStimmerButtonsView x:Name="ButtonsView" Grid.Row="1" />
+            <appstimmen:AppStimmerCardView
+                x:Name="AppStimmerView"
+                Grid.Row="0"
+                Margin="8,8,8,0" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

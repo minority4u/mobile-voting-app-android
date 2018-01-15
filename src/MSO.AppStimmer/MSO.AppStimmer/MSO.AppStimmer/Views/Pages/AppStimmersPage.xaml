@@ -3,10 +3,87 @@
     x:Class="MSO.StimmApp.Views.Pages.AppStimmersPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:appStimmers="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmers;assembly=MSO.StimmApp"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    Title="Deine Appstimmer"
+    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
     BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Dies ist eine Liste von AppStimmern." />
-        </StackLayout>
+        <Grid>
+            <StackLayout>
+                <SearchBar
+                    x:Name="SearchBar"
+                    BackgroundColor="Transparent"
+                    HeightRequest="50"
+                    Placeholder="Filtern..."
+                    TextChanged="SearchBar_OnTextChanged" />
+
+                <xForms:SfListView
+                    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmers.AppStimmersListView"
+                    xmlns:xForms="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+                    x:Name="ListView"
+                    BackgroundColor="Transparent"
+                    BindingContext="{Binding AppStimmers, Source={StaticResource Locator}}"
+                    ItemSize="250"
+                    ItemSpacing="0"
+                    ItemTapped="AppStimmersListView_OnItemTapped"
+                    ItemsSource="{Binding AppStimmers}"
+                    SelectionBackgroundColor="Transparent">
+
+                    <xForms:SfListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Frame
+                                        Margin="14,14,14,14"
+                                        Padding="0"
+                                        CornerRadius="8"
+                                        OutlineColor="Black">
+                                        <StackLayout
+                                            HeightRequest="250"
+                                            Orientation="Vertical"
+                                            Spacing="0"
+                                            VerticalOptions="FillAndExpand">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="50" />
+                                                </Grid.RowDefinitions>
+                                                <forms:CachedImage
+                                                    Grid.Row="0"
+                                                    Grid.RowSpan="2"
+                                                    Aspect="AspectFill"
+                                                    DownsampleHeight="200"
+                                                    DownsampleWidth="200"
+                                                    HeightRequest="250"
+                                                    HorizontalOptions="Fill"
+                                                    Source="{Binding Picture, Converter={StaticResource ImageSourceToImageConverter}}"
+                                                    VerticalOptions="Fill" />
+                                                <elements:GradientFrame
+                                                    Grid.Row="1"
+                                                    Padding="0"
+                                                    EndColor="#AA000000"
+                                                    OutlineColor="Transparent"
+                                                    StartColor="#00000000">
+                                                    <Label
+                                                        Margin="12,12,0,12"
+                                                        FontSize="20"
+                                                        Text="{Binding Title}"
+                                                        TextColor="White" />
+                                                </elements:GradientFrame>
+                                            </Grid>
+                                        </StackLayout>
+                                    </Frame>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </xForms:SfListView.ItemTemplate>
+                </xForms:SfListView>
+            </StackLayout>
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>

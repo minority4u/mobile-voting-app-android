@@ -7,19 +7,64 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:MSO.StimmApp.ViewModels;assembly=MSO.StimmApp"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView"
     d1p1:Ignorable="d">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="AppStimmerOrange">#F9C470</Color>
+            <!--<Color x:Key="AppStimmerOrange">#F9C470</Color>
+            <Color x:Key="StandardPageBackgroundColor">#F1F4F6</Color>-->
+            <Color x:Key="GrayLight">#FFF2F2F2</Color>
+            <Color x:Key="GrayDark">#FF959595</Color>
+            <Color x:Key="GrayPrimary">#FFB9B9B9</Color>
+            <Color x:Key="AsphaltPrimary">#5c7d90</Color>
 
-            <!--<Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="BarTextColor" Value="White" />
-            </Style>-->
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource AsphaltPrimary}" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="SegoeUI" />
+            </Style>
+
+            <Style
+                x:Key="Sub"
+                BasedOn="{StaticResource LabelStyle}"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
 
             <viewModels:ViewModelLocator x:Key="Locator" />
-
             <converter:ImageResourceConverter x:Key="ImageSourceConverter" />
+            <converter:AppStimmerAttachmentsToMediaAttachmentsViewConverter x:Key="AppStimmerAttachmentsToMediaAttachmentsViewConverter" />
+            <converter:AppStimmerAttachmentToViewEnabledConverter x:Key="AppStimmerAttachmentToViewEnabledConverter" />
+            <converter:AppStimmerAttachmentTypeToViewEnabledConverter x:Key="AppStimmerAttachmentTypeToViewEnabledConverter" />
+            <converter:HexStringToColorConverter x:Key="HexStringToColorConverter" />
+            <converter:DescriptionAvailabilityToVisibilityConverter x:Key="DescriptionAvailabilityToVisibilityConverter" />
+            <converter:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
+            <converter:BooleanConverter x:Key="BooleanConverter" />
+            <converter:ColorToColorChannelConverter x:Key="ColorToColorChannelConverter" />
+            <converter:ColorChannelsToColorConverter x:Key="ColorChannelsToColorConverter" />
+            <converter:AppStimmerEditorDisplayTypeToViewVisibilityConverter x:Key="AppStimmerEditorDisplayTypeToViewVisibilityConverter" />
+            <converter:ÁppStimmerEditorDisplayTypeToOpacityConverter x:Key="ÁppStimmerEditorDisplayTypeToOpacityConverter" />
+            <converter:ImageToSvgSourceConverter x:Key="ImageToSvgSourceConverter" />
+            <converter:AppStimmerEditorEditableToTitleConverter x:Key="AppStimmerEditorEditableToTitleConverter" />
+            <converter:CrossVideoManagerTimeSpanToStringConverter x:Key="CrossVideoManagerTimeSpanToStringConverter" />
+            <converter:AppStimmerAttachmentViewToViewModelConverter x:Key="AppStimmerAttachmentViewToViewModelConverter" />
+            <converter:CrossAudioManagerTimeSpanToStringConverter x:Key="CrossAudioManagerTimeSpanToStringConverter" />
+            <converter:LocalImageResourceConverter x:Key="LocalImageResourceConverter" />
+            <converter:AppStimmerAttachmentsToMainPictureConverter x:Key="AppStimmerAttachmentsToMainPictureConverter" />
+            <converter:ImageAttachmentToImageAttachmentViewModel x:Key="ImageAttachmentToImageAttachmentViewModel" />
+            <converter:ImageSourceToImageConverter x:Key="ImageSourceToImageConverter" />
+            <converter:CharactersAndMaxCharactersToStringConverter x:Key="CharactersAndMaxCharactersToStringConverter" />
+            <converter:StringToPlaceholderOpacityConverter x:Key="StringToPlaceholderOpacityConverter" />
+            <converter:AppStimmerAttachmentsToMediaAttachmentsConverter x:Key="AppStimmerAttachmentsToMediaAttachmentsConverter" />
+            <converter:StringToPlaceholderConverter x:Key="StringToPlaceholderConverter" />
+            <converter:MediaAttachmentCountToViewVisibilityConverter x:Key="MediaAttachmentCountToViewVisibilityConverter" />
+            <converter:ColorToDarkerColorConverter x:Key="ColorToDarkerColorConverter" />
+            <converter:MapAttachmentDescriptionToVisibilityConverter x:Key="MapAttachmentDescriptionToVisibilityConverter" />
+            <converter:MapSearchTextToPredictionsVisibilityConverter x:Key="MapSearchTextToPredictionsVisibilityConverter" />
+            <converter:CollectionCountToVisibilityConverter x:Key="CollectionCountToVisibilityConverter" />
+            <converter:AppStimmerToNavigationBarEditPenVisibilityConverter x:Key="AppStimmerToNavigationBarEditPenVisibilityConverter" />
+            <converter:AppStimmerAttachmentsToMediaAddachmentCountConverter x:Key="AppStimmerAttachmentsToMediaAddachmentCountConverter" />
+            <converter:AppStimmerMainPictureAvailabilityToVisibilityConverter x:Key="AppStimmerMainPictureAvailabilityToVisibilityConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -9,7 +9,7 @@ namespace MSO.StimmApp.Core.Services
 {
     public interface IAppStimmerService
     {
-        List<AppStimmer> GetAllAppStimmers();
+        Task<List<AppStimmer>> GetAllAppStimmers();
 
         void SaveAppStimmer(AppStimmer appStimmer);
 

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<NavigationPage
+    x:Class="MSO.StimmApp.Elements.ColoredNavigationPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    BarBackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryColor}" />

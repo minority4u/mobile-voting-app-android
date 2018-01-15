@@ -34,15 +34,41 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AkavacheSqliteLinkerOverride.cs" />
-    <Compile Include="Extensions\ListExtensions.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Enums\AppStimmerEditorDisplayType.cs" />
+    <Compile Include="Enums\AttachmentType.cs" />
+    <Compile Include="Enums\ModelEditFinishedType.cs" />
+    <Compile Include="Helpers\ColorThemes.cs" />
+    <Compile Include="Helpers\TaskHelper.cs" />
+    <Compile Include="Maps\AutoCompletePrediction.cs" />
+    <Compile Include="Maps\Geo\GeoLocationService.cs" />
+    <Compile Include="Maps\Geo\IGeoLocationService.cs" />
+    <Compile Include="Maps\IPlacesService.cs" />
+    <Compile Include="Maps\MapLocation.cs" />
+    <Compile Include="Maps\Place.cs" />
+    <Compile Include="Maps\PlacesException.cs" />
+    <Compile Include="Maps\PlacesSearchOptions.cs" />
+    <Compile Include="Maps\PlacesSearchResult.cs" />
+    <Compile Include="Maps\PlacesService.cs" />
+    <Compile Include="Maps\PlaceType.cs" />
+    <Compile Include="Messages\AppStimmerAddedMessage.cs" />
+    <Compile Include="Messages\AppStimmerAttachmentAddedMessage.cs" />
+    <Compile Include="Messages\AppStimmerDeletedMessage.cs" />
+    <Compile Include="Messages\AppStimmerUpdatedMessage.cs" />
     <Compile Include="Models\AppStimmer.cs" />
+    <Compile Include="Models\AppStimmerAttachment.cs" />
     <Compile Include="Models\AppStimmerUser.cs" />
+    <Compile Include="Models\BaseAttachment.cs" />
+    <Compile Include="Models\ColorTheme.cs" />
+    <Compile Include="Models\ColorThemeItem.cs" />
     <Compile Include="Models\ModelBase.cs" />
     <Compile Include="Models\EditableModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AzureAppStimmerService.cs" />
     <Compile Include="Services\IAppStimmerService.cs" />
+    <Compile Include="Services\LocalAppStimmerService.cs" />
     <Compile Include="Services\MockAppStimmerService.cs" />
+    <Compile Include="Services\RestAppstimmerService.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,8 +87,20 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Geolocator, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.Geolocator.4.2.0\lib\netstandard1.0\Plugin.Geolocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Geolocator.Abstractions, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugin.Geolocator.4.2.0\lib\netstandard1.0\Plugin.Geolocator.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="Splat, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Splat.1.6.0\lib\Portable-net45+win+wpa81+wp80\Splat.dll</HintPath>
@@ -90,10 +128,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Messages\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSO.Common\MSO.Common.csproj">
+      <Project>{710a7564-2971-41ff-9dfd-db6fa8d0f2f5}</Project>
+      <Name>MSO.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

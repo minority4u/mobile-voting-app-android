@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorDetailsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
+    xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:transformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView">
+    <ContentView.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="55*" />
+                <RowDefinition Height="45*" />
+            </Grid.RowDefinitions>
+
+            <appStimmerEditor:AppStimmerEditorHeader Grid.Row="0" />
+            <attachments:AppStimmerAttachmentsListView
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Margin="15"
+                ItemsSource="{Binding AppStimmer.Attachments}" />
+
+            <Grid
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                HorizontalOptions="End"
+                IsVisible="true"
+                VerticalOptions="End">
+                <elements:TintedSvgCachedImage
+                    Margin="0,0,50,50"
+                    HeightRequest="65"
+                    HorizontalOptions="Center"
+                    IsVisible="{Binding IsEditable}"
+                    Source="resource://MSO.StimmApp.Resources.Icons.plus_circle.svg"
+                    TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.StandardButtonColor}"
+                    VerticalOptions="Center"
+                    WidthRequest="65">
+
+                    <forms:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="AddAttachmentImageButton_OnTapped" />
+                    </forms:SvgCachedImage.GestureRecognizers>
+                </elements:TintedSvgCachedImage>
+            </Grid>
+            <!--<xfShapeView:ShapeView
+                Grid.Row="2"
+                Margin="15,0,15,0"
+                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PopupColor}"
+                BorderColor="LightGray"
+                BorderWidth="2"
+                IsVisible="{Binding IsAddingAttachment}">
+                <xfShapeView:ShapeView.Content>
+                    <attachments:AddAttachmentView />
+                </xfShapeView:ShapeView.Content>
+            </xfShapeView:ShapeView>-->
+        </Grid>
+    </ContentView.Content>
+</ContentView>

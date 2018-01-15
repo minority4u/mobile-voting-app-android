@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.AppStimmerEditorOverviewView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:appStimmerEditor="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor;assembly=MSO.StimmApp"
+    xmlns:attachments="clr-namespace:MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments;assembly=MSO.StimmApp"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
+    <ContentView.Content>
+        <StackLayout>
+
+            <appStimmerEditor:AppStimmerEditorHeader />
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}"
+                Spacing="0">
+
+                <StackLayout
+                    Padding="14,8"
+                    BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.ListViewHeaderColor}"
+                    HorizontalOptions="Fill"
+                    Orientation="Horizontal">
+
+                    <Image
+                        Aspect="AspectFit"
+                        Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Images.AppstimmerExample.jpg}"
+                        VerticalOptions="Fill" />
+
+                    <Label
+                        FontSize="Medium"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        LineBreakMode="NoWrap"
+                        Text="Appstract Description"
+                        TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PrimaryTextColor}"
+                        VerticalOptions="Center" />
+
+                </StackLayout>
+
+
+                <Grid BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.AppStimmerAttachmentItemColor}" HeightRequest="250">
+                    <Editor
+                        IsEnabled="{Binding IsEditable}"
+                        Text="{Binding AppStimmer.Appstract}"
+                        TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SubtitleTextColor}" />
+                </Grid>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

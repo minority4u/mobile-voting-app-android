@@ -39,34 +39,172 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Behaviors\EditorLengthValidatorBehavior.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentsToDescriptionAttachmentConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentsToMainPictureConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentsToMediaAddachmentCountConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentsToMediaAttachmentsConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentsToMediaAttachmentsViewConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentToViewEnabledConverter.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentViewToViewModelConverter.cs" />
+    <Compile Include="Converter\AppStimmerEditorDisplayTypeToViewVisibilityConverter.cs" />
+    <Compile Include="Converter\AppStimmerEditorEditableToTitleConverter.cs" />
+    <Compile Include="Converter\AppStimmerMainPictureAvailabilityToVisibilityConverter.cs" />
+    <Compile Include="Converter\AppStimmerToNavigationBarEditPenVisibilityConverter.cs" />
+    <Compile Include="Converter\CharactersAndMaxCharactersToStringConverter.cs" />
+    <Compile Include="Converter\Class1.cs" />
+    <Compile Include="Converter\CollectionCountToVisibilityConverter.cs" />
+    <Compile Include="Converter\ColorChannelsToColorConverter.cs" />
+    <Compile Include="Converter\ColorToColorChannelConverter.cs" />
+    <Compile Include="Converter\ColorToDarkerColorConverter.cs" />
+    <Compile Include="Converter\CrossAudioManagerTimeSpanToStringConverter.cs" />
+    <Compile Include="Converter\DescriptionAvailabilityToVisibilityConverter.cs" />
+    <Compile Include="Converter\ImageAttachmentToImageAttachmentViewModel.cs" />
+    <Compile Include="Converter\ImageSourceToImageConverter.cs" />
+    <Compile Include="Converter\ImageToSvgSourceConverter.cs" />
+    <Compile Include="Converter\CrossVideoManagerTimeSpanToStringConverter.cs" />
+    <Compile Include="Converter\LocalImageResourceConverter.cs" />
+    <Compile Include="Converter\MapAttachmentDescriptionToVisibilityConverter.cs" />
+    <Compile Include="Converter\MapSearchTextToPredictionsVisibilityConverter.cs" />
+    <Compile Include="Converter\MediaAttachmentCountToViewVisibilityConverter.cs" />
+    <Compile Include="Converter\StringToPlaceholderConverter.cs" />
+    <Compile Include="Converter\StringToPlaceholderOpacityConverter.cs" />
+    <Compile Include="Converter\ÁppStimmerEditorDisplayTypeToOpacityConverter.cs" />
+    <Compile Include="Elements\BottomlineColoredExpandableEditor.cs" />
+    <Compile Include="Elements\BottomlinelessEntry.cs" />
+    <Compile Include="Elements\ColoredNavigationPage.xaml.cs">
+      <DependentUpon>ColoredNavigationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\CustomNavigationBar.xaml.cs">
+      <DependentUpon>CustomNavigationBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\BottomlinelessExpandableEditor.cs" />
+    <Compile Include="Elements\CustomTkCustomMap.cs" />
+    <Compile Include="Elements\ExpandableEditor.cs" />
+    <Compile Include="Elements\PinchToZoomContainer.cs" />
+    <Compile Include="Elements\ScrollbarLessScrollView.cs" />
+    <Compile Include="Elements\SubmitButton.xaml.cs">
+      <DependentUpon>SubmitButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\TintedSvgCachedImage.cs" />
+    <Compile Include="Converter\AppStimmerAttachmentTypeToViewVisibilityConverter.cs" />
+    <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converter\HexStringToColorConverter.cs" />
     <Compile Include="Converter\ImageResourceConverter.cs" />
     <Compile Include="Converter\IMultiValueConverter.cs" />
     <Compile Include="Converter\MultiBinding.cs" />
+    <Compile Include="Elements\VideoPlaybackSlider.cs" />
+    <Compile Include="Elements\ZoomableScrollView.cs" />
+    <Compile Include="Elements\ZoomImage.cs" />
+    <Compile Include="Enums\EditAppStimmerTextType.cs" />
+    <Compile Include="Extensions\Colors.cs" />
+    <Compile Include="Elements\GradientFrame.cs" />
+    <Compile Include="Extensions\Images.cs" />
+    <Compile Include="Helpers\INavigationBarController.cs" />
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="ImageResourceExtension.cs" />
     <Compile Include="MenuPage.xaml.cs">
       <DependentUpon>MenuPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Messages\AppStimmerButtonPressedMessage.cs" />
+    <Compile Include="Models\MediaAttachmentViewEntry.cs" />
     <Compile Include="Models\MenuPageItem.cs" />
+    <Compile Include="Services\Animator.cs" />
+    <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="Services\ISoftwareKeyboardService.cs" />
+    <Compile Include="Services\IToastService.cs" />
+    <Compile Include="Services\SoftwareKeyboardEventArgs.cs" />
+    <Compile Include="Services\SoftwareKeyboardEventHandler.cs" />
+    <Compile Include="Services\SoftwareKeyboardServiceBase.cs" />
     <Compile Include="ViewModels\AppStimmerEditorViewModel.cs" />
     <Compile Include="ViewModels\AppStimmersViewModel.cs" />
     <Compile Include="ViewModels\AppStimmerViewModel.cs" />
+    <Compile Include="ViewModels\AudioAttachmentViewModel.cs" />
     <Compile Include="ViewModels\CurrentUserViewModel.cs" />
-    <Compile Include="ViewModels\MainPageMasterViewModel.cs" />
+    <Compile Include="ViewModels\EditAppStimmerDescriptionViewModel.cs" />
+    <Compile Include="ViewModels\EditAppStimmerTextViewModel.cs" />
+    <Compile Include="ViewModels\ImageAttachmentViewModel.cs" />
+    <Compile Include="ViewModels\MapAttachmentViewModel.cs" />
+    <Compile Include="ViewModels\MenuPageMasterViewModel.cs" />
+    <Compile Include="ViewModels\PictureAttachmentPreviewViewModel.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\ShowVideoAttachmentViewModel.cs" />
+    <Compile Include="ViewModels\VideoAttachmentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
-    <Compile Include="Views\Controls\AppStimmerCardView.xaml.cs">
+    <Compile Include="Views\ContentViews\Appstimmen\AppStimmerButtonsView.xaml.cs">
+      <DependentUpon>AppStimmerButtonsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorDetailsView_2.xaml.cs">
+      <DependentUpon>AppStimmerEditorDetailsView_2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\AudioAttachmentView.xaml.cs">
+      <DependentUpon>AudioAttachmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\LocationAttachmentView.xaml.cs">
+      <DependentUpon>LocationAttachmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\VideoAttachmentView.xaml.cs">
+      <DependentUpon>VideoAttachmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorTabbedView.xaml.cs">
+      <DependentUpon>AppStimmerEditorTabbedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\AddAttachmentView.xaml.cs">
+      <DependentUpon>AddAttachmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Elements\AppStimmerAttachmentButton.xaml.cs">
+      <DependentUpon>AppStimmerAttachmentButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\ImageAttachmentView.xaml.cs">
+      <DependentUpon>ImageAttachmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\ShowImageAttachmentView.xaml.cs">
+      <DependentUpon>ShowImageAttachmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\TextAttachmentView.xaml.cs">
+      <DependentUpon>TextAttachmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\AppStimmerAttachmentsListView.xaml.cs">
+      <DependentUpon>AppStimmerAttachmentsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\Appstimmen\AppStimmerCardView.xaml.cs">
       <DependentUpon>AppStimmerCardView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\AppStimmerEditorDetailsView.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorDetailsView.xaml.cs">
       <DependentUpon>AppStimmerEditorDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\AppStimmerEditorOverviewView.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorHeader.xaml.cs">
+      <DependentUpon>AppStimmerEditorHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorOverviewView.xaml.cs">
       <DependentUpon>AppStimmerEditorOverviewView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\CurrentUserView.xaml.cs">
+    <Compile Include="Views\ContentViews\AppStimmerEditor\Attachments\View1.xaml.cs">
+      <DependentUpon>View1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\AppStimmers\AppStimmersListView.xaml.cs">
+      <DependentUpon>AppStimmersListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\CurrentUserView.xaml.cs">
       <DependentUpon>CurrentUserView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Controls\SwipeCardView.cs" />
+    <Compile Include="Elements\SwipeCardView.cs" />
+    <Compile Include="Views\ElementSource.cs" />
+    <Compile Include="Views\ExtendedViewCell.cs" />
+    <Compile Include="Views\MyDataTemplateSelector.cs" />
+    <Compile Include="Views\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\AddAttachmentPopupPage.xaml.cs">
+      <DependentUpon>AddAttachmentPopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\AddMainPicturePopupPage.xaml.cs">
+      <DependentUpon>AddMainPicturePopupPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\AppStimmerEditorPage.xaml.cs">
       <DependentUpon>AppStimmerEditorPage.xaml</DependentUpon>
     </Compile>
@@ -82,13 +220,43 @@
     <Compile Include="MenuPageMaster.xaml.cs">
       <DependentUpon>MenuPageMaster.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\EditAppStimmerDescriptionPopupPage.xaml.cs">
+      <DependentUpon>EditAppStimmerDescriptionPopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\EditTextPopupPage.xaml.cs">
+      <DependentUpon>EditTextPopupPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\MapsContentPage.xaml.cs">
+      <DependentUpon>MapsContentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\Page2.xaml.cs">
+      <DependentUpon>Page2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\PictureAttachmentPreviewPage.xaml.cs">
+      <DependentUpon>PictureAttachmentPreviewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContentViews\Settings\AppColorsSettingsView.xaml.cs">
+      <DependentUpon>AppColorsSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ShowImageAttachmentPage.xaml.cs">
+      <DependentUpon>ShowImageAttachmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\ShowVideoAttachmentPage.xaml.cs">
+      <DependentUpon>ShowVideoAttachmentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Pages\VideoAttachmentPreviewPage.xaml.cs">
+      <DependentUpon>VideoAttachmentPreviewPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
@@ -99,6 +267,12 @@
     <Reference Include="Akavache.Sqlite3, Version=5.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\akavache.sqlite3.5.0.0\lib\Portable-Net45+Win8+WP8+Wpa81\Akavache.Sqlite3.dll</HintPath>
     </Reference>
+    <Reference Include="DeviceOrientation.Forms.Plugin.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Forms.DeviceOrientation.1.0.1\lib\portable-net45+wp8+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\DeviceOrientation.Forms.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="ExifLib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+    </Reference>
     <Reference Include="FFImageLoading, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.FFImageLoading.2.2.25\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.dll</HintPath>
     </Reference>
@@ -107,6 +281,9 @@
     </Reference>
     <Reference Include="FFImageLoading.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.FFImageLoading.2.2.25\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="FFImageLoading.Svg.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamarin.FFImageLoading.Svg.Forms.2.2.25\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.Svg.Forms.dll</HintPath>
     </Reference>
     <Reference Include="FFImageLoading.Svg.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.FFImageLoading.Svg.2.2.25\lib\portable-win+net45+wp80+win81+wpa81\FFImageLoading.Svg.Platform.dll</HintPath>
@@ -123,8 +300,41 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Geolocator, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.4.2.0\lib\netstandard1.0\Plugin.Geolocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Geolocator.Abstractions, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.4.2.0\lib\netstandard1.0\Plugin.Geolocator.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.3.0.1\lib\netstandard1.0\Plugin.Media.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugin.Media.3.0.1\lib\netstandard1.0\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.MediaManager.0.4.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Plugin.MediaManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.MediaManager.0.4.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Plugin.MediaManager.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.MediaManager.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Plugin.MediaManager.Forms.0.4.5\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Plugin.MediaManager.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions, Version=3.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xam.Plugins.Settings.3.1.1\lib\netstandard1.0\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rg.Plugins.Popup.1.0.4\lib\portable-win+net45+wp8+win8+wpa81\Rg.Plugins.Popup.dll</HintPath>
+    </Reference>
+    <Reference Include="Rg.Plugins.Popup.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Rg.Plugins.Popup.1.0.4\lib\portable-win+net45+wp8+win8+wpa81\Rg.Plugins.Popup.Platform.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SkiaSharp.1.59.1\lib\portable-net45+win8+wpa81+wp8\SkiaSharp.dll</HintPath>
@@ -141,6 +351,24 @@
     <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.0\lib\portable-net45+netcore45+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Core.XForms, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.Core.15.4.0.20\lib\portable-win+net45+wp80+win81+wpa81\Syncfusion.Core.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.DataSource.Portable, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.DataSource.15.4.0.20\lib\portable-win+net45+wp80+win81+wpa81\Syncfusion.DataSource.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.GridCommon.Portable, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.GridCommon.15.4.0.20\lib\portable-win+net45+wp80+win81+wpa81\Syncfusion.GridCommon.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfListView.XForms, Version=15.4451.0.20, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Syncfusion.Xamarin.SfListView.15.4.0.20\lib\portable-win+net45+wp80+win81+wpa81\Syncfusion.SfListView.XForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net45+win8\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
     </Reference>
@@ -153,22 +381,55 @@
     <Reference Include="System.Reactive.PlatformServices, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Rx-PlatformServices.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.PlatformServices.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="TK.CustomMap, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TK.CustomMap.2.0.0-pre3\lib\netstandard1.1\TK.CustomMap.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamanimation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Xamanimation.1.1.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamanimation.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.2.5.0.121934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Platform.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.2.5.0.121934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
+      <HintPath>..\..\packages\Xamarin.Forms.2.5.0.121934\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="XFShapeView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\VG.XFShapeView.1.0.5\lib\portable-net45+wp80+win8+wpa81\XFShapeView.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Core, Version=2.0.5782.12218, Culture=neutral, PublicKeyToken=d65109b36e5040e4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Core.2.0.5782\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Forms, Version=2.0.5782.12218, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Forms.2.0.5782\lib\portable-net45+netcore45+wpa81+wp8\XLabs.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Ioc, Version=2.0.5782.12218, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.IoC.2.0.5782\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Ioc.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Platform, Version=2.0.5782.12218, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Platform.2.0.5782\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Serialization, Version=2.0.5782.15703, Culture=neutral, PublicKeyToken=d65109b36e5040e4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\XLabs.Serialization.2.0.5782\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Serialization.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Helpers\" />
-    <Folder Include="Views\Messages\" />
+    <EmbeddedResource Include="Resources\Icons\list.svg" />
+    <EmbeddedResource Include="Resources\Icons\plus.svg" />
+    <EmbeddedResource Include="Resources\Icons\settings.svg" />
+    <EmbeddedResource Include="Resources\Icons\star.svg" />
+    <EmbeddedResource Include="Resources\Icons\thumbs_up.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Pages\AppStimmerPage.xaml">
@@ -230,7 +491,7 @@
     <EmbeddedResource Include="Resources\Icons\settings.scale-100.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\CurrentUserView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\CurrentUserView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -254,30 +515,335 @@
     <EmbeddedResource Include="Resources\Images\Alte_Schule.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\AppStimmerCardView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\Appstimmen\AppStimmerCardView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\AppStimmerEditorOverviewView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorOverviewView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Controls\AppStimmerEditorDetailsView.xaml">
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorDetailsView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmers\AppStimmersListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorHeader.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\AppStimmerAttachmentsListView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\ImageAttachmentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\TextAttachmentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\AddAttachmentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\plus_orange_circle.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\audio_circle.scale-100.png" />
+    <EmbeddedResource Include="Resources\Icons\camera_circle.scale-100.png" />
+    <EmbeddedResource Include="Resources\Icons\document_circle.scale-100.png" />
+    <EmbeddedResource Include="Resources\Icons\gallery_circle.scale-100.png" />
+    <EmbeddedResource Include="Resources\Icons\location_circle.scale-100.png" />
+    <EmbeddedResource Include="Resources\Icons\text_circle.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Elements\AppStimmerAttachmentButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\plus_circle.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\Settings\AppColorsSettingsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Elements\ColoredNavigationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\cross.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\VideoAttachmentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\info_blue_circle.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\Appstimmen\AppStimmerButtonsView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Page1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\dislike.svg" />
+    <EmbeddedResource Include="Resources\Icons\info.svg" />
+    <EmbeddedResource Include="Resources\Icons\like.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\like.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\nope.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorTabbedView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\AddAttachmentPopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\ShowImageAttachmentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\ShowImageAttachmentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\ShowVideoAttachmentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\play_white.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\circle_black_filled.scale-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\AudioAttachmentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\play.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\pause_gray.scale-100.png" />
+    <EmbeddedResource Include="Resources\Icons\play_gray.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\picture_circle.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\No_Picture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Page2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\AppStimmerEditorDetailsView_2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\arrow-left.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Elements\CustomNavigationBar.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Photo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\video_call.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\edit_pen.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\EditTextPopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\EditAppStimmerDescriptionPopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\VideoAttachmentPreviewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\PictureAttachmentPreviewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\material_arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Elements\SubmitButton.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\AddMainPicturePopupPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\MapsContentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Appstimmer1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Appstimmer2.png" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer3.png" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer3_1.png" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer4.png" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\placeholder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\Page1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\View1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ContentViews\AppStimmerEditor\Attachments\LocationAttachmentView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Profil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Profil1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Google_maps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Images\Appstimmer1_1.jpg" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer1_2.jpg" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer1_3.jpg" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer2_1.png" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer2_2.png" />
+    <EmbeddedResource Include="Resources\Images\Appstimmer3_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Pages\Page2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\google_maps_marker.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\arrow_up_left.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\marker_appStimmer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\bullseye.scale-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Icons\camera_blue_circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <Import Project="..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
+  <Import Project="..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.2.5.0.121934\build\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

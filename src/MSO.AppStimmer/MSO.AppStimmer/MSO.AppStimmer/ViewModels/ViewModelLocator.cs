@@ -13,8 +13,9 @@
 */
 
 using GalaSoft.MvvmLight.Ioc;
-using GalaSoft.MvvmLight.Views;
 using Microsoft.Practices.ServiceLocation;
+using MSO.StimmApp.Core.Maps;
+using MSO.StimmApp.Core.Maps.Geo;
 using MSO.StimmApp.Core.Services;
 using MSO.StimmApp.Services;
 using MSO.StimmApp.Views;
@@ -36,23 +37,28 @@ namespace MSO.StimmApp.ViewModels
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             var navigation = new NavigationService();
-            navigation.Configure(PagesKeys.AppStimmer, typeof(AppStimmerPage));
-            navigation.Configure(PagesKeys.AppStimmerEditor, typeof(AppStimmerEditorPage));
-            navigation.Configure(PagesKeys.AppStimmers, typeof(AppStimmersPage));
-            navigation.Configure(PagesKeys.Settings, typeof(SettingsPage));
+            //navigation.Configure(PagesKeys.AppStimmer, typeof(AppStimmerPage));
+            //navigation.Configure(PagesKeys.AppStimmerEditor, typeof(AppStimmerEditorPage));
+            //navigation.Configure(PagesKeys.AppStimmers, typeof(AppStimmersPage));
+            //navigation.Configure(PagesKeys.Settings, typeof(SettingsPage));
+            //navigation.Configure(PagesKeys.AddAttachmentPopup, typeof(AddAttachmentPopupPage));
+            //navigation.Configure(PagesKeys.MapsContent, typeof(MapsContentPage));
 
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
+            SimpleIoc.Default.Register<IPlacesService, PlacesService>();
+            SimpleIoc.Default.Register<IGeoLocationService, GeoLocationService>();
 
             if (App.IsTestMode)
             {
+                //SimpleIoc.Default.Register<IAppStimmerService, LocalAppStimmerService>();
                 SimpleIoc.Default.Register<IAppStimmerService, MockAppStimmerService>();
             }
             else
             {
-                SimpleIoc.Default.Register<IAppStimmerService, AzureAppStimmerService>();
+                //SimpleIoc.Default.Register<IAppStimmerService, RestAppstimmerService>();
             }
 
-            SimpleIoc.Default.Register<MainPageMasterViewModel>();
+            SimpleIoc.Default.Register<MenuPageMasterViewModel>();
             SimpleIoc.Default.Register<AppStimmerViewModel>();
             SimpleIoc.Default.Register<AppStimmerEditorViewModel>();
             SimpleIoc.Default.Register<AppStimmersViewModel>();
@@ -60,10 +66,11 @@ namespace MSO.StimmApp.ViewModels
             SimpleIoc.Default.Register<CurrentUserViewModel>();
 
 
-            SimpleIoc.Default.Register(() => navigation);
+            if (!SimpleIoc.Default.IsRegistered<NavigationService>())
+                SimpleIoc.Default.Register(() => navigation);
         }
 
-        public MainPageMasterViewModel Master => ServiceLocator.Current.GetInstance<MainPageMasterViewModel>();
+        public MenuPageMasterViewModel Master => ServiceLocator.Current.GetInstance<MenuPageMasterViewModel>();
 
         public AppStimmerViewModel AppStimmer => ServiceLocator.Current.GetInstance<AppStimmerViewModel>();
 

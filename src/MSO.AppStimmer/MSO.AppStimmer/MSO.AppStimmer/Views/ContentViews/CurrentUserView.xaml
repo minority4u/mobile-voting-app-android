@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.CurrentUserView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    BindingContext="{Binding CurrentUser, Source={StaticResource Locator}}">
+    <ContentView.Content>
+        <Grid BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryColor}" HeightRequest="160">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="75" />
+                <RowDefinition Height="75" />
+            </Grid.RowDefinitions>
+            <Frame
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Grid.Column="0"
+                Margin="10,10,10,10"
+                Padding="3"
+                BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
+                CornerRadius="5"
+                OutlineColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}">
+                <Image
+                    x:Name="ProfilePicture"
+                    Aspect="AspectFill"
+                    Source="{Binding User.ProfilePicture, Converter={StaticResource ImageSourceConverter}}" />
+            </Frame>
+
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Font="Bold"
+                FontSize="12"
+                Style="{DynamicResource SubtitleStyle}"
+                Text="{Binding User.Username}"
+                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.TextOnSecondaryColor}"
+                VerticalTextAlignment="End" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="1"
+                Font="Bold"
+                FontSize="12"
+                Style="{DynamicResource SubtitleStyle}"
+                Text="{Binding User.MailAddress}"
+                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.TextOnSecondaryColor}"
+                VerticalTextAlignment="Start" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

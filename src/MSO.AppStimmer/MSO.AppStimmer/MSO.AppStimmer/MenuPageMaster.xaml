@@ -3,22 +3,23 @@
     x:Class="MSO.StimmApp.MenuPageMaster"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:controls="clr-namespace:MSO.StimmApp.Views.Controls;assembly=MSO.StimmApp"
+    xmlns:contentViews="clr-namespace:MSO.StimmApp.Views.ContentViews;assembly=MSO.StimmApp"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
     Title="Master"
-    Padding="0,23,0,0"
     BackgroundColor="Transparent"
     BindingContext="{Binding Master, Source={StaticResource Locator}}">
 
     <StackLayout Orientation="Vertical">
         <ListView
             x:Name="MenuItemsList"
-            BackgroundColor="#AA000000"
+            BackgroundColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.PageBackgroundColor}"
             ItemsSource="{Binding MenuItems}"
             RowHeight="50"
             SeparatorVisibility="Default">
 
-            <ListView.Header>
-                <controls:CurrentUserView />
+            <ListView.Header >
+                <contentViews:CurrentUserView />
             </ListView.Header>
 
             <ListView.ItemTemplate>
@@ -30,16 +31,17 @@
                             Spacing="20"
                             VerticalOptions="FillAndExpand">
 
-                            <Image
+                            <elements:TintedSvgCachedImage
                                 HeightRequest="30"
-                                Source="{Binding Icon, Converter={StaticResource ImageSourceConverter}}"
+                                Source="{Binding Icon, Converter={StaticResource ImageToSvgSourceConverter}}"
+                                TintColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.SecondaryDarkColor}"
                                 VerticalOptions="Center"
                                 WidthRequest="30" />
 
                             <Label
                                 FontSize="Small"
                                 Text="{Binding Title}"
-                                TextColor="White"
+                                TextColor="{Binding Source={x:Static stimmApp:App.Settings}, Path=AppColors.TextOnPageBackgroundColor}"
                                 VerticalOptions="Center" />
                         </StackLayout>
                     </ViewCell>

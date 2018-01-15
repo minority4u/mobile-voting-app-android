@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments.VideoAttachmentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:forms="clr-namespace:Plugin.MediaManager.Forms;assembly=Plugin.MediaManager.Forms"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView">
+    <ContentView.Content>
+        <Grid>
+            <Grid>
+                <Frame
+                    x:Name="VideoPreviewFrame"
+                    Padding="0"
+                    BackgroundColor="Black"
+                    CornerRadius="0"
+                    OutlineColor="Transparent">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="VideoPreviewFrame_OnTapped" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </Grid>
+
+            <!--  video_call.scale-100.png  -->
+            <Image
+                Margin="5"
+                HeightRequest="15"
+                HorizontalOptions="Start"
+                Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.video_call.scale-100.png}"
+                VerticalOptions="End"
+                WidthRequest="15" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

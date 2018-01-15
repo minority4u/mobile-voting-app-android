@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.AppStimmerEditor.Attachments.AudioAttachmentView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:stimmApp="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp">
+
+    <Grid x:Name="Root" HeightRequest="75">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Row="1" Source="{stimmApp:ImageResource MSO.StimmApp.Resources.Icons.play_gray.scale-100.png}">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ViewModel.StartCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <elements:VideoPlaybackSlider
+            x:Name="ProgressSlider"
+            Grid.Row="1"
+            Grid.Column="1"
+            FinishedSelectionCommand="{Binding ViewModel.SeekCommand}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="Center"
+            Value="{Binding ViewModel.ProgressValue}" />
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Label
+                Margin="10,0,0,0"
+                HorizontalOptions="Start"
+                Text="{Binding ViewModel.Elapsed, Converter={StaticResource CrossAudioManagerTimeSpanToStringConverter}, ConverterParameter=short}" />
+            <Label
+                Margin="0,0,10,0"
+                HorizontalOptions="End"
+                Text="{Binding ViewModel.TotalLength, Converter={StaticResource CrossAudioManagerTimeSpanToStringConverter}, ConverterParameter=short}" />
+        </Grid>
+    </Grid>
+</ContentView>

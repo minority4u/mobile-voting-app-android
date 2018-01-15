@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Elements.AppStimmerAttachmentButton"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Content>
+        <Grid x:Name="Root" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image
+                x:Name="AttachmentImageButton"
+                Grid.Row="0"
+                Source="{Binding IconSource, Converter={StaticResource ImageSourceConverter}}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="AttachmentImageButton_OnTapped" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Label
+                Grid.Row="1"
+                FontSize="10"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Description}" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>

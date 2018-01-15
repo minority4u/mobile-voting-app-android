@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MSO.StimmApp.Views.ContentViews.Appstimmen.AppStimmerButtonsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:appStimmer="clr-namespace:MSO.StimmApp;assembly=MSO.StimmApp"
+    xmlns:elements="clr-namespace:MSO.StimmApp.Elements;assembly=MSO.StimmApp"
+    xmlns:xfShapeView="clr-namespace:XFShapeView;assembly=XFShapeView">
+    <ContentView.Content>
+        <StackLayout
+            HorizontalOptions="Center"
+            Orientation="Horizontal"
+            Spacing="2">
+            <xfShapeView:ShapeView
+                x:Name="DislikeButton"
+                BorderColor="#F2866A"
+                BorderWidth="50"
+                HeightRequest="85"
+                ShapeType="Circle"
+                WidthRequest="85">
+                <xfShapeView:ShapeView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="DislikeImageButton_OnTapped" />
+                </xfShapeView:ShapeView.GestureRecognizers>
+
+                <xfShapeView:ShapeView.Content>
+                    <elements:TintedSvgCachedImage
+                        Margin="25"
+                        Source="resource://MSO.StimmApp.Resources.Icons.dislike.svg"
+                        TintColor="White" />
+                </xfShapeView:ShapeView.Content>
+            </xfShapeView:ShapeView>
+
+            <xfShapeView:ShapeView
+                x:Name="InfoButton"
+                BorderColor="CornflowerBlue"
+                BorderWidth="50"
+                HeightRequest="65"
+                HorizontalOptions="Center"
+                ShapeType="Circle"
+                VerticalOptions="Center"
+                WidthRequest="65">
+                <xfShapeView:ShapeView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ShowDetailsCommand}" Tapped="TapGestureRecognizer_OnTapped" />
+                </xfShapeView:ShapeView.GestureRecognizers>
+                <xfShapeView:ShapeView.Content>
+                    <elements:TintedSvgCachedImage
+                        Margin="20"
+                        Source="resource://MSO.StimmApp.Resources.Icons.info.svg"
+                        TintColor="White" />
+                </xfShapeView:ShapeView.Content>
+            </xfShapeView:ShapeView>
+
+            <xfShapeView:ShapeView
+                x:Name="LikeButton"
+                BorderColor="#62DD9F"
+                BorderWidth="50"
+                HeightRequest="85"
+                ShapeType="Circle"
+                WidthRequest="85">
+                <xfShapeView:ShapeView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="LikeImageButton_OnTapped" />
+                </xfShapeView:ShapeView.GestureRecognizers>
+                <xfShapeView:ShapeView.Content>
+                    <elements:TintedSvgCachedImage
+                        Margin="25"
+                        Source="resource://MSO.StimmApp.Resources.Icons.like.svg"
+                        TintColor="White" />
+                </xfShapeView:ShapeView.Content>
+            </xfShapeView:ShapeView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
